@@ -136,10 +136,64 @@
       </div>
     </section>
 
+    <!-- Morning Market Briefing Section (오늘의 시황 세션) -->
+    <section class="morning-briefing-wrap" id="morningBriefingSession" aria-label="오늘의 증시 시황">
+      <div class="briefing-header">
+        <div class="briefing-title-group">
+          <span class="briefing-badge"><span class="pulse-dot"></span> LIVE 08:00 AM</span>
+          <h2 class="briefing-title">☕ 오늘의 증시 모닝 브리핑 &amp; 글로벌 핵심 경제 이슈</h2>
+        </div>
+        <span class="briefing-date" id="briefingDate">매일 아침 08:00 자동 업데이트</span>
+      </div>
+
+      <!-- Live Global Market Snapshot -->
+      <div class="briefing-market-grid">
+        <div class="market-chip">
+          <span class="market-chip-name">🇺🇸 다우존스</span>
+          <span class="market-chip-val ticker-up">41,250.5 ▲ +0.72%</span>
+        </div>
+        <div class="market-chip">
+          <span class="market-chip-name">🇺🇸 S&amp;P 500</span>
+          <span class="market-chip-val ticker-up">5,630.8 ▲ +1.15%</span>
+        </div>
+        <div class="market-chip">
+          <span class="market-chip-name">🇺🇸 나스닥 100</span>
+          <span class="market-chip-val ticker-up">19,832.7 ▲ +3.05%</span>
+        </div>
+        <div class="market-chip">
+          <span class="market-chip-name">🇺🇸 필라델피아 반도체</span>
+          <span class="market-chip-val ticker-up">5,120.4 ▲ +4.20%</span>
+        </div>
+        <div class="market-chip">
+          <span class="market-chip-name">🇰🇷 원/달러 환율</span>
+          <span class="market-chip-val ticker-down">1,335.20 ▼ -0.32%</span>
+        </div>
+      </div>
+
+      <div class="briefing-content-summary">
+        밤사이 뉴욕증시는 AI 반도체 훈풍과 국채 금리 안정세 속에 빅테크 중심의 강력한 랠리를 기록했습니다. 
+        국내 증시 역시 반도체·밸류업 주도주의 강세 출발이 전망됩니다.
+      </div>
+
+      <ul class="briefing-points">
+        <li>📌 <strong>뉴욕증시 마감:</strong> 엔비디아 실적 기대감 및 AI 인프라 투자 지속 확인에 반도체 섹터 일제히 급등.</li>
+        <li>📌 <strong>국내 증시 영향:</strong> 외국인 순매수 유입 및 삼성전자·SK하이닉스 HBM 밸류체인 수혜 집중 전망.</li>
+        <li>📌 <strong>오늘의 주요 체크포인트:</strong> 한국은행 금통위 통화정책 방향 및 밸류업 2차 세제 개편안 주목.</li>
+      </ul>
+
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <a href="posts/20260828-sk하이닉스-미-인디애나서-hbm-첫-생산2029년-양.html" class="briefing-btn" id="latestBriefingLink">
+          📰 오늘의 시황 분석 리포트 전문 읽기 →
+        </a>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">매일 아침 8시 최신 경제 데이터로 자동 갱신됩니다.</span>
+      </div>
+    </section>
+
     <!-- Category Filter & Search Bar -->
     <section class="category-filter-wrap" aria-label="카테고리 및 검색">
       <div class="category-tabs">
         <button class="cat-tab active" data-category="all">전체 분석글</button>
+        <button class="cat-tab" data-category="market">☕ 오늘의 시황</button>
         <button class="cat-tab" data-category="undervalued">💎 저평가주식</button>
         <button class="cat-tab" data-category="breakout">🚀 상승초입주</button>
         <button class="cat-tab" data-category="semiconductor">⚡ AI반도체</button>
@@ -149,7 +203,7 @@
 
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" id="blogSearchInput" class="search-input" placeholder="종목명, 키워드 검색 (예: 저평가, HBM, 공모주, 배당)..." aria-label="블로그 포스트 검색">
+        <input type="text" id="blogSearchInput" class="search-input" placeholder="종목명, 키워드 검색 (예: 시황, HBM, 저평가, 공모주)..." aria-label="블로그 포스트 검색">
       </div>
     </section>
 

@@ -6,12 +6,11 @@
  */
 
 const ADSENSE_CONFIG = {
-  // [중요] 구글 애드센스 승인 후 발급받은 'ca-pub-XXXXXXXXXXXX' 게시자 ID를 여기에 입력하세요.
-  publisherId: 'ca-pub-XXXXXXXXXXXXXXXX', 
+  // [공식 발급] 구글 애드센스 게시자 ID
+  publisherId: 'ca-pub-7807868644631223', 
   
-  // testMode: true일 경우 개발 및 승인 대기 중 예쁜 플레이스홀더를 표시합니다.
-  // 실제 승인 후 false로 변경하면 실제 구글 광고 스크립트가 실행됩니다.
-  testMode: true, 
+  // testMode: false로 설정하여 실제 구글 애드센스 심사 및 광고 로더 활성화
+  testMode: false, 
 
   // 자동 광고(Auto Ads) 활성화 여부
   autoAds: true

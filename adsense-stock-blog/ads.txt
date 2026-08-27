@@ -1,3 +1,2 @@
-# Google AdSense ads.txt
-# 구글 애드센스 승인 후 아래 XXXXXXXXXXXXXXXX를 본인의 게시자 ID(pub-XXXXXXXXXXXX)로 변경하세요.
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Google AdSense ads.txt for valuestocklabs.com
+google.com, pub-7807868644631223, DIRECT, f08c47fec0942fa0

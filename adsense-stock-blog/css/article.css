@@ -53,6 +53,22 @@
   color: var(--text-secondary);
 }
 
+.article-meta-bar .post-badge,
+.article-header .post-badge,
+.article-body .badge,
+.article-header .badge {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  display: inline-flex !important;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
 .article-meta-left {
   display: flex;
   align-items: center;

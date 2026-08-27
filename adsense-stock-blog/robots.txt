@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://valuestocklabs.com/sitemap.xml
+Sitemap: https://valuestocklabs.com/rss.xml
+

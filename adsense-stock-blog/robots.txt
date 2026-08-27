@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://claud-silk.vercel.app/sitemap.xml
+Sitemap: https://valuestocklabs.com/sitemap.xml

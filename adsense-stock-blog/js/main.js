@@ -46,14 +46,51 @@ function updateThemeIcon(theme) {
    ========================================================================== */
 function initTicker() {
   const tickerItems = [
-    { name: 'KOSPI', base: 2685.40, diff: '+0.85%' },
-    { name: 'KOSDAQ', base: 872.15, diff: '+1.20%' },
-    { name: 'S&P 500', base: 5491.20, diff: '+2.18%' },
-    { name: 'NASDAQ 100', base: 19832.70, diff: '+3.05%' },
-    { name: 'USD/KRW', base: 1335.20, diff: '-0.32%' },
-    { name: '삼성전자', base: 78500, diff: '+1.42%' },
-    { name: 'SK하이닉스', base: 196000, diff: '+3.85%' },
-    { name: '현대차', base: 264000, diff: '+2.10%' }
+    // 1. 주요 지수 및 환율
+    { cat: '지수', name: 'KOSPI', base: '2,685.40', diff: '+0.85%' },
+    { cat: '지수', name: 'KOSDAQ', base: '872.15', diff: '+1.20%' },
+    { cat: '지수', name: 'S&P 500', base: '5,630.80', diff: '+1.15%' },
+    { cat: '지수', name: 'NASDAQ 100', base: '19,832.70', diff: '+3.05%' },
+    { cat: '지수', name: '다우존스', base: '41,250.50', diff: '+0.72%' },
+    { cat: '지수', name: '필라델피아반도체', base: '5,120.40', diff: '+4.20%' },
+    { cat: '환율', name: 'USD/KRW', base: '1,335.20', diff: '-0.32%' },
+
+    // 2. 국내 KOSPI 시총 상위 5개 종목
+    { cat: '코스피', name: '삼성전자', base: '78,500', diff: '+1.42%' },
+    { cat: '코스피', name: 'SK하이닉스', base: '196,000', diff: '+3.85%' },
+    { cat: '코스피', name: 'LG에너지솔루션', base: '389,000', diff: '+2.10%' },
+    { cat: '코스피', name: '삼성바이오로직스', base: '985,000', diff: '+1.86%' },
+    { cat: '코스피', name: '현대차', base: '264,000', diff: '+2.33%' },
+
+    // 3. 국내 KOSDAQ 시총 상위 10개 종목
+    { cat: '코스닥', name: '알테오젠', base: '315,000', diff: '+4.65%' },
+    { cat: '코스닥', name: '에코프로비엠', base: '172,000', diff: '+3.12%' },
+    { cat: '코스닥', name: '에코프로', base: '84,500', diff: '+2.42%' },
+    { cat: '코스닥', name: 'HLB', base: '88,200', diff: '+1.96%' },
+    { cat: '코스닥', name: '리가켐바이오', base: '96,400', diff: '+3.87%' },
+    { cat: '코스닥', name: '엔켐', base: '215,000', diff: '+2.87%' },
+    { cat: '코스닥', name: '삼천당제약', base: '148,500', diff: '+3.12%' },
+    { cat: '코스닥', name: '클래시스', base: '54,200', diff: '+1.50%' },
+    { cat: '코스닥', name: '휴젤', base: '268,000', diff: '+2.29%' },
+    { cat: '코스닥', name: '리노공업', base: '204,000', diff: '+3.55%' },
+
+    // 4. 미국 S&P 500 / NASDAQ 상위 10개 대형주
+    { cat: '미국주식', name: '마이크로소프트 (MSFT)', base: '$448.50', diff: '+1.85%' },
+    { cat: '미국주식', name: '애플 (AAPL)', base: '$228.40', diff: '+1.42%' },
+    { cat: '미국주식', name: '엔비디아 (NVDA)', base: '$128.80', diff: '+5.25%' },
+    { cat: '미국주식', name: '알파벳 (GOOGL)', base: '$176.20', diff: '+1.95%' },
+    { cat: '미국주식', name: '아마존 (AMZN)', base: '$182.50', diff: '+2.10%' },
+    { cat: '미국주식', name: '메타 (META)', base: '$524.30', diff: '+3.15%' },
+    { cat: '미국주식', name: '버크셔해서웨이 (BRK.B)', base: '$452.00', diff: '+0.65%' },
+    { cat: '미국주식', name: '일라이릴리 (LLY)', base: '$945.00', diff: '+2.40%' },
+    { cat: '미국주식', name: '브로드컴 (AVGO)', base: '$168.20', diff: '+4.80%' },
+    { cat: '미국주식', name: '테슬라 (TSLA)', base: '$224.50', diff: '+3.80%' },
+
+    // 5. 가상화폐 4종 (비트코인, 이더리움, 리플, 솔라나)
+    { cat: '코인', name: '비트코인 (BTC)', base: '$64,250', diff: '+3.45%' },
+    { cat: '코인', name: '이더리움 (ETH)', base: '$2,780', diff: '+2.90%' },
+    { cat: '코인', name: '리플 (XRP)', base: '$0.585', diff: '+4.12%' },
+    { cat: '코인', name: '솔라나 (SOL)', base: '$158.40', diff: '+6.20%' }
   ];
 
   const track = document.getElementById('tickerTrack');
@@ -63,8 +100,9 @@ function initTicker() {
     const isUp = item.diff.startsWith('+');
     return `
       <div class="ticker-item">
+        <span class="ticker-cat" style="font-size:0.68rem; padding:1px 5px; border-radius:4px; background:rgba(255,255,255,0.08); color:var(--text-muted);">${item.cat}</span>
         <span class="ticker-name">${item.name}</span>
-        <span class="ticker-val">${typeof item.base === 'number' && item.base > 1000 ? item.base.toLocaleString() : item.base}</span>
+        <span class="ticker-val">${item.base}</span>
         <span class="${isUp ? 'ticker-up' : 'ticker-down'}">${item.diff} ${isUp ? '▲' : '▼'}</span>
       </div>
     `;

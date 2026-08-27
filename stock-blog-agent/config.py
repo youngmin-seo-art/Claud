@@ -18,7 +18,7 @@ RSS_XML = BLOG_DIR / "rss.xml"
 
 # 공식 블로그 도메인 및 메타데이터
 BLOG_DOMAIN = "https://valuestocklabs.com"
-BLOG_TITLE = "스톡인사이트 | 밸류스톡랩스(ValueStockLabs)"
+BLOG_TITLE = "Value Stock Labs | 저평가 가치주 & 상승초입주 리서치"
 ADSENSE_PUB_ID = "ca-pub-7807868644631223"
 ADSENSE_CLIENT_ID = "pub-7807868644631223"
 

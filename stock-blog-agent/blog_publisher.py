@@ -118,7 +118,7 @@ class BlogPublisher:
               {article_data['title']}에 대한 퀀트 재무 지표 및 기술적 차트 지지선 분석 리포트입니다.
             </p>
             <div class="card-footer">
-              <span class="card-author">스톡인사이트 리서치팀</span>
+              <span class="card-author">Value Stock Labs 리서치팀</span>
               <a href="posts/{article_data['filename']}" class="card-link">리포트 읽기 →</a>
             </div>
           </div>

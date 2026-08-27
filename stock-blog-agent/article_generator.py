@@ -33,14 +33,14 @@ class ArticleGenerator:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | 스톡인사이트 리서치</title>
+  <title>{title} | Value Stock Labs 리서치</title>
   <meta name="description" content="{title}에 대한 재무 지표(PER·PBR·ROE), 밸류에이션 및 기술적 매매 전략을 심층 분석합니다.">
   <meta name="keywords" content="주식분석, 저평가우량주, 상승초입주, 목표주가계산, 밸류에이션, 실적발표, 재테크">
-  <meta name="author" content="스톡인사이트 리서치팀">
+  <meta name="author" content="Value Stock Labs 리서치팀">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="{title} | 스톡인사이트 리서치">
+  <meta property="og:title" content="{title} | Value Stock Labs 리서치">
   <meta property="og:description" content="{title} 핵심 모멘텀 및 적정주가 밸류에이션 분석 보고서">
   <meta property="og:image" content="../images/hero.jpg">
   <meta property="og:url" content="{BLOG_DOMAIN}/posts/{slug}.html">
@@ -64,7 +64,7 @@ class ArticleGenerator:
     <div class="container header-inner">
       <a href="../index.html" class="logo">
         <div class="logo-icon">📈</div>
-        <span class="logo-text">스톡인사이트</span>
+        <span class="logo-text">Value Stock Labs</span>
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
@@ -97,7 +97,7 @@ class ArticleGenerator:
           <span class="badge badge-semiconductor">{category} 심층 분석</span>
           <h1 class="article-title">{title}</h1>
           <div class="article-meta">
-            <span>✍️ 스톡인사이트 리서치팀</span>
+            <span>✍️ Value Stock Labs 리서치팀</span>
             <span>📅 {today_str}</span>
             <span>⏱️ 읽는 시간 약 6분</span>
             <span>👁️ 조회수 급증</span>
@@ -252,7 +252,7 @@ class ArticleGenerator:
             본인이 보유 중이거나 매수 예정인 종목의 내재가치와 물타기 평단가를 직접 계산해 보세요:
           </p>
           <div class="quick-calc-form" style="margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
-            <h3>📊 스톡인사이트 무료 투자 계산기</h3>
+            <h3>📊 Value Stock Labs 무료 투자 계산기</h3>
             <p>복잡한 수학 계산 없이 1초 만에 적정 목표가와 손익비를 산출합니다.</p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
               <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none;">🎯 적정주가 계산기 바로가기</a>
@@ -317,7 +317,7 @@ class ArticleGenerator:
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
-        <span>© 2026 스톡인사이트(StockInsight). All rights reserved.</span>
+        <span>© 2026 Value Stock Labs. All rights reserved.</span>
         <span>Google AdSense Compliant & SEO Optimized</span>
       </div>
     </div>

@@ -1,0 +1,64 @@
+"""
+=============================================================================
+STOCK BLOG AGENT - CONFIGURATION (config.py)
+=============================================================================
+"""
+
+import os
+from pathlib import Path
+
+# 기본 디렉토리 경로
+AGENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = AGENT_DIR.parent
+BLOG_DIR = PROJECT_ROOT / "adsense-stock-blog"
+POSTS_DIR = BLOG_DIR / "posts"
+INDEX_HTML = BLOG_DIR / "index.html"
+SITEMAP_XML = BLOG_DIR / "sitemap.xml"
+RSS_XML = BLOG_DIR / "rss.xml"
+
+# 공식 블로그 도메인 및 메타데이터
+BLOG_DOMAIN = "https://valuestocklabs.com"
+BLOG_TITLE = "스톡인사이트 | 밸류스톡랩스(ValueStockLabs)"
+ADSENSE_PUB_ID = "ca-pub-7807868644631223"
+ADSENSE_CLIENT_ID = "pub-7807868644631223"
+
+# 실시간 금융 뉴스 RSS 피드 소스
+RSS_FEEDS = [
+    {
+        "name": "연합뉴스 경제",
+        "url": "https://www.yonhapnewstv.co.kr/browse/feed/",
+        "category": "경제/증시"
+    },
+    {
+        "name": "한국경제 증권/금융",
+        "url": "https://rss.hankyung.com/feed/stock.xml",
+        "category": "주식분석"
+    },
+    {
+        "name": "매일경제 증권",
+        "url": "https://www.mk.co.kr/rss/30100041/",
+        "category": "증시전망"
+    },
+    {
+        "name": "Google Finance News Korea",
+        "url": "https://news.google.com/rss/search?q=주식+반도체+실적+저평가&hl=ko&gl=KR&ceid=KR:ko",
+        "category": "가치투자"
+    }
+]
+
+# 고단가(High CPC) 타겟 주식/금융 키워드 풀
+HIGH_CPC_KEYWORDS = [
+    "저평가 가치주", "AI 반도체 HBM", "상승초입주 골든크로스", "공모주 청약 따따상",
+    "월배당 ETF 고배당주", "중개형 ISA 세액공제", "기업 밸류업 프로그램", "2차전지 전고체",
+    "자율주행 온디바이스AI", "로봇 액추에이터", "바이오 CDMO 신약", "미국 배당성장주 SCHD"
+]
+
+# 카테고리 매핑
+CATEGORIES = {
+    "undervalued": "저평가 가치주",
+    "breakout": "상승초입주",
+    "semiconductor": "AI 반도체",
+    "ipo": "공모주 청약",
+    "dividend": "배당주 투자",
+    "tax": "절세·재테크"
+}

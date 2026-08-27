@@ -1,6 +1,14 @@
 User-agent: *
 Allow: /
 
+User-agent: Yeti
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://valuestocklabs.com/sitemap.xml
 Sitemap: https://valuestocklabs.com/rss.xml
-

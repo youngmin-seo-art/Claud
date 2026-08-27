@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문의 및 피드백 (Contact Us) | 스톡인사이트</title>
+  <meta name="description" content="스톡인사이트 제휴 문의, 콘텐츠 요청 및 피드백 접수 페이지입니다.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link rel="stylesheet" href="../css/tools.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">스톡인사이트</span>
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
+        <a href="about.html" class="nav-link">소개</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn"><span>☀️</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 760px; margin: 48px auto;">
+    <article class="article-content">
+      <h1>문의 및 제휴 요청 (Contact)</h1>
+      <p>
+        스톡인사이트에 대한 질문, 기업 제휴 문의, 또는 추가적인 종목 분석 요청이 있으시면 아래 양식을 작성해 주시면 24시간 이내에 회신해 드립니다.
+      </p>
+
+      <form class="calculator-wrapper" style="margin-top:28px;" onsubmit="handleContactSubmit(event)">
+        <div class="form-group" style="margin-bottom:16px;">
+          <label class="form-label" for="contactName">이름 또는 닉네임</label>
+          <input type="text" id="contactName" class="form-input" placeholder="홍길동" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px;">
+          <label class="form-label" for="contactEmail">답변받으실 이메일 주소</label>
+          <input type="email" id="contactEmail" class="form-input" placeholder="yourname@example.com" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px;">
+          <label class="form-label" for="contactSubject">문의 주제</label>
+          <select id="contactSubject" class="form-input">
+            <option value="analysis">종목 및 섹터 분석 요청</option>
+            <option value="partnership">제휴 및 광고 문의</option>
+            <option value="feedback">사이트 개선 피드백</option>
+            <option value="other">기타 문의</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px;">
+          <label class="form-label" for="contactMessage">문의 내용</label>
+          <textarea id="contactMessage" class="form-input" rows="5" placeholder="궁금하신 점이나 제안 사항을 상세히 남겨주세요." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="padding:12px;">문의 메시지 전송하기 🚀</button>
+      </form>
+
+      <div id="contactSuccessMsg" class="callout-box callout-bullish" style="display:none; margin-top:20px;">
+        <div class="callout-icon">✅</div>
+        <div>
+          <strong>문의가 성공적으로 접수되었습니다!</strong><br>
+          담당자가 확인 후 입력하신 이메일로 정성껏 답변드리겠습니다.
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align:center;">
+      <p>© 2026 스톡인사이트. All rights reserved. | <a href="privacy-policy.html">개인정보처리방침</a> | <a href="disclaimer.html">면책조항</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactSuccessMsg').style.display = 'flex';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

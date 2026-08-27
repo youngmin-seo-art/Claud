@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복리 수익률 & 적립식 투자 계산기 | 72의 법칙 시뮬레이터 - 스톡인사이트</title>
+  <meta name="description" content="초기 원금과 매월 적립액, 예상 연수익률, 투자 기간을 입력하면 복리의 마법으로 불어나는 최종 자산 총액과 이자 수익을 실시간 계산해 드립니다.">
+  <meta name="keywords" content="복리계산기, 적립식계산기, 주식복리수익, 72의법칙, 복리이자계산, 배당재투자시뮬레이터">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="복리 수익률 & 적립식 투자 계산기 - 스톡인사이트">
+  <meta property="og:description" content="시간과 복리의 힘으로 자산을 키우는 적립식 투자 시뮬레이터.">
+  <meta property="og:image" content="../images/dividend.jpg">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/tools.css">
+</head>
+<body>
+
+  <aside class="market-ticker-wrap">
+    <div class="ticker-label"><span>🔥 LIVE MARKET</span></div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">스톡인사이트</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
+        <a href="../posts/dividend-aristocrats-krx.html" class="nav-link">배당/재테크</a>
+        <a href="stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="compound-interest-calc.html" class="nav-link active">복리 계산기</a>
+        <a href="../pages/about.html" class="nav-link">소개</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn"><span>☀️</span></button>
+        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn"><span>☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Top Leaderboard Ad -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-leaderboard" 
+           data-ad-slot="6010001" 
+           data-ad-type="Display Leaderboard" 
+           data-ad-name="복리 계산기 상단 광고" 
+           data-ad-size="728x90 / 320x100">
+      </div>
+    </div>
+
+    <div class="tool-page-header">
+      <h1 class="tool-page-title">복리 수익률 & 적립식 투자 시뮬레이터</h1>
+      <p class="tool-page-desc">
+        아인슈타인이 '세계 8대 불가사의'라 칭한 <strong>복리의 마법</strong>을 직접 시뮬레이션해보세요. 매달 꾸준히 주식과 배당 ETF를 매수했을 때의 미래 자산을 계산합니다.
+      </p>
+    </div>
+
+    <div class="calculator-wrapper">
+      <div class="calc-grid-layout">
+        
+        <!-- Input Section -->
+        <form class="calc-input-section" id="compoundForm" onsubmit="return false;">
+          
+          <div class="calc-section-title">
+            <span>🌱</span> 1. 투자 원금 및 적립 계획
+          </div>
+          
+          <div class="input-row">
+            <div class="form-group">
+              <label class="calc-label" for="calcPrincipal">초기 투자원금 (원)</label>
+              <input type="number" id="calcPrincipal" class="calc-input" value="10000000" min="0" step="1000000">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="calcMonthly">매월 추가 적립액 (원)</label>
+              <input type="number" id="calcMonthly" class="calc-input" value="500000" min="0" step="100000">
+            </div>
+          </div>
+
+          <div class="calc-section-title" style="margin-top:10px;">
+            <span>📈</span> 2. 기대 수익률 및 기간
+          </div>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label class="calc-label" for="calcRate">예상 연간 수익률 (%) <small>예: S&P500 평균 10%</small></label>
+              <input type="number" id="calcRate" class="calc-input" value="10" min="1" max="100" step="0.5">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="calcYears">투자 기간 (년)</label>
+              <input type="number" id="calcYears" class="calc-input" value="10" min="1" max="50">
+            </div>
+          </div>
+
+          <div class="calc-btn-group">
+            <button type="button" class="btn-calc-action btn-calculate">실시간 복리 계산하기 🚀</button>
+          </div>
+        </form>
+
+        <!-- Result Section -->
+        <div class="calc-result-section">
+          
+          <div class="result-main-card">
+            <div class="result-main-label">만기 예상 총 자산 (Total Wealth)</div>
+            <div class="result-main-value" id="resCompoundTotal">128,450,000원</div>
+          </div>
+
+          <div class="result-stat-grid">
+            <div class="result-stat-item">
+              <div class="result-stat-name">내가 넣은 원금 총액</div>
+              <div class="result-stat-val" id="resCompoundPrincipal">70,000,000원</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">순수 복리 이자/수익</div>
+              <div class="result-stat-val" id="resCompoundInterest" style="color:var(--accent-emerald);">58,450,000원</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">원금 대비 총 수익률</div>
+              <div class="result-stat-val" id="resCompoundRate" style="color:var(--accent-red);">+83.5%</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">적용 연복리 주기</div>
+              <div class="result-stat-val">월복리 (Monthly)</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- In-Article Ad Slot -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-in-article" 
+           data-ad-slot="6020002" 
+           data-ad-type="In-Article Native" 
+           data-ad-name="복리 계산기 하단 광고" 
+           data-ad-size="Responsive In-Article">
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <div class="logo-icon">📈</div>
+            <span class="logo-text">스톡인사이트</span>
+          </a>
+          <p>스톡인사이트는 데이터 기반 저평가 우량주 및 기술적 상승초입주를 심층 분석하는 금융 블로그입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">카테고리</h4>
+          <ul class="footer-links">
+            <li><a href="../posts/undervalued-stocks-2026.html">저평가주식</a></li>
+            <li><a href="../posts/breakout-stocks-guide.html">상승초입주</a></li>
+            <li><a href="../posts/dividend-aristocrats-krx.html">배당주 투자</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">투자 도구</h4>
+          <ul class="footer-links">
+            <li><a href="stock-average-calc.html">물타기 계산기</a></li>
+            <li><a href="compound-interest-calc.html">복리 시뮬레이터</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">정책</h4>
+          <ul class="footer-links">
+            <li><a href="../pages/privacy-policy.html">개인정보처리방침</a></li>
+            <li><a href="../pages/disclaimer.html">투자 면책조항</a></li>
+            <li><a href="../pages/contact.html">문의하기</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 스톡인사이트. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/calculators.js"></script>
+  <script src="../js/ads.js"></script>
+</body>
+</html>

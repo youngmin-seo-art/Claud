@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>월배당 ETF & 고배당주 포트폴리오로 월 100만원 파이프라인 만들기 | 스톡인사이트</title>
+  <meta name="description" content="미국 배당다우존스(SCHD), 금융지주 고배당주, 월배당 커버드콜 ETF를 조합하여 월 100만원의 제2의 월급을 만드는 실전 포트폴리오 배분 가이드.">
+  <meta name="keywords" content="월배당ETF, 고배당주, SCHD, 배당다우존스, 배당포트폴리오, 패시브인컴, 금융지주배당, 복리투자">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="월배당 ETF & 고배당주로 월 100만원 파이프라인 만들기">
+  <meta property="og:description" content="배당금 재투자로 복리 수익을 극대화하는 은퇴 및 현금흐름 포트폴리오 전략.">
+  <meta property="og:image" content="../images/dividend.jpg">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link rel="stylesheet" href="../css/tools.css">
+</head>
+<body>
+
+  <div class="reading-progress-bar" id="readingProgress"></div>
+
+  <aside class="market-ticker-wrap">
+    <div class="ticker-label"><span>🔥 LIVE MARKET</span></div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">스톡인사이트</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="breakout-stocks-guide.html" class="nav-link">상승초입주</a>
+        <a href="dividend-aristocrats-krx.html" class="nav-link active">배당/재테크</a>
+        <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="../tools/compound-interest-calc.html" class="nav-link">복리 계산기</a>
+        <a href="../pages/about.html" class="nav-link">소개</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn"><span>☀️</span></button>
+        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn"><span>☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Top Leaderboard Ad -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-leaderboard" 
+           data-ad-slot="3010001" 
+           data-ad-type="Display Leaderboard" 
+           data-ad-name="배당주 상단 리더보드 광고" 
+           data-ad-size="728x90 / 320x100">
+      </div>
+    </div>
+
+    <!-- Article Header -->
+    <div class="article-header">
+      <div class="article-breadcrumb">
+        <a href="../index.html">홈</a> &gt; 
+        <a href="dividend-aristocrats-krx.html">배당/재테크</a> &gt; 
+        <span>현금흐름 파이프라인</span>
+      </div>
+      <h1 class="article-title">월배당 ETF & 고배당주 포트폴리오로 월 100만원 패시브 인컴 파이프라인 만들기</h1>
+      
+      <div class="article-meta-bar">
+        <div class="article-meta-left">
+          <span>✍️ 작성자: <strong>배당연구소</strong></span>
+          <span>📅 발행일: 2026년 8월 25일</span>
+          <span>⏱️ 소요시간: 약 7분</span>
+          <span>👁️ 조회수: 5,120회</span>
+        </div>
+        <div class="post-badge dividend">💰 월배당 포트폴리오</div>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      
+      <article class="content-area article-content">
+        
+        <div class="article-featured-img-wrap">
+          <img src="../images/dividend.jpg" alt="배당 나무와 현금흐름 성장 시각화" width="800" height="450">
+        </div>
+
+        <p class="article-intro">
+          주가의 일일 변동성에 휘둘리지 않고 매월 안정적인 현금 흐름을 창출하는 가장 확실한 방법은 <strong>배당 성장주와 월배당 ETF의 황금 비율 배분</strong>입니다. 원금 손실 위험을 최소화하면서 월 100만 원(연 1,200만 원)의 순배당금을 수령하는 단계별 포트폴리오 구축 전략을 공개합니다.
+        </p>
+
+        <!-- Table of Contents -->
+        <div class="toc-box">
+          <div class="toc-title">
+            <span>📑 목차 (Table of Contents)</span>
+          </div>
+          <ul class="toc-list" id="tocList"></ul>
+        </div>
+
+        <h2>1. 월 100만원 배당 파이프라인에 필요한 투자 원금은?</h2>
+        <p>
+          목표 세후 배당률에 따라 요구되는 투자 원금의 규모는 크게 달라집니다. 너무 높은 배당률(연 12% 이상)만 추구하면 주가 원금이 하락하는 '배당 함정'에 빠질 수 있으므로, <strong>연 5%~7% 수준의 안정적인 배당성장률</strong>을 타겟으로 삼아야 합니다.
+        </p>
+
+        <div class="metrics-table-wrap">
+          <table class="metrics-table">
+            <thead>
+              <tr>
+                <th>포트폴리오 배당률 (세후)</th>
+                <th>월 목표 배당금</th>
+                <th>연간 수령액</th>
+                <th>필요 투자 원금</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>세후 연 4.5% (안정 성장형)</strong></td>
+                <td>월 100만 원</td>
+                <td>1,200만 원</td>
+                <td>약 2억 6,600만 원</td>
+              </tr>
+              <tr>
+                <td><strong>세후 연 6.0% (균형 혼합형)</strong></td>
+                <td>월 100만 원</td>
+                <td>1,200만 원</td>
+                <td><span class="metric-highlight">약 2억 원</span></td>
+              </tr>
+              <tr>
+                <td><strong>세후 연 8.0% (고배당 인컴형)</strong></td>
+                <td>월 100만 원</td>
+                <td>1,200만 원</td>
+                <td>약 1억 5,000만 원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- In-Article Ad 1 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" 
+               data-ad-slot="3020002" 
+               data-ad-type="In-Article Native" 
+               data-ad-name="배당주 본문 중간 광고 1" 
+               data-ad-size="Responsive In-Article">
+          </div>
+        </div>
+
+        <h2>2. 실패 없는 3대 황금 분할 포트폴리오 (4:3:3 법칙)</h2>
+        <p>
+          배당 성장, 고배당 인컴, 월지급식 현금흐름을 동시에 달성하기 위한 3단계 자산 배분 모델입니다:
+        </p>
+
+        <div class="callout-box callout-tip">
+          <div class="callout-icon">📊</div>
+          <div>
+            <div class="callout-title">스톡인사이트 권장 4:3:3 배당 배분 모델</div>
+            <ul style="margin:6px 0 0 16px; padding:0;">
+              <li><strong>40% - 미국 배당다우존스 (한국 상장 ETF)</strong>: 연 3.5~4% 배당 + 연 7~10% 배당 성장 (SCHD 추종)</li>
+              <li><strong>30% - 국내 밸류업 금융지주 및 통신사</strong>: 연 6~7% 분기 배당 + 주주환원 자사주 소각</li>
+              <li><strong>30% - 월배당 커버드콜 / 리츠(REITs)</strong>: 연 8~10% 월지급식 고배당으로 즉각적 현금 흐름 창출</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- In-Article Ad 2 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" 
+               data-ad-slot="3030003" 
+               data-ad-type="In-Article Native" 
+               data-ad-name="배당주 본문 중간 광고 2" 
+               data-ad-size="Responsive In-Article">
+          </div>
+        </div>
+
+        <h2>3. 배당금 재투자로 복리 효과 200% 극대화하기</h2>
+        <p>
+          지급받은 배당금을 소비하지 않고 다시 같은 주식이나 ETF를 매수하는 <strong>DRIP (Dividend Reinvestment Plan)</strong>을 실행하면, 10년 뒤 자산 총액과 배당 수령액은 초기 투자 대비 2.8배 이상 폭발적으로 불어납니다.
+        </p>
+
+        <div class="article-tags-wrap">
+          <a href="#" class="tag-item">#월배당ETF</a>
+          <a href="#" class="tag-item">#SCHD</a>
+          <a href="#" class="tag-item">#배당다우존스</a>
+          <a href="#" class="tag-item">#패시브인컴</a>
+          <a href="#" class="tag-item">#복리효과</a>
+        </div>
+
+        <div class="article-share-bar">
+          <div>
+            <strong>배당 포트폴리오를 친구에게 추천해보세요!</strong>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">경제적 자유를 위한 실전 파이프라인 가이드.</p>
+          </div>
+          <div class="share-buttons">
+            <button type="button" class="share-btn" id="shareCopyBtn">🔗 링크 복사</button>
+            <button type="button" class="share-btn" id="shareNativeBtn">📢 공유하기</button>
+          </div>
+        </div>
+
+        <div class="post-nav-grid">
+          <a href="breakout-stocks-guide.html" class="post-nav-card">
+            <span class="post-nav-label">← 이전 분석글</span>
+            <span class="post-nav-title">상승초입주 포착 매매기법: 거래량 골든크로스</span>
+          </a>
+          <a href="isa-irp-tax-saving.html" class="post-nav-card" style="text-align:right;">
+            <span class="post-nav-label">다음 분석글 →</span>
+            <span class="post-nav-title">절세 끝판왕 ISA 계좌 vs IRP 완벽 비교</span>
+          </a>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">SPONSORED RECOMMENDATIONS</span></div>
+          <div class="ad-container ad-multiplex" 
+               data-ad-slot="3040004" 
+               data-ad-type="Multiplex Grid" 
+               data-ad-name="하단 멀티플렉스 추천 광고" 
+               data-ad-size="Multiplex 4x1">
+          </div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar-area">
+        
+        <div class="widget-card">
+          <h3 class="widget-title"><span>⚡</span> 복리 계산기 바로가기</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:14px;">
+            매달 배당금을 재투자했을 때 10년 뒤 내 자산이 얼마가 될지 확인해보세요.
+          </p>
+          <a href="../tools/compound-interest-calc.html" class="btn-primary" style="display:block; text-align:center; padding:10px;">복리 시뮬레이터 실행 →</a>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-sidebar-sticky" 
+               data-ad-slot="3050005" 
+               data-ad-type="Sidebar Sticky Half-page" 
+               data-ad-name="사이드바 고정 배너" 
+               data-ad-size="300x600">
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <div class="mobile-anchor-ad" id="mobileAnchorAd">
+    <button class="anchor-close-btn">✕ 닫기</button>
+    <div class="ad-container" data-ad-slot="3060006" data-ad-type="Mobile Anchor" style="min-height:50px; width:320px;"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <div class="logo-icon">📈</div>
+            <span class="logo-text">스톡인사이트</span>
+          </a>
+          <p>스톡인사이트는 데이터 기반 저평가 우량주 및 기술적 상승초입주를 심층 분석하는 금융 블로그입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">카테고리</h4>
+          <ul class="footer-links">
+            <li><a href="undervalued-stocks-2026.html">저평가주식</a></li>
+            <li><a href="breakout-stocks-guide.html">상승초입주</a></li>
+            <li><a href="dividend-aristocrats-krx.html">배당주 투자</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">투자 도구</h4>
+          <ul class="footer-links">
+            <li><a href="../tools/stock-average-calc.html">물타기 계산기</a></li>
+            <li><a href="../tools/compound-interest-calc.html">복리 시뮬레이터</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">정책</h4>
+          <ul class="footer-links">
+            <li><a href="../pages/privacy-policy.html">개인정보처리방침</a></li>
+            <li><a href="../pages/disclaimer.html">투자 면책조항</a></li>
+            <li><a href="../pages/contact.html">문의하기</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-disclaimer-box">
+        <strong>⚠️ 투자 유의사항:</strong> 본 글은 투자 판단의 참고 자료이며, 투자 결과에 대한 법적 책임은 지지 않습니다.
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 스톡인사이트. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/article.js"></script>
+  <script src="../js/ads.js"></script>
+</body>
+</html>

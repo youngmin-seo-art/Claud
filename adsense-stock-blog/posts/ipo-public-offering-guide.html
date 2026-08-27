@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 | 스톡인사이트</title>
+  <meta name="description" content="공모주 청약 시 최소 증거금으로 1주 이상 받는 균등 배정 팁, 마이너스 통장 비례 배정 계산기 공식, 상장일 시초가 수급 분석 및 최고점 매도 원칙을 정리합니다.">
+  <meta name="keywords" content="공모주청약, 따따상, 공모주일정, 균등배정, 비례배정, 청약증거금, 상장일매도전략, 공모주수익률">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2026 공모주 청약 완벽 공략 가이드">
+  <meta property="og:description" content="균등·비례 배정 전략과 상장일 최고 수익 실현 매도 타이밍 분석.">
+  <meta property="og:image" content="../images/ipo.jpg">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link rel="stylesheet" href="../css/tools.css">
+</head>
+<body>
+
+  <div class="reading-progress-bar" id="readingProgress"></div>
+
+  <aside class="market-ticker-wrap">
+    <div class="ticker-label"><span>🔥 LIVE MARKET</span></div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">스톡인사이트</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="breakout-stocks-guide.html" class="nav-link">상승초입주</a>
+        <a href="ipo-public-offering-guide.html" class="nav-link active">공모주 청약 <span class="nav-link-badge">HOT</span></a>
+        <a href="dividend-aristocrats-krx.html" class="nav-link">배당/재테크</a>
+        <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="../tools/target-price-calculator.html" class="nav-link">적정주가 계산기</a>
+        <a href="../pages/about.html" class="nav-link">소개</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn"><span>☀️</span></button>
+        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn"><span>☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Top Leaderboard Ad -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-leaderboard" 
+           data-ad-slot="8010001" 
+           data-ad-type="Display Leaderboard" 
+           data-ad-name="공모주 상단 리더보드 광고" 
+           data-ad-size="728x90 / 320x100">
+      </div>
+    </div>
+
+    <div class="article-header">
+      <div class="article-breadcrumb">
+        <a href="../index.html">홈</a> &gt; 
+        <a href="ipo-public-offering-guide.html">공모주 청약</a> &gt; 
+        <span>IPO 실전 가이드</span>
+      </div>
+      <h1 class="article-title">2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략</h1>
+      
+      <div class="article-meta-bar">
+        <div class="article-meta-left">
+          <span>✍️ 작성자: <strong>공모주애널리스트</strong></span>
+          <span>📅 발행일: 2026년 8월 27일</span>
+          <span>⏱️ 소요시간: 약 5분</span>
+          <span>👁️ 조회수: 5,780회</span>
+        </div>
+        <div class="post-badge tax">🎯 무위험 수익 전략</div>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      
+      <article class="content-area article-content">
+        
+        <div class="article-featured-img-wrap">
+          <img src="../images/ipo.jpg" alt="공모주 상장 벨과 주가 급등 시각화" width="800" height="450">
+        </div>
+
+        <p class="article-intro">
+          공모주 청약은 주식 투자 중 가장 안전하게 단기 수익을 얻을 수 있는 대표적인 재테크 수단입니다. 특히 <strong>‘상장 당일 공모가 대비 최대 400%(따따상) 가격 제한폭 확대’</strong> 제도가 정착되면서, 철저한 수요예측 분석과 배정 공식 계산이 승패를 가르고 있습니다.
+        </p>
+
+        <div class="toc-box">
+          <div class="toc-title">
+            <span>📑 목차 (Table of Contents)</span>
+          </div>
+          <ul class="toc-list" id="tocList"></ul>
+        </div>
+
+        <h2>1. 공모주 청약 전 반드시 확인해야 할 3대 지표</h2>
+        <p>
+          모든 공모주가 수익을 주는 것은 아닙니다. 아래 3가지 지표를 충족하지 못한 종목은 상장 첫날 공모가를 하회할 수 있으므로 과감히 청약을 패스해야 합니다.
+        </p>
+
+        <div class="metrics-table-wrap">
+          <table class="metrics-table">
+            <thead>
+              <tr>
+                <th>수요예측 지표</th>
+                <th>성공 기준선</th>
+                <th>의미 및 중요도</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>기관 경쟁률</strong></td>
+                <td><span class="metric-highlight">800:1 이상</span></td>
+                <td>국내외 기관 투자자들의 참여 열기와 관심도</td>
+              </tr>
+              <tr>
+                <td><strong>의무보유 확약 비율</strong></td>
+                <td><span class="metric-up">15% 이상 (30% 이상 시 대박)</span></td>
+                <td>상장 당일 기관 매도 물량 잠금 효과 (오버행 방지)</td>
+              </tr>
+              <tr>
+                <td><strong>유통가능 물량 비율</strong></td>
+                <td><span class="metric-highlight">25% 미만</span></td>
+                <td>상장 당일 시장에 풀리는 매도 물량의 압력</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- In-Article Ad 1 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" 
+               data-ad-slot="8020002" 
+               data-ad-type="In-Article Native" 
+               data-ad-name="공모주 본문 광고 1" 
+               data-ad-size="Responsive In-Article">
+          </div>
+        </div>
+
+        <h2>2. 균등 배정과 비례 배정 계산법 (가족 계좌 활용 팁)</h2>
+        <p>
+          공모주 배정 물량은 <strong>50% 균등 배정 + 50% 비례 배정</strong>으로 나누어집니다.
+        </p>
+        <div class="callout-box callout-tip">
+          <div class="callout-icon">💡</div>
+          <div>
+            <div class="callout-title">최소 증거금으로 균등 1주 챙기는 비법</div>
+            최소 청약 단위(보통 10주~20주, 증거금 5만~10만원)만 넣어도 청약자 수에 따라 1인당 1~2주가 배정됩니다. 온 가족(배우자, 자녀 등) 계좌를 총동원하면 무위험 치킨값/용돈 파이프라인을 구축할 수 있습니다.
+          </div>
+        </div>
+
+        <!-- In-Article Ad 2 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" 
+               data-ad-slot="8030003" 
+               data-ad-type="In-Article Native" 
+               data-ad-name="공모주 본문 광고 2" 
+               data-ad-size="Responsive In-Article">
+          </div>
+        </div>
+
+        <h2>3. 상장일 최고가 매도 전략 (9시~9시 10분의 법칙)</h2>
+        <p>
+          공모주 시세의 80%는 <strong>장 시작 직후 10분 이내</strong>에 결정됩니다. 시초가가 공모가 대비 +150% 이상 시작할 경우 장 초반 거래량이 폭증할 때 1차 절반을 매도하고, 이후 5분봉 음봉 전환 시 전량 차익 실현하는 것이 가장 안전한 정석 매도법입니다.
+        </p>
+
+        <div class="article-tags-wrap">
+          <a href="#" class="tag-item">#공모주청약</a>
+          <a href="#" class="tag-item">#따따상</a>
+          <a href="#" class="tag-item">#균등배정</a>
+          <a href="#" class="tag-item">#비례배정</a>
+          <a href="#" class="tag-item">#IPO매매기법</a>
+        </div>
+
+        <div class="article-share-bar">
+          <div>
+            <strong>공모주 청약 가이드를 공유하세요!</strong>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">초보자도 쉽게 따라할 수 있는 실전 IPO 팁.</p>
+          </div>
+          <div class="share-buttons">
+            <button type="button" class="share-btn" id="shareCopyBtn">🔗 링크 복사</button>
+            <button type="button" class="share-btn" id="shareNativeBtn">📢 공유하기</button>
+          </div>
+        </div>
+
+        <div class="post-nav-grid">
+          <a href="ai-semiconductor-hbm-stocks.html" class="post-nav-card">
+            <span class="post-nav-label">← 이전 분석글</span>
+            <span class="post-nav-title">2026 AI 반도체 HBM 수혜주 총정리</span>
+          </a>
+          <a href="undervalued-stocks-2026.html" class="post-nav-card" style="text-align:right;">
+            <span class="post-nav-label">다음 분석글 →</span>
+            <span class="post-nav-title">2026 저평가 우량주 5선 및 적정주가 산정법</span>
+          </a>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">SPONSORED RECOMMENDATIONS</span></div>
+          <div class="ad-container ad-multiplex" 
+               data-ad-slot="8040004" 
+               data-ad-type="Multiplex Grid" 
+               data-ad-name="하단 멀티플렉스 추천 광고" 
+               data-ad-size="Multiplex 4x1">
+          </div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar-area">
+        <div class="widget-card">
+          <h3 class="widget-title"><span>⚡</span> 투자 계산기</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:14px;">
+            상장 후 주가 변동에 대비한 나만의 평단가 및 목표 수익률을 계산해보세요.
+          </p>
+          <a href="../tools/stock-average-calc.html" class="btn-primary" style="display:block; text-align:center; padding:10px;">평단가 계산기 실행 →</a>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-sidebar-sticky" 
+               data-ad-slot="8050005" 
+               data-ad-type="Sidebar Sticky Half-page" 
+               data-ad-name="사이드바 고정 배너" 
+               data-ad-size="300x600">
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <div class="logo-icon">📈</div>
+            <span class="logo-text">스톡인사이트</span>
+          </a>
+          <p>스톡인사이트는 데이터 기반 저평가 우량주 및 기술적 상승초입주를 심층 분석하는 금융 블로그입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">카테고리</h4>
+          <ul class="footer-links">
+            <li><a href="undervalued-stocks-2026.html">저평가주식</a></li>
+            <li><a href="breakout-stocks-guide.html">상승초입주</a></li>
+            <li><a href="ipo-public-offering-guide.html">공모주 청약</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">투자 도구</h4>
+          <ul class="footer-links">
+            <li><a href="../tools/stock-average-calc.html">물타기 계산기</a></li>
+            <li><a href="../tools/target-price-calculator.html">적정주가 계산기</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">정책</h4>
+          <ul class="footer-links">
+            <li><a href="../pages/privacy-policy.html">개인정보처리방침</a></li>
+            <li><a href="../pages/disclaimer.html">투자 면책조항</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 스톡인사이트. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/article.js"></script>
+  <script src="../js/ads.js"></script>
+</body>
+</html>

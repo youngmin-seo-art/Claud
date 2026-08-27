@@ -15,13 +15,12 @@ import os
 import argparse
 import time
 
-# Windows 터미널 한글 및 이모지 출력 인코딩 설정
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-        sys.stderr.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
+from pathlib import Path
+
+# 스크립트 실행 경로를 sys.path에 추가하여 어디서든 실행 가능하게 설정
+CURRENT_DIR = Path(__file__).resolve().parent
+if str(CURRENT_DIR) not in sys.path:
+    sys.path.insert(0, str(CURRENT_DIR))
 
 from news_collector import NewsCollector
 from article_generator import ArticleGenerator

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Value Stock Labs - 비공개 관리자 방문자 통계 센터</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <style>
+    .admin-wrapper {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .admin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+    .admin-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-2px);
+    }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 8px 0 4px;
+    }
+    .stat-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .chart-container {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">Value Stock Labs</span>
+      </a>
+      <div style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700;">
+        🔒 비공개 관리자 통계 센터
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-wrapper">
+    <div class="admin-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan); margin: 0 0 6px;">
+            📊 실시간 방문자 및 유입 통계 대시보드
+          </h1>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">
+            이 페이지는 검색엔진(구글/네이버)에 수집되지 않으며, 블로그 관리자만 열람할 수 있습니다.
+          </p>
+        </div>
+        <button id="btnRefreshStats" class="btn-stock-search" style="height: 38px; font-size: 0.85rem; padding: 0 16px;">
+          🔄 실시간 새로고침
+        </button>
+      </div>
+
+      <!-- Stats 3-Col Grid -->
+      <div class="admin-grid-3">
+        <div class="stat-box" style="border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.05);">
+          <div style="color: var(--accent-cyan); font-weight: 700; font-size: 0.9rem;">🟢 오늘 방문자 수 (UV)</div>
+          <div class="stat-num" id="statTodayUV">0</div>
+          <div class="stat-desc">당일 중복 접속 제거 순방문자</div>
+        </div>
+
+        <div class="stat-box" style="border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.05);">
+          <div style="color: var(--accent-blue); font-weight: 700; font-size: 0.9rem;">👁️ 오늘 총 페이지뷰 (PV)</div>
+          <div class="stat-num" id="statTodayPV">0</div>
+          <div class="stat-desc">모든 글 및 계산기 열람 횟수</div>
+        </div>
+
+        <div class="stat-box" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05);">
+          <div style="color: var(--accent-emerald); font-weight: 700; font-size: 0.9rem;">🏆 전체 누적 방문자 (Total)</div>
+          <div class="stat-num" id="statTotalUV">0</div>
+          <div class="stat-desc">사이트 오픈 이후 총 순방문자</div>
+        </div>
+      </div>
+
+      <!-- 7-Day Trend Chart -->
+      <div class="chart-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+            📈 최근 7일간 일별 방문자 추이 (UV)
+          </h3>
+          <span id="chartDateRange" style="font-size: 0.8rem; color: var(--text-muted);"></span>
+        </div>
+        <div id="chartBarsContainer" style="display: flex; align-items: flex-end; justify-content: space-between; height: 160px; gap: 12px; padding: 10px 0;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Traffic Source & Popular Pages -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-cyan); margin: 0 0 14px;">
+            🧭 검색엔진 및 유입 경로 (Traffic Source)
+          </h4>
+          <div id="referrerList">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-emerald); margin: 0 0 14px;">
+            📑 가장 많이 열람된 인기 글 TOP 5
+          </h4>
+          <div id="popularPagesList">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Tools Footer -->
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          💡 단축키: 블로그 어디서든 <strong>Ctrl + Shift + A</strong> 를 누르면 즉시 통계 팝업이 열립니다.
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <a href="../index.html" class="btn-preset">홈으로 이동</a>
+          <button id="btnAdminChangePin" class="btn-preset">PIN 변경</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/admin-analytics.js"></script>
+  <script>
+    function renderAdminPage() {
+      const today = new Date().toISOString().slice(0, 10);
+      const raw = localStorage.getItem('vsl_analytics_store');
+      let data = { totalUV: 1, totalPV: 1, daily: {}, referrers: {}, popularPages: {} };
+      if (raw) {
+        try { data = JSON.parse(raw); } catch(e) {}
+      }
+
+      const todayData = data.daily[today] || { uv: 1, pv: 1 };
+      document.getElementById('statTodayUV').textContent = (todayData.uv || 1).toLocaleString();
+      document.getElementById('statTodayPV').textContent = (todayData.pv || 1).toLocaleString();
+      document.getElementById('statTotalUV').textContent = (data.totalUV || 1).toLocaleString();
+
+      // Render 7-day bars
+      const recentDays = [];
+      for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        const dayStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        const dayData = data.daily[dayStr] || { uv: 0, pv: 0 };
+        const label = i === 0 ? '오늘' : `${d.getMonth()+1}/${d.getDate()}`;
+        recentDays.push({ date: dayStr, label, uv: dayData.uv, pv: dayData.pv });
+      }
+
+      const maxUv = Math.max(...recentDays.map(d => d.uv), 1);
+      const chartBars = document.getElementById('chartBarsContainer');
+      chartBars.innerHTML = recentDays.map(d => {
+        const heightPct = Math.max(14, Math.round((d.uv / maxUv) * 100));
+        const isToday = d.label === '오늘';
+        const barColor = isToday ? 'linear-gradient(180deg, #38bdf8, #06b6d4)' : 'linear-gradient(180deg, #334155, #1e293b)';
+        const textColor = isToday ? '#38bdf8' : '#94a3b8';
+        return `
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; gap: 8px;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: ${textColor};">${d.uv}명</span>
+            <div style="width: 100%; max-width: 44px; height: ${heightPct}%; background: ${barColor}; border-radius: 8px 8px 2px 2px; transition: height 0.3s ease;"></div>
+            <span style="font-size: 0.78rem; color: ${textColor}; font-weight: ${isToday ? '800' : '500'};">${d.label}</span>
+          </div>
+        `;
+      }).join('');
+
+      // Referrers
+      const refList = document.getElementById('referrerList');
+      const refEntries = Object.entries(data.referrers || {}).sort((a,b) => b[1] - a[1]);
+      if (refEntries.length === 0) {
+        refList.innerHTML = '<div style="color:var(--text-muted); font-size:0.85rem;">아직 기록된 유입 경로가 없습니다.</div>';
+      } else {
+        refList.innerHTML = refEntries.map(([k, v]) => `
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.85rem;">
+            <span>${k}</span>
+            <strong style="color:var(--accent-cyan);">${v}회</strong>
+          </div>
+        `).join('');
+      }
+
+      // Popular Pages
+      const popList = document.getElementById('popularPagesList');
+      const popEntries = Object.entries(data.popularPages || {}).sort((a,b) => b[1] - a[1]).slice(0, 5);
+      if (popEntries.length === 0) {
+        popList.innerHTML = '<div style="color:var(--text-muted); font-size:0.85rem;">기록된 열람 페이지가 없습니다.</div>';
+      } else {
+        popList.innerHTML = popEntries.map(([k, v]) => `
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.85rem;">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:240px;" title="${k}">${k}</span>
+            <strong style="color:var(--accent-emerald);">${v}회</strong>
+          </div>
+        `).join('');
+      }
+    }
+
+    document.getElementById('btnRefreshStats').addEventListener('click', () => {
+      renderAdminPage();
+      alert('통계 데이터가 새로고침 되었습니다.');
+    });
+
+    document.getElementById('btnAdminChangePin').addEventListener('click', () => {
+      const p = prompt('새 관리자 PIN을 입력하세요:');
+      if (p && p.trim().length >= 4) {
+        localStorage.setItem('vsl_admin_pin', p.trim());
+        alert('PIN이 성공적으로 변경되었습니다.');
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', renderAdminPage);
+  </script>
+</body>
+</html>

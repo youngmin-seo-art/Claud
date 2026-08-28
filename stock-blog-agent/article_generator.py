@@ -255,6 +255,7 @@ class ArticleGenerator:
   <script src="../js/main.js"></script>
   <script src="../js/ads.js"></script>
   <script src="../js/article.js"></script>
+  <script src="../js/admin-analytics.js" defer></script>
 </body>
 </html>
 """
@@ -577,6 +578,7 @@ class ArticleGenerator:
   <script src="../js/main.js"></script>
   <script src="../js/ads.js"></script>
   <script src="../js/article.js"></script>
+  <script src="../js/admin-analytics.js" defer></script>
 </body>
 </html>
 """

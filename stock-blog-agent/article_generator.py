@@ -62,6 +62,17 @@ class ArticleGenerator:
 
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB_ID}" crossorigin="anonymous"></script>
+  <!-- Favicon & Search Engine Identity -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#090d16">
+  <meta name="msapplication-TileColor" content="#090d16">
+  <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -70,7 +81,7 @@ class ArticleGenerator:
   <header class="site-header">
     <div class="container header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-icon">📈</div>
+        <div class="logo-icon"><img src="/images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">
@@ -302,6 +313,17 @@ class ArticleGenerator:
 
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB_ID}" crossorigin="anonymous"></script>
+  <!-- Favicon & Search Engine Identity -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#090d16">
+  <meta name="msapplication-TileColor" content="#090d16">
+  <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -312,7 +334,7 @@ class ArticleGenerator:
   <header class="site-header">
     <div class="container header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-icon">📈</div>
+        <div class="logo-icon"><img src="/images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">

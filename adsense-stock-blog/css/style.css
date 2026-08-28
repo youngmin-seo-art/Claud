@@ -240,17 +240,30 @@ button, input, select, textarea {
 }
 
 .logo-icon {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
-  background: var(--gradient-primary);
+  background: #090d16;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.15rem;
-  box-shadow: var(--shadow-glow);
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(255, 23, 68, 0.45);
   flex-shrink: 0;
+  border: 1px solid rgba(255, 23, 68, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.06);
+  box-shadow: 0 0 22px rgba(255, 23, 68, 0.7);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .logo-text {

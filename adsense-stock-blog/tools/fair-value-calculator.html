@@ -132,13 +132,13 @@
               <span>🔍 분석 종목 검색 (코스피 / 코스닥 / 미국)</span>
               <small>종목명, 티커, 6자리 코드, 초성 실시간 검색</small>
             </label>
-            <div style="display: flex; gap: 8px;">
-              <div class="stock-search-container" style="flex: 1;">
-                <input type="text" id="inputStockName" class="calc-input" placeholder="종목명 검색 (예: 삼성전자, 카카오, 005930, NVDA, ㅅㅅㅈㅈ)" value="삼성전자" autocomplete="off" style="font-size:1.05rem; font-weight:700; padding-left:42px; border-color:var(--accent-cyan);">
+            <div class="stock-search-row">
+              <div class="stock-search-container">
+                <input type="text" id="inputStockName" class="calc-input" placeholder="종목명 또는 코드 검색 (예: 카카오, 한미반도체, 005930, NVDA, ㅋㅋㅇ)" value="삼성전자" autocomplete="off" style="width:100%; height:48px; font-size:1.05rem; font-weight:700; padding-left:42px; border-color:var(--accent-cyan);">
                 <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events:none;">🏢</span>
                 <div class="stock-dropdown-results" id="stockDropdownResults"></div>
               </div>
-              <button type="button" id="btnStockSearch" class="btn btn-primary" style="padding: 0 16px; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 6px; font-size: 0.95rem; cursor: pointer; border-radius: 8px;">
+              <button type="button" id="btnStockSearch" class="btn-stock-search">
                 <span>🔍</span> 조회
               </button>
             </div>

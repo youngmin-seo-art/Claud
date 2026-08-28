@@ -107,10 +107,43 @@
   box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
 }
 
-/* Stock Live Search Dropdown */
+/* Stock Live Search Row & Dropdown */
+.stock-search-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: stretch;
+}
+
 .stock-search-container {
   position: relative;
+  flex: 1 1 0%;
+  min-width: 0;
   width: 100%;
+}
+
+.btn-stock-search {
+  flex: 0 0 auto;
+  padding: 0 22px;
+  height: 48px;
+  background: var(--gradient-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-stock-search:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
 }
 
 .stock-dropdown-results {
@@ -118,10 +151,11 @@
   top: calc(100% + 6px);
   left: 0;
   right: 0;
+  min-width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--accent-cyan);
   border-radius: var(--radius-md);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
   max-height: 280px;
   overflow-y: auto;
   z-index: 999;

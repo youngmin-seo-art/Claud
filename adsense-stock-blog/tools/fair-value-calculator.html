@@ -56,8 +56,8 @@
         <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
         <a href="../posts/ipo-public-offering-guide.html" class="nav-link">공모주</a>
         <a href="fair-value-calculator.html" class="nav-link active">적정가치 계산기</a>
-        <a href="target-price-calculator.html" class="nav-link">손익비 계산기</a>
         <a href="stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="target-price-calculator.html" class="nav-link">손익비 계산기</a>
         <a href="../pages/about.html" class="nav-link">소개</a>
       </nav>
 
@@ -81,22 +81,29 @@
       </div>
     </div>
 
+    <!-- Tool Page Title & Subtitle with Clean Line-Break -->
     <div class="tool-page-header">
       <h1 class="tool-page-title">기업 내재적 적정 가치(Fair Value) 계산기</h1>
-      <p class="tool-page-desc">
-        워런 버핏의 스승 <strong>벤저민 그레이엄</strong>, 한국 가치투자의 정석 <strong>사경인 S-RIM</strong>, 전설적 펀드매니저 <strong>피터 린치</strong>의 밸류에이션 모델을 통합하여 기업의 진짜 가치와 <strong>안전마진(Margin of Safety)</strong>을 실시간 계산합니다.
+      <p class="tool-page-desc" style="word-break: keep-all;">
+        워런 버핏의 <strong>그레이엄 공식</strong>, 사경인 회계사의 <strong>S-RIM 모델</strong>, 피터 린치의 <strong>PEG 성장모델</strong>을 통합하여<br>
+        기업의 본질적 가치와 <strong>안전마진(Margin of Safety)</strong>을 실시간 계산합니다.
       </p>
     </div>
 
     <!-- Quick Presets -->
     <div class="preset-wrapper">
-      <div class="preset-title">⚡ 대표 우량주 1-클릭 프리셋 불러오기:</div>
+      <div class="preset-title">⚡ 대표 인기 종목 원클릭 빠른 불러오기:</div>
       <div class="preset-btns">
         <button type="button" class="btn-preset" onclick="loadPreset('samsung')">🇰🇷 삼성전자</button>
         <button type="button" class="btn-preset" onclick="loadPreset('skhynix')">🇰🇷 SK하이닉스</button>
         <button type="button" class="btn-preset" onclick="loadPreset('hyundai')">🇰🇷 현대차</button>
         <button type="button" class="btn-preset" onclick="loadPreset('naver')">🇰🇷 NAVER</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('kakao')">🇰🇷 카카오</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('alteogen')">🇰🇷 알테오젠</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('celltrion')">🇰🇷 셀트리온</button>
         <button type="button" class="btn-preset" onclick="loadPreset('nvda')">🇺🇸 엔비디아(NVDA)</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('tsla')">🇺🇸 테슬라(TSLA)</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('aapl')">🇺🇸 애플(AAPL)</button>
       </div>
     </div>
 
@@ -116,9 +123,39 @@
         <form class="calc-input-section" id="fairCalcForm" onsubmit="return false;">
           
           <div class="calc-section-title">
-            <span>📌</span> 1. 기업 핵심 재무제표 지표 입력
+            <span>📌</span> 1. 분석 종목 및 핵심 재무제표 지표 입력
           </div>
           
+          <!-- Direct Stock Name / Ticker Input -->
+          <div class="form-group" style="margin-bottom: 8px;">
+            <label class="calc-label" for="inputStockName">
+              <span>🏢 분석 대상 종목명 또는 티커 직접 입력</span>
+              <small>원하는 종목명을 직접 타이핑하거나 검색하세요</small>
+            </label>
+            <div style="position: relative;">
+              <input type="text" id="inputStockName" class="calc-input" placeholder="종목명 직접 입력 (예: 삼성전자, 카카오, 한미반도체, AAPL, TSLA 등)" value="삼성전자" list="stockSuggestionsList" autocomplete="off" style="font-size:1.05rem; font-weight:700; padding-left:42px; border-color:var(--accent-cyan);">
+              <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem;">🔍</span>
+              <datalist id="stockSuggestionsList">
+                <option value="삼성전자">
+                <option value="SK하이닉스">
+                <option value="현대차">
+                <option value="NAVER">
+                <option value="카카오">
+                <option value="LG에너지솔루션">
+                <option value="알테오젠">
+                <option value="셀트리온">
+                <option value="기아">
+                <option value="포스코홀딩스">
+                <option value="에코프로비엠">
+                <option value="삼천당제약">
+                <option value="엔비디아 (NVDA)">
+                <option value="애플 (AAPL)">
+                <option value="테슬라 (TSLA)">
+                <option value="마이크로소프트 (MSFT)">
+              </datalist>
+            </div>
+          </div>
+
           <div class="input-row">
             <div class="form-group">
               <label class="calc-label" for="inputCurrentPrice">
@@ -196,7 +233,7 @@
           
           <!-- Main Fair Value Card -->
           <div class="result-main-card">
-            <div class="result-main-label" id="resModelTitle">종합 가중평균 적정 내재가치 (Fair Value)</div>
+            <div class="result-main-label" id="resModelTitle">[삼성전자] 종합 가중평균 적정 내재가치 (Fair Value)</div>
             <div class="result-main-value" id="resFairValue">85,420원</div>
             <div>
               <span class="result-decision-badge" id="resDecisionBadge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981;">
@@ -396,13 +433,18 @@
   <script src="../js/main.js"></script>
   <script src="../js/ads.js"></script>
   <script>
-    // Presets
+    // Comprehensive Stock Database & Presets
     const PRESETS = {
-      samsung: { price: 78500, bps: 58000, roe: 11.5, eps: 5200, r: 8.5, g: 12.0, per: 15.0, omega: "0.9" },
-      skhynix: { price: 196000, bps: 115000, roe: 18.0, eps: 14500, r: 9.5, g: 20.0, per: 13.5, omega: "0.9" },
-      hyundai: { price: 264000, bps: 340000, roe: 13.0, eps: 36000, r: 8.5, g: 8.0, per: 8.0, omega: "0.9" },
-      naver:   { price: 182000, bps: 170000, roe: 8.5, eps: 8800, r: 8.5, g: 10.0, per: 22.0, omega: "0.9" },
-      nvda:    { price: 128.8, bps: 18.5, roe: 55.0, eps: 3.80, r: 10.0, g: 35.0, per: 35.0, omega: "1.0" }
+      samsung:   { name: "삼성전자", price: 78500, bps: 58000, roe: 11.5, eps: 5200, r: 8.5, g: 12.0, per: 15.0, omega: "0.9" },
+      skhynix:   { name: "SK하이닉스", price: 196000, bps: 115000, roe: 18.0, eps: 14500, r: 9.5, g: 20.0, per: 13.5, omega: "0.9" },
+      hyundai:   { name: "현대차", price: 264000, bps: 340000, roe: 13.0, eps: 36000, r: 8.5, g: 8.0, per: 8.0, omega: "0.9" },
+      naver:     { name: "NAVER", price: 182000, bps: 170000, roe: 8.5, eps: 8800, r: 8.5, g: 10.0, per: 22.0, omega: "0.9" },
+      kakao:     { name: "카카오", price: 42500, bps: 28500, roe: 7.2, eps: 2100, r: 8.5, g: 12.0, per: 25.0, omega: "0.9" },
+      alteogen:  { name: "알테오젠", price: 315000, bps: 14500, roe: 35.0, eps: 4800, r: 10.0, g: 40.0, per: 60.0, omega: "1.0" },
+      celltrion: { name: "셀트리온", price: 198000, bps: 72000, roe: 12.5, eps: 6200, r: 8.5, g: 15.0, per: 32.0, omega: "0.9" },
+      nvda:      { name: "엔비디아 (NVDA)", price: 128.8, bps: 18.5, roe: 55.0, eps: 3.80, r: 10.0, g: 35.0, per: 35.0, omega: "1.0" },
+      tsla:      { name: "테슬라 (TSLA)", price: 224.5, bps: 22.0, roe: 15.0, eps: 2.80, r: 10.0, g: 25.0, per: 75.0, omega: "1.0" },
+      aapl:      { name: "애플 (AAPL)", price: 228.4, bps: 5.10, roe: 145.0, eps: 6.70, r: 8.5, g: 10.0, per: 33.0, omega: "1.0" }
     };
 
     let currentModel = 'all';
@@ -410,6 +452,7 @@
     function loadPreset(key) {
       const data = PRESETS[key];
       if (!data) return;
+      document.getElementById('inputStockName').value = data.name;
       document.getElementById('inputCurrentPrice').value = data.price;
       document.getElementById('inputBps').value = data.bps;
       document.getElementById('inputRoe').value = data.roe;
@@ -418,6 +461,18 @@
       document.getElementById('inputGrowthRate').value = data.g;
       document.getElementById('inputTargetPer').value = data.per;
       document.getElementById('inputOmega').value = data.omega;
+      calculateFairValue();
+    }
+
+    // Check if typed name matches any preset to auto-populate
+    function handleStockNameInput(e) {
+      const inputVal = e.target.value.trim();
+      for (const key in PRESETS) {
+        if (PRESETS[key].name === inputVal || inputVal.includes(PRESETS[key].name)) {
+          loadPreset(key);
+          return;
+        }
+      }
       calculateFairValue();
     }
 
@@ -434,6 +489,7 @@
     }
 
     function calculateFairValue() {
+      const stockName = (document.getElementById('inputStockName')?.value || '기업').trim();
       const price = parseFloat(document.getElementById('inputCurrentPrice')?.value) || 0;
       const bps = parseFloat(document.getElementById('inputBps')?.value) || 0;
       const roe = (parseFloat(document.getElementById('inputRoe')?.value) || 0) / 100;
@@ -513,13 +569,13 @@
 
       if (currentModel === 'srim') {
         finalFairVal = selectedSrim;
-        modelTitle = `S-RIM 잔여이익모델 적정가 (지속계수 ω=${omega})`;
+        modelTitle = `[${stockName}] S-RIM 잔여이익모델 적정가 (지속계수 ω=${omega})`;
       } else if (currentModel === 'graham') {
         finalFairVal = grahamVal;
-        modelTitle = '벤저민 그레이엄 공식 산출 내재가치';
+        modelTitle = `[${stockName}] 벤저민 그레이엄 공식 산출 내재가치`;
       } else if (currentModel === 'lynch') {
         finalFairVal = lynchVal;
-        modelTitle = `피터 린치 성장가치 (성장률 ${g}%)`;
+        modelTitle = `[${stockName}] 피터 린치 성장가치 (성장률 ${g}%)`;
       } else {
         // All-in-One Consensus: Weighted average of reliable models
         let count = 0;
@@ -529,7 +585,7 @@
         if (lynchVal > 0)     { sum += lynchVal * 0.15;     count += 0.15; }
         if (targetPerVal > 0) { sum += targetPerVal * 0.20; count += 0.20; }
         finalFairVal = count > 0 ? (sum / count) : selectedSrim;
-        modelTitle = '종합 가중평균 적정 내재가치 (Consensus Fair Value)';
+        modelTitle = `[${stockName}] 종합 가중평균 적정 내재가치 (Fair Value)`;
       }
 
       document.getElementById('resModelTitle').textContent = modelTitle;
@@ -555,22 +611,22 @@
 
         // Decision Badge & Gauge Pin Logic
         if (marginPct >= 25) {
-          badgeEl.textContent = `🚀 강력 저평가 (안전마진 ${marginPct.toFixed(1)}% - 적극 분할매수 구간)`;
+          badgeEl.textContent = `🚀 [${stockName}] 강력 저평가 (안전마진 ${marginPct.toFixed(1)}% - 적극 분할매수 구간)`;
           badgeEl.style.background = 'rgba(16, 185, 129, 0.2)';
           badgeEl.style.color = '#34d399';
           badgeEl.style.borderColor = '#10b981';
         } else if (marginPct >= 10) {
-          badgeEl.textContent = `💎 안전마진 ${marginPct.toFixed(1)}% 확보 (매수 고려 가능)`;
+          badgeEl.textContent = `💎 [${stockName}] 안전마진 ${marginPct.toFixed(1)}% 확보 (매수 고려 가능)`;
           badgeEl.style.background = 'rgba(6, 182, 212, 0.2)';
           badgeEl.style.color = '#38bdf8';
           badgeEl.style.borderColor = '#06b6d4';
         } else if (marginPct >= -10) {
-          badgeEl.textContent = `⚖️ 적정 가치 부합 (현재 주가 중립 구간)`;
+          badgeEl.textContent = `⚖️ [${stockName}] 적정 가치 부합 (현재 주가 중립 구간)`;
           badgeEl.style.background = 'rgba(148, 163, 184, 0.15)';
           badgeEl.style.color = '#cbd5e1';
           badgeEl.style.borderColor = '#64748b';
         } else {
-          badgeEl.textContent = `⚠️ 고평가 주의 (내재가치 대비 ${Math.abs(marginPct).toFixed(1)}% 고평가)`;
+          badgeEl.textContent = `⚠️ [${stockName}] 고평가 주의 (내재가치 대비 ${Math.abs(marginPct).toFixed(1)}% 고평가)`;
           badgeEl.style.background = 'rgba(239, 68, 68, 0.2)';
           badgeEl.style.color = '#f87171';
           badgeEl.style.borderColor = '#ef4444';
@@ -592,8 +648,12 @@
       }
     }
 
+    document.getElementById('inputStockName')?.addEventListener('input', handleStockNameInput);
+
     document.querySelectorAll('#fairCalcForm input, #fairCalcForm select').forEach(input => {
-      input.addEventListener('input', calculateFairValue);
+      if (input.id !== 'inputStockName') {
+        input.addEventListener('input', calculateFairValue);
+      }
     });
     document.getElementById('btnRunFairCalc')?.addEventListener('click', calculateFairValue);
 

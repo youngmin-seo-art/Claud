@@ -551,26 +551,79 @@ button, input, select, textarea {
   margin-bottom: 16px;
 }
 
+@media (min-width: 1024px) {
+  .briefing-market-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
 .market-chip {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.market-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.35);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .market-chip-name {
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .market-chip-val {
   font-size: 0.95rem;
   font-weight: 800;
   font-family: var(--font-mono);
-  margin-top: 2px;
+  margin-top: 4px;
+  letter-spacing: -0.2px;
+  display: inline-block;
+  padding: 1px 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+@keyframes flashTickUp {
+  0% {
+    background-color: rgba(239, 68, 68, 0.35);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flashTickDown {
+  0% {
+    background-color: rgba(59, 130, 246, 0.35);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-tick-up {
+  animation: flashTickUp 0.85s ease-out;
+}
+
+.flash-tick-down {
+  animation: flashTickDown 0.85s ease-out;
 }
 
 .briefing-content-summary {

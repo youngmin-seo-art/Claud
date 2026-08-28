@@ -25,11 +25,18 @@ if str(CURRENT_DIR) not in sys.path:
 from news_collector import NewsCollector
 from article_generator import ArticleGenerator
 from blog_publisher import BlogPublisher
+import fetch_live_market
 
 def run_agent(keyword=None, is_morning=False, is_test=False):
     print("=" * 60)
     print("🤖 [스톡 블로그 AI 에이전트] 실시간 분석 & 자동 포스팅 가동")
     print("=" * 60)
+
+    # 0. 최신 실시간 증시 데이터 자동 갱신 (Yahoo Finance, Upbit, FX)
+    try:
+        fetch_live_market.main()
+    except Exception as e:
+        print(f"⚠️ [실시간 시세 갱신 건너뜀]: {e}")
 
     collector = NewsCollector()
     generator = ArticleGenerator()

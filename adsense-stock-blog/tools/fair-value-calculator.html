@@ -127,18 +127,40 @@
           </div>
           
           <!-- Interactive Live Stock Search Container -->
-          <div class="form-group" style="margin-bottom: 8px;">
+          <div class="form-group" style="margin-bottom: 12px;">
             <label class="calc-label" for="inputStockName">
-              <span>🔍 종목 검색 또는 직접 입력</span>
-              <small>종목명/티커/종목코드/초성 실시간 검색</small>
+              <span>🔍 분석 종목 검색 (코스피 / 코스닥 / 미국)</span>
+              <small>종목명, 티커, 6자리 코드, 초성 실시간 검색</small>
             </label>
-            <div class="stock-search-container">
-              <input type="text" id="inputStockName" class="calc-input" placeholder="종목명 검색 (예: 삼성전자, 카카오, 005930, NVDA, TSLA, ㅅㅅㅈㅈ 등)" value="삼성전자" autocomplete="off" style="font-size:1.05rem; font-weight:700; padding-left:42px; border-color:var(--accent-cyan);">
-              <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events:none;">🏢</span>
-              <div class="stock-dropdown-results" id="stockDropdownResults"></div>
+            <div style="display: flex; gap: 8px;">
+              <div class="stock-search-container" style="flex: 1;">
+                <input type="text" id="inputStockName" class="calc-input" placeholder="종목명 검색 (예: 삼성전자, 카카오, 005930, NVDA, ㅅㅅㅈㅈ)" value="삼성전자" autocomplete="off" style="font-size:1.05rem; font-weight:700; padding-left:42px; border-color:var(--accent-cyan);">
+                <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events:none;">🏢</span>
+                <div class="stock-dropdown-results" id="stockDropdownResults"></div>
+              </div>
+              <button type="button" id="btnStockSearch" class="btn btn-primary" style="padding: 0 16px; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 6px; font-size: 0.95rem; cursor: pointer; border-radius: 8px;">
+                <span>🔍</span> 조회
+              </button>
             </div>
-            <div style="font-size:0.78rem; color:var(--text-muted); margin-top:4px;">
-              💡 목록에 없는 종목도 직접 종목명을 적고 아래 주가·BPS·ROE·EPS를 입력하시면 즉시 계산됩니다.
+            
+            <!-- Quick Popular Stock Preset Buttons -->
+            <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+              <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">⚡ 빠른 선택:</span>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('005930')">삼성전자</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('000660')">SK하이닉스</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('005380')">현대차</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('035420')">NAVER</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('035720')">카카오</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('196170')">알테오젠</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('068270')">셀트리온</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('247540')">에코프로비엠</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('005490')">POSCO홀딩스</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('NVDA')">엔비디아</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('TSLA')">테슬라</button>
+              <button type="button" class="btn-preset" onclick="selectStockByCode('AAPL')">애플</button>
+            </div>
+            <div style="font-size:0.78rem; color:var(--text-muted); margin-top:6px;">
+              💡 목록 외 종목도 자유롭게 종목명을 적고 주가·BPS·ROE·EPS를 직접 입력하시면 즉시 계산됩니다.
             </div>
           </div>
 
@@ -441,7 +463,66 @@
   <script src="../js/main.js"></script>
   <script src="../js/ads.js"></script>
   <script>
-    // Korean Chosung Decomposer for Fast Hangul Search
+    // Built-in Core Stock Database (Instant Fallback + Curated Financials)
+    const CURATED_STOCKS = [
+      // 반도체 & IT
+      { code: "005930", name: "삼성전자", chosung: "ㅅㅅㅈㅈ", market: "KOSPI", price: 78500, bps: 58000, roe: 11.5, eps: 5200, r: 8.5, g: 12.0, per: 15.0, omega: "0.9" },
+      { code: "000660", name: "SK하이닉스", chosung: "ㅅㅋㅎㅇㄴㅅ", market: "KOSPI", price: 196000, bps: 115000, roe: 18.0, eps: 14500, r: 9.5, g: 20.0, per: 13.5, omega: "0.9" },
+      { code: "042700", name: "한미반도체", chosung: "ㅎㅁㅂㄷㅊ", market: "KOSPI", price: 124000, bps: 12500, roe: 32.0, eps: 4100, r: 9.5, g: 35.0, per: 30.0, omega: "1.0" },
+      { code: "058470", name: "리노공업", chosung: "ㄹㄴㄱㅇ", market: "KOSDAQ", price: 204000, bps: 45000, roe: 24.5, eps: 8500, r: 8.5, g: 18.0, per: 24.0, omega: "1.0" },
+      { code: "007660", name: "이수페타시스", chosung: "ㅇㅅㅍㅌㅅㅅ", market: "KOSPI", price: 43500, bps: 7200, roe: 21.0, eps: 1650, r: 9.0, g: 25.0, per: 26.0, omega: "0.9" },
+      { code: "403870", name: "HPSP", chosung: "ㅎㅍㅅㅍ", market: "KOSDAQ", price: 34000, bps: 4800, roe: 38.0, eps: 1250, r: 9.5, g: 30.0, per: 27.0, omega: "1.0" },
+      { code: "066570", name: "LG전자", chosung: "ㄹㅈㅈㅈ", market: "KOSPI", price: 98500, bps: 118000, roe: 8.0, eps: 8200, r: 8.5, g: 8.0, per: 12.0, omega: "0.9" },
+      { code: "009150", name: "삼성전기", chosung: "ㅅㅅㅈㄱ", market: "KOSPI", price: 142000, bps: 98000, roe: 9.5, eps: 8900, r: 8.5, g: 12.0, per: 16.0, omega: "0.9" },
+
+      // 자동차 & 모빌리티
+      { code: "005380", name: "현대차", chosung: "ㅎㄷㅊ", market: "KOSPI", price: 264000, bps: 340000, roe: 13.0, eps: 36000, r: 8.5, g: 8.0, per: 8.0, omega: "0.9" },
+      { code: "000270", name: "기아", chosung: "ㄱㅇ", market: "KOSPI", price: 118000, bps: 128000, roe: 19.5, eps: 21500, r: 8.5, g: 8.0, per: 6.0, omega: "0.9" },
+      { code: "012330", name: "현대모비스", chosung: "ㅎㄷㅁㅂㅅ", market: "KOSPI", price: 242000, bps: 420000, roe: 8.5, eps: 28000, r: 8.5, g: 7.0, per: 8.5, omega: "0.9" },
+
+      // 플랫폼 & 인터넷 & 게임
+      { code: "035420", name: "NAVER", chosung: "ㄴㅇㅂ", market: "KOSPI", price: 182000, bps: 170000, roe: 8.5, eps: 8800, r: 8.5, g: 10.0, per: 22.0, omega: "0.9" },
+      { code: "035720", name: "카카오", chosung: "ㅋㅋㅇ", market: "KOSPI", price: 42500, bps: 28500, roe: 7.2, eps: 2100, r: 8.5, g: 12.0, per: 25.0, omega: "0.9" },
+      { code: "259960", name: "크래프톤", chosung: "ㅋㄹㅍㅌ", market: "KOSPI", price: 345000, bps: 115000, roe: 18.5, eps: 17500, r: 8.5, g: 16.0, per: 20.0, omega: "0.9" },
+      { code: "352820", name: "하이브", chosung: "ㅎㅇㅂ", market: "KOSPI", price: 195000, bps: 72000, roe: 9.0, eps: 5200, r: 9.0, g: 15.0, per: 35.0, omega: "0.9" },
+
+      // 2차전지 & 바이오
+      { code: "373220", name: "LG에너지솔루션", chosung: "ㄹㅈㅇㄴㅈㅅㄹㅅ", market: "KOSPI", price: 389000, bps: 98000, roe: 6.8, eps: 6500, r: 9.0, g: 18.0, per: 45.0, omega: "0.9" },
+      { code: "247540", name: "에코프로비엠", chosung: "ㅇㅋㅍㄹㅂㅇ", market: "KOSDAQ", price: 172000, bps: 38000, roe: 8.0, eps: 2800, r: 9.5, g: 25.0, per: 50.0, omega: "0.9" },
+      { code: "086520", name: "에코프로", chosung: "ㅇㅋㅍㄹ", market: "KOSDAQ", price: 84500, bps: 22000, roe: 6.5, eps: 1200, r: 9.5, g: 20.0, per: 55.0, omega: "0.9" },
+      { code: "005490", name: "POSCO홀딩스", chosung: "ㅍㅅㅋㅎㄷㅅ", market: "KOSPI", price: 365000, bps: 560000, roe: 5.5, eps: 24000, r: 8.5, g: 7.0, per: 15.0, omega: "0.8" },
+      { code: "006400", name: "삼성SDI", chosung: "ㅅㅅㅇㅅㄷㅇ", market: "KOSPI", price: 348000, bps: 290000, roe: 7.5, eps: 19000, r: 8.5, g: 12.0, per: 18.0, omega: "0.9" },
+      { code: "196170", name: "알테오젠", chosung: "ㅇㅌㅇㅈ", market: "KOSDAQ", price: 315000, bps: 14500, roe: 35.0, eps: 4800, r: 10.0, g: 40.0, per: 60.0, omega: "1.0" },
+      { code: "207940", name: "삼성바이오로직스", chosung: "ㅅㅅㅂㅇㅇㄹㅈㅅ", market: "KOSPI", price: 985000, bps: 215000, roe: 10.5, eps: 15000, r: 8.5, g: 18.0, per: 65.0, omega: "1.0" },
+      { code: "068270", name: "셀트리온", chosung: "ㅅㅌㄹㅇ", market: "KOSPI", price: 198000, bps: 72000, roe: 12.5, eps: 6200, r: 8.5, g: 15.0, per: 32.0, omega: "0.9" },
+      { code: "000100", name: "유한양행", chosung: "ㅇㅎㅇㅎ", market: "KOSPI", price: 138000, bps: 31000, roe: 8.0, eps: 1850, r: 8.5, g: 25.0, per: 45.0, omega: "1.0" },
+      { code: "000250", name: "삼천당제약", chosung: "ㅅㅊㄷㅈㅇ", market: "KOSDAQ", price: 148500, bps: 16000, roe: 15.0, eps: 2400, r: 9.5, g: 30.0, per: 50.0, omega: "1.0" },
+      { code: "141080", name: "리가켐바이오", chosung: "ㄹㄱㅋㅂㅇ", market: "KOSDAQ", price: 96400, bps: 9800, roe: 18.0, eps: 1950, r: 10.0, g: 35.0, per: 45.0, omega: "1.0" },
+      { code: "028300", name: "HLB", chosung: "ㅇㅇㅊㅇㅂ", market: "KOSDAQ", price: 88200, bps: 8200, roe: 12.0, eps: 1100, r: 10.0, g: 30.0, per: 50.0, omega: "0.9" },
+
+      // 금융 & 전력 & 에너지
+      { code: "105560", name: "KB금융", chosung: "ㅋㅂㄱㅇ", market: "KOSPI", price: 88500, bps: 135000, roe: 9.8, eps: 12500, r: 8.5, g: 6.0, per: 7.0, omega: "0.9" },
+      { code: "055550", name: "신한지주", chosung: "ㅅㅎㅈㅈ", market: "KOSPI", price: 56400, bps: 98000, roe: 9.2, eps: 8800, r: 8.5, g: 6.0, per: 6.5, omega: "0.9" },
+      { code: "267260", name: "HD현대일렉트릭", chosung: "ㅎㄷㅎㄷㅇㄹㅌㄹ", market: "KOSPI", price: 312000, bps: 46000, roe: 34.0, eps: 14500, r: 8.5, g: 30.0, per: 22.0, omega: "1.0" },
+      { code: "298040", name: "효성중공업", chosung: "ㅎㅅㅈㄱㅇ", market: "KOSPI", price: 388000, bps: 142000, roe: 18.0, eps: 24500, r: 8.5, g: 25.0, per: 16.0, omega: "0.9" },
+      { code: "034020", name: "두산에너빌리티", chosung: "ㄷㅅㅇㄴㅂㄹㅌ", market: "KOSPI", price: 21500, bps: 16500, roe: 6.8, eps: 750, r: 8.5, g: 15.0, per: 28.0, omega: "0.9" },
+
+      // 미국 빅테크
+      { code: "NVDA", name: "엔비디아 (NVDA)", chosung: "ㅇㅂㄷㅇ", market: "US", price: 128.8, bps: 18.5, roe: 55.0, eps: 3.80, r: 10.0, g: 35.0, per: 35.0, omega: "1.0" },
+      { code: "AAPL", name: "애플 (AAPL)", chosung: "ㅇㅍ", market: "US", price: 228.4, bps: 5.10, roe: 145.0, eps: 6.70, r: 8.5, g: 10.0, per: 33.0, omega: "1.0" },
+      { code: "MSFT", name: "마이크로소프트 (MSFT)", chosung: "ㅁㅇㅋㄹㅅㅍㅌ", market: "US", price: 448.5, bps: 36.5, roe: 38.0, eps: 12.2, r: 8.5, g: 15.0, per: 35.0, omega: "1.0" },
+      { code: "GOOGL", name: "알파벳/구글 (GOOGL)", chosung: "ㄱㄱ", market: "US", price: 176.2, bps: 25.5, roe: 28.0, eps: 7.20, r: 8.5, g: 14.0, per: 24.0, omega: "1.0" },
+      { code: "TSLA", name: "테슬라 (TSLA)", chosung: "ㅌㅅㄹ", market: "US", price: 224.5, bps: 22.0, roe: 15.0, eps: 2.80, r: 10.0, g: 25.0, per: 75.0, omega: "1.0" }
+    ];
+
+    function getActiveStockDb() {
+      if (window.ALL_STOCKS_DB && window.ALL_STOCKS_DB.length > 0) {
+        return window.ALL_STOCKS_DB;
+      }
+      return CURATED_STOCKS;
+    }
+
+    // Korean Chosung Decomposer
     function getChosung(str) {
       if (!str) return "";
       const CHOSUNG = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
@@ -457,11 +538,10 @@
       return result.toLowerCase();
     }
 
-    // Filter Database across All 4,300+ KOSPI & KOSDAQ & US Stocks
+    // Filter Stocks Database
     function filterStocks(query) {
-      const db = window.ALL_STOCKS_DB || [];
+      const db = getActiveStockDb();
       if (!query || !query.trim()) {
-        // Show top popular stocks on focus
         const popularCodes = ['005930', '000660', '005380', '035420', '035720', '196170', '068270', '247540', '086520', '005490', 'NVDA', 'TSLA', 'AAPL', 'MSFT'];
         return db.filter(s => popularCodes.includes(s.code)).slice(0, 10);
       }
@@ -479,7 +559,7 @@
         
         if (nameMatch || codeMatch || chosungMatch || nameChosungMatch || marketMatch) {
           results.push(item);
-          if (results.length >= 25) break; // Fast instant response
+          if (results.length >= 25) break;
         }
       }
       return results;
@@ -490,7 +570,7 @@
       const dropdown = document.getElementById('stockDropdownResults');
       if (!dropdown) return;
 
-      if (matches.length === 0) {
+      if (!matches || matches.length === 0) {
         dropdown.innerHTML = `
           <div class="stock-dropdown-empty">
             🔍 검색된 등록 종목이 없습니다.<br>
@@ -502,13 +582,13 @@
 
       dropdown.innerHTML = matches.map(item => {
         const isUsd = item.market === 'US' || (item.price && item.price < 1000);
-        const priceStr = item.price ? (isUsd ? `$${item.price}` : `${item.price.toLocaleString()}원`) : '-';
+        const priceStr = item.price ? (isUsd ? `$${item.price}` : `${Math.round(item.price).toLocaleString()}원`) : '-';
         const marketBadge = item.market || 'KRX';
         const finInfo = (item.roe !== undefined && item.bps !== undefined) 
-          ? `ROE ${item.roe}% / BPS ${item.bps.toLocaleString()}`
+          ? `ROE ${item.roe}% / BPS ${Math.round(item.bps).toLocaleString()}`
           : `현재가: ${priceStr}`;
         return `
-          <div class="stock-dropdown-item" onmousedown="selectStockByCode('${item.code}')">
+          <div class="stock-dropdown-item" data-code="${item.code}">
             <div class="stock-item-info">
               <span class="stock-item-badge">${marketBadge}</span>
               <div>
@@ -523,31 +603,46 @@
           </div>
         `;
       }).join('');
+
+      // Attach click events
+      dropdown.querySelectorAll('.stock-dropdown-item').forEach(el => {
+        el.addEventListener('mousedown', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const code = this.getAttribute('data-code');
+          selectStockByCode(code);
+        });
+      });
+
       dropdown.style.display = 'block';
     }
 
-    // Select Stock and Populate Form
+    // Select Stock by Code
     function selectStockByCode(code) {
-      const db = window.ALL_STOCKS_DB || [];
+      const db = getActiveStockDb();
       const stock = db.find(s => s.code === code);
       if (!stock) return;
 
-      document.getElementById('inputStockName').value = stock.name;
+      const nameEl = document.getElementById('inputStockName');
+      if (nameEl) nameEl.value = stock.name;
+
       if (stock.price) {
         document.getElementById('inputCurrentPrice').value = stock.price;
       }
 
-      // If stock has curated financials, load them directly
-      if (stock.bps !== undefined) {
-        document.getElementById('inputBps').value = stock.bps;
-        document.getElementById('inputRoe').value = stock.roe;
-        document.getElementById('inputEps').value = stock.eps;
-        document.getElementById('inputDiscountRate').value = stock.r || 8.5;
-        document.getElementById('inputGrowthRate').value = stock.g || 10.0;
-        document.getElementById('inputTargetPer').value = stock.per || 12.0;
-        document.getElementById('inputOmega').value = stock.omega || "0.9";
+      // Check if curated preset financials exist
+      const curated = CURATED_STOCKS.find(c => c.code === code);
+      const target = curated || stock;
+
+      if (target.bps !== undefined) {
+        document.getElementById('inputBps').value = target.bps;
+        document.getElementById('inputRoe').value = target.roe;
+        document.getElementById('inputEps').value = target.eps;
+        document.getElementById('inputDiscountRate').value = target.r || 8.5;
+        document.getElementById('inputGrowthRate').value = target.g || 10.0;
+        document.getElementById('inputTargetPer').value = target.per || 12.0;
+        document.getElementById('inputOmega').value = target.omega || "0.9";
       } else {
-        // For general KOSPI/KOSDAQ stocks without presets, provide estimated baseline values based on current price
         const price = stock.price || 10000;
         const estBps = Math.round(price * 0.85);
         const estEps = Math.round(price / 12);
@@ -566,28 +661,16 @@
       calculateFairValue();
     }
 
-      const dropdown = document.getElementById('stockDropdownResults');
-      if (dropdown) dropdown.style.display = 'none';
-
-      calculateFairValue();
-    }
-
-    function loadPreset(key) {
-      const map = {
-        samsung: "005930",
-        skhynix: "000660",
-        hyundai: "005380",
-        naver:   "035420",
-        kakao:   "035720",
-        alteogen:"196170",
-        celltrion:"068270",
-        nvda:    "NVDA",
-        tsla:    "TSLA",
-        aapl:    "AAPL"
-      };
-      if (map[key]) {
-        selectStockByCode(map[key]);
+    // Search and Auto-Apply
+    function searchAndApplyStock(query) {
+      if (!query || !query.trim()) return false;
+      const q = query.trim().toLowerCase();
+      const matches = filterStocks(q);
+      if (matches && matches.length > 0) {
+        selectStockByCode(matches[0].code);
+        return true;
       }
+      return false;
     }
 
     let currentModel = 'all';
@@ -624,42 +707,40 @@
       };
 
       // 1. S-RIM Calculations
-      // Excess Return = BPS * (ROE - r)
       const excessReturn = bps * (roe - r);
-      
-      // S-RIM (omega = 1.0) = BPS + Excess / r
       const srim1 = bps + (r > 0 ? (excessReturn / r) : 0);
-      
-      // S-RIM (omega = 0.9) = BPS + Excess * 0.9 / (1 + r - 0.9)
       const srim09 = bps + ((1 + r - 0.9) > 0 ? (excessReturn * 0.9 / (1 + r - 0.9)) : 0);
-
-      // S-RIM (omega = 0.8) = BPS + Excess * 0.8 / (1 + r - 0.8)
       const srim08 = bps + ((1 + r - 0.8) > 0 ? (excessReturn * 0.8 / (1 + r - 0.8)) : 0);
 
-      // Selected S-RIM based on omega dropdown
       let selectedSrim = srim09;
       if (omega >= 0.99) selectedSrim = srim1;
       else if (omega <= 0.81) selectedSrim = srim08;
 
-      // 2. Graham Number: sqrt(22.5 * EPS * BPS)
+      // 2. Graham Number
       let grahamVal = 0;
       if (eps > 0 && bps > 0) {
         grahamVal = Math.sqrt(22.5 * eps * bps);
       }
 
-      // 3. Peter Lynch Fair Value = EPS * g
+      // 3. Peter Lynch Fair Value
       const lynchVal = (eps > 0 && g > 0) ? (eps * g) : 0;
 
-      // 4. Target PER Value = EPS * Target PER
+      // 4. Target PER Value
       const targetPerVal = (eps > 0 && targetPer > 0) ? (eps * targetPer) : 0;
 
       // Update Breakdown Table Rows
-      document.getElementById('rowSrim1').textContent = formatVal(srim1);
-      document.getElementById('rowSrim09').textContent = formatVal(srim09);
-      document.getElementById('rowSrim08').textContent = formatVal(srim08);
-      document.getElementById('rowGraham').textContent = formatVal(grahamVal);
-      document.getElementById('rowLynch').textContent = formatVal(lynchVal);
-      document.getElementById('rowTargetPer').textContent = formatVal(targetPerVal);
+      const rowSrim1 = document.getElementById('rowSrim1');
+      if (rowSrim1) rowSrim1.textContent = formatVal(srim1);
+      const rowSrim09 = document.getElementById('rowSrim09');
+      if (rowSrim09) rowSrim09.textContent = formatVal(srim09);
+      const rowSrim08 = document.getElementById('rowSrim08');
+      if (rowSrim08) rowSrim08.textContent = formatVal(srim08);
+      const rowGraham = document.getElementById('rowGraham');
+      if (rowGraham) rowGraham.textContent = formatVal(grahamVal);
+      const rowLynch = document.getElementById('rowLynch');
+      if (rowLynch) rowLynch.textContent = formatVal(lynchVal);
+      const rowTargetPer = document.getElementById('rowTargetPer');
+      if (rowTargetPer) rowTargetPer.textContent = formatVal(targetPerVal);
 
       const updateDiff = (elId, val) => {
         const el = document.getElementById(elId);
@@ -693,7 +774,6 @@
         finalFairVal = lynchVal;
         modelTitle = `[${stockName}] 피터 린치 성장가치 (성장률 ${g}%)`;
       } else {
-        // All-in-One Consensus: Weighted average of reliable models
         let count = 0;
         let sum = 0;
         if (selectedSrim > 0) { sum += selectedSrim * 0.40; count += 0.40; }
@@ -704,8 +784,10 @@
         modelTitle = `[${stockName}] 종합 가중평균 적정 내재가치 (Fair Value)`;
       }
 
-      document.getElementById('resModelTitle').textContent = modelTitle;
-      document.getElementById('resFairValue').textContent = formatVal(finalFairVal);
+      const resModelTitle = document.getElementById('resModelTitle');
+      if (resModelTitle) resModelTitle.textContent = modelTitle;
+      const resFairValue = document.getElementById('resFairValue');
+      if (resFairValue) resFairValue.textContent = formatVal(finalFairVal);
 
       // Margin of Safety & Upside calculations
       if (price > 0 && finalFairVal > 0) {
@@ -719,54 +801,63 @@
         const gaugePin = document.getElementById('gaugePin');
 
         const sign = marginPct > 0 ? '+' : '';
-        marginEl.textContent = `${sign}${marginPct.toFixed(1)}%`;
-        marginEl.style.color = marginPct > 0 ? '#34d399' : '#f87171';
-
-        upsideEl.textContent = `${sign}${upsidePct.toFixed(1)}%`;
-        upsideEl.style.color = upsidePct > 0 ? '#38bdf8' : '#f87171';
-
-        // Decision Badge & Gauge Pin Logic
-        if (marginPct >= 25) {
-          badgeEl.textContent = `🚀 [${stockName}] 강력 저평가 (안전마진 ${marginPct.toFixed(1)}% - 적극 분할매수 구간)`;
-          badgeEl.style.background = 'rgba(16, 185, 129, 0.2)';
-          badgeEl.style.color = '#34d399';
-          badgeEl.style.borderColor = '#10b981';
-        } else if (marginPct >= 10) {
-          badgeEl.textContent = `💎 [${stockName}] 안전마진 ${marginPct.toFixed(1)}% 확보 (매수 고려 가능)`;
-          badgeEl.style.background = 'rgba(6, 182, 212, 0.2)';
-          badgeEl.style.color = '#38bdf8';
-          badgeEl.style.borderColor = '#06b6d4';
-        } else if (marginPct >= -10) {
-          badgeEl.textContent = `⚖️ [${stockName}] 적정 가치 부합 (현재 주가 중립 구간)`;
-          badgeEl.style.background = 'rgba(148, 163, 184, 0.15)';
-          badgeEl.style.color = '#cbd5e1';
-          badgeEl.style.borderColor = '#64748b';
-        } else {
-          badgeEl.textContent = `⚠️ [${stockName}] 고평가 주의 (내재가치 대비 ${Math.abs(marginPct).toFixed(1)}% 고평가)`;
-          badgeEl.style.background = 'rgba(239, 68, 68, 0.2)';
-          badgeEl.style.color = '#f87171';
-          badgeEl.style.borderColor = '#ef4444';
+        if (marginEl) {
+          marginEl.textContent = `${sign}${marginPct.toFixed(1)}%`;
+          marginEl.style.color = marginPct > 0 ? '#34d399' : '#f87171';
+        }
+        if (upsideEl) {
+          upsideEl.textContent = `${sign}${upsidePct.toFixed(1)}%`;
+          upsideEl.style.color = upsidePct > 0 ? '#38bdf8' : '#f87171';
         }
 
-        gaugeText.textContent = `안전마진 ${sign}${marginPct.toFixed(1)}%`;
-        gaugeText.style.color = marginPct > 0 ? '#34d399' : '#f87171';
+        if (badgeEl) {
+          if (marginPct >= 25) {
+            badgeEl.textContent = `🚀 [${stockName}] 강력 저평가 (안전마진 ${marginPct.toFixed(1)}% - 적극 분할매수 구간)`;
+            badgeEl.style.background = 'rgba(16, 185, 129, 0.2)';
+            badgeEl.style.color = '#34d399';
+            badgeEl.style.borderColor = '#10b981';
+          } else if (marginPct >= 10) {
+            badgeEl.textContent = `💎 [${stockName}] 안전마진 ${marginPct.toFixed(1)}% 확보 (매수 고려 가능)`;
+            badgeEl.style.background = 'rgba(6, 182, 212, 0.2)';
+            badgeEl.style.color = '#38bdf8';
+            badgeEl.style.borderColor = '#06b6d4';
+          } else if (marginPct >= -10) {
+            badgeEl.textContent = `⚖️ [${stockName}] 적정 가치 부합 (현재 주가 중립 구간)`;
+            badgeEl.style.background = 'rgba(148, 163, 184, 0.15)';
+            badgeEl.style.color = '#cbd5e1';
+            badgeEl.style.borderColor = '#64748b';
+          } else {
+            badgeEl.textContent = `⚠️ [${stockName}] 고평가 주의 (내재가치 대비 ${Math.abs(marginPct).toFixed(1)}% 고평가)`;
+            badgeEl.style.background = 'rgba(239, 68, 68, 0.2)';
+            badgeEl.style.color = '#f87171';
+            badgeEl.style.borderColor = '#ef4444';
+          }
+        }
 
-        // Pin position: -30% => 5%, 0% => 50%, +30% => 95%
-        let pinPos = 50 + (marginPct / 30) * 45;
-        pinPos = Math.max(5, Math.min(95, pinPos));
-        gaugePin.style.left = `${pinPos}%`;
+        if (gaugeText) {
+          gaugeText.textContent = `안전마진 ${sign}${marginPct.toFixed(1)}%`;
+          gaugeText.style.color = marginPct > 0 ? '#34d399' : '#f87171';
+        }
 
-        // 20% / 30% Margin of safety target buy prices
+        if (gaugePin) {
+          let pinPos = 50 + (marginPct / 30) * 45;
+          pinPos = Math.max(5, Math.min(95, pinPos));
+          gaugePin.style.left = `${pinPos}%`;
+        }
+
         const safe20 = finalFairVal * 0.80;
         const safe30 = finalFairVal * 0.70;
-        document.getElementById('resSafeBuy20').textContent = formatVal(safe20);
-        document.getElementById('resSafeBuy30').textContent = formatVal(safe30);
+        const resSafeBuy20 = document.getElementById('resSafeBuy20');
+        if (resSafeBuy20) resSafeBuy20.textContent = formatVal(safe20);
+        const resSafeBuy30 = document.getElementById('resSafeBuy30');
+        if (resSafeBuy30) resSafeBuy30.textContent = formatVal(safe30);
       }
     }
 
     // Live Stock Search Event Listeners
     const stockInput = document.getElementById('inputStockName');
     const dropdownResults = document.getElementById('stockDropdownResults');
+    const btnStockSearch = document.getElementById('btnStockSearch');
 
     if (stockInput && dropdownResults) {
       stockInput.addEventListener('input', (e) => {
@@ -781,8 +872,26 @@
         renderDropdown(matches);
       });
 
+      stockInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          searchAndApplyStock(stockInput.value);
+        }
+      });
+
+      if (btnStockSearch) {
+        btnStockSearch.addEventListener('click', (e) => {
+          e.preventDefault();
+          const matched = searchAndApplyStock(stockInput.value);
+          if (!matched) {
+            const matches = filterStocks(stockInput.value);
+            renderDropdown(matches);
+          }
+        });
+      }
+
       document.addEventListener('click', (e) => {
-        if (!stockInput.contains(e.target) && !dropdownResults.contains(e.target)) {
+        if (!stockInput.contains(e.target) && !dropdownResults.contains(e.target) && (!btnStockSearch || !btnStockSearch.contains(e.target))) {
           dropdownResults.style.display = 'none';
         }
       });
@@ -795,7 +904,10 @@
     });
     document.getElementById('btnRunFairCalc')?.addEventListener('click', calculateFairValue);
 
-    // Initial run with Samsung Electronics
+    // Initial Run with Samsung Electronics
+    window.addEventListener('DOMContentLoaded', () => {
+      selectStockByCode("005930");
+    });
     selectStockByCode("005930");
   </script>
 </body>

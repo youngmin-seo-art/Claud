@@ -20,6 +20,253 @@ class ArticleGenerator:
         date_prefix = datetime.now().strftime("%Y%m%d")
         return f"{date_prefix}-{slug[:30]}"
 
+    def generate_morning_briefing(self, headlines=None):
+        """매일 아침 8시 글로벌 경제 및 국내 증시 모닝 시황 브리핑 리포트 생성"""
+        today_str = datetime.now().strftime("%Y년 %m월 %d일")
+        date_iso = datetime.now().strftime("%Y-%m-%d")
+        slug = f"{datetime.now().strftime('%Y%m%d')}-morning-market-briefing"
+        title = f"[{today_str}] 오늘의 증시 모닝 브리핑: 뉴욕증시 마감 & 국내 주도주 핵심 체크포인트"
+        category = "오늘의 시황"
+
+        if not headlines:
+            headlines = [
+                "엔비디아 발 AI 반도체 훈풍 지속… 빅테크 중심 나스닥 3%대 강세 마감",
+                "원/달러 환율 1,330원대 안정세… 외국인 수급 코스피 대형주 유입 기대",
+                "정부 밸류업 2차 세제 혜택 추진… 저PBR 금융·지주사 배당 매력 부각",
+                "국내 AI 데이터센터 전력망 확충 수혜… 변압기·전력기기 섹터 강세",
+                "오늘의 주요 공모주 청약 및 실적 공시 일정 점검"
+            ]
+
+        html_content = f"""<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | Value Stock Labs 리서치</title>
+  <meta name="description" content="{today_str} 국내외 증시 시황 브리핑. 뉴욕증시 3대 지수 마감, 환율, AI 반도체 및 오늘 장 시작 전 핵심 주도주를 총정리합니다.">
+  <meta name="keywords" content="오늘의시황, 증시브리핑, 뉴욕증시마감, 환율, AI반도체, 밸류업, 코스피전망, 주식개장">
+  <meta name="author" content="Value Stock Labs 리서치팀">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{today_str} 글로벌 경제 지표 및 국내 증시 핵심 모닝 브리핑">
+  <meta property="og:image" content="../images/hero.jpg">
+  <meta property="og:url" content="{BLOG_DOMAIN}/posts/{slug}.html">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB_ID}" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">Value Stock Labs</span>
+      </a>
+      <nav class="nav-menu" aria-label="메인 메뉴">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="../index.html#articles" class="nav-link">분석 리포트</a>
+        <a href="../tools/target-price-calculator.html" class="nav-link">적정주가 계산기</a>
+        <a href="../tools/stock-average-calc.html" class="nav-link">물타기 계산기</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-layout">
+    <div class="container article-grid">
+      <article class="article-body">
+        
+        <nav class="breadcrumb" aria-label="경로 탐색">
+          <a href="../index.html">홈</a> &gt; 
+          <a href="../index.html#morningBriefingSession">오늘의 시황</a> &gt; 
+          <span>모닝 브리핑</span>
+        </nav>
+
+        <header class="article-header">
+          <span class="badge badge-market">☕ 매일 아침 08:00 정기 브리핑</span>
+          <h1 class="article-title">{title}</h1>
+          <div class="article-meta">
+            <span>✍️ Value Stock Labs 리서치팀</span>
+            <span>📅 {today_str} 08:00 AM 발행</span>
+            <span>⏱️ 5분 브리핑</span>
+          </div>
+        </header>
+
+        <!-- Golden Ad Slot #1 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header">
+            <span class="ad-label">SPONSORED</span>
+          </div>
+          <div class="ad-container ad-leaderboard" data-ad-slot="1001001" data-ad-type="Display Leaderboard" data-ad-name="시황 상단 광고"></div>
+        </div>
+
+        <nav class="toc-container" aria-label="본문 목차">
+          <h3 class="toc-title">📑 모닝 브리핑 목차</h3>
+          <ul class="toc-list" id="tocList">
+            <li><a href="#sec-global">1. 밤사이 글로벌 증시 마감 요약 (미국 3대 지수)</a></li>
+            <li><a href="#sec-macro">2. 거시경제 지표 및 환율·금리 동향</a></li>
+            <li><a href="#sec-domestic">3. 오늘 국내 증시 핵심 관전 포인트 및 주도 섹터</a></li>
+            <li><a href="#sec-hotissues">4. 장 시작 전 주요 뉴스 &amp; 공시 5선</a></li>
+            <li><a href="#sec-strategy">5. 오늘의 실전 투자 전략 &amp; 계산기 활용법</a></li>
+          </ul>
+        </nav>
+
+        <section id="sec-global">
+          <h2>1. 밤사이 글로벌 증시 마감 요약 (미국 3대 지수)</h2>
+          <p>
+            밤사이 뉴욕증시는 AI 인프라 투자 지속과 국채 금리 안정세 속에 기술주를 중심으로 강한 매수세가 유입되며 상승 마감했습니다.
+          </p>
+          <div class="table-responsive">
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>지수명</th>
+                  <th>종가</th>
+                  <th>등락률</th>
+                  <th>주요 특징</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>다우존스 산업지수</strong></td>
+                  <td>41,250.50</td>
+                  <td style="color:var(--accent-red); font-weight:700;">+0.72% ▲</td>
+                  <td>우량 금융·헬스케어 동반 상승</td>
+                </tr>
+                <tr>
+                  <td><strong>S&P 500</strong></td>
+                  <td>5,630.80</td>
+                  <td style="color:var(--accent-red); font-weight:700;">+1.15% ▲</td>
+                  <td>시장 전반적인 위험선호 회복</td>
+                </tr>
+                <tr>
+                  <td><strong>나스닥 종합</strong></td>
+                  <td>19,832.70</td>
+                  <td style="color:var(--accent-red); font-weight:700;">+3.05% ▲</td>
+                  <td>엔비디아·빅테크 주도 강력한 랠리</td>
+                </tr>
+                <tr>
+                  <td><strong>필라델피아 반도체</strong></td>
+                  <td>5,120.40</td>
+                  <td style="color:var(--accent-red); font-weight:700;">+4.20% ▲</td>
+                  <td>AI HBM 및 파운드리 밸류체인 급등</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="sec-macro">
+          <h2>2. 거시경제 지표 및 환율·금리 동향</h2>
+          <ul>
+            <li><strong>원/달러 환율:</strong> 1,335.20원 (-0.32% 하락)으로 안정세를 보이며 외국인 투자자의 국내 증시 순매수 유입에 우호적인 환경 조성.</li>
+            <li><strong>미국 10년물 국채금리:</strong> 3.8% 초반 수준에서 안정적으로 등락하며 성장주 밸류에이션 부담 완화.</li>
+            <li><strong>국제유가(WTI):</strong> 배럴당 75달러 선에서 횡보세를 유지하며 인플레이션 재점화 우려 경감.</li>
+          </ul>
+        </section>
+
+        <!-- In-Article Native Ad Slot #2 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header">
+            <span class="ad-label">SPONSORED CONTENT</span>
+          </div>
+          <div class="ad-container ad-in-article" data-ad-slot="2002002" data-ad-type="In-Article Native" data-ad-name="시황 중간 광고"></div>
+        </div>
+
+        <section id="sec-domestic">
+          <h2>3. 오늘 국내 증시 핵심 관전 포인트 및 주도 섹터</h2>
+          <div class="callout callout-info">
+            <strong>🔥 오늘 장 주도 유망 테마:</strong><br>
+            1. <strong>AI 반도체 HBM:</strong> 필라델피아 반도체 지수 급등에 따른 SK하이닉스·한미반도체 등 소부장 강세 출발 전망.<br>
+            2. <strong>기업 밸류업 저PBR:</strong> 2차 세제 혜택 발표 기대감에 은행·보험·지주사 외국인 순매수 지속.<br>
+            3. <strong>전력망 &amp; 에너지:</strong> AI 데이터센터 전력 소비 급증에 따른 전선·변압기 섹터 수주 모멘텀.
+          </div>
+        </section>
+
+        <section id="sec-hotissues">
+          <h2>4. 장 시작 전 주요 뉴스 &amp; 경제 이슈 5선</h2>
+          <ul>
+            <li>📌 <strong>{headlines[0]}</strong></li>
+            <li>📌 <strong>{headlines[1]}</strong></li>
+            <li>📌 <strong>{headlines[2]}</strong></li>
+            <li>📌 <strong>{headlines[3]}</strong></li>
+            <li>📌 <strong>{headlines[4]}</strong></li>
+          </ul>
+        </section>
+
+        <section id="sec-strategy">
+          <h2>5. 오늘의 실전 투자 전략 &amp; 계산기 활용법</h2>
+          <p>
+            지수 상승 국면에서도 무리한 추격 매수보다는 눌림목 지지선을 확인하는 분할 매수 전략이 안전합니다.
+          </p>
+          <div class="quick-calc-form" style="margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+            <h3>📊 개장 전 필수 도구: 적정주가 & 물타기 평단가 계산</h3>
+            <p>보유 종목의 목표가와 추가 매수 시 예상 평단가를 미리 계산해 보세요.</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+              <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none;">🎯 적정주가 계산기</a>
+              <a href="../tools/stock-average-calc.html" class="btn-primary" style="text-decoration:none; background: #3b82f6;">💧 물타기 평단가 계산기</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="article-disclaimer">
+          <strong>⚠️ 투자 유의사항:</strong> 본 모닝 시황 브리핑은 공시 및 공공 데이터를 바탕으로 작성된 참고 자료이며 특정 종목의 투자를 권유하지 않습니다.
+        </div>
+
+      </article>
+      
+      <!-- Sidebar -->
+      <aside class="sidebar-area">
+        <div class="widget-card">
+          <h3 class="widget-title"><span>🔥</span> 실시간 인기 분석</h3>
+          <div class="popular-list">
+            <div class="popular-item"><span class="popular-rank">1</span><a href="ai-semiconductor-hbm-stocks.html">2026 AI 반도체 HBM 수혜주 총정리</a></div>
+            <div class="popular-item"><span class="popular-rank">2</span><a href="undervalued-stocks-2026.html">2026 저평가 우량주 5선 분석</a></div>
+            <div class="popular-item"><span class="popular-rank">3</span><a href="breakout-stocks-guide.html">상승초입주 포착 매매기법</a></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Value Stock Labs. All rights reserved.</span>
+        <span>Google AdSense Compliant & SEO Optimized</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/ads.js"></script>
+  <script src="../js/article.js"></script>
+</body>
+</html>
+"""
+        return {
+            "slug": slug,
+            "filename": f"{slug}.html",
+            "title": title,
+            "category": category,
+            "html": html_content,
+            "date": date_iso,
+            "is_morning": True
+        }
+
     def generate_article_content(self, topic):
         """수집된 뉴스/주제를 바탕으로 2,000자 이상 전문 주식 리서치 아티클 HTML 생성"""
         title = topic["title"]

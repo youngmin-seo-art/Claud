@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기업 적정가치(Fair Value) & 밸류에이션 계산기 | S-RIM·그레이엄·피터린치 모델 - Value Stock Labs</title>
+  <meta name="description" content="사경인 회계사의 S-RIM(잔여이익모델), 벤저민 그레이엄 공식, 피터 린치 PEG 모델을 활용하여 기업의 내재적 적정 가치와 안전마진(Margin of Safety)을 실시간으로 정밀 계산합니다.">
+  <meta name="keywords" content="적정가치계산기, 기업가치평가, SRIM계산기, 밸류에이션, 그레이엄공식, 피터린치적정주가, 안전마진, 내재가치계산">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="기업 내재적 적정 가치(Fair Value) 계산기 - Value Stock Labs">
+  <meta property="og:description" content="S-RIM, 그레이엄, 피터 린치 3대 밸류에이션 모델 기반 실시간 적정주가 및 안전마진 시뮬레이터.">
+  <meta property="og:image" content="../images/hero.jpg">
+  <meta property="og:url" content="https://valuestocklabs.com/tools/fair-value-calculator.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "기업 적정가치(Fair Value) 계산기",
+    "url": "https://valuestocklabs.com/tools/fair-value-calculator.html",
+    "description": "S-RIM, 벤저민 그레이엄, 피터 린치 밸류에이션 모델을 통합하여 기업의 주당 내재가치와 안전마진을 산출하는 투자 도구입니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Live Market Ticker -->
+  <aside class="market-ticker-wrap">
+    <div class="ticker-label"><span>🔥 LIVE MARKET</span></div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📈</div>
+        <span class="logo-text">Value Stock Labs</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
+        <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
+        <a href="../posts/ipo-public-offering-guide.html" class="nav-link">공모주</a>
+        <a href="fair-value-calculator.html" class="nav-link active">적정가치 계산기</a>
+        <a href="target-price-calculator.html" class="nav-link">손익비 계산기</a>
+        <a href="stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="../pages/about.html" class="nav-link">소개</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn" aria-label="다크/라이트 모드 전환"><span>☀️</span></button>
+        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn" aria-label="모바일 메뉴 열기"><span>☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Top Leaderboard Ad -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-leaderboard" 
+           data-ad-slot="9010001" 
+           data-ad-type="Display Leaderboard" 
+           data-ad-name="적정가치 계산기 상단 광고" 
+           data-ad-size="728x90 / 320x100">
+      </div>
+    </div>
+
+    <div class="tool-page-header">
+      <h1 class="tool-page-title">기업 내재적 적정 가치(Fair Value) 계산기</h1>
+      <p class="tool-page-desc">
+        워런 버핏의 스승 <strong>벤저민 그레이엄</strong>, 한국 가치투자의 정석 <strong>사경인 S-RIM</strong>, 전설적 펀드매니저 <strong>피터 린치</strong>의 밸류에이션 모델을 통합하여 기업의 진짜 가치와 <strong>안전마진(Margin of Safety)</strong>을 실시간 계산합니다.
+      </p>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="preset-wrapper">
+      <div class="preset-title">⚡ 대표 우량주 1-클릭 프리셋 불러오기:</div>
+      <div class="preset-btns">
+        <button type="button" class="btn-preset" onclick="loadPreset('samsung')">🇰🇷 삼성전자</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('skhynix')">🇰🇷 SK하이닉스</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('hyundai')">🇰🇷 현대차</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('naver')">🇰🇷 NAVER</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('nvda')">🇺🇸 엔비디아(NVDA)</button>
+      </div>
+    </div>
+
+    <div class="calculator-wrapper">
+      
+      <!-- Model Tabs -->
+      <div class="model-tabs-wrap">
+        <button type="button" class="model-tab-btn active" data-model="all" onclick="selectModelTab('all')">🌟 종합 멀티 밸류에이션 (All-in-One)</button>
+        <button type="button" class="model-tab-btn" data-model="srim" onclick="selectModelTab('srim')">📊 S-RIM 잔여이익모델</button>
+        <button type="button" class="model-tab-btn" data-model="graham" onclick="selectModelTab('graham')">💎 벤저민 그레이엄 공식</button>
+        <button type="button" class="model-tab-btn" data-model="lynch" onclick="selectModelTab('lynch')">📈 피터 린치 성장가치(PEG)</button>
+      </div>
+
+      <div class="calc-grid-layout">
+        
+        <!-- Input Form -->
+        <form class="calc-input-section" id="fairCalcForm" onsubmit="return false;">
+          
+          <div class="calc-section-title">
+            <span>📌</span> 1. 기업 핵심 재무제표 지표 입력
+          </div>
+          
+          <div class="input-row">
+            <div class="form-group">
+              <label class="calc-label" for="inputCurrentPrice">
+                현재 주가 (원 / $) <small>시장가</small>
+              </label>
+              <input type="number" id="inputCurrentPrice" class="calc-input" value="78500" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="inputBps">
+                BPS (주당 순자산, 원) <small>장부가치</small>
+              </label>
+              <input type="number" id="inputBps" class="calc-input" value="58000" min="0" step="any">
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label class="calc-label" for="inputRoe">
+                예상 ROE (자기자본이익률, %) <small>3개년 가중평균</small>
+              </label>
+              <input type="number" id="inputRoe" class="calc-input" value="11.5" step="0.1">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="inputEps">
+                예상 EPS (주당 순이익, 원) <small>수익가치</small>
+              </label>
+              <input type="number" id="inputEps" class="calc-input" value="5200" min="0" step="any">
+            </div>
+          </div>
+
+          <div class="calc-section-title" style="margin-top:10px;">
+            <span>⚙️</span> 2. 밸류에이션 매개변수 (고급 설정)
+          </div>
+
+          <div class="input-row-3">
+            <div class="form-group">
+              <label class="calc-label" for="inputDiscountRate">
+                요구수익률 (할인율, %) <small>기본 8~10%</small>
+              </label>
+              <input type="number" id="inputDiscountRate" class="calc-input" value="8.5" step="0.1">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="inputGrowthRate">
+                이익성장률 (g, %) <small>피터린치 모델</small>
+              </label>
+              <input type="number" id="inputGrowthRate" class="calc-input" value="12.0" step="0.1">
+            </div>
+            <div class="form-group">
+              <label class="calc-label" for="inputTargetPer">
+                목표 PER (배) <small>업종 평균</small>
+              </label>
+              <input type="number" id="inputTargetPer" class="calc-input" value="15.0" step="0.5">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="calc-label" for="inputOmega">
+              초과이익 지속성 계수 (&omega;) <small>S-RIM 모델</small>
+            </label>
+            <select id="inputOmega" class="calc-select">
+              <option value="1.0">초과이익 영구 지속 (&omega;=1.0) - 해자가 강력한 독점 기업</option>
+              <option value="0.9" selected>초과이익 완만히 감소 (&omega;=0.9) - 일반 우량 대형주 (추천 표준)</option>
+              <option value="0.8">초과이익 빠르게 소멸 (&omega;=0.8) - 경쟁 심화 사이클 산업</option>
+            </select>
+          </div>
+
+          <div class="calc-btn-group">
+            <button type="button" class="btn-calc-action btn-calculate" id="btnRunFairCalc">내재가치 & 안전마진 종합 분석 🚀</button>
+            <button type="button" class="btn-calc-action btn-reset" onclick="resetForm()">초기화 ↺</button>
+          </div>
+        </form>
+
+        <!-- Result Section -->
+        <div class="calc-result-section">
+          
+          <!-- Main Fair Value Card -->
+          <div class="result-main-card">
+            <div class="result-main-label" id="resModelTitle">종합 가중평균 적정 내재가치 (Fair Value)</div>
+            <div class="result-main-value" id="resFairValue">85,420원</div>
+            <div>
+              <span class="result-decision-badge" id="resDecisionBadge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981;">
+                ✨ 안전마진 8.8% 확보 (매수 고려 구간)
+              </span>
+            </div>
+          </div>
+
+          <!-- Safety Margin Visual Gauge -->
+          <div class="safety-gauge-wrap">
+            <div class="gauge-header">
+              <span>📉 고평가 위험 (과열)</span>
+              <strong id="gaugeMarginText" style="color:var(--accent-cyan);">안전마진 +8.8%</strong>
+              <span>💎 강력 저평가 (안전)</span>
+            </div>
+            <div class="gauge-track">
+              <div class="gauge-pin" id="gaugePin" style="left: 60%;"></div>
+            </div>
+            <div class="gauge-labels">
+              <span>-30%</span>
+              <span>-15%</span>
+              <span>0% (적정가)</span>
+              <span>+15%</span>
+              <span>+30%</span>
+            </div>
+          </div>
+
+          <!-- Key Stat Grid -->
+          <div class="result-stat-grid">
+            <div class="result-stat-item">
+              <div class="result-stat-name">안전마진 (Margin of Safety)</div>
+              <div class="result-stat-val" id="resMarginPct" style="color:#34d399;">+8.82%</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">적정가 도달 시 기대수익률</div>
+              <div class="result-stat-val" id="resUpsidePct" style="color:#38bdf8;">+8.82%</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">20% 안전마진 매수가격</div>
+              <div class="result-stat-val" id="resSafeBuy20" style="color:var(--text-primary);">68,336원</div>
+            </div>
+            <div class="result-stat-item">
+              <div class="result-stat-name">30% 안전마진 매수가격</div>
+              <div class="result-stat-val" id="resSafeBuy30" style="color:var(--accent-emerald);">59,794원</div>
+            </div>
+          </div>
+
+          <!-- Valuation Matrix Table -->
+          <div>
+            <div class="calc-section-title" style="font-size:0.95rem; margin-bottom:8px;">
+              <span>📊</span> 모델별 세부 적정주가 산출표
+            </div>
+            <table class="valuation-matrix">
+              <thead>
+                <tr>
+                  <th>평가 모델</th>
+                  <th style="text-align:right;">산출 적정가</th>
+                  <th style="text-align:right;">현재가 대비</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>S-RIM (&omega;=1.0)</strong> <small style="color:var(--text-muted);">영구성장</small></td>
+                  <td class="val-price" id="rowSrim1">78,471원</td>
+                  <td class="val-diff" id="diffSrim1" style="color:#94a3b8;">-0.0%</td>
+                </tr>
+                <tr style="background: rgba(6, 182, 212, 0.06);">
+                  <td><strong>S-RIM (&omega;=0.9)</strong> <small style="color:var(--text-muted);">표준기준</small></td>
+                  <td class="val-price" id="rowSrim09">73,235원</td>
+                  <td class="val-diff" id="diffSrim09" style="color:#f87171;">-6.7%</td>
+                </tr>
+                <tr>
+                  <td><strong>S-RIM (&omega;=0.8)</strong> <small style="color:var(--text-muted);">보수적 하단</small></td>
+                  <td class="val-price" id="rowSrim08">69,310원</td>
+                  <td class="val-diff" id="diffSrim08" style="color:#f87171;">-11.7%</td>
+                </tr>
+                <tr>
+                  <td><strong>벤저민 그레이엄 공식</strong></td>
+                  <td class="val-price" id="rowGraham">82,347원</td>
+                  <td class="val-diff" id="diffGraham" style="color:#34d399;">+4.9%</td>
+                </tr>
+                <tr>
+                  <td><strong>피터 린치 성장가치 (PEG)</strong></td>
+                  <td class="val-price" id="rowLynch">62,400원</td>
+                  <td class="val-diff" id="diffLynch" style="color:#f87171;">-20.5%</td>
+                </tr>
+                <tr>
+                  <td><strong>목표 PER 가치</strong></td>
+                  <td class="val-price" id="rowTargetPer">78,000원</td>
+                  <td class="val-diff" id="diffTargetPer" style="color:#94a3b8;">-0.6%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- In-Article Ad Slot -->
+    <div class="ad-slot-wrapper">
+      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+      <div class="ad-container ad-in-article" 
+           data-ad-slot="9020002" 
+           data-ad-type="In-Article Native" 
+           data-ad-name="적정가치 계산기 하단 광고" 
+           data-ad-size="Responsive In-Article">
+      </div>
+    </div>
+
+    <!-- Valuation Models Comprehensive Guide -->
+    <section class="tool-guide-card">
+      <h2 class="tool-guide-title">📖 기업 내재가치 3대 밸류에이션 공식 완벽 이해하기</h2>
+      <div class="tool-guide-content">
+        <p>
+          주식 시장에서 주가는 단기적으로는 심리와 수급에 의해 출렁이지만, 장기적으로는 반드시 <strong>기업의 내재 가치(Intrinsic Fair Value)</strong>로 수렴합니다.
+          월가의 전설적인 대가들과 공인회계사들이 사용하는 3대 핵심 모델의 원리를 확인해 보세요.
+        </p>
+
+        <h3>1. 사경인 회계사의 S-RIM (잔여이익모델, Residual Income Model)</h3>
+        <p>
+          한국 증시에 가장 잘 들어맞는 가치평가법으로 꼽히며, <em>"자본총계(BPS)에 미래의 초과이익을 더하여 기업가치를 구한다"</em>는 철학에 기반합니다.
+        </p>
+        <ul>
+          <li><strong>초과이익:</strong> 자기자본 &times; (예상 ROE &minus; 주주의 요구수익률). 기업이 주주의 기회비용 이상으로 벌어들이는 진짜 잉여이익입니다.</li>
+          <li><strong>지속성 계수 (&omega;):</strong> 초과이익이 영구히 지속되면 &omega;=1.0, 매년 10%씩 경쟁으로 감소하면 &omega;=0.9, 급격히 감소하면 &omega;=0.8을 적용합니다.</li>
+          <li><strong>실전 투자 팁:</strong> S-RIM (&omega;=0.8) 가격 이하에서는 적극 매수, S-RIM (&omega;=1.0) 가격 이상에서는 분할 매도를 고려하는 밴드 매매에 탁월합니다.</li>
+        </ul>
+
+        <h3>2. 벤저민 그레이엄 공식 (Benjamin Graham Number)</h3>
+        <p>
+          워런 버핏의 스승이자 가치투자의 창시자인 벤저민 그레이엄이 제창한 공식입니다. 기업의 자산가치(BPS)와 수익가치(EPS)를 동시에 고려하여 적정 PER 15배와 PBR 1.5배의 곱인 <strong>22.5</strong>를 기준으로 산출합니다.
+        </p>
+        <ul>
+          <li><strong>공식:</strong> $\sqrt{22.5 \times \text{EPS} \times \text{BPS}}$</li>
+          <li><strong>안전마진 원칙:</strong> 그레이엄은 계산된 내재가치보다 최소 20~30% 이상 할인된 가격에 매수하여 시장의 돌발 악재로부터 원금을 보호할 것을 강조했습니다.</li>
+        </ul>
+
+        <h3>3. 피터 린치 성장가치 (Peter Lynch PEG 밸류에이션)</h3>
+        <p>
+          마젤란 펀드를 13년간 연평균 29.2%의 경이적인 수익률로 이끈 피터 린치는 <em>"기업의 적정 PER은 그 기업의 연간 이익성장률과 같아야 한다(PEG = 1.0)"</em>고 보았습니다.
+        </p>
+        <ul>
+          <li><strong>공식:</strong> $\text{적정주가} = \text{예상 EPS} \times \text{이익성장률}(g)$</li>
+          <li>성장률이 20%인 기업의 적정 PER은 20배이며, 현재 PER이 성장률의 절반 이하(PEG &le; 0.5)라면 매우 매력적인 저평가 성장주로 평가됩니다.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <div class="logo-icon">📈</div>
+            <span class="logo-text">Value Stock Labs</span>
+          </a>
+          <p>Value Stock Labs는 데이터 기반 저평가 우량주 및 기술적 상승초입주를 심층 분석하는 금융 리서치 블로그입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">카테고리</h4>
+          <ul class="footer-links">
+            <li><a href="../posts/undervalued-stocks-2026.html">저평가주식</a></li>
+            <li><a href="../posts/breakout-stocks-guide.html">상승초입주</a></li>
+            <li><a href="../posts/ai-semiconductor-hbm-stocks.html">AI반도체</a></li>
+            <li><a href="../posts/ipo-public-offering-guide.html">공모주</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">투자 도구</h4>
+          <ul class="footer-links">
+            <li><a href="fair-value-calculator.html">적정가치 계산기</a></li>
+            <li><a href="target-price-calculator.html">손익비 계산기</a></li>
+            <li><a href="stock-average-calc.html">물타기 계산기</a></li>
+            <li><a href="compound-interest-calc.html">복리 시뮬레이터</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">정책</h4>
+          <ul class="footer-links">
+            <li><a href="../pages/privacy-policy.html">개인정보처리방침</a></li>
+            <li><a href="../pages/disclaimer.html">투자 면책조항</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Value Stock Labs. All rights reserved.</span>
+        <span>Google AdSense Compliant & SEO Optimized</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/ads.js"></script>
+  <script>
+    // Presets
+    const PRESETS = {
+      samsung: { price: 78500, bps: 58000, roe: 11.5, eps: 5200, r: 8.5, g: 12.0, per: 15.0, omega: "0.9" },
+      skhynix: { price: 196000, bps: 115000, roe: 18.0, eps: 14500, r: 9.5, g: 20.0, per: 13.5, omega: "0.9" },
+      hyundai: { price: 264000, bps: 340000, roe: 13.0, eps: 36000, r: 8.5, g: 8.0, per: 8.0, omega: "0.9" },
+      naver:   { price: 182000, bps: 170000, roe: 8.5, eps: 8800, r: 8.5, g: 10.0, per: 22.0, omega: "0.9" },
+      nvda:    { price: 128.8, bps: 18.5, roe: 55.0, eps: 3.80, r: 10.0, g: 35.0, per: 35.0, omega: "1.0" }
+    };
+
+    let currentModel = 'all';
+
+    function loadPreset(key) {
+      const data = PRESETS[key];
+      if (!data) return;
+      document.getElementById('inputCurrentPrice').value = data.price;
+      document.getElementById('inputBps').value = data.bps;
+      document.getElementById('inputRoe').value = data.roe;
+      document.getElementById('inputEps').value = data.eps;
+      document.getElementById('inputDiscountRate').value = data.r;
+      document.getElementById('inputGrowthRate').value = data.g;
+      document.getElementById('inputTargetPer').value = data.per;
+      document.getElementById('inputOmega').value = data.omega;
+      calculateFairValue();
+    }
+
+    function selectModelTab(model) {
+      currentModel = model;
+      document.querySelectorAll('.model-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-model') === model);
+      });
+      calculateFairValue();
+    }
+
+    function resetForm() {
+      loadPreset('samsung');
+    }
+
+    function calculateFairValue() {
+      const price = parseFloat(document.getElementById('inputCurrentPrice')?.value) || 0;
+      const bps = parseFloat(document.getElementById('inputBps')?.value) || 0;
+      const roe = (parseFloat(document.getElementById('inputRoe')?.value) || 0) / 100;
+      const eps = parseFloat(document.getElementById('inputEps')?.value) || 0;
+      const r = (parseFloat(document.getElementById('inputDiscountRate')?.value) || 8.5) / 100;
+      const g = parseFloat(document.getElementById('inputGrowthRate')?.value) || 0;
+      const targetPer = parseFloat(document.getElementById('inputTargetPer')?.value) || 12.0;
+      const omega = parseFloat(document.getElementById('inputOmega')?.value) || 0.9;
+
+      const isUsd = price < 1000;
+      const unit = isUsd ? '$' : '원';
+      const formatVal = (val) => {
+        if (isNaN(val) || val <= 0) return `0${unit}`;
+        if (isUsd) return `$${val.toFixed(2)}`;
+        return `${Math.round(val).toLocaleString()}원`;
+      };
+
+      // 1. S-RIM Calculations
+      // Excess Return = BPS * (ROE - r)
+      const excessReturn = bps * (roe - r);
+      
+      // S-RIM (omega = 1.0) = BPS + Excess / r
+      const srim1 = bps + (r > 0 ? (excessReturn / r) : 0);
+      
+      // S-RIM (omega = 0.9) = BPS + Excess * 0.9 / (1 + r - 0.9)
+      const srim09 = bps + ((1 + r - 0.9) > 0 ? (excessReturn * 0.9 / (1 + r - 0.9)) : 0);
+
+      // S-RIM (omega = 0.8) = BPS + Excess * 0.8 / (1 + r - 0.8)
+      const srim08 = bps + ((1 + r - 0.8) > 0 ? (excessReturn * 0.8 / (1 + r - 0.8)) : 0);
+
+      // Selected S-RIM based on omega dropdown
+      let selectedSrim = srim09;
+      if (omega >= 0.99) selectedSrim = srim1;
+      else if (omega <= 0.81) selectedSrim = srim08;
+
+      // 2. Graham Number: sqrt(22.5 * EPS * BPS)
+      let grahamVal = 0;
+      if (eps > 0 && bps > 0) {
+        grahamVal = Math.sqrt(22.5 * eps * bps);
+      }
+
+      // 3. Peter Lynch Fair Value = EPS * g
+      const lynchVal = (eps > 0 && g > 0) ? (eps * g) : 0;
+
+      // 4. Target PER Value = EPS * Target PER
+      const targetPerVal = (eps > 0 && targetPer > 0) ? (eps * targetPer) : 0;
+
+      // Update Breakdown Table Rows
+      document.getElementById('rowSrim1').textContent = formatVal(srim1);
+      document.getElementById('rowSrim09').textContent = formatVal(srim09);
+      document.getElementById('rowSrim08').textContent = formatVal(srim08);
+      document.getElementById('rowGraham').textContent = formatVal(grahamVal);
+      document.getElementById('rowLynch').textContent = formatVal(lynchVal);
+      document.getElementById('rowTargetPer').textContent = formatVal(targetPerVal);
+
+      const updateDiff = (elId, val) => {
+        const el = document.getElementById(elId);
+        if (!el || price <= 0) return;
+        const diff = ((val - price) / price) * 100;
+        const sign = diff > 0 ? '+' : '';
+        el.textContent = `${sign}${diff.toFixed(1)}%`;
+        if (diff > 5) el.style.color = '#34d399';
+        else if (diff < -5) el.style.color = '#f87171';
+        else el.style.color = '#94a3b8';
+      };
+
+      updateDiff('diffSrim1', srim1);
+      updateDiff('diffSrim09', srim09);
+      updateDiff('diffSrim08', srim08);
+      updateDiff('diffGraham', grahamVal);
+      updateDiff('diffLynch', lynchVal);
+      updateDiff('diffTargetPer', targetPerVal);
+
+      // Determine Displayed Fair Value based on currentModel tab
+      let finalFairVal = 0;
+      let modelTitle = '';
+
+      if (currentModel === 'srim') {
+        finalFairVal = selectedSrim;
+        modelTitle = `S-RIM 잔여이익모델 적정가 (지속계수 ω=${omega})`;
+      } else if (currentModel === 'graham') {
+        finalFairVal = grahamVal;
+        modelTitle = '벤저민 그레이엄 공식 산출 내재가치';
+      } else if (currentModel === 'lynch') {
+        finalFairVal = lynchVal;
+        modelTitle = `피터 린치 성장가치 (성장률 ${g}%)`;
+      } else {
+        // All-in-One Consensus: Weighted average of reliable models
+        let count = 0;
+        let sum = 0;
+        if (selectedSrim > 0) { sum += selectedSrim * 0.40; count += 0.40; }
+        if (grahamVal > 0)    { sum += grahamVal * 0.25;    count += 0.25; }
+        if (lynchVal > 0)     { sum += lynchVal * 0.15;     count += 0.15; }
+        if (targetPerVal > 0) { sum += targetPerVal * 0.20; count += 0.20; }
+        finalFairVal = count > 0 ? (sum / count) : selectedSrim;
+        modelTitle = '종합 가중평균 적정 내재가치 (Consensus Fair Value)';
+      }
+
+      document.getElementById('resModelTitle').textContent = modelTitle;
+      document.getElementById('resFairValue').textContent = formatVal(finalFairVal);
+
+      // Margin of Safety & Upside calculations
+      if (price > 0 && finalFairVal > 0) {
+        const marginPct = (((finalFairVal - price) / finalFairVal) * 100);
+        const upsidePct = (((finalFairVal - price) / price) * 100);
+
+        const marginEl = document.getElementById('resMarginPct');
+        const upsideEl = document.getElementById('resUpsidePct');
+        const badgeEl = document.getElementById('resDecisionBadge');
+        const gaugeText = document.getElementById('gaugeMarginText');
+        const gaugePin = document.getElementById('gaugePin');
+
+        const sign = marginPct > 0 ? '+' : '';
+        marginEl.textContent = `${sign}${marginPct.toFixed(1)}%`;
+        marginEl.style.color = marginPct > 0 ? '#34d399' : '#f87171';
+
+        upsideEl.textContent = `${sign}${upsidePct.toFixed(1)}%`;
+        upsideEl.style.color = upsidePct > 0 ? '#38bdf8' : '#f87171';
+
+        // Decision Badge & Gauge Pin Logic
+        if (marginPct >= 25) {
+          badgeEl.textContent = `🚀 강력 저평가 (안전마진 ${marginPct.toFixed(1)}% - 적극 분할매수 구간)`;
+          badgeEl.style.background = 'rgba(16, 185, 129, 0.2)';
+          badgeEl.style.color = '#34d399';
+          badgeEl.style.borderColor = '#10b981';
+        } else if (marginPct >= 10) {
+          badgeEl.textContent = `💎 안전마진 ${marginPct.toFixed(1)}% 확보 (매수 고려 가능)`;
+          badgeEl.style.background = 'rgba(6, 182, 212, 0.2)';
+          badgeEl.style.color = '#38bdf8';
+          badgeEl.style.borderColor = '#06b6d4';
+        } else if (marginPct >= -10) {
+          badgeEl.textContent = `⚖️ 적정 가치 부합 (현재 주가 중립 구간)`;
+          badgeEl.style.background = 'rgba(148, 163, 184, 0.15)';
+          badgeEl.style.color = '#cbd5e1';
+          badgeEl.style.borderColor = '#64748b';
+        } else {
+          badgeEl.textContent = `⚠️ 고평가 주의 (내재가치 대비 ${Math.abs(marginPct).toFixed(1)}% 고평가)`;
+          badgeEl.style.background = 'rgba(239, 68, 68, 0.2)';
+          badgeEl.style.color = '#f87171';
+          badgeEl.style.borderColor = '#ef4444';
+        }
+
+        gaugeText.textContent = `안전마진 ${sign}${marginPct.toFixed(1)}%`;
+        gaugeText.style.color = marginPct > 0 ? '#34d399' : '#f87171';
+
+        // Pin position: -30% => 5%, 0% => 50%, +30% => 95%
+        let pinPos = 50 + (marginPct / 30) * 45;
+        pinPos = Math.max(5, Math.min(95, pinPos));
+        gaugePin.style.left = `${pinPos}%`;
+
+        // 20% / 30% Margin of safety target buy prices
+        const safe20 = finalFairVal * 0.80;
+        const safe30 = finalFairVal * 0.70;
+        document.getElementById('resSafeBuy20').textContent = formatVal(safe20);
+        document.getElementById('resSafeBuy30').textContent = formatVal(safe30);
+      }
+    }
+
+    document.querySelectorAll('#fairCalcForm input, #fairCalcForm select').forEach(input => {
+      input.addEventListener('input', calculateFairValue);
+    });
+    document.getElementById('btnRunFairCalc')?.addEventListener('click', calculateFairValue);
+
+    // Initial run with Samsung Electronics preset
+    calculateFairValue();
+  </script>
+</body>
+</html>

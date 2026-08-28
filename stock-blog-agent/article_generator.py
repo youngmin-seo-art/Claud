@@ -75,9 +75,10 @@ class ArticleGenerator:
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="../index.html#articles" class="nav-link">분석 리포트</a>
-        <a href="../tools/target-price-calculator.html" class="nav-link">적정주가 계산기</a>
+        <a href="../index.html#postsGrid" class="nav-link">분석 리포트</a>
+        <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기</a>
         <a href="../tools/stock-average-calc.html" class="nav-link">물타기 계산기</a>
+        <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글">🌙</button>
@@ -315,9 +316,10 @@ class ArticleGenerator:
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="../index.html#articles" class="nav-link">분석 리포트</a>
-        <a href="../tools/target-price-calculator.html" class="nav-link">적정주가 계산기</a>
+        <a href="../index.html#postsGrid" class="nav-link">분석 리포트</a>
+        <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기</a>
         <a href="../tools/stock-average-calc.html" class="nav-link">물타기 계산기</a>
+        <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글">🌙</button>
@@ -500,10 +502,11 @@ class ArticleGenerator:
           </p>
           <div class="quick-calc-form" style="margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <h3>📊 Value Stock Labs 무료 투자 계산기</h3>
-            <p>복잡한 수학 계산 없이 1초 만에 적정 목표가와 손익비를 산출합니다.</p>
+            <p>복잡한 수학 계산 없이 1초 만에 기업의 적정 내재가치와 물타기 평단가를 산출합니다.</p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-              <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none;">🎯 적정주가 계산기 바로가기</a>
+              <a href="../tools/fair-value-calculator.html" class="btn-primary" style="text-decoration:none;">💎 기업 적정가치(Fair Value) 계산기</a>
               <a href="../tools/stock-average-calc.html" class="btn-primary" style="text-decoration:none; background: #3b82f6;">💧 물타기 평단가 계산기</a>
+              <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none; background: #64748b;">🎯 손익비 계산기</a>
             </div>
           </div>
         </section>

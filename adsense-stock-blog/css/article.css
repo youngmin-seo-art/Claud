@@ -395,43 +395,82 @@
   color: #e2e8f0 !important;
 }
 
-/* Metrics Table */
+/* Metrics Table & Wide Responsive Wrapper */
 .table-responsive, .metrics-table-wrap {
   margin: 48px 0 !important;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: var(--bg-secondary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.4) rgba(0, 0, 0, 0.2);
+}
+
+.table-responsive::-webkit-scrollbar,
+.metrics-table-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track,
+.metrics-table-wrap::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb,
+.metrics-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.45);
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover,
+.metrics-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
 }
 
 [data-theme="light"] .table-responsive, [data-theme="light"] .metrics-table-wrap {
   border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  scrollbar-color: rgba(6, 182, 212, 0.5) rgba(0, 0, 0, 0.05);
 }
 
 .metrics-table {
   width: 100%;
+  min-width: 980px; /* 표의 글자가 압축되거나 줄바꿈되지 않도록 넓은 최소 너비 보장 */
   border-collapse: collapse;
   text-align: left;
-  font-size: 1.04rem !important;
+  font-size: 1.05rem !important;
 }
 
 .metrics-table th {
   background: var(--bg-tertiary);
-  padding: 22px 26px !important;
+  padding: 20px 24px !important;
   font-weight: 700;
   color: var(--text-primary);
   border-bottom: 2px solid var(--border-color);
-  white-space: nowrap;
-  line-height: 1.6 !important;
+  white-space: nowrap !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.2px;
 }
 
 .metrics-table td {
-  padding: 22px 26px !important;
+  padding: 20px 24px !important;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-secondary);
-  line-height: 2.1 !important;
+  line-height: 1.9 !important;
+  white-space: nowrap !important; /* 모든 표 셀 내 텍스트 줄바꿈 방지 */
+  word-break: keep-all !important;
+}
+
+.metrics-table td strong {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .metrics-table td strong {
+  color: #0f172a !important;
 }
 
 .metrics-table tr:last-child td {
@@ -439,11 +478,11 @@
 }
 
 .metrics-table tr:hover td {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="light"] .metrics-table tr:hover td {
-  background: rgba(15, 23, 42, 0.02);
+  background: rgba(15, 23, 42, 0.03);
 }
 
 /* Quick Calculator Box */

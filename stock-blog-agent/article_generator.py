@@ -1705,10 +1705,10 @@ class ArticleGenerator:
   <meta property="og:image" content="../images/hero.jpg">
   <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
 
-  <link rel="stylesheet" href="../css/style.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/ads.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/article.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/tools.css?v=20260829_v5">
+  <link rel="stylesheet" href="../css/style.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/ads.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/article.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/tools.css?v=20260829_v6">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -1960,10 +1960,10 @@ class ArticleGenerator:
   <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/style.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/ads.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/article.css?v=20260829_v5">
-  <link rel="stylesheet" href="../css/tools.css?v=20260829_v5">
+  <link rel="stylesheet" href="../css/style.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/ads.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/article.css?v=20260829_v6">
+  <link rel="stylesheet" href="../css/tools.css?v=20260829_v6">
 
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>

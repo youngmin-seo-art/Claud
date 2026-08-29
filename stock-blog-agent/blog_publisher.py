@@ -1,13 +1,14 @@
 """
 =============================================================================
 BLOG PUBLISHER (blog_publisher.py)
-adsense-stock-blog 자동 포스팅 저장, index/sitemap/rss 동기화 및 Git Auto-Deploy
+adsense-stock-blog 자동 포스팅 저장, index/sitemap/rss 동기화, 이력 기록 및 Git Auto-Deploy
 =============================================================================
 """
 
 import os
 import sys
 import re
+import json
 import subprocess
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -18,14 +19,14 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-from config import BLOG_DIR, POSTS_DIR, INDEX_HTML, SITEMAP_XML, RSS_XML, BLOG_DOMAIN, PROJECT_ROOT
+from config import BLOG_DIR, POSTS_DIR, INDEX_HTML, SITEMAP_XML, RSS_XML, BLOG_DOMAIN, PROJECT_ROOT, HISTORY_FILE
 
 class BlogPublisher:
     def __init__(self):
         POSTS_DIR.mkdir(parents=True, exist_ok=True)
 
     def publish_post(self, article_data, auto_push=True):
-        """1. HTML 포스트 저장, 2. index.html 갱신, 3. sitemap.xml 갱신, 4. rss.xml 갱신, 5. Git Push"""
+        """1. HTML 포스트 저장, 2. sitemap.xml 갱신, 3. rss.xml 갱신, 4. index.html 갱신, 5. 발행 이력 기록, 6. Git Push"""
         filename = article_data["filename"]
         target_path = POSTS_DIR / filename
         
@@ -43,11 +44,45 @@ class BlogPublisher:
         # 4. index.html 최신 글 목록에 카드 추가 및 시황 세션 링크 갱신
         self.update_index_html(article_data)
 
-        # 5. Git Push 자동 배포
+        # 5. 발행 이력 누적 저장 (중복 방지용)
+        self.record_published_history(article_data)
+
+        # 6. Git Push 자동 배포
         if auto_push:
             self.git_push(article_data["title"])
 
         return f"{BLOG_DOMAIN}/posts/{filename}"
+
+    def record_published_history(self, article_data):
+        """발행된 기사 목록을 published_history.json에 누적 저장"""
+        try:
+            history = []
+            if HISTORY_FILE.exists():
+                try:
+                    with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                        history = json.load(f)
+                except Exception:
+                    history = []
+
+            # 중복 체크 후 추가
+            existing_filenames = {item.get("filename") for item in history if isinstance(item, dict)}
+            if article_data["filename"] not in existing_filenames:
+                history.append({
+                    "title": article_data["title"],
+                    "filename": article_data["filename"],
+                    "date": article_data.get("date", datetime.now().strftime("%Y-%m-%d")),
+                    "category": article_data.get("category", "주식분석"),
+                    "published_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+                # 최근 200개만 유지
+                if len(history) > 200:
+                    history = history[-200:]
+
+                with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+                    json.dump(history, f, ensure_ascii=False, indent=2)
+                print(f"[성공] published_history.json에 발행 이력 기록 완료 ({len(history)}건 누적)")
+        except Exception as e:
+            print(f"[경고] 발행 이력 기록 실패: {e}")
 
     def update_sitemap(self, filename, date_str):
         """sitemap.xml에 신규 URL 추가"""
@@ -80,12 +115,13 @@ class BlogPublisher:
             post_url = f"{BLOG_DOMAIN}/posts/{article_data['filename']}"
             if post_url not in content:
                 pub_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0900")
+                desc = article_data.get("summary", f"{article_data['title']} 밸류에이션 및 기술적 분석 리포트")
                 new_item = f"""    <item>
       <title>{article_data['title']}</title>
       <link>{post_url}</link>
       <guid>{post_url}</guid>
       <pubDate>{pub_date}</pubDate>
-      <description>{article_data['title']} 밸류에이션 및 기술적 매매 분석 리포트</description>
+      <description>{desc}</description>
     </item>
   </channel>"""
                 content = content.replace("  </channel>", new_item)
@@ -96,7 +132,7 @@ class BlogPublisher:
             print(f"[경고] rss.xml 갱신 실패: {e}")
 
     def update_index_html(self, article_data):
-        """index.html 아티클 그리드 상단에 신규 포스팅 카드 삽입 및 시황 섹션 최신화"""
+        """index.html 아티클 그리드 상단에 신규 포스팅 카드 삽입 및 시황 섹션 최신화 (읽는 시간 메타 제거)"""
         try:
             with open(INDEX_HTML, "r", encoding="utf-8") as f:
                 content = f.read()
@@ -109,7 +145,7 @@ class BlogPublisher:
                 thumb_img = "images/hero.jpg"
                 author = "시황분석팀"
                 avatar = "M"
-                excerpt = f"{article_data['title']} - 밤사이 뉴욕증시 3대 지수 마감 및 거시경제 지표, 장 시작 전 국내 핵심 주도 섹터와 주요 뉴스 총정리."
+                excerpt = f"{article_data['title']} - 밤사이 뉴욕증시 마감 및 거시경제 지표, 장 시작 전 국내 핵심 주도 섹터와 주요 뉴스 총정리."
                 
                 # 상단 오늘의 시황 세션 링크 및 날짜 갱신
                 content = re.sub(
@@ -125,13 +161,13 @@ class BlogPublisher:
                 )
             else:
                 raw_cat = article_data.get("category", "")
-                if "반도체" in article_data["title"] or "HBM" in article_data["title"] or raw_cat == "semiconductor":
+                if "반도체" in article_data["title"] or "HBM" in article_data["title"] or raw_cat == "semiconductor" or "AI" in raw_cat:
                     category = "semiconductor"
-                    badge_html = '<span class="post-badge breakout">⚡ AI 슈퍼사이클</span>'
+                    badge_html = '<span class="post-badge breakout">⚡ AI 반도체</span>'
                     thumb_img = "images/semiconductor.jpg"
                     author = "반도체테크"
                     avatar = "H"
-                elif "공모주" in article_data["title"] or raw_cat == "ipo":
+                elif "공모주" in article_data["title"] or raw_cat == "ipo" or "청약" in article_data["title"]:
                     category = "ipo"
                     badge_html = '<span class="post-badge tax">🎯 공모주 청약</span>'
                     thumb_img = "images/ipo.jpg"
@@ -143,6 +179,12 @@ class BlogPublisher:
                     thumb_img = "images/dividend.jpg"
                     author = "배당인컴"
                     avatar = "D"
+                elif "금리" in article_data["title"] or "대출" in article_data["title"] or "거시" in raw_cat:
+                    category = "macro"
+                    badge_html = '<span class="post-badge market" style="background:#0284c7; color:#fff;">📊 거시경제/금리</span>'
+                    thumb_img = "images/dividend.jpg"
+                    author = "매크로리서치"
+                    avatar = "M"
                 elif "상승" in article_data["title"] or "돌파" in article_data["title"] or raw_cat == "breakout":
                     category = "breakout"
                     badge_html = '<span class="post-badge breakout">🚀 상승초입주</span>'
@@ -156,7 +198,7 @@ class BlogPublisher:
                     author = "스톡리서치"
                     avatar = "S"
 
-                excerpt = f"{article_data['title']}에 대한 퀀트 재무 지표 및 기술적 차트 지지선 분석 리포트입니다."
+                excerpt = article_data.get("summary", f"{article_data['title']}에 대한 퀀트 재무 지표 및 기술적 차트 지지선 분석 리포트입니다.")
 
             card_html = f"""          <!-- Auto-Generated Article -->
           <article class="post-card" data-category="{category}">
@@ -167,7 +209,6 @@ class BlogPublisher:
             <div class="post-body">
               <div class="post-meta">
                 <span>📅 {article_data['date']}</span>
-                <span>⏱️ 5분 읽기</span>
                 <span>🔥 NEW</span>
               </div>
               <h3 class="post-title">
@@ -206,7 +247,7 @@ class BlogPublisher:
         """변경사항을 Git에 자동 커밋 및 Push하여 Vercel 실시간 배포"""
         try:
             print("[진행 중] Git 커밋 및 Vercel 실시간 배포 중...")
-            subprocess.run(["git", "add", "adsense-stock-blog"], cwd=PROJECT_ROOT, check=True)
+            subprocess.run(["git", "add", "adsense-stock-blog", "stock-blog-agent/published_history.json"], cwd=PROJECT_ROOT, check=True)
             subprocess.run(["git", "commit", "-m", f"feat(agent): 신규 주식 분석글 자동 발행 - {title[:30]}"], cwd=PROJECT_ROOT, check=True)
             subprocess.run(["git", "push", "origin", "main"], cwd=PROJECT_ROOT, check=True)
             print("🚀 [배포 완료] valuestocklabs.com에 실시간 라이브 반영 완료!")

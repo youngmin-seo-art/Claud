@@ -15,6 +15,7 @@ POSTS_DIR = BLOG_DIR / "posts"
 INDEX_HTML = BLOG_DIR / "index.html"
 SITEMAP_XML = BLOG_DIR / "sitemap.xml"
 RSS_XML = BLOG_DIR / "rss.xml"
+HISTORY_FILE = AGENT_DIR / "published_history.json"
 
 # 공식 블로그 도메인 및 메타데이터
 BLOG_DOMAIN = "https://valuestocklabs.com"
@@ -30,19 +31,29 @@ RSS_FEEDS = [
         "category": "경제/증시"
     },
     {
-        "name": "한국경제 증권/금융",
-        "url": "https://rss.hankyung.com/feed/stock.xml",
-        "category": "주식분석"
-    },
-    {
         "name": "매일경제 증권",
         "url": "https://www.mk.co.kr/rss/30100041/",
         "category": "증시전망"
     },
     {
-        "name": "Google Finance News Korea",
-        "url": "https://news.google.com/rss/search?q=주식+반도체+실적+저평가&hl=ko&gl=KR&ceid=KR:ko",
-        "category": "가치투자"
+        "name": "매일경제 경제종합",
+        "url": "https://www.mk.co.kr/rss/30000001/",
+        "category": "거시경제"
+    },
+    {
+        "name": "Google News 주식/증시",
+        "url": "https://news.google.com/rss/search?q=코스피+주식+금리+실적&hl=ko&gl=KR&ceid=KR:ko",
+        "category": "시장분석"
+    },
+    {
+        "name": "Google News 테크/반도체",
+        "url": "https://news.google.com/rss/search?q=반도체+AI+HBM+밸류업&hl=ko&gl=KR&ceid=KR:ko",
+        "category": "AI/반도체"
+    },
+    {
+        "name": "Google News 금융/가계대출",
+        "url": "https://news.google.com/rss/search?q=대출금리+가계부채+은행+예대마진&hl=ko&gl=KR&ceid=KR:ko",
+        "category": "금융/금리"
     }
 ]
 

@@ -200,6 +200,10 @@ class BlogPublisher:
 
                 excerpt = article_data.get("summary", f"{article_data['title']}에 대한 퀀트 재무 지표 및 기술적 차트 지지선 분석 리포트입니다.")
 
+            # 고유 썸네일 이미지 우선 적용 (글마다 다른 사진 사용)
+            if article_data.get("image"):
+                thumb_img = article_data["image"]
+
             card_html = f"""          <!-- Auto-Generated Article -->
           <article class="post-card" data-category="{category}">
             <div class="post-thumb-wrap">

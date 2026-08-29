@@ -7,6 +7,7 @@ ARTICLE GENERATOR (article_generator.py)
 
 import re
 import html
+import hashlib
 from datetime import datetime
 from config import BLOG_DOMAIN, ADSENSE_PUB_ID
 
@@ -48,17 +49,73 @@ class ArticleGenerator:
             return "general_stock"
 
     def get_category_image_info(self, topic_type, title):
-        """주제 유형에 맞는 썸네일 이미지 및 캡션 매핑"""
-        if topic_type == "ai_semiconductor":
-            return "../images/semiconductor.jpg", f"▲ {title} 관련 글로벌 AI 반도체 및 핵심 소부장 공급망"
-        elif topic_type in ["valueup_dividend", "macro_interest_rate"]:
-            return "../images/dividend.jpg", f"▲ {title} 관련 거시경제 지표 및 주요 금융권 금리·수급 동향"
-        elif topic_type in ["battery_mobility", "power_energy"]:
-            return "../images/breakout.jpg", f"▲ {title} 산업 밸류체인 및 시장 수급 차트 분석"
-        elif topic_type == "ipo":
-            return "../images/ipo.jpg", f"▲ {title} 공모 일정 및 기관 수요예측 배정 구조"
-        else:
-            return "../images/hero.jpg", f"▲ {title} 시장 핵심 수혜 및 펀더멘털 분석"
+        """주제 유형 및 제목 고유 해시를 바탕으로 중복 없이 다양한 썸네일 이미지 매핑 (동일 섹터 내에서도 글마다 다른 사진 할당)"""
+        title_hash = int(hashlib.md5(title.encode('utf-8')).hexdigest(), 16)
+
+        image_pools = {
+            "ai_semiconductor": [
+                "images/semiconductor-1.jpg",
+                "images/semiconductor-2.jpg",
+                "images/semiconductor-3.jpg",
+                "images/semiconductor-4.jpg",
+                "images/semiconductor.jpg",
+            ],
+            "valueup_dividend": [
+                "images/dividend-1.jpg",
+                "images/dividend-2.jpg",
+                "images/dividend-3.jpg",
+                "images/dividend.jpg",
+            ],
+            "macro_interest_rate": [
+                "images/macro-1.jpg",
+                "images/macro-2.jpg",
+                "images/macro-3.jpg",
+                "images/market-3.jpg",
+            ],
+            "battery_mobility": [
+                "images/battery-1.jpg",
+                "images/breakout-2.jpg",
+                "images/breakout-3.jpg",
+            ],
+            "bio_healthcare": [
+                "images/bio-1.jpg",
+                "images/market-2.jpg",
+            ],
+            "ipo": [
+                "images/ipo-1.jpg",
+                "images/ipo-2.jpg",
+                "images/ipo.jpg",
+            ],
+            "power_energy": [
+                "images/breakout-3.jpg",
+                "images/semiconductor-2.jpg",
+                "images/market-4.jpg",
+            ],
+            "geopolitics": [
+                "images/macro-1.jpg",
+                "images/market-3.jpg",
+                "images/market-4.jpg",
+            ],
+            "breakout": [
+                "images/breakout-1.jpg",
+                "images/breakout-2.jpg",
+                "images/breakout-3.jpg",
+                "images/breakout.jpg",
+            ],
+            "general_stock": [
+                "images/market-1.jpg",
+                "images/market-2.jpg",
+                "images/market-3.jpg",
+                "images/market-4.jpg",
+                "images/breakout-1.jpg",
+                "images/hero.jpg",
+            ]
+        }
+
+        pool = image_pools.get(topic_type, image_pools["general_stock"])
+        chosen_img = pool[title_hash % len(pool)]
+
+        return chosen_img, f"▲ {title} 관련 심층 데이터 분석 및 시장 동향"
 
     def build_contextual_sections(self, topic_type, title, summary, category, keywords):
         """기사 제목과 뉴스 맥락에 100% 일치하는 구체적인 5개 본문 섹션 HTML 생성"""
@@ -441,6 +498,17 @@ class ArticleGenerator:
         while len(headlines) < 5:
             headlines.append("국내 증시 외국인·기관 수급 동향 및 주요 기업 실적 발표 일정")
 
+        morning_pool = [
+            "images/morning-1.jpg",
+            "images/morning-2.jpg",
+            "images/morning-3.jpg",
+            "images/market-1.jpg",
+            "images/market-2.jpg"
+        ]
+        title_hash = int(hashlib.md5(title.encode('utf-8')).hexdigest(), 16)
+        chosen_image = morning_pool[title_hash % len(morning_pool)]
+        image_src = f"../{chosen_image}"
+
         html_content = f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
 <head>
@@ -455,7 +523,7 @@ class ArticleGenerator:
   <meta property="og:type" content="article">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{today_str} 글로벌 경제 지표 및 국내 증시 핵심 모닝 브리핑">
-  <meta property="og:image" content="../images/hero.jpg">
+  <meta property="og:image" content="{image_src}">
   <meta property="og:url" content="{BLOG_DOMAIN}/posts/{slug}.html">
 
   <!-- Stylesheets -->
@@ -674,6 +742,7 @@ class ArticleGenerator:
             "filename": f"{slug}.html",
             "title": title,
             "category": category,
+            "image": chosen_image,
             "html": html_content,
             "date": date_iso,
             "is_morning": True
@@ -690,7 +759,8 @@ class ArticleGenerator:
         slug = self.create_slug(title)
 
         topic_type = self.detect_topic_type(title, summary)
-        image_src, image_caption = self.get_category_image_info(topic_type, title)
+        image_path, image_caption = self.get_category_image_info(topic_type, title)
+        image_src = f"../{image_path}"
         sections_html = self.build_contextual_sections(topic_type, title, summary, category, keywords)
 
         html_content = f"""<!DOCTYPE html>
@@ -919,6 +989,7 @@ class ArticleGenerator:
             "title": title,
             "category": category,
             "summary": summary,
+            "image": image_path,
             "html": html_content,
             "date": date_iso
         }

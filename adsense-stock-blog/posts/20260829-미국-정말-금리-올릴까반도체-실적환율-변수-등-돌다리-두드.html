@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 | Value Stock Labs 리서치">
   <meta property="og:description" content="미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 핵심 팩트체크 및 금융·시장 밸류에이션 분석 리포트">
-  <meta property="og:image" content="../images/macro-1.jpg">
+  <meta property="og:image" content="../images/semiconductor.jpg">
   <meta property="og:url" content="https://valuestocklabs.com/posts/20260829-미국-정말-금리-올릴까반도체-실적환율-변수-등-돌다리-두드.html">
 
   <!-- Stylesheets -->
@@ -23,17 +23,11 @@
 
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
-  <!-- Favicon & Search Engine Identity -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#090d16">
-  <meta name="msapplication-TileColor" content="#090d16">
-  <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -43,19 +37,25 @@
   <!-- Header Navigation -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon"><img src="/images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
-        <span class="logo-text">Value Stock Labs</span>
-      </a>
-      <nav class="nav-menu" aria-label="메인 메뉴">
+      <div class="logo-group">
+        <a href="../index.html" class="brand-logo">
+          <span class="logo-symbol">📈</span>
+          <span class="logo-text">Value Stock Labs</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="../index.html#postsGrid" class="nav-link">분석 리포트</a>
-        <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기</a>
-        <a href="../tools/stock-average-calc.html" class="nav-link">물타기 계산기</a>
-        <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
+        <a href="../index.html#macro" class="nav-link">시장지표</a>
+        <a href="../index.html#articles" class="nav-link">리포트</a>
+        <a href="../tools/fair-value-calculator.html" class="nav-link">투자계산기</a>
       </nav>
+
       <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글">🌙</button>
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="다크/라이트 테마 전환">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light">☀️</span>
+        </button>
       </div>
     </div>
   </header>
@@ -74,7 +74,7 @@
           <span>심층 리포트</span>
         </nav>
 
-        <!-- Article Header (읽는 시간, 조회수 급증 완전 제거) -->
+        <!-- Article Header -->
         <header class="article-header">
           <span class="badge badge-semiconductor">거시경제/금리 심층 분석</span>
           <h1 class="article-title">미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스</h1>
@@ -86,8 +86,8 @@
 
         <!-- Featured Image -->
         <figure class="article-featured-img">
-          <img src="../images/dividend.jpg" alt="미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 분석 차트" loading="lazy">
-          <figcaption>▲ 미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 관련 거시경제 지표 및 주요 금융권 금리·수급 동향</figcaption>
+          <img src="../images/semiconductor.jpg" alt="미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 분석 차트" loading="lazy">
+          <figcaption>▲ 미국 정말 금리 올릴까‥"반도체 실적·환율 변수 등 돌다리 두드려야" - MBC 뉴스 관련 심층 데이터 분석 및 시장 동향</figcaption>
         </figure>
 
         <!-- Golden Ad Placement #1: Article Top Leaderboard -->
@@ -118,98 +118,197 @@
         <!-- Dynamic Contextual Sections -->
         
         <!-- Section 1 -->
-        <section id="sec-issue-brief">
-          <h2>1. 핵심 이슈 브리핑: 대출금리 양극화와 금융시장 배경</h2>
-          <p>
-            최근 금융권과 가계 경제를 강타하고 있는 핵심 이슈는 <strong>“미국 정말 금리 올릴까‥&quot;반도체 실적·환율 변수 등 돌다리 두드려야&quot; - MBC 뉴스”</strong> 현상입니다.
-            미국 정말 금리 올릴까‥&quot;반도체 실적·환율 변수 등 돌다리 두드려야&quot;  MBC 뉴스
+        <section id="sec-issue-brief" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">1. 핵심 이슈 브리핑: AI 반도체 슈퍼사이클 및 공급망 현황</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            글로벌 빅테크 기업들의 생성형 AI 및 AGI(범용인공지능) 인프라 구축 경쟁이 가속화되면서 <strong style="color: #ffffff;">“미국 정말 금리 올릴까‥&quot;반도체 실적·환율 변수 등 돌다리 두드려야&quot; - MBC 뉴스”</strong> 이슈가 국내외 증시의 강력한 주도 테마로 자리매김하고 있습니다.<br><br>
+            미국 정말 금리 올릴까‥
           </p>
-          <div class="callout callout-info">
-            <strong>💡 리서치센터 핵심 팩트체크:</strong><br>
-            • <strong>가계대출 가산금리 인상:</strong> 금융당국의 가계부채 총량 관리 압박에 따라 시중은행들이 주택담보대출 및 신용대출 가산금리를 연이어 인상했습니다.<br>
-            • <strong>기업대출 유치 경쟁:</strong> 반면 우량 대기업 및 중소기업 대출 확보를 위한 은행 간 금리 인하 경쟁이 붙으면서 기업대출 금리는 하향 안정세를 보이고 있습니다.<br>
-            • <strong>예대금리차 확대:</strong> 결과적으로 가계 대출자의 이자 부담은 가중되고 은행권의 예대마진(NIS)은 단기적으로 확대되는 왜곡 현상이 발생했습니다.
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            엔비디아(NVIDIA)의 차세대 AI 가속기(블랙웰 B200, GB200) 양산이 본격화됨에 따라 고대역폭 메모리(HBM3E 8단/12단 및 HBM4)에 대한 글로벌 쇼티지(공급 부족)가 지속되고 있습니다.<br><br>
+            마이크로소프트, 구글, 메타, 아마존 등 하이퍼스케일러들의 연간 AI 데이터센터 CAPEX(설비투자) 규모는 2026년 전년 대비 30% 이상 증가한 2,000억 달러를 돌파할 것으로 전망됩니다.
+          </p>
+          
+          <div class="callout callout-info" style="margin: 48px 0; padding: 34px 38px; background: rgba(6, 182, 212, 0.08); border-left: 5px solid var(--accent-cyan); border-radius: 12px; line-height: 2.5;">
+            <div style="font-weight: 700; margin-bottom: 24px; color: var(--accent-cyan); font-size: 1.2rem;">💡 리서치센터 핵심 팩트체크:</div>
+            
+            <div style="margin-bottom: 26px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">HBM 독점적 공급망 및 고수익성:</strong><br>
+              차세대 HBM3E 및 HBM4 시장에서 SK하이닉스와 삼성전자의 수주 잔고가 이미 2026년 말 물량까지 완판(Sold-out) 상태에 도달했습니다.
+            </div>
+            
+            <div style="margin-bottom: 26px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">첨단 패키징(Advanced Packaging) 병목:</strong><br>
+              2.5D 및 3D 이종 집적 패키징 기술이 AI 반도체 성능의 핵심 병목으로 부상하며 후공정(OSAT) 장비 기업의 수혜가 극대화되고 있습니다.
+            </div>
+            
+            <div>
+              • <strong style="color: #ffffff;">CXL & 온디바이스 AI 융합:</strong><br>
+              고용량 메모리 인터페이스인 CXL 2.0/3.0 생태계 확장과 스마트폰, 온디바이스 PC용 저전력 반도체(LPDDR5X, NPU) 수요가 동반 폭증하고 있습니다.
+            </div>
           </div>
-          <p>
-            기준금리 인하에 대한 기대감이 높아지는 거시경제 환경 속에서도, 가계 대출자들은 체감 금리 인하 혜택을 받지 못하고 
-            오히려 가산금리 인상으로 인한 이자 상환 부담이 늘어나는 이중고를 겪고 있습니다.
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            과거 메모리 반도체 산업이 경기 변동에 따라 급격한 부침을 겪던 '원자재형 사이클'이었다면, 현재의 AI 반도체는 고객사 맞춤형(Customized) 고부가가치 수주 산업으로 체질이 완전히 전환되었습니다.<br><br>
+            이에 따라 선도 기업들의 영업이익률(OPM)은 사상 최고치를 경신하는 구조적 호황기를 맞이하고 있습니다.
           </p>
         </section>
 
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
         <!-- Section 2 -->
-        <section id="sec-impact-analysis">
-          <h2>2. 시장 파급 효과 및 은행·금융 섹터 영향 분석</h2>
-          <p>
-            이번 대출금리 역전 및 가산금리 조정은 단순한 개인 금융 문제를 넘어 <strong>국내 증시 및 금융업종 밸류에이션</strong>에 복합적인 영향을 미치고 있습니다:
+        <section id="sec-impact-analysis" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">2. 섹터별 밸류에이션 및 실적 퀀텀점프 전망</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            AI 반도체 슈퍼사이클은 단순히 메모리 완제품 제조사에 그치지 않고, <strong style="color: #ffffff;">전공정 극자외선(EUV)부터 후공정 하이브리드 본딩, 테스트 소켓 등 소부장 밸류체인 전반</strong>으로 강력한 낙수 효과를 일으키고 있습니다:
           </p>
-          <ul>
-            <li><strong>은행주 순이자마진(NIM) 방어:</strong> 가계대출 가산금리 인상으로 주요 금융지주(KB금융, 신한지주, 하나금융지주 등)의 단기 이자이익 마진이 견조하게 유지되고 있습니다.</li>
-            <li><strong>내수 소비 및 가계 가처분소득 둔화:</strong> 월급쟁이 등 실수요 가계의 원리금 상환액이 증가하면서 유통, 소비재, 레저 등 내수 민감 섹터의 실적 회복 속도가 지연될 가능성이 있습니다.</li>
-            <li><strong>신용 리스크 및 건전성 관리:</strong> 다중채무자 및 영끌 대출자의 연체율 상승 여부가 은행권의 대손충당금 적립 규모를 결정짓는 핵심 변수로 부상하고 있습니다.</li>
+
+          <h3 style="font-size: 1.38rem; font-weight: 700; color: var(--accent-cyan); margin: 52px 0 26px; line-height: 1.55;">🔬 핵심 밸류체인 3대 수혜 영역 심층 분석</h3>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            <strong style="color: #ffffff;">1. HBM 선도 메모리 제조사 (SK하이닉스, 삼성전자)</strong><br><br>
+            기존 범용 D램 대비 5배 이상의 가격 프리미엄과 40%를 상회하는 압도적인 마진율을 바탕으로 2026년 사상 최대 영업이익 달성이 확실시되고 있습니다.<br><br>
+            특히 수율 안정성과 엔비디아 공급 점유율 우위를 지닌 기업을 중심으로 글로벌 기관들의 강력한 순매수가 유입되고 있습니다.
+          </p>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            <strong style="color: #ffffff;">2. 첨단 후공정(Advanced OSAT) 및 본딩 장비주</strong><br><br>
+            칩을 미세하게 적층하는 TC 본더(Thermal Compression Bonder)와 차세대 하이브리드 본더(Hybrid Bonder) 기술을 독점 공급하는 국내 장비 기업들의 수주 잔고가 분기마다 사상 최고치를 경신하고 있습니다.<br><br>
+            글로벌 OSAT 및 파운드리(TSMC 등) 고객사 다변화가 진행되며 멀티플(PER) 리레이팅이 가속화되고 있습니다.
+          </p>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            <strong style="color: #ffffff;">3. 초고속 검사 소켓 및 CXL 테스트 생태계</strong><br><br>
+            적층 단수가 12단, 16단으로 높아질수록 칩 불량 검사의 난이도와 시간이 기하급수적으로 증가합니다.<br><br>
+            이에 따라 고부가 실리콘 러버 소켓, 번인(Burn-in) 테스터, CXL 전용 테스트 장비를 양산하는 강소기업들의 실적 레버리지 효과가 두드러지고 있습니다.
+          </p>
+          
+          <ul style="margin: 32px 0 48px 28px; line-height: 2.5; color: #cbd5e1; display: flex; flex-direction: column; gap: 24px;">
+            <li style="margin-bottom: 20px; line-height: 2.5;">
+              <strong style="color: #ffffff;">기관·외국인 수급 집중:</strong><br>
+              반도체 대장주 및 핵심 소부장에 외국인 순매수 비중 60% 이상 집중.
+            </li>
+            <li style="margin-bottom: 20px; line-height: 2.5;">
+              <strong style="color: #ffffff;">주요 기술적 지표:</strong><br>
+              20일선 지지 기반의 계단식 상승 패턴 형성 및 역사적 신고가 돌파 시도.
+            </li>
+            <li>
+              <strong style="color: #ffffff;">리스크 요인:</strong><br>
+              글로벌 매크로 경기 침체에 따른 IT 완제품(스마트폰/PC) 수요 둔화 여부 체크 필요.
+            </li>
           </ul>
         </section>
 
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
         <!-- Section 3: Data Table -->
-        <section id="sec-data-table">
-          <h2>3. 핵심 수치 및 대출 유형별 금리 동향 지표</h2>
-          <p>
-            아래는 최근 시중은행의 차주별(가계 vs 기업) 평균 대출금리 및 예대마진 추이를 정리한 데이터 비교표입니다:
+        <section id="sec-data-table" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">3. 반도체 세부 밸류체인별 핵심 재무 및 투자 지표 비교표</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            아래는 AI 반도체 밸류체인 내 핵심 영역별 예상 실적, 영업이익률(OPM), 밸류에이션(PER/PBR) 지표를 정밀 분석한 데이터입니다:
           </p>
 
-          <div class="table-responsive">
+          <div class="table-responsive" style="margin: 36px 0;">
             <table class="metrics-table">
               <thead>
                 <tr>
-                  <th>구분</th>
-                  <th>평균 대출금리 추이</th>
-                  <th>가산금리 변동폭</th>
-                  <th>주요 영향 및 금융당국 정책</th>
+                  <th>세부 밸류체인 영역</th>
+                  <th>대표 핵심 기술 및 제품</th>
+                  <th>2026 예상 영업이익률 (OPM)</th>
+                  <th>예상 PER 밴드</th>
+                  <th>핵심 투자 체크포인트</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>가계 주택담보대출</strong></td>
-                  <td style="color:var(--accent-red); font-weight:700;">3.95% ~ 4.45% ▲</td>
-                  <td>+0.20%p ~ +0.40%p 인상</td>
-                  <td>가계부채 억제 가이드라인 및 DSR 강화</td>
+                  <td><strong>HBM 메모리 선도사</strong></td>
+                  <td>HBM3E / HBM4 독점 공급</td>
+                  <td style="color:var(--accent-red); font-weight:700;">38% ~ 46%</td>
+                  <td>6.5배 ~ 9.0배 (저평가)</td>
+                  <td>엔비디아 퀄테스트 통과 및 16단 HBM4 양산 수율</td>
                 </tr>
                 <tr>
-                  <td><strong>가계 신용대출</strong></td>
-                  <td style="color:var(--accent-red); font-weight:700;">5.10% ~ 5.80% ▲</td>
-                  <td>+0.15%p ~ +0.30%p 인상</td>
-                  <td>월급쟁이 직장인 한도 축소 및 우대금리 축소</td>
+                  <td><strong>첨단 패키징 본딩 장비</strong></td>
+                  <td>열압착(TC) 본더, 하이브리드 본더</td>
+                  <td style="color:var(--accent-red); font-weight:700;">28% ~ 35%</td>
+                  <td>18.0배 ~ 24.0배</td>
+                  <td>해외 글로벌 파운드리 고객사 추가 수주 여부</td>
                 </tr>
                 <tr>
-                  <td><strong>대기업 대출</strong></td>
-                  <td style="color:#00f2fe; font-weight:700;">4.10% ~ 4.30% ▼</td>
-                  <td>-0.10%p ~ -0.25%p 인하</td>
-                  <td>우량 기업 유치 경쟁 및 회사채 대체 수요</td>
+                  <td><strong>테스트 & CXL 검사 소켓</strong></td>
+                  <td>실리콘 러버 소켓, CXL 테스터</td>
+                  <td>22% ~ 28%</td>
+                  <td>12.0배 ~ 16.0배</td>
+                  <td>고단수 적층에 따른 소모품 교체 주기 단축 수혜</td>
                 </tr>
                 <tr>
-                  <td><strong>중소기업 대출</strong></td>
-                  <td>4.60% ~ 4.90% (보합)</td>
-                  <td>변동폭 제한적</td>
-                  <td>정책금융 및 보증부 대출 우대 적용</td>
+                  <td><strong>전공정 식각·증착 소재/가스</strong></td>
+                  <td>EUV 감광액, 특수가스, 쿼츠</td>
+                  <td>16% ~ 22%</td>
+                  <td>10.0배 ~ 13.5배</td>
+                  <td>가동률 100% 도달에 따른 분기별 출하량(Q) 증가</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>
-            이러한 금리 격차는 향후 한국은행의 통화정책 완화 기조와 금융당국의 거시건전성 규제 완화 여부에 따라 점진적으로 수렴할 것으로 전망됩니다.
+
+          <h3 style="font-size: 1.38rem; font-weight: 700; color: var(--accent-cyan); margin: 52px 0 26px; line-height: 1.55;">📊 데이터 표 심층 분석 및 시사점</h3>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            표에서 알 수 있듯이, <strong style="color: #ffffff;">HBM 메모리 선도사들의 예상 PER은 6~9배 수준으로 역사적 저평가 구간</strong>에 머물러 있습니다.<br><br>
+            이는 과거 메모리 다운턴에 대한 시장의 기우가 반영된 결과이지만, 수주 기반 고수익 비즈니스 모델로의 전환을 감안할 때 향후 강력한 밸류에이션 갭 메우기(리레이팅)가 전개될 가능성이 높습니다.<br><br>
+            반면 후공정 장비주의 경우 높은 PER(18~24배)을 부여받고 있으므로, 신규 매수 시에는 추격 매수보다 20일선 또는 60일 이동평균선 지지력을 확인하는 눌림목 분할 매수 전략이 안전합니다.
           </p>
         </section>
 
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
         <!-- Section 4 -->
-        <section id="sec-strategy">
-          <h2>4. 금융소비자 & 투자자 관점 실전 대응 전략</h2>
-          <p>
-            금리 변동성이 큰 시기에는 자산과 부채를 정밀하게 점검하고 전략적인 재무 조정을 실행해야 합니다:
+        <section id="sec-strategy" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">4. 실전 포트폴리오 비중 및 분할 매매 대응 전략</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            주도주 섹터에서는 시장 변동성을 기회로 활용하여 승률 높은 포트폴리오를 구축해야 합니다:
           </p>
-          <div class="callout callout-warning">
-            <strong>📋 필수 금융 대응 수칙:</strong><br>
-            1. <strong>온라인 원스톱 대환대출 인프라 적극 활용:</strong> 은행 간 대출 갈아타기 플랫폼을 통해 금리 0.3%p 이상 낮은 상품으로 적극 전환.<br>
-            2. <strong>금리인하요구권 행사:</strong> 승진, 연봉 인상, 신용점수 상승, 부채 감소 등 조건 충족 시 주거래 은행에 즉시 금리인하 신청.<br>
-            3. <strong>고정금리 vs 변동금리 리밸런싱:</strong> 향후 1~2년 내 기준금리 인하 사이클 도래를 감안하여 주기형/변동형 금리 비중을 합리적으로 분산.
+
+          <h3 style="font-size: 1.38rem; font-weight: 700; color: var(--accent-cyan); margin: 52px 0 26px; line-height: 1.55;">🎯 반도체 포트폴리오 3단계 분할 매수 가이드</h3>
+          
+          <ol style="margin: 32px 0 48px 28px; line-height: 2.5; color: #cbd5e1; display: flex; flex-direction: column; gap: 24px;">
+            <li style="margin-bottom: 20px; line-height: 2.5;">
+              <strong style="color: #ffffff;">1차 진입 (비중 30%):</strong><br>
+              주요 지지선(20일 이동평균선 또는 전고점 지지 라인) 도달 시 분할 1차 매수 실행.
+            </li>
+            <li style="margin-bottom: 20px; line-height: 2.5;">
+              <strong style="color: #ffffff;">2차 추가 (비중 30%):</strong><br>
+              일봉상 거래량이 줄어들며 바닥을 다지는 수급 전환 확인 후 2차 분할 매수.
+            </li>
+            <li>
+              <strong style="color: #ffffff;">3차 불타기 (비중 40%):</strong><br>
+              거래량 200% 이상 동반하며 직전 박스권 저항선을 강력하게 돌파할 때 추세 추종 매수.
+            </li>
+          </ol>
+
+          <div class="callout callout-warning" style="margin: 48px 0; padding: 34px 38px; background: rgba(245, 158, 11, 0.08); border-left: 5px solid var(--accent-gold); border-radius: 12px; line-height: 2.5;">
+            <div style="font-weight: 700; margin-bottom: 24px; color: var(--accent-gold); font-size: 1.2rem;">📋 필수 리스크 관리 및 체크리스트:</div>
+            
+            <div style="margin-bottom: 24px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">대장주 60% + 소부장 40%:</strong><br>
+              실적 가시성이 가장 높은 대형 메모리사 중심의 안전판 확보 후 고성장 장비주로 초과수익(Alpha) 추구.
+            </div>
+            
+            <div style="margin-bottom: 24px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">기계적 손절 라인 (-6% ~ -8%):</strong><br>
+              주요 수급선인 60일 이동평균선을 대량 거래량과 함께 하향 이탈할 경우 비중 축소 및 현금화.
+            </div>
+            
+            <div>
+              • <strong style="color: #ffffff;">분할 익절 전략:</strong><br>
+              목표 수익률(+20%, +35%) 도달 시 50% 분할 익절 후 잔여 물량은 트레일링 스탑 적용.
+            </div>
           </div>
         </section>
 
@@ -230,13 +329,18 @@
         <!-- Section 5: Calculator Widget Linking -->
         <section id="sec-calculator">
           <h2>5. 실시간 가치평가 및 계산기 활용 가이드</h2>
+          
           <p>
             보유 중이거나 매수 검토 중인 금융 상품 및 종목의 적정가치와 물타기 평단가를 직접 시뮬레이션해 보세요:
           </p>
-          <div class="quick-calc-form" style="margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
-            <h3>📊 Value Stock Labs 무료 퀀트 투자 계산기</h3>
-            <p>복잡한 재무 지표를 1초 만에 계산하여 합리적인 매매 기준선을 제시합니다.</p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+          
+          <div class="quick-calc-form" style="margin: 28px 0; padding: 24px 28px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid var(--border-color);">
+            <h3 style="font-size:1.15rem; margin-bottom:10px; color:var(--text-primary);">📊 Value Stock Labs 무료 퀀트 투자 계산기</h3>
+            <p style="font-size:0.96rem; color:var(--text-secondary); margin-bottom:18px;">
+            복잡한 재무 지표를 1초 만에 계산하여 합리적인 매매 기준선을 제시합니다.
+          </p>
+            
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
               <a href="../tools/fair-value-calculator.html" class="btn-primary" style="text-decoration:none;">💎 기업 적정가치(Fair Value) 계산기</a>
               <a href="../tools/stock-average-calc.html" class="btn-primary" style="text-decoration:none; background: #3b82f6;">💧 물타기 평단가 계산기</a>
               <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none; background: #64748b;">🎯 손익비 계산기</a>
@@ -301,7 +405,7 @@
     <div class="container">
       <div class="footer-bottom">
         <span>© 2026 Value Stock Labs. All rights reserved.</span>
-        <span>Google AdSense Compliant & SEO Optimized</span>
+        <span>Google AdSense Compliant &amp; SEO Optimized</span>
       </div>
     </div>
   </footer>

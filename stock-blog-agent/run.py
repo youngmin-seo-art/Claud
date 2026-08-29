@@ -43,10 +43,27 @@ def run_agent(keyword=None, is_morning=False, is_test=False):
 
     if is_morning:
         print("☕ [모닝 시황 모드] 밤사이 뉴욕증시 & 국내 아침 경제 이슈 수집 중...")
-        # 5개 최신 헤드라인 수집
-        items = collector.fetch_feed("https://www.yonhapnewstv.co.kr/browse/feed/")
-        headlines = [it["title"] for it in items[:5]] if items else None
-        article_data = generator.generate_morning_briefing(headlines)
+        # 경제/증시 핵심 피드에서 필터링된 5개 헤드라인 수집
+        headlines = []
+        target_feeds = [
+            "https://www.mk.co.kr/rss/30100041/",
+            "https://news.google.com/rss/search?q=코스피+반도체+금리+증시&hl=ko&gl=KR&ceid=KR:ko",
+            "https://www.mk.co.kr/rss/30000001/"
+        ]
+        for f_url in target_feeds:
+            items = collector.fetch_feed(f_url)
+            for it in items:
+                t = it["title"]
+                # 사건사고/날씨/스포츠/연예 필터링
+                if not any(bad in t for bad in ["사고", "화재", "살인", "폭행", "음주", "날씨", "비", "홍수", "축구", "야구", "연예", "포토"]):
+                    if t not in headlines:
+                        headlines.append(t)
+                if len(headlines) >= 5:
+                    break
+            if len(headlines) >= 5:
+                break
+        
+        article_data = generator.generate_morning_briefing(headlines if len(headlines) >= 5 else None)
         print(f"📌 생성된 모닝 브리핑: {article_data['title']}")
     elif keyword:
         print(f"🎯 [키워드 지정 모드] 타겟 키워드: {keyword}")

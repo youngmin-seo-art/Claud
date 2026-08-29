@@ -3,300 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 | Value Stock Labs</title>
-  <meta name="description" content="공모주 청약 시 최소 증거금으로 1주 이상 받는 균등 배정 팁, 마이너스 통장 비례 배정 계산기 공식, 상장일 시초가 수급 분석 및 최고점 매도 원칙을 정리합니다.">
+  <title>2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 | Value Stock Labs 리서치</title>
+  <meta name="description" content="2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.">
   <meta name="keywords" content="공모주청약, 따따상, 공모주일정, 균등배정, 비례배정, 청약증거금, 상장일매도전략, 공모주수익률">
-  
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="2026 공모주 청약 완벽 공략 가이드">
-  <meta property="og:description" content="균등·비례 배정 전략과 상장일 최고 수익 실현 매도 타이밍 분석.">
-  <meta property="og:image" content="../images/ipo-1.jpg">
+  <meta name="author" content="Value Stock Labs 리서치팀">
 
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 | Value Stock Labs 리서치">
+  <meta property="og:description" content="2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 핵심 팩트체크 및 금융·시장 밸류에이션 분석 리포트">
+  <meta property="og:image" content="../images/ipo-1.jpg">
+  <meta property="og:url" content="https://valuestocklabs.com/posts/ipo-public-offering-guide.html">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/ads.css">
   <link rel="stylesheet" href="../css/article.css">
   <link rel="stylesheet" href="../css/tools.css">
-  <!-- Google AdSense Official Script -->
+
+  <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
-    <!-- Favicon & Search Engine Identity -->
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#090d16">
-  <meta name="msapplication-TileColor" content="#090d16">
-  <meta name="msapplication-TileImage" content="../apple-touch-icon.png">
 </head>
 <body>
 
-  <div class="reading-progress-bar" id="readingProgress"></div>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
 
-  <aside class="market-ticker-wrap">
-    <div class="ticker-label"><span>🔥 LIVE MARKET</span></div>
-    <div class="ticker-track" id="tickerTrack"></div>
-  </aside>
-
+  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
-        <span class="logo-text">Value Stock Labs</span>
-        <span class="logo-tag">PRO</span>
-      </a>
-
-      <nav class="main-nav">
+    <div class="container header-inner">
+      <div class="logo-group">
+        <a href="../index.html" class="brand-logo">
+          <span class="logo-symbol">📈</span>
+          <span class="logo-text">Value Stock Labs</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
-        <a href="breakout-stocks-guide.html" class="nav-link">상승초입주</a>
-        <a href="ipo-public-offering-guide.html" class="nav-link active">공모주 청약 <span class="nav-link-badge">HOT</span></a>
-        <a href="dividend-aristocrats-krx.html" class="nav-link">배당/재테크</a>
-        <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
-        <a href="../tools/target-price-calculator.html" class="nav-link">적정주가 계산기</a>
-        <a href="../pages/about.html" class="nav-link">소개</a>
+        <a href="../index.html#macro" class="nav-link">시장지표</a>
+        <a href="../index.html#articles" class="nav-link">리포트</a>
+        <a href="../tools/fair-value-calculator.html" class="nav-link">투자계산기</a>
       </nav>
 
-      <div class="nav-actions">
-        <button class="btn-icon" id="themeToggleBtn"><span>☀️</span></button>
-        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn"><span>☰</span></button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="다크/라이트 테마 전환">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light">☀️</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <div class="container">
-    
-    <!-- Top Leaderboard Ad -->
-    <div class="ad-slot-wrapper">
-      <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
-      <div class="ad-container ad-leaderboard" 
-           data-ad-slot="8010001" 
-           data-ad-type="Display Leaderboard" 
-           data-ad-name="공모주 상단 리더보드 광고" 
-           data-ad-size="728x90 / 320x100">
-      </div>
-    </div>
-
-    <div class="article-header">
-      <div class="article-breadcrumb">
-        <a href="../index.html">홈</a> &gt; 
-        <a href="ipo-public-offering-guide.html">공모주 청약</a> &gt; 
-        <span>IPO 실전 가이드</span>
-      </div>
-      <h1 class="article-title">2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략</h1>
+  <!-- Article Main Container -->
+  <main class="article-layout">
+    <div class="container article-grid">
       
-      <div class="article-meta-bar">
-        <div class="article-meta-left">
-          <span>✍️ 작성자: <strong>공모주애널리스트</strong></span>
-          <span>📅 발행일: 2026년 8월 27일</span>
-        </div>
-        <div class="post-badge tax">🎯 무위험 수익 전략</div>
-      </div>
-    </div>
-
-    <div class="main-layout">
-      
-      <article class="content-area article-content">
+      <!-- Article Content Body -->
+      <article class="article-body">
         
-        <div class="article-featured-img-wrap">
-          <img src="../images/ipo.jpg" alt="공모주 상장 벨과 주가 급등 시각화" width="800" height="450">
-        </div>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="경로 탐색">
+          <a href="../index.html">홈</a> &gt; 
+          <a href="../index.html#articles">HOT</a> &gt; 
+          <span>심층 리포트</span>
+        </nav>
 
-        <p class="article-intro">
-          공모주 청약은 주식 투자 중 가장 안전하게 단기 수익을 얻을 수 있는 대표적인 재테크 수단입니다. 특히 <strong>‘상장 당일 공모가 대비 최대 400%(따따상) 가격 제한폭 확대’</strong> 제도가 정착되면서, 철저한 수요예측 분석과 배정 공식 계산이 승패를 가르고 있습니다.
-        </p>
-
-        <div class="toc-box">
-          <div class="toc-title">
-            <span>📑 목차 (Table of Contents)</span>
+        <!-- Article Header -->
+        <header class="article-header">
+          <span class="badge badge-semiconductor">HOT 심층 분석</span>
+          <h1 class="article-title">2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략</h1>
+          <div class="article-meta">
+            <span>✍️ Value Stock Labs 리서치팀</span>
+            <span>📅 2026년 08월 29일</span>
           </div>
-          <ul class="toc-list" id="tocList"></ul>
-        </div>
+        </header>
 
-        <h2>1. 공모주 청약 전 반드시 확인해야 할 3대 지표</h2>
-        <p>
-          모든 공모주가 수익을 주는 것은 아닙니다. 아래 3가지 지표를 충족하지 못한 종목은 상장 첫날 공모가를 하회할 수 있으므로 과감히 청약을 패스해야 합니다.
-        </p>
+        <!-- Featured Image -->
+        <figure class="article-featured-img">
+          <img src="../images/ipo-1.jpg" alt="2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 분석 차트" loading="lazy">
+          <figcaption>▲ 2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략 관련 심층 데이터 분석 및 시장 동향</figcaption>
+        </figure>
 
-        <div class="metrics-table-wrap">
-          <table class="metrics-table">
-            <thead>
-              <tr>
-                <th>수요예측 지표</th>
-                <th>성공 기준선</th>
-                <th>의미 및 중요도</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>기관 경쟁률</strong></td>
-                <td><span class="metric-highlight">800:1 이상</span></td>
-                <td>국내외 기관 투자자들의 참여 열기와 관심도</td>
-              </tr>
-              <tr>
-                <td><strong>의무보유 확약 비율</strong></td>
-                <td><span class="metric-up">15% 이상 (30% 이상 시 대박)</span></td>
-                <td>상장 당일 기관 매도 물량 잠금 효과 (오버행 방지)</td>
-              </tr>
-              <tr>
-                <td><strong>유통가능 물량 비율</strong></td>
-                <td><span class="metric-highlight">25% 미만</span></td>
-                <td>상장 당일 시장에 풀리는 매도 물량의 압력</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- In-Article Ad 1 -->
+        <!-- Golden Ad Placement #1: Article Top Leaderboard -->
         <div class="ad-slot-wrapper">
-          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-slot-header">
+            <span class="ad-label">SPONSORED</span>
+          </div>
+          <div class="ad-container ad-leaderboard" 
+               data-ad-slot="1001001" 
+               data-ad-type="Display Leaderboard" 
+               data-ad-name="본문 상단 광고" 
+               data-ad-size="728x90 Leaderboard">
+          </div>
+        </div>
+
+        <!-- Table of Contents (TOC) -->
+        <nav class="toc-container" aria-label="본문 목차">
+          <h3 class="toc-title">📑 핵심 리포트 목차</h3>
+          <ul class="toc-list" id="tocList">
+            <li><a href="#sec-issue-brief">1. 핵심 이슈 브리핑 &amp; 팩트체크</a></li>
+            <li><a href="#sec-impact-analysis">2. 시장 파급 효과 및 섹터 영향 분석</a></li>
+            <li><a href="#sec-data-table">3. 핵심 수치 및 비교 데이터 지표</a></li>
+            <li><a href="#sec-strategy">4. 실전 대응 전략 및 리스크 관리</a></li>
+            <li><a href="#sec-calculator">5. 실시간 가치평가 및 계산기 활용 가이드</a></li>
+          </ul>
+        </nav>
+
+        <!-- Dynamic Contextual Sections -->
+        
+        <!-- Section 1 -->
+        <section id="sec-issue-brief" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">1. 핵심 이슈 브리핑: 공모주 청약 및 신규 상장주 옥석 가리기</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            IPO 시장의 열기와 함께 <strong style="color: #ffffff;">“2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략”</strong> 이슈에 개인 투자자 및 공모주 펀드의 관심이 집중되고 있습니다.<br><br>
+            2026 공모주 청약 완벽 공략: 비례·균등 배정 계산법 및 상장일 따따상(300%) 매도 전략에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.
+          </p>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            최근 상장일 가격제한폭 제도 시행 이후, 기업의 실질적 가치보다 수급에 의한 변동성이 확대되고 있습니다.<br><br>
+            이에 따라 상장 첫날 유통 가능 물량과 기관 의무보유확약 비율을 철저히 사전 분석해야 합니다.
+          </p>
+          
+          <div class="callout callout-info" style="margin: 48px 0; padding: 34px 38px; background: rgba(6, 182, 212, 0.08); border-left: 5px solid var(--accent-cyan); border-radius: 12px; line-height: 2.5;">
+            <div style="font-weight: 700; margin-bottom: 24px; color: var(--accent-cyan); font-size: 1.2rem;">💡 리서치센터 핵심 팩트체크:</div>
+            
+            <div style="margin-bottom: 26px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">의무보유확약 비율(Lock-up):</strong><br>
+              기관투자자의 의무보유확약 비율이 30% 이상일수록 상장 후 오버행(대량 매도) 부담이 적습니다.
+            </div>
+            
+            <div style="margin-bottom: 26px; line-height: 2.5;">
+              • <strong style="color: #ffffff;">유통 가능 물량:</strong><br>
+              상장 당일 유통 가능 주식 수가 20~25% 이하인 품절주 성격의 종목이 초기 주가 방어력이 높습니다.
+            </div>
+            
+            <div>
+              • <strong style="color: #ffffff;">공모가 산정 밸류에이션:</strong><br>
+              비교 대상 기업의 PER이 지나치게 고평가되어 산정되지 않았는지 꼼꼼한 확인이 필수입니다.
+            </div>
+          </div>
+        </section>
+
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
+        <!-- Section 2 -->
+        <section id="sec-impact-analysis" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">2. 공모주 청약 실전 배정 및 자금 운용 팁</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            <strong style="color: #ffffff;">1. 균등 배정 vs 비례 배정 자금 배분</strong><br><br>
+            최소 청약 증거금으로 균등 배정 주식을 챙기고, 단기 대출 이자비용을 감안하여 비례 배정 자금을 효율적으로 안배.
+          </p>
+          
+          <p style="font-size: 1.15rem; line-height: 2.65; margin-bottom: 38px; color: #cbd5e1;">
+            <strong style="color: #ffffff;">2. 상장일 시초가 매매 및 분할 매도 원칙</strong><br><br>
+            상장 첫날 개장 직후 30분간의 거래량과 변동성을 활용하여 70%는 분할 익절, 나머지 30%는 추세 이탈 시 정리.
+          </p>
+        </section>
+
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
+        <!-- Section 3: Data Table -->
+        <section id="sec-data-table" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">3. 공모주 핵심 체크리스트 지표</h2>
+          
+          <div class="table-responsive" style="margin: 36px 0;">
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>체크포인트</th>
+                  <th>안전 기준선</th>
+                  <th>위험 기준선</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>기관 경쟁률</strong></td>
+                  <td>1,000 : 1 이상</td>
+                  <td>500 : 1 미만</td>
+                </tr>
+                <tr>
+                  <td><strong>의무보유확약 비율</strong></td>
+                  <td>30% 이상</td>
+                  <td>10% 미만 (상장일 매물 주의)</td>
+                </tr>
+                <tr>
+                  <td><strong>유통 가능 물량</strong></td>
+                  <td>25% 이하</td>
+                  <td>40% 초과 (오버행 경고)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div style="margin: 64px 0 48px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>
+
+        <!-- Section 4 -->
+        <section id="sec-strategy" style="margin-bottom: 50px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">4. 신규 상장주 락업 해제 일정 관리</h2>
+          
+          <div class="callout callout-warning" style="margin: 48px 0; padding: 34px 38px; background: rgba(245, 158, 11, 0.08); border-left: 5px solid var(--accent-gold); border-radius: 12px; line-height: 2.5;">
+            <div style="font-weight: 700; margin-bottom: 24px; color: var(--accent-gold); font-size: 1.2rem;">📅 오버행 캘린더 관리:</div>
+            
+            <div>
+              상장 후 15일, 1개월, 3개월, 6개월 차에 대규모 벤처캐피탈(VC) 및 기관 락업이 순차적으로 해제됩니다.<br><br>
+              <strong style="color: #ffffff;">보호예수 해제일 3~5일 전에는 단기 차익 실현 후 관망</strong>하는 전략이 안전합니다.
+            </div>
+          </div>
+        </section>
+
+
+        <!-- In-Article Native Ad Slot #2 -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header">
+            <span class="ad-label">SPONSORED CONTENT</span>
+          </div>
           <div class="ad-container ad-in-article" 
-               data-ad-slot="8020002" 
+               data-ad-slot="2002002" 
                data-ad-type="In-Article Native" 
-               data-ad-name="공모주 본문 광고 1" 
+               data-ad-name="본문 중간 네이티브 광고" 
                data-ad-size="Responsive In-Article">
           </div>
         </div>
 
-        <h2>2. 균등 배정과 비례 배정 계산법 (가족 계좌 활용 팁)</h2>
-        <p>
-          공모주 배정 물량은 <strong>50% 균등 배정 + 50% 비례 배정</strong>으로 나누어집니다.
-        </p>
-        <div class="callout-box callout-tip">
-          <div class="callout-icon">💡</div>
-          <div>
-            <div class="callout-title">최소 증거금으로 균등 1주 챙기는 비법</div>
-            최소 청약 단위(보통 10주~20주, 증거금 5만~10만원)만 넣어도 청약자 수에 따라 1인당 1~2주가 배정됩니다. 온 가족(배우자, 자녀 등) 계좌를 총동원하면 무위험 치킨값/용돈 파이프라인을 구축할 수 있습니다.
+        <!-- Section 5: Calculator Widget Linking -->
+        <section id="sec-calculator">
+          <h2>5. 실시간 가치평가 및 계산기 활용 가이드</h2>
+          
+          <p>
+            보유 중이거나 매수 검토 중인 금융 상품 및 종목의 적정가치와 물타기 평단가를 직접 시뮬레이션해 보세요:
+          </p>
+          
+          <div class="quick-calc-form" style="margin: 28px 0; padding: 24px 28px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid var(--border-color);">
+            <h3 style="font-size:1.15rem; margin-bottom:10px; color:var(--text-primary);">📊 Value Stock Labs 무료 퀀트 투자 계산기</h3>
+            <p style="font-size:0.96rem; color:var(--text-secondary); margin-bottom:18px;">
+            복잡한 재무 지표를 1초 만에 계산하여 합리적인 매매 기준선을 제시합니다.
+          </p>
+            
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="../tools/fair-value-calculator.html" class="btn-primary" style="text-decoration:none;">💎 기업 적정가치(Fair Value) 계산기</a>
+              <a href="../tools/stock-average-calc.html" class="btn-primary" style="text-decoration:none; background: #3b82f6;">💧 물타기 평단가 계산기</a>
+              <a href="../tools/target-price-calculator.html" class="btn-primary" style="text-decoration:none; background: #64748b;">🎯 손익비 계산기</a>
+            </div>
           </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <div class="article-disclaimer">
+          <strong>⚠️ 투자 유의사항 및 면책 조항:</strong><br>
+          본 리포트에서 제공하는 정보는 투자 판단을 위한 참고용 분석 자료이며, 특정 종목이나 금융 상품의 매수 또는 매도를 권유하지 않습니다. 
+          모든 투자의 최종 결정과 손익에 대한 책임은 투자자 본인에게 있습니다.
         </div>
 
-        <!-- In-Article Ad 2 -->
-        <div class="ad-slot-wrapper">
-          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
-          <div class="ad-container ad-in-article" 
-               data-ad-slot="8030003" 
-               data-ad-type="In-Article Native" 
-               data-ad-name="공모주 본문 광고 2" 
-               data-ad-size="Responsive In-Article">
-          </div>
-        </div>
-
-        <h2>3. 상장일 최고가 매도 전략 (9시~9시 10분의 법칙)</h2>
-        <p>
-          공모주 시세의 80%는 <strong>장 시작 직후 10분 이내</strong>에 결정됩니다. 시초가가 공모가 대비 +150% 이상 시작할 경우 장 초반 거래량이 폭증할 때 1차 절반을 매도하고, 이후 5분봉 음봉 전환 시 전량 차익 실현하는 것이 가장 안전한 정석 매도법입니다.
-        </p>
-
-        <div class="article-tags-wrap">
-          <a href="#" class="tag-item">#공모주청약</a>
-          <a href="#" class="tag-item">#따따상</a>
-          <a href="#" class="tag-item">#균등배정</a>
-          <a href="#" class="tag-item">#비례배정</a>
-          <a href="#" class="tag-item">#IPO매매기법</a>
-        </div>
-
-        <div class="article-share-bar">
-          <div>
-            <strong>공모주 청약 가이드를 공유하세요!</strong>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">초보자도 쉽게 따라할 수 있는 실전 IPO 팁.</p>
-          </div>
-          <div class="share-buttons">
-            <button type="button" class="share-btn" id="shareCopyBtn">🔗 링크 복사</button>
-            <button type="button" class="share-btn" id="shareNativeBtn">📢 공유하기</button>
-          </div>
-        </div>
-
-        <div class="post-nav-grid">
-          <a href="ai-semiconductor-hbm-stocks.html" class="post-nav-card">
-            <span class="post-nav-label">← 이전 분석글</span>
-            <span class="post-nav-title">2026 AI 반도체 HBM 수혜주 총정리</span>
-          </a>
-          <a href="undervalued-stocks-2026.html" class="post-nav-card" style="text-align:right;">
-            <span class="post-nav-label">다음 분석글 →</span>
-            <span class="post-nav-title">2026 저평가 우량주 5선 및 적정주가 산정법</span>
-          </a>
-        </div>
-
-        <div class="ad-slot-wrapper">
-          <div class="ad-slot-header"><span class="ad-label">SPONSORED RECOMMENDATIONS</span></div>
-          <div class="ad-container ad-multiplex" 
-               data-ad-slot="8040004" 
-               data-ad-type="Multiplex Grid" 
-               data-ad-name="하단 멀티플렉스 추천 광고" 
-               data-ad-size="Multiplex 4x1">
-          </div>
+        <!-- Social Share & Toast -->
+        <div class="article-share-box">
+          <span>이 분석 리포트 공유하기:</span>
+          <button type="button" class="share-btn" id="shareBtn">🔗 URL 링크 복사</button>
         </div>
 
       </article>
 
-      <aside class="sidebar-area">
+      <!-- Sidebar -->
+      <aside class="sidebar-area" aria-label="사이드바">
         <div class="widget-card">
-          <h3 class="widget-title"><span>⚡</span> 투자 계산기</h3>
-          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:14px;">
-            상장 후 주가 변동에 대비한 나만의 평단가 및 목표 수익률을 계산해보세요.
-          </p>
-          <a href="../tools/stock-average-calc.html" class="btn-primary" style="display:block; text-align:center; padding:10px;">평단가 계산기 실행 →</a>
+          <h3 class="widget-title"><span>🔥</span> 실시간 인기 분석</h3>
+          <div class="popular-list">
+            <div class="popular-item">
+              <span class="popular-rank">1</span>
+              <a href="ai-semiconductor-hbm-stocks.html" class="popular-link">2026 AI 반도체 HBM 수혜주 총정리</a>
+            </div>
+            <div class="popular-item">
+              <span class="popular-rank">2</span>
+              <a href="undervalued-stocks-2026.html" class="popular-link">2026 저평가 우량주 5선 분석</a>
+            </div>
+            <div class="popular-item">
+              <span class="popular-rank">3</span>
+              <a href="breakout-stocks-guide.html" class="popular-link">상승초입주 포착 매매기법</a>
+            </div>
+          </div>
         </div>
 
+        <!-- Sticky Sidebar Ad Slot (300x600) -->
         <div class="ad-slot-wrapper">
-          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-slot-header">
+            <span class="ad-label">ADVERTISEMENT</span>
+          </div>
           <div class="ad-container ad-sidebar-sticky" 
-               data-ad-slot="8050005" 
-               data-ad-type="Sidebar Sticky Half-page" 
-               data-ad-name="사이드바 고정 배너" 
-               data-ad-size="300x600">
+               data-ad-slot="4004004" 
+               data-ad-type="Sidebar Half-Page Sticky" 
+               data-ad-name="본문 사이드바 광고" 
+               data-ad-size="300x600 Half-Page">
           </div>
         </div>
       </aside>
 
     </div>
-  </div>
+  </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="../index.html" class="logo">
-            <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
-            <span class="logo-text">Value Stock Labs</span>
-          </a>
-          <p>Value Stock Labs는 데이터 기반 저평가 우량주 및 기술적 상승초입주를 심층 분석하는 금융 블로그입니다.</p>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col-title">카테고리</h4>
-          <ul class="footer-links">
-            <li><a href="undervalued-stocks-2026.html">저평가주식</a></li>
-            <li><a href="breakout-stocks-guide.html">상승초입주</a></li>
-            <li><a href="ipo-public-offering-guide.html">공모주 청약</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col-title">투자 도구</h4>
-          <ul class="footer-links">
-            <li><a href="../tools/stock-average-calc.html">물타기 계산기</a></li>
-            <li><a href="../tools/target-price-calculator.html">적정주가 계산기</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col-title">정책</h4>
-          <ul class="footer-links">
-            <li><a href="../pages/privacy-policy.html">개인정보처리방침</a></li>
-            <li><a href="../pages/disclaimer.html">투자 면책조항</a></li>
-          </ul>
-        </div>
-      </div>
       <div class="footer-bottom">
         <span>© 2026 Value Stock Labs. All rights reserved.</span>
+        <span>Google AdSense Compliant &amp; SEO Optimized</span>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="../js/main.js"></script>
-  <script src="../js/article.js"></script>
   <script src="../js/ads.js"></script>
-<script src="../js/admin-analytics.js" defer></script>
+  <script src="../js/article.js"></script>
+  <script src="../js/admin-analytics.js" defer></script>
 </body>
 </html>
-
-
-

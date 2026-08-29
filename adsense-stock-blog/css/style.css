@@ -53,7 +53,7 @@
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-  --max-width: 1240px;
+  --max-width: 1480px;
   --header-height: 72px;
 }
 

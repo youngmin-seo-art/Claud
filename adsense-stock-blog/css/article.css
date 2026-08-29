@@ -14,28 +14,28 @@
   transition: width 0.1s ease-out;
 }
 
-/* Article Layout Grid - Wide & Comfortable Reading Experience */
+/* Article Layout Grid - Compact, Balanced & Focused Reading Experience */
 .article-layout {
-  padding: 50px 0 100px;
+  padding: 40px 0 80px;
 }
 
 .article-layout .container {
-  max-width: 1480px;
-  padding-left: 28px;
-  padding-right: 28px;
+  max-width: 1180px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .article-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 44px;
   align-items: start;
 }
 
 @media (max-width: 1120px) {
   .article-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 }
 
@@ -46,7 +46,7 @@
   gap: 8px;
   font-size: 0.92rem;
   color: var(--text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .breadcrumb a, .article-breadcrumb a {
@@ -60,25 +60,25 @@
 
 /* Article Header */
 .article-header {
-  padding-bottom: 36px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: 48px;
+  margin-bottom: 38px;
 }
 
 .article-title {
-  font-size: 2.35rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  line-height: 1.55 !important;
-  letter-spacing: -0.6px;
-  margin: 24px 0 28px;
+  line-height: 1.45 !important;
+  letter-spacing: -0.5px;
+  margin: 20px 0 24px;
   color: var(--text-primary);
   word-break: keep-all;
 }
 
 @media (max-width: 768px) {
   .article-title {
-    font-size: 1.8rem;
-    line-height: 1.5 !important;
+    font-size: 1.7rem;
+    line-height: 1.4 !important;
   }
 }
 
@@ -86,8 +86,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
-  font-size: 0.95rem;
+  gap: 20px;
+  font-size: 0.94rem;
   color: var(--text-secondary);
 }
 
@@ -101,9 +101,9 @@
 .badge, .post-badge {
   display: inline-flex !important;
   align-items: center;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 6px;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.2px;
 }
@@ -119,7 +119,7 @@
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin: 40px 0 52px;
+  margin: 32px 0 44px;
   border: 1px solid var(--border-color);
   background: var(--bg-secondary);
   box-shadow: var(--shadow-md);
@@ -127,19 +127,19 @@
 
 .article-featured-img img, .article-featured-img-wrap img {
   width: 100%;
-  max-height: 500px;
+  max-height: 480px;
   object-fit: cover;
   display: block;
 }
 
 .article-featured-img figcaption {
-  padding: 18px 22px;
-  font-size: 0.92rem;
+  padding: 14px 18px;
+  font-size: 0.9rem;
   color: var(--text-muted);
   background: rgba(0, 0, 0, 0.3);
   text-align: center;
   border-top: 1px solid var(--border-color);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Table of Contents (TOC) */
@@ -148,15 +148,15 @@
   border: 1px solid var(--border-color);
   border-left: 5px solid var(--accent-cyan);
   border-radius: var(--radius-md);
-  padding: 32px 38px;
-  margin: 44px 0 64px;
+  padding: 24px 28px;
+  margin: 32px 0 44px;
   box-shadow: var(--shadow-sm);
 }
 
 .toc-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -167,40 +167,40 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
   margin: 0 !important;
   padding: 0 !important;
 }
 
 .toc-list li a {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
   display: inline-block;
-  line-height: 1.85;
+  line-height: 1.6;
 }
 
 .toc-list li a:hover {
   color: var(--accent-cyan);
-  transform: translateX(8px);
+  transform: translateX(6px);
 }
 
 /* ==========================================================================
-   ARTICLE BODY & ULTRA-SPACIOUS SECTION DIVIDERS
+   ARTICLE BODY & BALANCED EDITORIAL TYPOGRAPHY
    ========================================================================== */
 
 .article-body, .article-content {
-  font-size: 1.16rem !important;
-  line-height: 2.65 !important;
+  font-size: 1.12rem !important;
+  line-height: 1.95 !important;
   color: #cbd5e1 !important;
   letter-spacing: -0.2px;
 }
 
 /* 대형 네온 섹션 구분선 */
 .section-divider {
-  margin: 84px 0 60px !important;
+  margin: 52px 0 40px !important;
   border: none !important;
-  border-top: 2px solid rgba(6, 182, 212, 0.45) !important;
+  border-top: 2px solid rgba(6, 182, 212, 0.4) !important;
   width: 100% !important;
   display: block !important;
 }
@@ -209,16 +209,16 @@
 .article-body section,
 .article-content section {
   position: relative;
-  margin-top: 76px !important;
-  margin-bottom: 76px !important;
-  padding-top: 56px !important;
-  border-top: 2px solid rgba(6, 182, 212, 0.4) !important;
+  margin-top: 48px !important;
+  margin-bottom: 48px !important;
+  padding-top: 36px !important;
+  border-top: 2px solid rgba(6, 182, 212, 0.35) !important;
 }
 
 /* 첫 번째 섹션은 상단 구분선 제거 */
 .article-body section:first-of-type,
 .article-content section:first-of-type {
-  margin-top: 40px !important;
+  margin-top: 28px !important;
   padding-top: 0 !important;
   border-top: none !important;
 }
@@ -226,17 +226,17 @@
 /* 대번호 H2 소제목 스타일 */
 .article-body h2,
 .article-content h2 {
-  font-size: 1.75rem !important;
+  font-size: 1.65rem !important;
   font-weight: 800 !important;
-  line-height: 1.55 !important;
+  line-height: 1.45 !important;
   letter-spacing: -0.4px;
-  margin: 0 0 38px 0 !important;
-  padding-bottom: 20px !important;
+  margin: 0 0 24px 0 !important;
+  padding-bottom: 14px !important;
   border-bottom: 3px solid rgba(6, 182, 212, 0.45) !important;
   color: #ffffff !important;
   display: flex !important;
   align-items: center !important;
-  gap: 14px;
+  gap: 12px;
   scroll-margin-top: 100px;
   word-break: keep-all;
 }
@@ -251,8 +251,8 @@
 .article-content h2::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 32px;
+  width: 5px;
+  height: 28px;
   background: var(--gradient-primary);
   border-radius: 4px;
   flex-shrink: 0;
@@ -261,10 +261,10 @@
 /* 세부 소제목 H3 스타일 */
 .article-body h3,
 .article-content h3 {
-  font-size: 1.38rem !important;
+  font-size: 1.32rem !important;
   font-weight: 700 !important;
-  line-height: 1.6 !important;
-  margin: 56px 0 30px !important;
+  line-height: 1.45 !important;
+  margin: 38px 0 18px !important;
   color: var(--accent-cyan) !important;
   scroll-margin-top: 100px;
   display: flex;
@@ -278,13 +278,13 @@
   color: #0284c7 !important;
 }
 
-/* 본문 문단 (Paragraphs) - 시원시원하고 여유로운 행간 2.65 및 40px 마진 */
+/* 본문 문단 (Paragraphs) - 정돈되고 편안한 줄간격 1.95 및 24px 마진 */
 .article-body p,
 .article-content p {
-  font-size: 1.15rem !important;
-  line-height: 2.65 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.95 !important;
   color: #cbd5e1 !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 24px !important;
   word-break: keep-all;
   letter-spacing: -0.2px;
 }
@@ -310,11 +310,11 @@
 .article-body ol,
 .article-content ul,
 .article-content ol {
-  margin: 32px 0 48px 28px !important;
+  margin: 20px 0 30px 24px !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 26px !important;
-  font-size: 1.12rem !important;
+  gap: 16px !important;
+  font-size: 1.08rem !important;
   color: #cbd5e1 !important;
 }
 
@@ -327,8 +327,8 @@
 
 .article-body li,
 .article-content li {
-  line-height: 2.5 !important;
-  margin-bottom: 20px !important;
+  line-height: 1.85 !important;
+  margin-bottom: 10px !important;
   word-break: keep-all;
 }
 
@@ -344,11 +344,11 @@
 
 /* Callout Boxes */
 .callout, .callout-box {
-  padding: 34px 38px !important;
+  padding: 24px 28px !important;
   border-radius: var(--radius-md) !important;
-  margin: 48px 0 !important;
-  line-height: 2.5 !important;
-  font-size: 1.12rem !important;
+  margin: 32px 0 !important;
+  line-height: 1.85 !important;
+  font-size: 1.08rem !important;
   word-break: keep-all;
   box-shadow: var(--shadow-sm);
 }

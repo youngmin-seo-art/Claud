@@ -17,18 +17,21 @@ class ArticleGenerator:
     def create_slug(self, title):
         """한글/영문 제목에서 안전하고 유니크한 파일명 슬러그 생성"""
         clean = re.sub(r'[^\w\s-]', '', title).strip().lower()
-        slug = re.sub(r'[-\s]+', '-', clean)
+        slug = re.sub(r'[-\s]+', '-', clean).strip('-')
+        clean_slug = slug[:40].rstrip('-')
         date_prefix = datetime.now().strftime("%Y%m%d")
-        return f"{date_prefix}-{slug[:32]}"
+        return f"{date_prefix}-{clean_slug}" if clean_slug else f"{date_prefix}-report"
 
     def detect_topic_type(self, title, summary=""):
         """제목 및 요약문을 분석하여 세부 리포트 템플릿 유형 결정"""
         full_text = f"{title} {summary}"
 
-        if any(k in full_text for k in ["대출", "금리", "가계", "월급쟁이", "예대", "부채", "한은", "한국은행", "기준금리", "물가", "환율", "인플레", "금융당국"]):
-            return "macro_interest_rate"
-        elif any(k in full_text for k in ["반도체", "HBM", "엔비디아", "하이닉스", "삼성전자", "파운드리", "CXL", "온디바이스", "소부장", "AI"]):
+        if any(k in full_text for k in ["반도체", "HBM", "엔비디아", "하이닉스", "삼성전자", "파운드리", "CXL", "온디바이스", "소부장", "빅테크", "AI투자", "AI"]):
             return "ai_semiconductor"
+        elif any(k in full_text for k in ["대출", "가계부채", "가산금리", "월급쟁이", "예대", "주담대", "신용대출"]):
+            return "macro_interest_rate"
+        elif any(k in full_text for k in ["금리", "한은", "한국은행", "기준금리", "물가", "환율", "인플레", "통화정책"]):
+            return "macro_interest_rate"
         elif any(k in full_text for k in ["밸류업", "저PBR", "배당", "주주환원", "자사주", "금융지주", "은행주", "보험주", "지주사"]):
             return "valueup_dividend"
         elif any(k in full_text for k in ["2차전지", "배터리", "전고체", "양극재", "에코프로", "포스코", "로봇", "자율주행", "모빌리티"]):
@@ -464,16 +467,16 @@ class ArticleGenerator:
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB_ID}" crossorigin="anonymous"></script>
   <!-- Favicon & Search Engine Identity -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#090d16">
   <meta name="msapplication-TileColor" content="#090d16">
-  <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="../apple-touch-icon.png">
 </head>
 <body>
 
@@ -482,7 +485,7 @@ class ArticleGenerator:
   <header class="site-header">
     <div class="container header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-icon"><img src="/images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
+        <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">
@@ -716,16 +719,16 @@ class ArticleGenerator:
   <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB_ID}" crossorigin="anonymous"></script>
   <!-- Favicon & Search Engine Identity -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#090d16">
   <meta name="msapplication-TileColor" content="#090d16">
-  <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="../apple-touch-icon.png">
 </head>
 <body>
 
@@ -736,7 +739,7 @@ class ArticleGenerator:
   <header class="site-header">
     <div class="container header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-icon"><img src="/images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
+        <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
       </a>
       <nav class="nav-menu" aria-label="메인 메뉴">

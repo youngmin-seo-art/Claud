@@ -270,6 +270,7 @@ button, input, select, textarea {
   white-space: nowrap;
   background: linear-gradient(120deg, var(--text-primary) 60%, var(--accent-cyan) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -419,6 +420,7 @@ button, input, select, textarea {
 .hero-title span {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -948,6 +950,7 @@ button, input, select, textarea {
   margin-bottom: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;

@@ -12,6 +12,7 @@ STOCK BLOG AGENT - MASTER CLI (run.py)
 
 import sys
 import os
+import re
 import argparse
 import time
 
@@ -66,12 +67,13 @@ def run_agent(keyword=None, is_morning=False, is_test=False):
         article_data = generator.generate_morning_briefing(headlines if len(headlines) >= 5 else None)
         print(f"📌 생성된 모닝 브리핑: {article_data['title']}")
     elif keyword:
-        print(f"🎯 [키워드 지정 모드] 타겟 키워드: {keyword}")
+        clean_kw = re.sub(r'^(20\d\d\s*)+', '', keyword).strip()
+        final_kw = clean_kw if clean_kw else keyword
         topic = {
-            "title": f"2026 {keyword} 실전 수혜주 분석 및 적정주가 밸류에이션 리포트",
+            "title": f"2026 {final_kw} 실전 수혜주 분석 및 적정주가 밸류에이션 리포트",
             "category": "주식분석",
-            "keywords": [keyword, "저평가우량주", "상승초입", "목표주가"],
-            "summary": f"{keyword}에 대한 펀더멘털 및 기술적 차트 지표 심층 분석"
+            "keywords": [final_kw, "저평가우량주", "상승초입", "목표주가"],
+            "summary": f"{final_kw}에 대한 펀더멘털 및 기술적 차트 지표 심층 분석"
         }
         article_data = generator.generate_article_content(topic)
         print(f"📌 선정된 아티클 주제: {topic['title']}")

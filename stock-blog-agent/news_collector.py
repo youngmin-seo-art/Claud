@@ -41,6 +41,33 @@ class NewsCollector:
         cleaned = re.sub(r'[\r\n\t]+', ' ', cleaned)
         return cleaned.strip()
 
+    def clean_title(self, raw_title):
+        """뉴스 헤드라인 정제: 언론사명 접미사, 날짜 태그, 중복 연도, 불필요한 브래킷 제거"""
+        if not raw_title:
+            return ""
+        title = self.clean_text(raw_title)
+        
+        # 1. 언론사 접미사 반복 제거 (e.g., " - 머니투데이 - 머니투데이", " - MBC 뉴스", " - 네이버 프리미엄콘텐츠" 등)
+        media_patterns = [
+            r'[-\s|·]+(머니투데이|MBC\s*뉴스|네이버\s*프리미엄콘텐츠|매일경제|한국경제|연합뉴스|조선일보|중앙일보|동아일보|서울경제|이데일리|아시아경제|헤럴드경제|뉴시스|뉴스1|SBS|KBS|YTN|파이낸셜뉴스|디지털타임스|전자신문|스마트비즈|블로터|더벨|인포스탁데일리|한경닷컴|매경닷컴|머니S|이투데이).*$',
+            r'[-\s|·]+[가-힣A-Za-z0-9\s]+뉴스$',
+            r'[-\s|·]+[가-힣A-Za-z0-9\s]+일보$'
+        ]
+        for _ in range(3):
+            for pat in media_patterns:
+                title = re.sub(pat, '', title, flags=re.IGNORECASE).strip()
+
+        # 2. 날짜 및 잡음 태그 제거 (e.g. "[4월 27일]", "[속보]", "[단독]", "[국장 마감]" 등)
+        title = re.sub(r'^\[\s*\d+월\s*\d+일\s*\]\s*', '', title)
+        title = re.sub(r'^\[\s*(속보|단독|특징주|마감|개장|주목|단독취재|종합|포토|현장)\s*\]\s*', '', title)
+        title = re.sub(r'^\(\s*(국장\s*마감|코스피\s*마감|뉴욕\s*마감|장마감)\s*\)\s*', '', title)
+
+        # 3. 중복 연도 정제 (e.g., "2026 2026 ...")
+        title = re.sub(r'\b(20\d\d)\s+\1\b', r'\1', title)
+        title = re.sub(r'^(20\d\d\s+){2,}', r'\1', title)
+
+        return title.strip()
+
     def normalize_title(self, title):
         """제목 비교를 위한 정규화 (특수문자 및 공백 제거)"""
         return re.sub(r'[\W_]+', '', title.lower())
@@ -126,12 +153,13 @@ class NewsCollector:
                     desc_elem = item.find("description")
                     pub_date_elem = item.find("pubDate")
                     
-                    t_text = self.clean_text(title_elem.text if title_elem is not None and title_elem.text else "")
+                    raw_t = title_elem.text if title_elem is not None and title_elem.text else ""
+                    t_text = self.clean_title(raw_t)
                     d_text = self.clean_text(desc_elem.text if desc_elem is not None and desc_elem.text else "")
                     link_text = link_elem.text.strip() if link_elem is not None and link_elem.text else ""
                     pub_date_text = pub_date_elem.text.strip() if pub_date_elem is not None and pub_date_elem.text else ""
                     
-                    if t_text:
+                    if t_text and len(t_text) >= 5:
                         news_items.append({
                             "title": t_text,
                             "link": link_text,
@@ -276,34 +304,62 @@ class NewsCollector:
             print("⚠️ [알림] 새로운 RSS 기사가 모두 기발행되었거나 없어 날짜별 고유 테마 캘린더에서 선별합니다.")
             return self.get_fallback_topic()
 
-        # 2. 고단가/핵심 금융 키워드 우선순위 평가
-        def score_news(item):
-            score = 0
-            t = item["title"]
-            d = item.get("description", "")
-            full = f"{t} {d}"
+    def score_news(self, item):
+        """뉴스 항목에 대한 투자 가치 및 광고 적합도 점수 산출"""
+        score = 0
+        t = item.get("title", "")
+        d = item.get("description", "") or item.get("summary", "")
 
-            # 핵심 금융 키워드 가중치
-            for kw in HIGH_CPC_KEYWORDS:
-                if any(w in t for w in kw.split()):
-                    score += 15
-                elif any(w in d for w in kw.split()):
-                    score += 5
+        # 핵심 금융 키워드 가중치
+        for kw in HIGH_CPC_KEYWORDS:
+            if any(w in t for w in kw.split()):
+                score += 15
+            elif any(w in d for w in kw.split()):
+                score += 5
 
-            # 중요 경제 이슈 단어
-            for imp in ["금리", "환율", "대출", "증시", "실적", "수주", "반도체", "배당", "밸류업", "외국인", "기관", "신고가", "돌파"]:
-                if imp in t:
-                    score += 8
+        # 중요 경제 이슈 단어
+        for imp in ["금리", "환율", "대출", "증시", "실적", "수주", "반도체", "배당", "밸류업", "외국인", "기관", "신고가", "돌파"]:
+            if imp in t:
+                score += 8
 
-            # 단순 사건사고나 연예/가십 제외
-            for bad in ["포토", "인사", "부고", "동정", "날씨", "사고", "화재", "살인", "폭행", "음주"]:
-                if bad in t:
-                    score -= 50
+        # 단순 사건사고, 연예/가십 및 증시 무관 지정학/정치 뉴스 강력 감점
+        for bad in ["포토", "인사", "부고", "동정", "날씨", "사고", "화재", "살인", "폭행", "음주", 
+                    "이란", "안보수장", "미사일", "폭격", "전쟁", "군사", "총격", "사망", "피살", 
+                    "테러", "외교부", "국방부", "대통령실", "정치", "국회", "여야", "청문회", "간첩"]:
+            if bad in t or bad in d:
+                score -= 100
 
-            return score
+        return score
+
+    def collect_trending_topics(self):
+        """여러 금융 RSS 소스에서 '중복되지 않은 가장 신선한 최신 뉴스' 선별 수집"""
+        all_news = []
+        for feed in RSS_FEEDS:
+            items = self.fetch_feed(feed["url"])
+            for item in items:
+                item["source_name"] = feed["name"]
+                item["feed_category"] = feed["category"]
+                all_news.append(item)
+
+        print(f"[정보] 총 {len(all_news)}건의 실시간 뉴스 아이템 수집 완료. 중복 및 기발행 여부 검사 중...")
+
+        # 1. 이미 발행된 기사 필터링
+        fresh_news = []
+        for item in all_news:
+            title = item["title"]
+            if not self.is_already_published(title):
+                fresh_news.append(item)
+            else:
+                pass
+
+        print(f"[정보] 기발행 제외 후 신규 뉴스 후보: {len(fresh_news)}건")
+
+        if not fresh_news:
+            print("⚠️ [알림] 새로운 RSS 기사가 모두 기발행되었거나 없어 날짜별 고유 테마 캘린더에서 선별합니다.")
+            return self.get_fallback_topic()
 
         # 점수 높은 순으로 정렬
-        fresh_news.sort(key=score_news, reverse=True)
+        fresh_news.sort(key=self.score_news, reverse=True)
         best_item = fresh_news[0]
 
         category, keywords = self.classify_category_and_keywords(best_item["title"], best_item.get("description", ""))

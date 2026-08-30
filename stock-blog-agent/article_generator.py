@@ -17,9 +17,11 @@ class ArticleGenerator:
 
     def create_slug(self, title):
         """한글/영문 제목에서 안전하고 유니크한 파일명 슬러그 생성"""
-        clean = re.sub(r'[^\w\s-]', '', title).strip().lower()
+        # 불필요한 태그/언론사/중복연도 정리
+        clean = re.sub(r'^(20\d\d\s*)+', '', title)
+        clean = re.sub(r'[^\w\s-]', '', clean).strip().lower()
         slug = re.sub(r'[-\s]+', '-', clean).strip('-')
-        clean_slug = slug[:40].rstrip('-')
+        clean_slug = slug[:45].rstrip('-')
         date_prefix = datetime.now().strftime("%Y%m%d")
         return f"{date_prefix}-{clean_slug}" if clean_slug else f"{date_prefix}-report"
 
@@ -120,8 +122,10 @@ class ArticleGenerator:
     def build_contextual_sections(self, topic_type, title, summary, category, keywords):
         """기사 제목과 뉴스 맥락에 100% 일치하는 풍부하고 전문적인 5개 본문 섹션 HTML 생성 (대번호 간 대형 여백/구분선 & 행간 2.2)"""
         clean_title = html.escape(title)
-        clean_summary = html.escape(summary)
-        if clean_summary:
+        if not summary or len(summary.strip()) < 20 or summary.strip() in title:
+            clean_summary = f"본 리포트에서는 <strong>{clean_title}</strong> 이슈와 관련하여 시장의 펀더멘털 변화, 수급 동향, 핵심 재무 지표 및 중장기 투자 전략을 심층 분석합니다."
+        else:
+            clean_summary = html.escape(summary.strip())
             clean_summary = re.sub(r'\s+', ' ', clean_summary).strip()
             clean_summary = re.sub(r'([.?!])\s+(?=[가-힣A-Za-z0-9])', r'\1<br><br>\n            ', clean_summary)
         kw_str = ", ".join(keywords)

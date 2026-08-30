@@ -1739,7 +1739,6 @@ class ArticleGenerator:
       <a href="../index.html" class="logo" aria-label="Value Stock Labs 홈으로 이동">
         <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
-        <span class="logo-tag">PRO</span>
       </a>
 
       <nav class="main-nav" aria-label="메인 메뉴">
@@ -2016,7 +2015,6 @@ class ArticleGenerator:
       <a href="../index.html" class="logo" aria-label="Value Stock Labs 홈으로 이동">
         <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
         <span class="logo-text">Value Stock Labs</span>
-        <span class="logo-tag">PRO</span>
       </a>
 
       <nav class="main-nav" aria-label="메인 메뉴">

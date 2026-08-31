@@ -1647,27 +1647,41 @@ class ArticleGenerator:
         date_iso = datetime.now().strftime("%Y-%m-%d")
         slug = f"{datetime.now().strftime('%Y%m%d')}-morning-market-briefing"
 
-        kospi = market_data.get("^KS11", {})
-        kosdaq = market_data.get("^KQ11", {})
-        usdkrw = market_data.get("KRW=X", {})
-        sp500 = market_data.get("^GSPC", {})
-        nasdaq = market_data.get("^IXIC", {})
-        btc = market_data.get("BTC", {})
+        # 썸네일 이미지 순환 배정 (morning-1, morning-2, morning-3)
+        morning_images = ["images/morning-1.jpg", "images/morning-2.jpg", "images/morning-3.jpg"]
+        chosen_img = morning_images[datetime.now().day % len(morning_images)]
+
+        kospi = market_data.get("^KS11", market_data.get("kospi", {}))
+        kosdaq = market_data.get("^KQ11", market_data.get("kosdaq", {}))
+        usdkrw = market_data.get("KRW=X", market_data.get("usdkrw", {}))
+        sp500 = market_data.get("^GSPC", market_data.get("sp500", {}))
+        nasdaq = market_data.get("^IXIC", market_data.get("nasdaq", {}))
+        btc = market_data.get("BTC", market_data.get("btc", {}))
 
         def fmt_change(item):
-            change = item.get("change", 0.0)
+            if not item or not isinstance(item, dict):
+                return '<span style="color:var(--text-muted);">-</span>'
+            change = item.get("change", item.get("diffRate", 0.0))
             sign = "+" if change > 0 else ""
             color = "var(--accent-red)" if change > 0 else "#00f2fe" if change < 0 else "var(--text-muted)"
-            price = f"{item.get('price', 0):,.2f}" if isinstance(item.get('price', 0), float) else f"{item.get('price', 0):,}"
+            price_val = item.get('price', 0)
+            price = f"{price_val:,.2f}" if isinstance(price_val, float) else f"{price_val:,}"
             return f'<span style="color:{color}; font-weight:700;">{price} ({sign}{change:.2f}%)</span>'
 
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
 
         headlines_html = ""
         for i, h in enumerate(top_headlines[:5], 1):
-            h_title = html.escape(h.get('title', '주요 경제 이슈'))
-            h_summary = html.escape(h.get('summary', ''))
-            analysis_text, target_sectors = self.analyze_morning_headline(h.get('title', ''), h.get('summary', ''))
+            if isinstance(h, dict):
+                raw_title = h.get('title', '주요 경제 이슈')
+                raw_summary = h.get('summary', h.get('description', ''))
+            else:
+                raw_title = str(h)
+                raw_summary = f"{raw_title} 관련 시장 핵심 파급 효과 및 관련 섹터 분석"
+
+            h_title = html.escape(raw_title)
+            h_summary = html.escape(raw_summary)
+            analysis_text, target_sectors = self.analyze_morning_headline(raw_title, raw_summary)
 
             headlines_html += f"""
             <div style="margin-bottom: 22px; padding: 26px 30px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; border-left: 5px solid var(--accent-cyan); box-shadow: var(--shadow-sm);">
@@ -1706,7 +1720,7 @@ class ArticleGenerator:
   <meta property="og:type" content="article">
   <meta property="og:title" content="오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs">
   <meta property="og:description" content="{today_str} 국내외 핵심 증시 지표 요약 및 오늘의 주요 경제 뉴스 심층 분석">
-  <meta property="og:image" content="../images/hero.jpg">
+  <meta property="og:image" content="../{chosen_img}">
   <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
 
   <link rel="stylesheet" href="../css/style.css?v=20260829_v7">
@@ -1785,7 +1799,7 @@ class ArticleGenerator:
         </header>
 
         <figure class="article-featured-img">
-          <img src="../images/hero.jpg" alt="글로벌 증시 시황 모닝 브리핑" loading="lazy">
+          <img src="../{chosen_img}" alt="글로벌 증시 시황 모닝 브리핑" loading="lazy">
           <figcaption>▲ {today_str} 글로벌 마켓 데이터 및 주요 경제 헤드라인 총정리</figcaption>
         </figure>
 
@@ -1943,11 +1957,12 @@ class ArticleGenerator:
             "slug": slug,
             "filename": f"{slug}.html",
             "title": f"오늘의 증시 모닝 브리핑 ({today_str})",
-            "category": "모닝 시황",
+            "category": "market",
             "summary": f"{today_str} 국내외 주요 시장 지표 요약 및 오늘의 핵심 경제 뉴스 5선 심층 분석",
-            "image": "images/hero.jpg",
+            "image": chosen_img,
             "html": html_content,
-            "date": date_iso
+            "date": date_iso,
+            "is_morning": True
         }
 
     def generate_article_html(self, title, summary, category, keywords, content_type="deep_dive"):
@@ -2227,7 +2242,8 @@ class ArticleGenerator:
         """실시간 증시 데이터와 주요 뉴스를 기반으로 모닝 브리핑 생성"""
         from news_collector import NewsCollector
         collector = NewsCollector()
-        market_data = collector.collect_market_data() if hasattr(collector, "collect_market_data") else {}
-        if not headlines:
-            headlines = []
+        market_data = collector.collect_market_data()
+        if not headlines or len(headlines) < 5:
+            headlines = collector.get_morning_headlines()
         return self.generate_morning_briefing_html(market_data, headlines)
+

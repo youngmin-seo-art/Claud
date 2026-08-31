@@ -44,27 +44,8 @@ def run_agent(keyword=None, is_morning=False, is_test=False):
 
     if is_morning:
         print("☕ [모닝 시황 모드] 밤사이 뉴욕증시 & 국내 아침 경제 이슈 수집 중...")
-        # 경제/증시 핵심 피드에서 필터링된 5개 헤드라인 수집
-        headlines = []
-        target_feeds = [
-            "https://www.mk.co.kr/rss/30100041/",
-            "https://news.google.com/rss/search?q=코스피+반도체+금리+증시&hl=ko&gl=KR&ceid=KR:ko",
-            "https://www.mk.co.kr/rss/30000001/"
-        ]
-        for f_url in target_feeds:
-            items = collector.fetch_feed(f_url)
-            for it in items:
-                t = it["title"]
-                # 사건사고/날씨/스포츠/연예 필터링
-                if not any(bad in t for bad in ["사고", "화재", "살인", "폭행", "음주", "날씨", "비", "홍수", "축구", "야구", "연예", "포토"]):
-                    if t not in headlines:
-                        headlines.append(t)
-                if len(headlines) >= 5:
-                    break
-            if len(headlines) >= 5:
-                break
-        
-        article_data = generator.generate_morning_briefing(headlines if len(headlines) >= 5 else None)
+        headlines = collector.get_morning_headlines()
+        article_data = generator.generate_morning_briefing(headlines)
         print(f"📌 생성된 모닝 브리핑: {article_data['title']}")
     elif keyword:
         clean_kw = re.sub(r'^(20\d\d\s*)+', '', keyword).strip()
@@ -93,6 +74,22 @@ def run_agent(keyword=None, is_morning=False, is_test=False):
     print(f"🔗 포스팅 라이브 주소: {live_url}")
     print("=" * 60)
 
+def calculate_seconds_until(target_time_str):
+    """지정된 시각(예: '08:00')까지 남은 대기 시간(초) 계산"""
+    from datetime import datetime, timedelta
+    now = datetime.now()
+    try:
+        t_hour, t_min = map(int, target_time_str.split(":"))
+    except ValueError:
+        raise ValueError("시간 형식은 'HH:MM'이어야 합니다. (예: 08:00)")
+
+    target_dt = now.replace(hour=t_hour, minute=t_min, second=0, microsecond=0)
+    if target_dt <= now:
+        target_dt += timedelta(days=1)
+    
+    diff_sec = (target_dt - now).total_seconds()
+    return diff_sec, target_dt
+
 def main():
     parser = argparse.ArgumentParser(description="Stock Blog Auto AI Agent")
     parser.add_argument("--auto", action="store_true", help="최신 핫이슈 자동 수집 및 포스팅")
@@ -100,11 +97,28 @@ def main():
     parser.add_argument("--keyword", type=str, help="특정 종목 또는 키워드 지정 포스팅")
     parser.add_argument("--test", action="store_true", help="로컬 테스트 모드 (Git Push 제외)")
     parser.add_argument("--schedule", type=int, help="지정된 시간(분)마다 자동 반복 실행")
+    parser.add_argument("--daily-at", type=str, help="매일 지정된 시각(HH:MM)에 자동 실행 (예: 08:00)")
 
     args = parser.parse_args()
 
-    if args.schedule:
-        print(f"⏰ [스케줄러 모드] {args.schedule}분마다 자동으로 최신 글을 수집·발행합니다.")
+    if args.daily_at:
+        print(f"⏰ [일일 정기 스케줄러 가동] 매일 {args.daily_at} 정각에 자동으로 포스팅을 발행합니다.")
+        while True:
+            try:
+                wait_sec, next_run_dt = calculate_seconds_until(args.daily_at)
+                print(f"💤 다음 실행 예정 시각: {next_run_dt.strftime('%Y-%m-%d %H:%M:%S')} (약 {wait_sec/3600:.1f}시간 대기 중... Ctrl+C로 종료)")
+                time.sleep(wait_sec)
+                print(f"\n🔔 [정각 알림] {args.daily_at} 도달! 자동 분석 및 포스팅을 시작합니다.")
+                # 아침 8시경 실행 시 자동으로 모닝 모드 가동
+                is_morning_mode = args.morning or (args.daily_at.startswith("08") or args.daily_at.startswith("07"))
+                run_agent(keyword=args.keyword, is_morning=is_morning_mode, is_test=args.test)
+                # 실행 후 10초 대기하여 중복 실행 방지
+                time.sleep(10)
+            except KeyboardInterrupt:
+                print("\n[중단] 스케줄러가 정상적으로 종료되었습니다.")
+                break
+    elif args.schedule:
+        print(f"⏰ [주기적 스케줄러 모드] {args.schedule}분마다 자동으로 최신 글을 수집·발행합니다.")
         while True:
             try:
                 run_agent(keyword=args.keyword, is_morning=args.morning, is_test=args.test)
@@ -118,3 +132,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

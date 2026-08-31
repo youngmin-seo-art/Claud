@@ -1935,6 +1935,121 @@ class ArticleGenerator:
 
 
 
+    def generate_morning_strategy_section(self, market_data):
+        """실제 시장 데이터(지수, 환율, 엔비디아/테슬라, HBM/2차전지 등) 기반의 구체적인 실전 수급 전략 가이드 생성"""
+        usdkrw = market_data.get("KRW=X", market_data.get("usdkrw", {}))
+        sp500 = market_data.get("^GSPC", market_data.get("sp500", {}))
+        nasdaq = market_data.get("^IXIC", market_data.get("nasdaq", {}))
+        sox = market_data.get("^SOX", market_data.get("sox", {}))
+        nvda = market_data.get("NVDA", {})
+        tsla = market_data.get("TSLA", {})
+
+        usdkrw_val = usdkrw.get('price', 1369.05) if isinstance(usdkrw, dict) else 1369.05
+        usdkrw_chg = usdkrw.get('change', usdkrw.get('diffRate', 0.0)) if isinstance(usdkrw, dict) else 0.0
+
+        sp500_chg = sp500.get('change', sp500.get('diffRate', 0.0)) if isinstance(sp500, dict) else 0.0
+        nasdaq_chg = nasdaq.get('change', nasdaq.get('diffRate', 0.0)) if isinstance(nasdaq, dict) else 0.0
+        sox_chg = sox.get('change', sox.get('diffRate', 0.0)) if isinstance(sox, dict) else 0.0
+
+        nvda_price = nvda.get('price', 219.66) if isinstance(nvda, dict) else 219.66
+        nvda_chg = nvda.get('change', nvda.get('diffRate', 0.0)) if isinstance(nvda, dict) else 0.0
+
+        tsla_price = tsla.get('price', 363.99) if isinstance(tsla, dict) else 363.99
+        tsla_chg = tsla.get('change', tsla.get('diffRate', 0.0)) if isinstance(tsla, dict) else 0.0
+
+        # 환율 코멘트
+        if usdkrw_val < 1360:
+            fx_status = f"원/달러 환율이 {usdkrw_val:,.2f}원으로 1,360원 선을 하회하며 원화 강세 기조가 나타나고 있어, 외국인의 코스피 현·선물 순매수 유입 가능성이 매우 높은 우호적 환경입니다."
+        elif usdkrw_val < 1380:
+            fx_status = f"원/달러 환율이 {usdkrw_val:,.2f}원({usdkrw_chg:+.2f}%) 수준의 박스권에서 안정적인 흐름을 유지하고 있어, 외국인 수급은 지수 전체 매수보다 업종별 실적 주도주로의 선택적 집중(압축 매매)이 예상됩니다."
+        else:
+            fx_status = f"원/달러 환율이 {usdkrw_val:,.2f}원으로 1,380원 상단에 위치해 있어, 지수 추종형 대형주보다는 개별 실적 모멘텀주와 환율 수혜 수출주(조선/방산/자동차) 중심의 선별 대응이 유리합니다."
+
+        # 미국 증시 및 테크주 연동 전략
+        tech_strategy = ""
+        if nvda_chg >= 0:
+            tech_strategy += f"미국 증시에서 엔비디아(${nvda_price:.2f}, {nvda_chg:+.2f}%)와 필라델피아 반도체 지수({sox_chg:+.2f}%)가 견조한 흐름을 지켜내며 국내 반도체(SK하이닉스/삼성전자) 및 HBM/패키징 소부장으로의 외국인·기관 수급 유입 기대감이 높습니다. "
+        else:
+            tech_strategy += f"미국 기술주 조정 속에서도 엔비디아(${nvda_price:.2f}, {nvda_chg:+.2f}%)의 밸류에이션 지지력이 확인되는 구간으로, 국내 반도체 소부장 대장주의 시초가 갭하락 시 저가 분할 매수 기회로 활용 가능합니다. "
+
+        if tsla_chg > 2.0:
+            tech_strategy += f"특히 테슬라(${tsla_price:.2f}, {tsla_chg:+.2f}%)의 강한 반등세는 국내 2차전지 셀 3사(LG에너지솔루션 등)와 양극재 밸류체인의 단기 낙폭과대 반등 모멘텀으로 직결될 수 있습니다."
+        else:
+            tech_strategy += "또한 밸류업 프로그램 관련 저PBR 금융지주 및 배당 우량주의 방어적 수급 유입이 지수 하방을 단단히 지지해 줄 것입니다."
+
+        return f"""
+        <section id="sec-today-strategy" style="margin-bottom: 22px;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">3. 오늘의 투자 전략 및 수급 대응 가이드</h2>
+          
+          <!-- 전략 1: 매크로 수급 환경 & 외환 데이터 분석 -->
+          <div style="margin-bottom: 24px; padding: 24px 28px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; border-left: 5px solid var(--accent-cyan); box-shadow: var(--shadow-sm);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>📊</span> [1] 매크로 수급 환경 &amp; 외환 팩트 분석
+            </h3>
+            <p style="font-size: 1.05rem; line-height: 2.0; color: #cbd5e1; margin-bottom: 12px;">
+              • <strong>원/달러 환율 레벨 ({usdkrw_val:,.2f}원, {usdkrw_chg:+.2f}%):</strong><br>
+              {fx_status}
+            </p>
+            <p style="font-size: 1.05rem; line-height: 2.0; color: #cbd5e1; margin-bottom: 0;">
+              • <strong>글로벌 증시 연동성:</strong><br>
+              뉴욕 3대 지수(S&amp;P 500 {sp500_chg:+.2f}%, 나스닥 {nasdaq_chg:+.2f}%)의 혼조세 속에서 아시아 증시는 지수 베팅보다 <strong>외국인 코스피200 선물 순매수 방향성</strong>에 연동된 장중 수급 변화가 핵심 변수입니다.
+            </p>
+          </div>
+
+          <!-- 전략 2: 핵심 주도 섹터 및 타깃 종목 대응 -->
+          <div style="margin-bottom: 24px; padding: 24px 28px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; border-left: 5px solid var(--accent-emerald); box-shadow: var(--shadow-sm);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>🎯</span> [2] 실전 주도 섹터 &amp; 타깃 종목 선별 가이드
+            </h3>
+            <p style="font-size: 1.05rem; line-height: 2.0; color: #cbd5e1; margin-bottom: 12px;">
+              • <strong>빅테크 팩트 기반 섹터 전략:</strong><br>
+              {tech_strategy}
+            </p>
+            <div style="padding: 14px 18px; background: rgba(16, 185, 129, 0.07); border-radius: 10px; font-size: 0.98rem; line-height: 1.9; color: #e2e8f0;">
+              <strong>📌 당일 수급 집중 타깃:</strong><br>
+              1. <strong>AI 반도체/HBM 소부장:</strong> 실적 가시성이 확보된 TC본더/검사장비 선도주 (SK하이닉스/한미반도체/테크윙)<br>
+              2. <strong>기업 밸류업 금융/지주:</strong> 자사주 소각 및 고배당 메리트가 높은 저PBR 대형주 (KB금융/신한지주/메리츠)<br>
+              3. <strong>구조적 수출 호황주:</strong> 수주잔고 3년 치 이상 확보된 조선·방산·전력인프라 톱픽 (HD현대일렉트릭/한화에어로스페이스/HD한국조선해양)
+            </div>
+          </div>
+
+          <!-- 전략 3: 시간대별 실전 수급 트레이딩 체크포인트 -->
+          <div style="margin-bottom: 24px; padding: 24px 28px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; border-left: 5px solid var(--accent-gold); box-shadow: var(--shadow-sm);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>⏱️</span> [3] 시간대별 실전 매매 수급 수칙 (Time Protocol)
+            </h3>
+            
+            <div style="margin-bottom: 14px; line-height: 1.95; font-size: 1.02rem; color: #cbd5e1;">
+              • <strong style="color: #ffffff;">09:00 ~ 09:30 (시초가 갭 구간):</strong><br>
+              전일 미 증시 변동성에 따른 시초가 갭상승 종목의 무리한 추격 매수 엄금. 첫 30분 동안 전일 거래대금의 25% 이상이 유입되며 시가(Open)를 지켜내는 종목만 선별 리스트업.
+            </div>
+            
+            <div style="margin-bottom: 14px; line-height: 1.95; font-size: 1.02rem; color: #cbd5e1;">
+              • <strong style="color: #ffffff;">09:30 ~ 11:30 (주도주 안착 구간):</strong><br>
+              외국인·기관 프로그램 순매수 1~10위 종목 중 당일 분봉상 20일선 및 시가 지지가 확인되는 눌림목 구간에서 1차 분할 매수(비중 30~40%) 진입.
+            </div>
+            
+            <div style="line-height: 1.95; font-size: 1.02rem; color: #cbd5e1;">
+              • <strong style="color: #ffffff;">14:00 ~ 15:30 (종가 수급 &amp; 오버나잇 판단):</strong><br>
+              장 마감 직전 외국인의 선물 환매수 및 현물 동시호가 매수세 유지 여부를 확인하고, 5일 이동평균선 상단에 안착한 종목에 한하여 오버나잇(익일 보유) 비중 결정.
+            </div>
+          </div>
+
+          <!-- 전략 4: 정밀 손익비 및 리스크 관리 룰 -->
+          <div style="padding: 22px 26px; background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 12px; line-height: 1.95;">
+            <div style="font-weight: 700; margin-bottom: 12px; color: #f87171; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+              <span>🛡️</span> [4] 계좌 리스크 관리 &amp; 기계적 손익비 룰
+            </div>
+            <div style="font-size: 1rem; color: #e2e8f0; line-height: 1.9;">
+              • <strong>분할 매수 룰:</strong> 1차 진입 30% → 시가 지지 및 거래량 증가 확인 시 2차 40% → 당일 고가 돌파 시 잔여 30% 피라미딩.<br>
+              • <strong>손절선(Stop-loss):</strong> 매수가 대비 <span style="color:#f87171; font-weight:700;">-3.5%</span> 또는 당일 시초가 하향 이탈 시 감정 개입 없는 기계적 손절.<br>
+              • <strong>목표가(Target-profit):</strong> <span style="color:#34d399; font-weight:700;">+4.5~6.0%</span> 구간 도달 시 보유 물량 50% 분할 익절로 확정 수익 확보 후 잔여 물량 추세 홀딩.
+            </div>
+          </div>
+
+        </section>
+        """
+
     def generate_morning_briefing_html(self, market_data, top_headlines):
         """모닝 브리핑 전용 고품질 HTML 페이지 생성 (3단 완결형 뉴스 카드 & 대형 여백/구분선)"""
         today_str = datetime.now().strftime("%Y년 %m월 %d일")
@@ -2002,6 +2117,8 @@ class ArticleGenerator:
               </div>
             </div>
             """
+
+        strategy_section_html = self.generate_morning_strategy_section(market_data)
 
         html_content = f"""<!DOCTYPE html>
 
@@ -2178,28 +2295,7 @@ class ArticleGenerator:
 
         {div_sep}
 
-        <section id="sec-today-strategy" style="margin-bottom: 22px;">
-          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">3. 오늘의 투자 전략 및 수급 대응 가이드</h2>
-          
-          <div class="callout callout-warning" style="margin: 28px 0; padding: 22px 26px; background: rgba(245, 158, 11, 0.08); border-left: 5px solid var(--accent-gold); border-radius: 12px; line-height: 1.85;">
-            <div style="font-weight: 700; margin-bottom: 24px; color: var(--accent-gold); font-size: 1.2rem;">💡 오늘의 실전 투자 체크포인트:</div>
-            
-            <div style="margin-bottom: 24px; line-height: 1.85;">
-              • <strong style="color: #ffffff;">지수 방향성보다 종목별 수급:</strong><br>
-              외국인 및 기관의 수급이 연속 유입되는 실적 개선 주도주에 집중.
-            </div>
-            
-            <div style="margin-bottom: 24px; line-height: 1.85;">
-              • <strong style="color: #ffffff;">장 초반 갭상승 추격 매수 자제:</strong><br>
-              시초가 갭상승 종목은 30분 이후 수급 안정성을 확인 후 분할 매수.
-            </div>
-            
-            <div>
-              • <strong style="color: #ffffff;">철저한 손익비 관리:</strong><br>
-              주요 지지선 이탈 시 기계적 손절(-3~-5%) 원칙 준수.
-            </div>
-          </div>
-        </section>
+        {strategy_section_html}
 
         <div class="article-disclaimer">
           <strong>⚠️ 투자 유의사항 및 면책 조항:</strong><br>

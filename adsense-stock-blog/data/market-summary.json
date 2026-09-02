@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-03 06:49:50",
-  "timestamp": 1788385790749,
+  "updatedAt": "2026-09-03 06:51:10",
+  "timestamp": 1788385870349,
   "instruments": [
     {
       "id": "kospi",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1358.62,
+      "price": 1358.65,
       "baseClose": 1373.83,
-      "diffRate": -1.11,
-      "diff": -15.21
+      "diffRate": -1.1,
+      "diff": -15.18
     },
     {
       "id": "samsung",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 106470000.0,
+      "price": 106440000.0,
       "baseClose": 107005000.0,
-      "diffRate": -0.5,
-      "diff": -535000.0
+      "diffRate": -0.53,
+      "diff": -565000.0
     },
     {
       "id": "eth",
@@ -469,10 +469,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 137200.0,
+      "price": 137300.0,
       "baseClose": 138300.0,
-      "diffRate": -0.8,
-      "diff": -1100.0
+      "diffRate": -0.72,
+      "diff": -1000.0
     }
   ]
 }

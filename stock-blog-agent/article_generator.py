@@ -56,6 +56,7 @@ class ArticleGenerator:
 
         image_pools = {
             "ai_semiconductor": [
+                "images/semiconductor-5.jpg",
                 "images/semiconductor-1.jpg",
                 "images/semiconductor-2.jpg",
                 "images/semiconductor-3.jpg",
@@ -72,6 +73,7 @@ class ArticleGenerator:
                 "images/macro-1.jpg",
                 "images/macro-2.jpg",
                 "images/macro-3.jpg",
+                "images/market-5.jpg",
                 "images/market-3.jpg",
             ],
             "battery_mobility": [
@@ -89,22 +91,27 @@ class ArticleGenerator:
                 "images/ipo.jpg",
             ],
             "power_energy": [
+                "images/semiconductor-5.jpg",
                 "images/breakout-3.jpg",
                 "images/semiconductor-2.jpg",
                 "images/market-4.jpg",
             ],
             "geopolitics": [
                 "images/macro-1.jpg",
+                "images/market-5.jpg",
                 "images/market-3.jpg",
                 "images/market-4.jpg",
             ],
             "breakout_stocks": [
+                "images/market-5.jpg",
                 "images/breakout-1.jpg",
                 "images/breakout-2.jpg",
                 "images/breakout-3.jpg",
                 "images/breakout.jpg",
             ],
             "general_stock": [
+                "images/market-5.jpg",
+                "images/morning-4.jpg",
                 "images/market-1.jpg",
                 "images/market-2.jpg",
                 "images/market-3.jpg",
@@ -2056,9 +2063,9 @@ class ArticleGenerator:
         date_iso = datetime.now().strftime("%Y-%m-%d")
         slug = f"{datetime.now().strftime('%Y%m%d')}-morning-market-briefing"
 
-        # 썸네일 이미지 순환 배정 (morning-1, morning-2, morning-3)
-        morning_images = ["images/morning-1.jpg", "images/morning-2.jpg", "images/morning-3.jpg"]
-        chosen_img = morning_images[datetime.now().day % len(morning_images)]
+        # 썸네일 이미지 배정 (새로 생성된 고품질 데스크 이미지 morning-4.jpg 우선 적용 및 순환)
+        morning_images = ["images/morning-4.jpg", "images/market-5.jpg", "images/morning-2.jpg", "images/morning-3.jpg", "images/morning-1.jpg"]
+        chosen_img = "images/morning-4.jpg" if datetime.now().strftime("%Y%m%d") == "20260903" else morning_images[datetime.now().day % len(morning_images)]
 
         kospi = market_data.get("^KS11", market_data.get("kospi", {}))
         kosdaq = market_data.get("^KQ11", market_data.get("kosdaq", {}))

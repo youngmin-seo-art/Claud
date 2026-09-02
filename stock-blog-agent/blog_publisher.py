@@ -142,7 +142,7 @@ class BlogPublisher:
             if is_morning:
                 category = "market"
                 badge_html = '<span class="post-badge market" style="background:#059669; color:#fff;">☕ 모닝 시황</span>'
-                thumb_img = "images/hero.jpg"
+                thumb_img = article_data.get("image", "images/morning-4.jpg")
                 author = "시황분석팀"
                 avatar = "M"
                 excerpt = f"{article_data['title']} - 밤사이 뉴욕증시 마감 및 거시경제 지표, 장 시작 전 국내 핵심 주도 섹터와 주요 뉴스 총정리."
@@ -253,6 +253,10 @@ class BlogPublisher:
             print("[진행 중] Git 커밋 및 Vercel 실시간 배포 중...")
             subprocess.run(["git", "add", "adsense-stock-blog", "stock-blog-agent/published_history.json"], cwd=PROJECT_ROOT, check=True)
             subprocess.run(["git", "commit", "-m", f"feat(agent): 신규 주식 분석글 자동 발행 - {title[:30]}"], cwd=PROJECT_ROOT, check=True)
+            try:
+                subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=PROJECT_ROOT, check=False)
+            except Exception:
+                pass
             subprocess.run(["git", "push", "origin", "main"], cwd=PROJECT_ROOT, check=True)
             print("🚀 [배포 완료] valuestocklabs.com에 실시간 라이브 반영 완료!")
         except Exception as e:

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-05 00:44:06",
-  "timestamp": 1788569046626,
+  "updatedAt": "2026-09-05 11:19:45",
+  "timestamp": 1788607185812,
   "instruments": [
     {
       "id": "kospi",
@@ -37,9 +37,9 @@
       "prefix": "",
       "suffix": "pt",
       "price": 53414.25,
-      "baseClose": 53686.11,
+      "baseClose": 53686.1,
       "diffRate": -0.51,
-      "diff": -271.86
+      "diff": -271.85
     },
     {
       "id": "sp500",
@@ -63,9 +63,9 @@
       "prefix": "",
       "suffix": "pt",
       "price": 26506.99,
-      "baseClose": 26584.06,
+      "baseClose": 26584.1,
       "diffRate": -0.29,
-      "diff": -77.07
+      "diff": -77.11
     },
     {
       "id": "sox",
@@ -76,9 +76,9 @@
       "prefix": "",
       "suffix": "pt",
       "price": 11735.263,
-      "baseClose": 11352.129,
-      "diffRate": 3.37,
-      "diff": 383.13
+      "baseClose": 11352.1,
+      "diffRate": 3.38,
+      "diff": 383.16
     },
     {
       "id": "usdkrw",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1345.99,
+      "price": 1351.1,
       "baseClose": 1355.83,
-      "diffRate": -0.73,
-      "diff": -9.84
+      "diffRate": -0.35,
+      "diff": -4.73
     },
     {
       "id": "samsung",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 109238000.0,
+      "price": 108931000.0,
       "baseClose": 109126000.0,
-      "diffRate": 0.1,
-      "diff": 112000.0
+      "diffRate": -0.18,
+      "diff": -195000.0
     },
     {
       "id": "eth",
@@ -441,10 +441,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3364000.0,
+      "price": 3354000.0,
       "baseClose": 3364000.0,
-      "diffRate": 0,
-      "diff": 0.0
+      "diffRate": -0.3,
+      "diff": -10000.0
     },
     {
       "id": "xrp",
@@ -455,10 +455,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 1916.0,
+      "price": 1920.0,
       "baseClose": 1915.0,
-      "diffRate": 0.05,
-      "diff": 1.0
+      "diffRate": 0.26,
+      "diff": 5.0
     },
     {
       "id": "sol",
@@ -469,10 +469,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 139600.0,
+      "price": 140000.0,
       "baseClose": 139700.0,
-      "diffRate": -0.07,
-      "diff": -100.0
+      "diffRate": 0.21,
+      "diff": 300.0
     }
   ]
 }

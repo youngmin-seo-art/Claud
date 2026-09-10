@@ -248,16 +248,39 @@ class BlogPublisher:
             print(f"[경고] index.html 갱신 실패: {e}")
 
     def git_push(self, title):
-        """변경사항을 Git에 자동 커밋 및 Push하여 Vercel 실시간 배포"""
+        """변경사항을 Git에 자동 커밋 및 Push하여 실시간 배포"""
         try:
-            print("[진행 중] Git 커밋 및 Vercel 실시간 배포 중...")
-            subprocess.run(["git", "add", "adsense-stock-blog", "stock-blog-agent/published_history.json"], cwd=PROJECT_ROOT, check=True)
-            subprocess.run(["git", "commit", "-m", f"feat(agent): 신규 주식 분석글 자동 발행 - {title[:30]}"], cwd=PROJECT_ROOT, check=True)
+            print("[진행 중] Git 커밋 및 실시간 배포 중...")
+            # 혹시 이전 rebase가 남아있다면 정리
             try:
-                subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=PROJECT_ROOT, check=False)
+                subprocess.run(["git", "rebase", "--abort"], cwd=PROJECT_ROOT, capture_output=True)
             except Exception:
                 pass
-            subprocess.run(["git", "push", "origin", "main"], cwd=PROJECT_ROOT, check=True)
+
+            # 원격 최신 커밋 가져오기
+            try:
+                subprocess.run(["git", "fetch", "origin", "main"], cwd=PROJECT_ROOT, capture_output=True)
+            except Exception:
+                pass
+
+            subprocess.run(["git", "add", "adsense-stock-blog", "stock-blog-agent/published_history.json"], cwd=PROJECT_ROOT, check=True)
+            
+            # 스테이징된 변경사항이 있는지 확인 후 커밋
+            status_res = subprocess.run(["git", "diff", "--staged", "--quiet"], cwd=PROJECT_ROOT)
+            if status_res.returncode != 0:
+                subprocess.run(["git", "commit", "-m", f"feat(agent): 신규 주식 분석글 자동 발행 - {title[:30]}"], cwd=PROJECT_ROOT, check=True)
+
+            # 원격 변경사항 pull (merge 방식 우선)
+            pull_res = subprocess.run(["git", "pull", "--no-rebase", "origin", "main", "-m", "chore: merge remote changes"], cwd=PROJECT_ROOT, capture_output=True, text=True)
+            if pull_res.returncode != 0:
+                print(f"[경고] Git Pull 병합 충돌 가능성, rebase 시도: {pull_res.stderr}")
+                rebase_res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=PROJECT_ROOT, capture_output=True, text=True)
+                if rebase_res.returncode != 0:
+                    print(f"[경고] Rebase 충돌 감지, 상태 초기화: {rebase_res.stderr}")
+                    subprocess.run(["git", "rebase", "--abort"], cwd=PROJECT_ROOT, capture_output=True)
+
+            # 원격으로 Push
+            push_res = subprocess.run(["git", "push", "origin", "main"], cwd=PROJECT_ROOT, capture_output=True, text=True, check=True)
             print("🚀 [배포 완료] valuestocklabs.com에 실시간 라이브 반영 완료!")
         except Exception as e:
             print(f"[알림] Git Push 실행 건너뜀 (로컬 저장 유지): {e}")

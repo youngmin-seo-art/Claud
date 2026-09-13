@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-13 12:15:36",
-  "timestamp": 1789269336997,
+  "updatedAt": "2026-09-13 12:35:36",
+  "timestamp": 1789270536897,
   "instruments": [
     {
       "id": "kospi",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1341.05,
+      "price": 1342.4,
       "baseClose": 1349.15,
-      "diffRate": -0.6,
-      "diff": -8.1
+      "diffRate": -0.5,
+      "diff": -6.75
     },
     {
       "id": "samsung",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 105154000.0,
+      "price": 105171000.0,
       "baseClose": 105083000.0,
-      "diffRate": 0.07,
-      "diff": 71000.0
+      "diffRate": 0.08,
+      "diff": 88000.0
     },
     {
       "id": "eth",
@@ -441,10 +441,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3433000.0,
+      "price": 3432000.0,
       "baseClose": 3436000.0,
-      "diffRate": -0.09,
-      "diff": -3000.0
+      "diffRate": -0.12,
+      "diff": -4000.0
     },
     {
       "id": "xrp",
@@ -455,10 +455,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 1861.0,
+      "price": 1859.0,
       "baseClose": 1858.0,
-      "diffRate": 0.16,
-      "diff": 3.0
+      "diffRate": 0.05,
+      "diff": 1.0
     },
     {
       "id": "sol",

@@ -241,13 +241,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-<<<<<<< HEAD
     <loc>https://valuestocklabs.com/posts/20260907-최태원-ai-승부수로-sk-밸류업반도체-넘어-ai-인프라로-확장.html</loc>
     <lastmod>2026-09-07</lastmod>
-=======
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://valuestocklabs.com/posts/20260908-morning-market-briefing.html</loc>
     <lastmod>2026-09-08</lastmod>
->>>>>>> ed04f73 (feat(agent): 신규 주식 분석글 자동 발행 - 오늘의 증시 모닝 브리핑 (2026년 09월 08일))
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -314,6 +315,12 @@
   <url>
     <loc>https://valuestocklabs.com/posts/20260912-morning-market-briefing.html</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valuestocklabs.com/posts/20260913-morning-market-briefing.html</loc>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

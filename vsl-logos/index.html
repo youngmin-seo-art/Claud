@@ -544,7 +544,7 @@
 
   <!-- Header -->
   <header>
-    <div class="badge">🔥 VSL Red Edition Released</div>
+    <div class="badge"> VSL Red Edition Released</div>
     <h1>VSL 블로그 로고 (레드 에디션 &amp; 스튜디오)</h1>
     <p class="subtitle">
       강렬하고 열정적인 <strong>크림슨 &amp; 루비 레드</strong> 계열로 새롭게 탄생한 VSL 미니멀 테크 로고와 전체 디자인 킷입니다.
@@ -762,7 +762,7 @@
           <div class="theme-picker">
             <button class="theme-btn active" onclick="setTheme('crimson', this)">
               <span class="color-dot" style="background: linear-gradient(135deg, #ff1744, #9f1239)"></span>
-              크림슨 레드 🔥
+              크림슨 레드 
             </button>
             <button class="theme-btn" onclick="setTheme('cyber', this)">
               <span class="color-dot" style="background: linear-gradient(135deg, #00f2fe, #b14bf4)"></span>
@@ -985,7 +985,7 @@
         const response = await fetch(svgPath);
         const text = await response.text();
         await navigator.clipboard.writeText(text);
-        showToast('SVG 코드가 클립보드에 복사되었습니다! 🔥');
+        showToast('SVG 코드가 클립보드에 복사되었습니다! ');
       } catch (err) {
         showToast('복사 완료!');
       }

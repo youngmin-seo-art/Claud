@@ -213,7 +213,7 @@ class BlogPublisher:
             <div class="post-body">
               <div class="post-meta">
                 <span>📅 {article_data['date']}</span>
-                <span>🔥 NEW</span>
+                <span>NEW</span>
               </div>
               <h3 class="post-title">
                 <a href="posts/{article_data['filename']}">{article_data['title']}</a>

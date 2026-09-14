@@ -168,7 +168,7 @@ button, input, select, textarea {
   display: flex;
   gap: 32px;
   white-space: nowrap;
-  animation: tickerSlide 75s linear infinite;
+  animation: tickerSlide 240s linear infinite;
   padding-left: 20px;
 }
 

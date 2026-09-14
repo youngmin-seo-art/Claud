@@ -168,6 +168,9 @@ async function loadMarketSummaryJSON() {
 }
 
 function renderInitialTicker(track) {
+  // Ensure animation duration is explicitly applied to prevent CSS cache stale issues
+  track.style.animation = 'tickerSlide 240s linear infinite';
+
   // Render duplicate list for smooth infinite CSS scroll
   const fullList = MARKET_INSTRUMENTS.concat(MARKET_INSTRUMENTS);
   const html = fullList.map((inst) => {

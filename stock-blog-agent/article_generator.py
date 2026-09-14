@@ -2074,7 +2074,7 @@ class ArticleGenerator:
   <!-- Top Real-time Stock Index Ticker -->
   <aside class="market-ticker-wrap" aria-label="실시간 시장 지표">
     <div class="ticker-label">
-      <span>🔥 LIVE MARKET</span>
+      <span>LIVE MARKET</span>
     </div>
     <div class="ticker-track" id="tickerTrack">
       <!-- Injected via main.js -->
@@ -2330,7 +2330,7 @@ class ArticleGenerator:
   <!-- Top Real-time Stock Index Ticker -->
   <aside class="market-ticker-wrap" aria-label="실시간 시장 지표">
     <div class="ticker-label">
-      <span>🔥 LIVE MARKET</span>
+      <span>LIVE MARKET</span>
     </div>
     <div class="ticker-track" id="tickerTrack">
       <!-- Injected via main.js -->

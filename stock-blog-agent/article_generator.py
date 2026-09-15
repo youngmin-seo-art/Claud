@@ -1610,6 +1610,7 @@ class ArticleGenerator:
         s = re.sub(r'<[^>]+>', '', s)
         # 끝부분에 붙은 말줄임표(.., ..., etc.) 제거
         s = re.sub(r'[\.\s\·…]+$', '', s)
+        s = s.replace("중둥", "중동")
         
         # 문장 단위로 분리
         sentences = re.split(r'(?<=[다요죠])\.\s*', s)
@@ -2007,6 +2008,9 @@ class ArticleGenerator:
             else:
                 raw_title = str(h)
                 raw_summary = f"{raw_title} 관련 시장 핵심 파급 효과 및 관련 섹터 분석"
+
+            raw_title = raw_title.replace("중둥", "중동")
+            raw_summary = raw_summary.replace("중둥", "중동")
 
             h_title = html.escape(raw_title)
             news_full_summary, analysis_text, target_sectors = self.analyze_morning_headline(raw_title, raw_summary)

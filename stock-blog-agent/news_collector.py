@@ -39,6 +39,7 @@ class NewsCollector:
         unescaped = html.unescape(text)
         cleaned = re.sub(r'<[^>]+>', '', unescaped)
         cleaned = re.sub(r'[\r\n\t]+', ' ', cleaned)
+        cleaned = cleaned.replace("중둥", "중동")
         return cleaned.strip()
 
     def clean_title(self, raw_title):
@@ -65,6 +66,13 @@ class NewsCollector:
         # 3. 중복 연도 정제 (e.g., "2026 2026 ...")
         title = re.sub(r'\b(20\d\d)\s+\1\b', r'\1', title)
         title = re.sub(r'^(20\d\d\s+){2,}', r'\1', title)
+
+        # 4. 언론사 원문 오타 자동 교정
+        typo_map = {
+            "중둥": "중동",
+        }
+        for typo, correct in typo_map.items():
+            title = title.replace(typo, correct)
 
         return title.strip()
 

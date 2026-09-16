@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-16 10:11:13",
-  "timestamp": 1789521073411,
+  "updatedAt": "2026-09-16 12:40:50",
+  "timestamp": 1789562450510,
   "instruments": [
     {
       "id": "kospi",
@@ -10,10 +10,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 6681.39,
+      "price": 6717.97,
       "baseClose": 6627.26,
-      "diffRate": 0.82,
-      "diff": 54.13
+      "diffRate": 1.37,
+      "diff": 90.71
     },
     {
       "id": "kosdaq",
@@ -23,10 +23,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 804.68,
-      "baseClose": 812.41,
-      "diffRate": -0.95,
-      "diff": -7.73
+      "price": 815.98,
+      "baseClose": 806.79,
+      "diffRate": 1.14,
+      "diff": 9.19
     },
     {
       "id": "dji",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1371.48,
+      "price": 1367.45,
       "baseClose": 1363.05,
-      "diffRate": 0.62,
-      "diff": 8.43
+      "diffRate": 0.32,
+      "diff": 4.4
     },
     {
       "id": "samsung",
@@ -101,10 +101,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 251500.0,
+      "price": 253500.0,
       "baseClose": 248500.0,
-      "diffRate": 1.21,
-      "diff": 3000.0
+      "diffRate": 2.01,
+      "diff": 5000.0
     },
     {
       "id": "skhynix",
@@ -114,10 +114,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 1723000.0,
+      "price": 1759000.0,
       "baseClose": 1690000.0,
-      "diffRate": 1.95,
-      "diff": 33000.0
+      "diffRate": 4.08,
+      "diff": 69000.0
     },
     {
       "id": "lgenergy",
@@ -127,10 +127,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 373000.0,
+      "price": 367000.0,
       "baseClose": 365500.0,
-      "diffRate": 2.05,
-      "diff": 7500.0
+      "diffRate": 0.41,
+      "diff": 1500.0
     },
     {
       "id": "samsungbio",
@@ -140,10 +140,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 1411000.0,
+      "price": 1409000.0,
       "baseClose": 1412000.0,
-      "diffRate": -0.07,
-      "diff": -1000.0
+      "diffRate": -0.21,
+      "diff": -3000.0
     },
     {
       "id": "hyundai",
@@ -166,10 +166,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 253000.0,
+      "price": 255500.0,
       "baseClose": 260000.0,
-      "diffRate": -2.69,
-      "diff": -7000.0
+      "diffRate": -1.73,
+      "diff": -4500.0
     },
     {
       "id": "ecoprobm",
@@ -179,10 +179,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 105700.0,
+      "price": 104100.0,
       "baseClose": 107000.0,
-      "diffRate": -1.21,
-      "diff": -1300.0
+      "diffRate": -2.71,
+      "diff": -2900.0
     },
     {
       "id": "ecopro",
@@ -192,10 +192,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 83400.0,
+      "price": 82200.0,
       "baseClose": 84400.0,
-      "diffRate": -1.18,
-      "diff": -1000.0
+      "diffRate": -2.61,
+      "diff": -2200.0
     },
     {
       "id": "hlb",
@@ -205,10 +205,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 31350.0,
+      "price": 31900.0,
       "baseClose": 32450.0,
-      "diffRate": -3.39,
-      "diff": -1100.0
+      "diffRate": -1.69,
+      "diff": -550.0
     },
     {
       "id": "ligachem",
@@ -218,10 +218,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 80900.0,
+      "price": 82600.0,
       "baseClose": 83700.0,
-      "diffRate": -3.35,
-      "diff": -2800.0
+      "diffRate": -1.31,
+      "diff": -1100.0
     },
     {
       "id": "enchem",
@@ -231,10 +231,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 20200.0,
+      "price": 20150.0,
       "baseClose": 20500.0,
-      "diffRate": -1.46,
-      "diff": -300.0
+      "diffRate": -1.71,
+      "diff": -350.0
     },
     {
       "id": "samchendang",
@@ -244,10 +244,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 154800.0,
+      "price": 156100.0,
       "baseClose": 157500.0,
-      "diffRate": -1.71,
-      "diff": -2700.0
+      "diffRate": -0.89,
+      "diff": -1400.0
     },
     {
       "id": "classys",
@@ -257,10 +257,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 31500.0,
+      "price": 32000.0,
       "baseClose": 31600.0,
-      "diffRate": -0.32,
-      "diff": -100.0
+      "diffRate": 1.27,
+      "diff": 400.0
     },
     {
       "id": "hugel",
@@ -270,10 +270,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 228500.0,
+      "price": 231000.0,
       "baseClose": 235500.0,
-      "diffRate": -2.97,
-      "diff": -7000.0
+      "diffRate": -1.91,
+      "diff": -4500.0
     },
     {
       "id": "leeno",
@@ -283,10 +283,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 63500.0,
+      "price": 65900.0,
       "baseClose": 64300.0,
-      "diffRate": -1.24,
-      "diff": -800.0
+      "diffRate": 2.49,
+      "diff": 1600.0
     },
     {
       "id": "nvda",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 103731000.0,
+      "price": 103820000.0,
       "baseClose": 102989000.0,
-      "diffRate": 0.72,
-      "diff": 742000.0
+      "diffRate": 0.81,
+      "diff": 831000.0
     },
     {
       "id": "eth",
@@ -441,10 +441,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3283000.0,
+      "price": 3288000.0,
       "baseClose": 3266000.0,
-      "diffRate": 0.52,
-      "diff": 17000.0
+      "diffRate": 0.67,
+      "diff": 22000.0
     },
     {
       "id": "xrp",
@@ -455,10 +455,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 1763.0,
+      "price": 1753.0,
       "baseClose": 1749.0,
-      "diffRate": 0.8,
-      "diff": 14.0
+      "diffRate": 0.23,
+      "diff": 4.0
     },
     {
       "id": "sol",
@@ -469,10 +469,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 132700.0,
+      "price": 133100.0,
       "baseClose": 131800.0,
-      "diffRate": 0.68,
-      "diff": 900.0
+      "diffRate": 0.99,
+      "diff": 1300.0
     }
   ]
 }

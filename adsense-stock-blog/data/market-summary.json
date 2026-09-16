@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-15 01:16:04",
-  "timestamp": 1789434964014,
+  "updatedAt": "2026-09-16 09:35:50",
+  "timestamp": 1789518950541,
   "instruments": [
     {
       "id": "kospi",
@@ -10,10 +10,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 6667.02,
-      "baseClose": 6684.37,
-      "diffRate": -0.26,
-      "diff": -17.35
+      "price": 6637.23,
+      "baseClose": 6627.26,
+      "diffRate": 0.15,
+      "diff": 9.97
     },
     {
       "id": "kosdaq",
@@ -23,10 +23,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 816.0,
-      "baseClose": 806.79,
-      "diffRate": 1.14,
-      "diff": 9.21
+      "price": 805.49,
+      "baseClose": 812.41,
+      "diffRate": -0.85,
+      "diff": -6.92
     },
     {
       "id": "dji",
@@ -36,10 +36,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 52421.2,
-      "baseClose": 52573.29,
-      "diffRate": -0.29,
-      "diff": -152.09
+      "price": 52093.11,
+      "baseClose": 52421.2,
+      "diffRate": -0.63,
+      "diff": -328.09
     },
     {
       "id": "sp500",
@@ -49,10 +49,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 7619.98,
-      "baseClose": 7656.98,
-      "diffRate": -0.48,
-      "diff": -37.0
+      "price": 7585.73,
+      "baseClose": 7619.98,
+      "diffRate": -0.45,
+      "diff": -34.25
     },
     {
       "id": "nasdaq",
@@ -62,10 +62,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 26186.414,
-      "baseClose": 26333.035,
-      "diffRate": -0.56,
-      "diff": -146.62
+      "price": 25981.57,
+      "baseClose": 26186.414,
+      "diffRate": -0.78,
+      "diff": -204.84
     },
     {
       "id": "sox",
@@ -75,10 +75,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 11131.281,
-      "baseClose": 11823.998,
-      "diffRate": -5.86,
-      "diff": -692.72
+      "price": 11175.547,
+      "baseClose": 11131.281,
+      "diffRate": 0.4,
+      "diff": 44.27
     },
     {
       "id": "usdkrw",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1347.47,
-      "baseClose": 1346.82,
-      "diffRate": 0.05,
-      "diff": 0.65
+      "price": 1368.98,
+      "baseClose": 1363.05,
+      "diffRate": 0.44,
+      "diff": 5.93
     },
     {
       "id": "samsung",
@@ -101,322 +101,10 @@
       "precision": 0,
       "prefix": "",
       "suffix": "원",
-      "price": 250250.0,
-      "baseClose": 249000.0,
-      "diffRate": 0.5,
-      "diff": 1250.0
-    },
-    {
-      "id": "skhynix",
-      "cat": "코스피",
-      "name": "SK하이닉스",
-      "symbol": "000660.KS",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 1704000.0,
-      "baseClose": 1697000.0,
-      "diffRate": 0.41,
-      "diff": 7000.0
-    },
-    {
-      "id": "lgenergy",
-      "cat": "코스피",
-      "name": "LG에너지솔루션",
-      "symbol": "373220.KS",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 353750.0,
-      "baseClose": 351500.0,
-      "diffRate": 0.64,
-      "diff": 2250.0
-    },
-    {
-      "id": "samsungbio",
-      "cat": "코스피",
-      "name": "삼성바이오로직스",
-      "symbol": "207940.KS",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 1408000.0,
-      "baseClose": 1420000.0,
-      "diffRate": -0.85,
-      "diff": -12000.0
-    },
-    {
-      "id": "hyundai",
-      "cat": "코스피",
-      "name": "현대차",
-      "symbol": "005380.KS",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 371500.0,
-      "baseClose": 371500.0,
-      "diffRate": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "alteogen",
-      "cat": "코스닥",
-      "name": "알테오젠",
-      "symbol": "196170.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 262500.0,
-      "baseClose": 260000.0,
-      "diffRate": 0.96,
-      "diff": 2500.0
-    },
-    {
-      "id": "ecoprobm",
-      "cat": "코스닥",
-      "name": "에코프로비엠",
-      "symbol": "247540.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 105000.0,
-      "baseClose": 103900.0,
-      "diffRate": 1.06,
-      "diff": 1100.0
-    },
-    {
-      "id": "ecopro",
-      "cat": "코스닥",
-      "name": "에코프로",
-      "symbol": "086520.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 81950.0,
-      "baseClose": 81500.0,
-      "diffRate": 0.55,
-      "diff": 450.0
-    },
-    {
-      "id": "hlb",
-      "cat": "코스닥",
-      "name": "HLB",
-      "symbol": "028300.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 31300.0,
-      "baseClose": 30350.0,
-      "diffRate": 3.13,
-      "diff": 950.0
-    },
-    {
-      "id": "ligachem",
-      "cat": "코스닥",
-      "name": "리가켐바이오",
-      "symbol": "141080.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 85300.0,
-      "baseClose": 84700.0,
-      "diffRate": 0.71,
-      "diff": 600.0
-    },
-    {
-      "id": "enchem",
-      "cat": "코스닥",
-      "name": "엔켐",
-      "symbol": "348370.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 20250.0,
-      "baseClose": 20100.0,
-      "diffRate": 0.75,
-      "diff": 150.0
-    },
-    {
-      "id": "samchendang",
-      "cat": "코스닥",
-      "name": "삼천당제약",
-      "symbol": "000250.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 159000.0,
-      "baseClose": 157800.0,
-      "diffRate": 0.76,
-      "diff": 1200.0
-    },
-    {
-      "id": "classys",
-      "cat": "코스닥",
-      "name": "클래시스",
-      "symbol": "214150.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 31650.0,
-      "baseClose": 31750.0,
-      "diffRate": -0.31,
-      "diff": -100.0
-    },
-    {
-      "id": "hugel",
-      "cat": "코스닥",
-      "name": "휴젤",
-      "symbol": "145020.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 235000.0,
-      "baseClose": 232000.0,
-      "diffRate": 1.29,
-      "diff": 3000.0
-    },
-    {
-      "id": "leeno",
-      "cat": "코스닥",
-      "name": "리노공업",
-      "symbol": "058470.KQ",
-      "precision": 0,
-      "prefix": "",
-      "suffix": "원",
-      "price": 65700.0,
-      "baseClose": 65100.0,
-      "diffRate": 0.92,
-      "diff": 600.0
-    },
-    {
-      "id": "nvda",
-      "cat": "미국주식",
-      "name": "엔비디아 (NVDA)",
-      "symbol": "NVDA",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 210.96,
-      "baseClose": 218.29,
-      "diffRate": -3.36,
-      "diff": -7.33
-    },
-    {
-      "id": "aapl",
-      "cat": "미국주식",
-      "name": "애플 (AAPL)",
-      "symbol": "AAPL",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 333.08,
-      "baseClose": 332.27,
-      "diffRate": 0.24,
-      "diff": 0.81
-    },
-    {
-      "id": "msft",
-      "cat": "미국주식",
-      "name": "마이크로소프트 (MSFT)",
-      "symbol": "MSFT",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 505.41,
-      "baseClose": 495.63,
-      "diffRate": 1.97,
-      "diff": 9.78
-    },
-    {
-      "id": "googl",
-      "cat": "미국주식",
-      "name": "알파벳 (GOOGL)",
-      "symbol": "GOOGL",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 349.39,
-      "baseClose": 338.5,
-      "diffRate": 3.22,
-      "diff": 10.89
-    },
-    {
-      "id": "amzn",
-      "cat": "미국주식",
-      "name": "아마존 (AMZN)",
-      "symbol": "AMZN",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 253.54,
-      "baseClose": 256.78,
-      "diffRate": -1.26,
-      "diff": -3.24
-    },
-    {
-      "id": "meta",
-      "cat": "미국주식",
-      "name": "메타 (META)",
-      "symbol": "META",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 665.6,
-      "baseClose": 648.03,
-      "diffRate": 2.71,
-      "diff": 17.57
-    },
-    {
-      "id": "tsla",
-      "cat": "미국주식",
-      "name": "테슬라 (TSLA)",
-      "symbol": "TSLA",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 358.97,
-      "baseClose": 365.44,
-      "diffRate": -1.77,
-      "diff": -6.47
-    },
-    {
-      "id": "avgo",
-      "cat": "미국주식",
-      "name": "브로드컴 (AVGO)",
-      "symbol": "AVGO",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 344.72,
-      "baseClose": 361.99,
-      "diffRate": -4.77,
-      "diff": -17.27
-    },
-    {
-      "id": "brk",
-      "cat": "미국주식",
-      "name": "버크셔해서웨이 (BRK.B)",
-      "symbol": "BRK-B",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 514.95,
-      "baseClose": 510.37,
-      "diffRate": 0.9,
-      "diff": 4.58
-    },
-    {
-      "id": "lly",
-      "cat": "미국주식",
-      "name": "일라이릴리 (LLY)",
-      "symbol": "LLY",
-      "precision": 2,
-      "prefix": "$",
-      "suffix": "",
-      "price": 1138.28,
-      "baseClose": 1115.7,
-      "diffRate": 2.02,
-      "diff": 22.58
+      "price": 249000.0,
+      "baseClose": 248500.0,
+      "diffRate": 0.2,
+      "diff": 500.0
     },
     {
       "id": "btc",
@@ -427,10 +115,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 105354000.0,
-      "baseClose": 105685000.0,
-      "diffRate": -0.31,
-      "diff": -331000.0
+      "price": 103601000.0,
+      "baseClose": 102989000.0,
+      "diffRate": 0.59,
+      "diff": 612000.0
     },
     {
       "id": "eth",
@@ -441,10 +129,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3401000.0,
-      "baseClose": 3397000.0,
-      "diffRate": 0.12,
-      "diff": 4000.0
+      "price": 3283000.0,
+      "baseClose": 3266000.0,
+      "diffRate": 0.52,
+      "diff": 17000.0
     },
     {
       "id": "xrp",
@@ -455,10 +143,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 1918.0,
-      "baseClose": 1922.0,
-      "diffRate": -0.21,
-      "diff": -4.0
+      "price": 1760.0,
+      "baseClose": 1749.0,
+      "diffRate": 0.63,
+      "diff": 11.0
     },
     {
       "id": "sol",
@@ -469,10 +157,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 138400.0,
-      "baseClose": 138400.0,
-      "diffRate": 0,
-      "diff": 0.0
+      "price": 132700.0,
+      "baseClose": 131800.0,
+      "diffRate": 0.68,
+      "diff": 900.0
     }
   ]
 }

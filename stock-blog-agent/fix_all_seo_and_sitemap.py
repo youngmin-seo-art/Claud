@@ -26,7 +26,7 @@ PAGES_DIR = BASE_DIR / "pages"
 INDEX_HTML = BASE_DIR / "index.html"
 SITEMAP_XML = BASE_DIR / "sitemap.xml"
 RSS_XML = BASE_DIR / "rss.xml"
-DOMAIN = "https://valuestocklabs.com"
+DOMAIN = "https://www.valuestocklabs.com"
 
 def extract_meta_content(html, name_or_prop):
     m = re.search(rf'<meta\s+(?:name|property)=["\']{re.escape(name_or_prop)}["\']\s+content=["\'](.*?)["\']', html, re.IGNORECASE)

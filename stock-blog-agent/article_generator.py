@@ -2044,7 +2044,7 @@ class ArticleGenerator:
 
         strategy_section_html = self.generate_morning_strategy_section(market_data)
 
-        chosen_img_url = f"https://valuestocklabs.com/{chosen_img}" if not chosen_img.startswith("http") else chosen_img
+        chosen_img_url = f"{BLOG_DOMAIN}/{chosen_img}" if not chosen_img.startswith("http") else chosen_img
         today_iso = datetime.now().strftime("%Y-%m-%d")
 
         html_content = f"""<!DOCTYPE html>
@@ -2058,7 +2058,7 @@ class ArticleGenerator:
   <meta name="author" content="Value Stock Labs 리서치팀">
   
   <!-- Canonical & Search Indexing -->
-  <link rel="canonical" href="https://valuestocklabs.com/posts/{slug}.html">
+  <link rel="canonical" href="{BLOG_DOMAIN}/posts/{slug}.html">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <!-- OpenGraph -->
@@ -2067,7 +2067,7 @@ class ArticleGenerator:
   <meta property="og:title" content="오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs">
   <meta property="og:description" content="{today_str} 국내외 핵심 증시 지표 요약 및 오늘의 주요 경제 뉴스 심층 분석">
   <meta property="og:image" content="{chosen_img_url}">
-  <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
+  <meta property="og:url" content="{BLOG_DOMAIN}/posts/{slug}.html">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -2088,19 +2088,19 @@ class ArticleGenerator:
     "author": {{
       "@type": "Organization",
       "name": "Value Stock Labs 리서치팀",
-      "url": "https://valuestocklabs.com/pages/about.html"
+      "url": "{BLOG_DOMAIN}/pages/about.html"
     }},
     "publisher": {{
       "@type": "Organization",
       "name": "Value Stock Labs",
       "logo": {{
         "@type": "ImageObject",
-        "url": "https://valuestocklabs.com/images/vsl-logo-neon-fire.png"
+        "url": "{BLOG_DOMAIN}/images/vsl-logo-neon-fire.png"
       }}
     }},
     "mainEntityOfPage": {{
       "@type": "WebPage",
-      "@id": "https://valuestocklabs.com/posts/{slug}.html"
+      "@id": "{BLOG_DOMAIN}/posts/{slug}.html"
     }}
   }}
   </script>
@@ -2336,7 +2336,7 @@ class ArticleGenerator:
         image_path, image_caption = self.get_category_image_info(topic_type, title)
         image_src = f"../{image_path}" if not image_path.startswith("http") else image_path
 
-        image_full_url = f"https://valuestocklabs.com/{image_path}" if not image_path.startswith("http") else image_path
+        image_full_url = f"{BLOG_DOMAIN}/{image_path}" if not image_path.startswith("http") else image_path
         today_iso = datetime.now().strftime("%Y-%m-%d")
 
         sections_html = self.build_contextual_sections(topic_type, title, summary, category, keywords)
@@ -2353,7 +2353,7 @@ class ArticleGenerator:
   <meta name="author" content="Value Stock Labs 리서치팀">
 
   <!-- Canonical & Search Indexing -->
-  <link rel="canonical" href="https://valuestocklabs.com/posts/{slug}.html">
+  <link rel="canonical" href="{BLOG_DOMAIN}/posts/{slug}.html">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <!-- OpenGraph -->
@@ -2362,7 +2362,7 @@ class ArticleGenerator:
   <meta property="og:title" content="{title} | Value Stock Labs 리서치">
   <meta property="og:description" content="{title} 핵심 팩트체크 및 금융·시장 밸류에이션 분석 리포트">
   <meta property="og:image" content="{image_full_url}">
-  <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
+  <meta property="og:url" content="{BLOG_DOMAIN}/posts/{slug}.html">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -2383,19 +2383,19 @@ class ArticleGenerator:
     "author": {{
       "@type": "Organization",
       "name": "Value Stock Labs 리서치팀",
-      "url": "https://valuestocklabs.com/pages/about.html"
+      "url": "{BLOG_DOMAIN}/pages/about.html"
     }},
     "publisher": {{
       "@type": "Organization",
       "name": "Value Stock Labs",
       "logo": {{
         "@type": "ImageObject",
-        "url": "https://valuestocklabs.com/images/vsl-logo-neon-fire.png"
+        "url": "{BLOG_DOMAIN}/images/vsl-logo-neon-fire.png"
       }}
     }},
     "mainEntityOfPage": {{
       "@type": "WebPage",
-      "@id": "https://valuestocklabs.com/posts/{slug}.html"
+      "@id": "{BLOG_DOMAIN}/posts/{slug}.html"
     }}
   }}
   </script>

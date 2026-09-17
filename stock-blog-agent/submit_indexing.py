@@ -21,7 +21,7 @@ if sys.platform == "win32":
 BASE_DIR = Path(__file__).resolve().parent.parent / "adsense-stock-blog"
 SITEMAP_XML = BASE_DIR / "sitemap.xml"
 INDEXNOW_KEY = "a4b8c7d6e5f4123456789abcdef01234"
-HOST = "valuestocklabs.com"
+HOST = "www.valuestocklabs.com"
 SITEMAP_URL = f"https://{HOST}/sitemap.xml"
 
 def get_all_urls():

@@ -2044,8 +2044,10 @@ class ArticleGenerator:
 
         strategy_section_html = self.generate_morning_strategy_section(market_data)
 
-        html_content = f"""<!DOCTYPE html>
+        chosen_img_url = f"https://valuestocklabs.com/{chosen_img}" if not chosen_img.startswith("http") else chosen_img
+        today_iso = datetime.now().strftime("%Y-%m-%d")
 
+        html_content = f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -2055,11 +2057,53 @@ class ArticleGenerator:
   <meta name="keywords" content="모닝브리핑, 증시시황, 코스피, 코스닥, 환율, 나스닥, 비트코인, 주식뉴스">
   <meta name="author" content="Value Stock Labs 리서치팀">
   
+  <!-- Canonical & Search Indexing -->
+  <link rel="canonical" href="https://valuestocklabs.com/posts/{slug}.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OpenGraph -->
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Value Stock Labs">
   <meta property="og:title" content="오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs">
   <meta property="og:description" content="{today_str} 국내외 핵심 증시 지표 요약 및 오늘의 주요 경제 뉴스 심층 분석">
-  <meta property="og:image" content="../{chosen_img}">
+  <meta property="og:image" content="{chosen_img_url}">
   <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs">
+  <meta name="twitter:description" content="{today_str} 국내외 핵심 증시 지표 요약 및 오늘의 주요 경제 뉴스 심층 분석">
+  <meta name="twitter:image" content="{chosen_img_url}">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs",
+    "description": "{today_str} 국내외 주요 증시 지표, 환율, 가상자산 동향 및 오늘의 핵심 경제 뉴스 5선 리서치 리포트",
+    "image": ["{chosen_img_url}"],
+    "datePublished": "{today_iso}T08:30:00+09:00",
+    "dateModified": "{today_iso}T08:30:00+09:00",
+    "author": {{
+      "@type": "Organization",
+      "name": "Value Stock Labs 리서치팀",
+      "url": "https://valuestocklabs.com/pages/about.html"
+    }},
+    "publisher": {{
+      "@type": "Organization",
+      "name": "Value Stock Labs",
+      "logo": {{
+        "@type": "ImageObject",
+        "url": "https://valuestocklabs.com/images/vsl-logo-neon-fire.png"
+      }}
+    }},
+    "mainEntityOfPage": {{
+      "@type": "WebPage",
+      "@id": "https://valuestocklabs.com/posts/{slug}.html"
+    }}
+  }}
+  </script>
 
   <link rel="stylesheet" href="../css/style.css?v=20260914_final">
   <link rel="stylesheet" href="../css/ads.css?v=20260914_final">
@@ -2292,6 +2336,9 @@ class ArticleGenerator:
         image_path, image_caption = self.get_category_image_info(topic_type, title)
         image_src = f"../{image_path}" if not image_path.startswith("http") else image_path
 
+        image_full_url = f"https://valuestocklabs.com/{image_path}" if not image_path.startswith("http") else image_path
+        today_iso = datetime.now().strftime("%Y-%m-%d")
+
         sections_html = self.build_contextual_sections(topic_type, title, summary, category, keywords)
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
 
@@ -2305,12 +2352,53 @@ class ArticleGenerator:
   <meta name="keywords" content="{', '.join(keywords)}">
   <meta name="author" content="Value Stock Labs 리서치팀">
 
+  <!-- Canonical & Search Indexing -->
+  <link rel="canonical" href="https://valuestocklabs.com/posts/{slug}.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
   <!-- OpenGraph -->
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Value Stock Labs">
   <meta property="og:title" content="{title} | Value Stock Labs 리서치">
   <meta property="og:description" content="{title} 핵심 팩트체크 및 금융·시장 밸류에이션 분석 리포트">
-  <meta property="og:image" content="{image_src}">
+  <meta property="og:image" content="{image_full_url}">
   <meta property="og:url" content="https://valuestocklabs.com/posts/{slug}.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title} | Value Stock Labs 리서치">
+  <meta name="twitter:description" content="{title} 핵심 팩트체크 및 금융·시장 밸류에이션 분석 리포트">
+  <meta name="twitter:image" content="{image_full_url}">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{title}",
+    "description": "{title}에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.",
+    "image": ["{image_full_url}"],
+    "datePublished": "{today_iso}T09:00:00+09:00",
+    "dateModified": "{today_iso}T09:00:00+09:00",
+    "author": {{
+      "@type": "Organization",
+      "name": "Value Stock Labs 리서치팀",
+      "url": "https://valuestocklabs.com/pages/about.html"
+    }},
+    "publisher": {{
+      "@type": "Organization",
+      "name": "Value Stock Labs",
+      "logo": {{
+        "@type": "ImageObject",
+        "url": "https://valuestocklabs.com/images/vsl-logo-neon-fire.png"
+      }}
+    }},
+    "mainEntityOfPage": {{
+      "@type": "WebPage",
+      "@id": "https://valuestocklabs.com/posts/{slug}.html"
+    }}
+  }}
+  </script>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css?v=20260914_final">

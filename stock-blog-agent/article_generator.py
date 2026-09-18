@@ -1971,6 +1971,105 @@ class ArticleGenerator:
         </section>
         """
 
+    def generate_related_posts_section(self, current_category, current_filename=""):
+        """같은 카테고리의 연관 분석 리포트 카드 그리드 HTML 생성"""
+        categories_map = {
+            'market': {'name': '오늘의 증시 시황', 'icon': '☕', 'badge_text': '☕ 모닝 시황', 'badge_bg': '#059669', 'badge_color': '#ffffff'},
+            'semiconductor': {'name': 'AI 반도체 & HBM', 'icon': '⚡', 'badge_text': '⚡ AI 반도체', 'badge_bg': '#0284c7', 'badge_color': '#ffffff'},
+            'undervalued': {'name': '저평가 가치주', 'icon': '💎', 'badge_text': '💎 저평가주식', 'badge_bg': '#2563eb', 'badge_color': '#ffffff'},
+            'breakout': {'name': '상승초입주 & 차트', 'icon': '🚀', 'badge_text': '🚀 상승초입주', 'badge_bg': '#7c3aed', 'badge_color': '#ffffff'},
+            'ipo': {'name': '공모주 청약', 'icon': '🎯', 'badge_text': '🎯 공모주', 'badge_bg': '#db2777', 'badge_color': '#ffffff'},
+            'dividend': {'name': '배당 & 절세 전략', 'icon': '💰', 'badge_text': '💰 배당/절세', 'badge_bg': '#0d9488', 'badge_color': '#ffffff'}
+        }
+        cat_info = categories_map.get(current_category, categories_map['undervalued'])
+        
+        posts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'adsense-stock-blog', 'posts')
+        if not os.path.exists(posts_dir):
+            posts_dir = 'adsense-stock-blog/posts'
+            
+        indexed_posts = []
+        if os.path.exists(posts_dir):
+            for pf in sorted(glob.glob(os.path.join(posts_dir, '*.html')), reverse=True):
+                fn = os.path.basename(pf)
+                if fn == current_filename:
+                    continue
+                try:
+                    with open(pf, 'r', encoding='utf-8') as f:
+                        h = f.read()
+                    title_m = re.search(r'<h1[^>]*>(.*?)</h1>', h, re.DOTALL)
+                    if title_m:
+                        t = re.sub(r'<[^>]+>', '', title_m.group(1)).strip().split('|')[0].strip()
+                    else:
+                        t = fn.replace('.html', '')
+                    
+                    c = 'undervalued'
+                    if 'morning-market-briefing' in fn or '시황' in t or '모닝 브리핑' in t:
+                        c = 'market'
+                    elif 'hbm' in fn or '반도체' in t or 'semiconductor' in fn or '삼성전자' in t or 'sk하이닉스' in t:
+                        c = 'semiconductor'
+                    elif 'ipo' in fn or '공모주' in t:
+                        c = 'ipo'
+                    elif 'breakout' in fn or '상승초입' in t:
+                        c = 'breakout'
+                    elif 'dividend' in fn or '배당' in t or 'isa' in fn:
+                        c = 'dividend'
+                        
+                    date_m = re.search(r'📅\s*([0-9]{4}[년\-\.\s]+[0-9]{1,2}[월\-\.\s]+[0-9]{1,2})', h)
+                    if date_m:
+                        d_str = date_m.group(1).replace('년','-').replace('월','-').replace('일','').replace(' ','').replace('.','-')
+                        dp = [x for x in d_str.split('-') if x]
+                        d = f"{dp[0]}-{dp[1].zfill(2)}-{dp[2].zfill(2)}" if len(dp)==3 else '2026-09-18'
+                    else:
+                        d = '2026-09-18'
+                        
+                    img_m = re.search(r'<figure[^>]*>\s*<img[^>]+src=["\']([^"\']+)["\']', h)
+                    img = img_m.group(1) if img_m else '../images/hero.jpg'
+                    if not img.startswith('../') and not img.startswith('http'):
+                        img = '../' + img.lstrip('/')
+                        
+                    indexed_posts.append({'file': fn, 'title': t, 'category': c, 'date': d, 'image': img})
+                except Exception:
+                    continue
+                    
+        same_posts = [p for p in indexed_posts if p['category'] == current_category]
+        selected = same_posts[:4]
+        if len(selected) < 3:
+            other_p = [p for p in indexed_posts if p not in selected]
+            selected.extend(other_p[:(4 - len(selected))])
+            
+        cards_html = []
+        for p in selected:
+            p_cat = categories_map.get(p['category'], categories_map['undervalued'])
+            cards_html.append(f"""            <a href="{p['file']}" class="related-post-card">
+              <div class="related-thumb-wrap">
+                <span class="related-post-badge" style="background: {p_cat['badge_bg']}; color: {p_cat['badge_color']};">{p_cat['badge_text']}</span>
+                <img src="{p['image']}" alt="{p['title']}" loading="lazy">
+              </div>
+              <div class="related-post-info">
+                <div class="related-post-meta">
+                  <span class="related-date">📅 {p['date']}</span>
+                  <span class="related-badge-text">실전 리서치</span>
+                </div>
+                <h4 class="related-post-title">{p['title']}</h4>
+                <span class="related-read-more">리포트 읽기 →</span>
+              </div>
+            </a>""")
+            
+        grid_inner = "\\n".join(cards_html)
+        return f"""        <!-- Related Posts Section (같은 카테고리 연관 글 리스트) -->
+        <section class="related-posts-section" aria-label="같은 카테고리 연관 분석 리포트">
+          <div class="related-posts-header">
+            <h3 class="related-posts-title">
+              <span>{cat_info['icon']}</span> <span class="highlight">[{cat_info['name']}]</span> 관련 최신 리포트
+            </h3>
+            <span class="related-posts-sub">같은 카테고리의 주요 분석글을 이어서 읽어보세요.</span>
+          </div>
+          
+          <div class="related-posts-grid">
+{grid_inner}
+          </div>
+        </section>"""
+
     def generate_morning_briefing_html(self, market_data, top_headlines):
         """모닝 브리핑 전용 고품질 HTML 페이지 생성 (3단 완결형 뉴스 카드 & 대형 여백/구분선)"""
         today_str = datetime.now().strftime("%Y년 %m월 %d일")
@@ -2046,6 +2145,7 @@ class ArticleGenerator:
 
         chosen_img_url = f"{BLOG_DOMAIN}/{chosen_img}" if not chosen_img.startswith("http") else chosen_img
         today_iso = datetime.now().strftime("%Y-%m-%d")
+        related_posts_html = self.generate_related_posts_section("market", f"{slug}.html")
 
         html_content = f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
@@ -2277,6 +2377,8 @@ class ArticleGenerator:
           <button type="button" class="share-btn" id="shareBtn">🔗 URL 링크 복사</button>
         </div>
 
+        {related_posts_html}
+
       </article>
 
       <!-- Sidebar -->
@@ -2342,6 +2444,7 @@ class ArticleGenerator:
 
         sections_html = self.build_contextual_sections(topic_type, title, summary, category, keywords)
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
+        related_posts_html = self.generate_related_posts_section(category, f"{slug}.html")
 
         html_content = f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
@@ -2567,6 +2670,8 @@ class ArticleGenerator:
           <span>이 분석 리포트 공유하기:</span>
           <button type="button" class="share-btn" id="shareBtn">🔗 URL 링크 복사</button>
         </div>
+
+        {related_posts_html}
 
       </article>
 

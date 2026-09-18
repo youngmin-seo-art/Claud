@@ -2233,7 +2233,7 @@ class ArticleGenerator:
 
       <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="../index.html#morningBriefingSession" class="nav-link">오늘의 시황</a>
+        <a href="{slug}.html" class="nav-link">오늘의 시황</a>
         <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
         <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
         <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
@@ -2440,6 +2440,10 @@ class ArticleGenerator:
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
         related_posts_html = self.generate_related_posts_section(category, f"{slug}.html")
 
+        posts_dir = os.path.join(self.output_dir, "posts")
+        briefing_files = sorted(glob.glob(os.path.join(posts_dir, "*morning-market-briefing.html")), reverse=True)
+        latest_briefing_link = os.path.basename(briefing_files[0]) if briefing_files else "20260918-morning-market-briefing.html"
+
         html_content = f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
 <head>
@@ -2537,7 +2541,7 @@ class ArticleGenerator:
 
       <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
-        <a href="../index.html#morningBriefingSession" class="nav-link">오늘의 시황</a>
+        <a href="{latest_briefing_link}" class="nav-link">오늘의 시황</a>
         <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
         <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
         <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>

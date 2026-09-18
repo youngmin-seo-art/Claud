@@ -153,6 +153,12 @@ class BlogPublisher:
                     f'<a href="posts/{article_data["filename"]}" class="briefing-btn" id="latestBriefingLink">',
                     content
                 )
+                # 메인 내비게이션 '오늘의 시황' 링크 갱신
+                content = re.sub(
+                    r'<a href="posts/[^"]*morning-market-briefing\.html" class="nav-link">오늘의 시황</a>',
+                    f'<a href="posts/{article_data["filename"]}" class="nav-link">오늘의 시황</a>',
+                    content
+                )
                 today_display = datetime.now().strftime("%Y.%m.%d")
                 content = re.sub(
                     r'<span class="briefing-date" id="briefingDate">[^<]+</span>',

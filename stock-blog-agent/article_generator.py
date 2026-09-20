@@ -5,11 +5,16 @@ ARTICLE GENERATOR (article_generator.py)
 =============================================================================
 """
 
+import os
+import sys
+import glob
+import json
+import random
 import re
 import html
 import hashlib
 from datetime import datetime
-from config import BLOG_DOMAIN, ADSENSE_PUB_ID
+from config import BLOG_DOMAIN, ADSENSE_PUB_ID, POSTS_DIR, BLOG_DIR
 
 class ArticleGenerator:
     def __init__(self):
@@ -2440,7 +2445,7 @@ class ArticleGenerator:
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
         related_posts_html = self.generate_related_posts_section(category, f"{slug}.html")
 
-        posts_dir = os.path.join(self.output_dir, "posts")
+        posts_dir = str(POSTS_DIR)
         briefing_files = sorted(glob.glob(os.path.join(posts_dir, "*morning-market-briefing.html")), reverse=True)
         latest_briefing_link = os.path.basename(briefing_files[0]) if briefing_files else "20260918-morning-market-briefing.html"
 

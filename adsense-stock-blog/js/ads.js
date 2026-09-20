@@ -7,7 +7,7 @@
 
 const ADSENSE_CONFIG = {
   // [공식 발급] 구글 애드센스 게시자 ID
-  publisherId: 'ca-pub-7807868644631223', 
+  publisherId: 'ca-pub-7807960644631223', 
   
   // testMode: false로 설정하여 실제 구글 애드센스 심사 및 광고 로더 활성화
   testMode: false, 

@@ -2,63 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.valuestocklabs.com/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/tools/compound-interest-calc.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/tools/fair-value-calculator.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/tools/stock-average-calc.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/tools/target-price-calculator.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.valuestocklabs.com/pages/about.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/pages/contact.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <loc>https://www.valuestocklabs.com/pages/privacy.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/pages/disclaimer.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/pages/privacy-policy.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.valuestocklabs.com/pages/terms.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/pages/contact.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.valuestocklabs.com/posts/20260828-2026-현대차-로보틱스-자율주행-실전-수혜주-분석-및.html</loc>
@@ -91,7 +61,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260829-2026-빅테크-ai-반도체-hbm-수혜주-및-증시-반등-.html</loc>
+    <loc>https://www.valuestocklabs.com/posts/20260829-2026-빅테크-ai-반도체-hbm-수혜주-및-증시-반등.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -121,7 +91,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260829-리서치센터장-빅테크-ai투자-확인반도체-실적금리우려-완화-.html</loc>
+    <loc>https://www.valuestocklabs.com/posts/20260829-리서치센터장-빅테크-ai투자-확인반도체-실적금리우려-완화.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -135,12 +105,6 @@
   <url>
     <loc>https://www.valuestocklabs.com/posts/20260829-최태원-ai-승부수로-sk-밸류업반도체-넘어-ai-인프라로-확장-스마트비.html</loc>
     <lastmod>2026-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/20260830-미국-정말-금리-올릴까반도체-실적환율-변수-등-돌다리-두드려야.html</loc>
-    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -217,7 +181,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260905-꿈의-7000시대①-코스피-7300-돌파반도체실적외국인-3박자-질주-the-biz.html</loc>
+    <loc>https://www.valuestocklabs.com/posts/20260905-꿈의-7000시대-코스피-7300-돌파반도체실적외국인-3박자-질주-the-biz.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -259,12 +223,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260908-실적-신기록-한미반도체-기업가치-제고-계획서에-빠진-한-가지-리드경제.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.valuestocklabs.com/posts/20260909-morning-market-briefing.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -284,12 +242,6 @@
   </url>
   <url>
     <loc>https://www.valuestocklabs.com/posts/20260910-morning-market-briefing.html</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/20260910-반도체가-끌고-밸류업이-밀고-李정부서-125-수직상승-불스피.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -343,12 +295,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260912-코스피-6600선-돌파-외국인기관-25조-쌍끌이-매수와-반도체-파티-content.html</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.valuestocklabs.com/posts/20260913-morning-market-briefing.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -385,12 +331,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260915-코스닥밸류업-진단-주성엔지니어링-ai-바람타고-호실적지수편입-효과-톡톡.html</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.valuestocklabs.com/posts/20260916-morning-market-briefing.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -409,49 +349,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/ai-semiconductor-hbm-stocks.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/breakout-stocks-guide.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/dividend-aristocrats-krx.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/ipo-public-offering-guide.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/isa-irp-tax-saving.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/undervalued-stocks-2026.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.valuestocklabs.com/posts/20260918-밸류업-삼성전자-110조-투자ai-반도체-원스톱-솔루션-승부.html</loc>
+    <loc>https://www.valuestocklabs.com/posts/20260918-morning-market-briefing.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.valuestocklabs.com/posts/20260918-morning-market-briefing.html</loc>
+    <loc>https://www.valuestocklabs.com/posts/20260918-밸류업-삼성전자-110조-투자ai-반도체-원스톱-솔루션-승부.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -464,6 +368,42 @@
   </url>
   <url>
     <loc>https://www.valuestocklabs.com/posts/20260921-morning-market-briefing.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/ai-semiconductor-hbm-stocks.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/breakout-stocks-guide.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/dividend-aristocrats-krx.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/ipo-public-offering-guide.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/isa-irp-tax-saving.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.valuestocklabs.com/posts/undervalued-stocks-2026.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

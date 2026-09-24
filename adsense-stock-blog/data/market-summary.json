@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-24 10:35:51",
-  "timestamp": 1790213751248,
+  "updatedAt": "2026-09-24 12:47:42",
+  "timestamp": 1790254062039,
   "instruments": [
     {
       "id": "kospi",
@@ -24,9 +24,9 @@
       "prefix": "",
       "suffix": "pt",
       "price": 844.48,
-      "baseClose": 836.27,
-      "diffRate": 0.98,
-      "diff": 8.21
+      "baseClose": 834.38,
+      "diffRate": 1.21,
+      "diff": 10.1
     },
     {
       "id": "dji",
@@ -37,9 +37,9 @@
       "prefix": "",
       "suffix": "pt",
       "price": 51511.59,
-      "baseClose": 51863.69,
+      "baseClose": 51863.7,
       "diffRate": -0.68,
-      "diff": -352.1
+      "diff": -352.11
     },
     {
       "id": "sp500",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1369.78,
+      "price": 1368.1,
       "baseClose": 1365.91,
-      "diffRate": 0.28,
-      "diff": 3.87
+      "diffRate": 0.16,
+      "diff": 2.19
     },
     {
       "id": "samsung",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 115983000.0,
+      "price": 114630000.0,
       "baseClose": 115908000.0,
-      "diffRate": 0.06,
-      "diff": 75000.0
+      "diffRate": -1.1,
+      "diff": -1278000.0
     },
     {
       "id": "eth",
@@ -441,10 +441,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3695000.0,
+      "price": 3630000.0,
       "baseClose": 3686000.0,
-      "diffRate": 0.24,
-      "diff": 9000.0
+      "diffRate": -1.52,
+      "diff": -56000.0
     },
     {
       "id": "xrp",
@@ -455,10 +455,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 2064.0,
+      "price": 2022.0,
       "baseClose": 2061.0,
-      "diffRate": 0.15,
-      "diff": 3.0
+      "diffRate": -1.89,
+      "diff": -39.0
     },
     {
       "id": "sol",
@@ -469,10 +469,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 158400.0,
+      "price": 155600.0,
       "baseClose": 157800.0,
-      "diffRate": 0.38,
-      "diff": 600.0
+      "diffRate": -1.39,
+      "diff": -2200.0
     }
   ]
 }

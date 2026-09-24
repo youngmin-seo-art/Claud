@@ -1,6 +1,24 @@
 {
   "version": 2,
   "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "valuestocklabs.com"
+        }
+      ],
+      "destination": "https://www.valuestocklabs.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

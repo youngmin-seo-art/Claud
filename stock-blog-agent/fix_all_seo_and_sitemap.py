@@ -60,12 +60,13 @@ def fix_head_seo(html_path, page_type="post", filename=""):
     desc = extract_meta_content(html, "description") or extract_meta_content(html, "og:description") or f"{title} - Value Stock Labs 가치투자 및 금융 데이터 리서치 리포트"
     raw_img = extract_meta_content(html, "og:image") or "images/vsl-logo-neon-fire.png"
     
-    # Clean image url to absolute
+    # Clean image url to absolute with www
+    raw_img = raw_img.replace("https://valuestocklabs.com", DOMAIN).replace("http://valuestocklabs.com", DOMAIN)
     clean_img = raw_img.replace("../", "").lstrip("/")
     if not clean_img.startswith("http"):
         img_url = f"{DOMAIN}/{clean_img}"
     else:
-        img_url = raw_img
+        img_url = clean_img
 
     # Date extraction
     date_match = re.search(r'(\d{4})(\d{2})(\d{2})', filename)
@@ -74,19 +75,12 @@ def fix_head_seo(html_path, page_type="post", filename=""):
     else:
         iso_date = datetime.now().strftime("%Y-%m-%d")
 
-    # 1. Remove existing canonical, robots, and JSON-LD to re-insert clean standardized tags
+    # 1. Thoroughly remove existing SEO comments, canonical, robots, og, twitter, and JSON-LD
+    html = re.sub(r'<!--\s*(?:Canonical\s*&|OpenGraph|Twitter\s*Card|Schema\.org).*?-->\s*', '', html, flags=re.IGNORECASE)
     html = re.sub(r'\s*<link\s+rel=["\']canonical["\'].*?>', '', html, flags=re.IGNORECASE)
     html = re.sub(r'\s*<meta\s+name=["\']robots["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:type["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:site_name["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:title["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:description["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:image["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+property=["\']og:url["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+name=["\']twitter:card["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+name=["\']twitter:title["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+name=["\']twitter:description["\'].*?>', '', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*<meta\s+name=["\']twitter:image["\'].*?>', '', html, flags=re.IGNORECASE)
+    html = re.sub(r'\s*<meta\s+property=["\']og:[^"\']+["\'].*?>', '', html, flags=re.IGNORECASE)
+    html = re.sub(r'\s*<meta\s+name=["\']twitter:[^"\']+["\'].*?>', '', html, flags=re.IGNORECASE)
     html = re.sub(r'\s*<script\s+type=["\']application/ld\+json["\']>.*?</script>', '', html, flags=re.DOTALL | re.IGNORECASE)
 
     # 2. Build Schema.org JSON-LD
@@ -186,6 +180,9 @@ def fix_head_seo(html_path, page_type="post", filename=""):
   </script>
 """
 
+    # Clean double blank lines in head
+    html = re.sub(r'\n\s*\n\s*\n', '\n\n', html)
+
     # Inject right before </head> or after <head>
     if "</head>" in html:
         html = html.replace("</head>", f"{seo_injection}\n</head>")
@@ -237,7 +234,7 @@ def rebuild_all():
             print(f"  [완료] pages/{p}")
 
     # 4. Posts
-    print("\n4. posts/ 65개 이상 포스트 교정 중...")
+    print("\n4. posts/ 포스트 교정 중...")
     posts_list = []
     for post_file in sorted(os.listdir(POSTS_DIR)):
         if post_file.endswith(".html"):
@@ -290,11 +287,11 @@ def rebuild_all():
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         '  <channel>',
         '    <title>Value Stock Labs | 저평가 가치주 &amp; 상승초입주 리서치</title>',
-        '    <link>https://valuestocklabs.com/</link>',
+        f'    <link>{DOMAIN}/</link>',
         '    <description>데이터 기반 국내외 저평가 우량주, 상승초입주 차트 분석, AI 반도체 HBM 수혜주, 공모주 청약 및 실시간 주식 계산기를 제공하는 금융 리서치 블로그</description>',
         '    <language>ko-KR</language>',
         f'    <lastBuildDate>{datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0900")}</lastBuildDate>',
-        '    <atom:link href="https://valuestocklabs.com/rss.xml" rel="self" type="application/rss+xml"/>',
+        f'    <atom:link href="{DOMAIN}/rss.xml" rel="self" type="application/rss+xml"/>',
         ''
     ]
 

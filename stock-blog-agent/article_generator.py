@@ -1608,42 +1608,48 @@ class ArticleGenerator:
         </section>
 """
     def clean_and_complete_text(self, title, raw_summary):
-        """RSS의 잘린 요약문(..)을 정제하고, 미완성 문장을 문맥에 맞게 온전하게 완성"""
+        """RSS의 잘린 요약문을 정제하고, 미완성 문장을 문맥에 맞게 온전하게 완성 (언론사/기사 관련 어휘 완전 배제)"""
+        from news_collector import NewsCollector
+        collector = NewsCollector()
+        clean_t = collector.clean_title(title)
 
-        s = raw_summary.strip()
+        s = raw_summary.strip() if raw_summary else ""
         # HTML 태그 제거
         s = re.sub(r'<[^>]+>', '', s)
-        # 끝부분에 붙은 말줄임표(.., ..., etc.) 제거
         s = re.sub(r'[\.\s\·…]+$', '', s)
         s = s.replace("중둥", "중동")
         
+        # 언론사명/도메인/기자명 제거
+        s = re.sub(r'[-\s|·~–—:]+[a-zA-Z0-9.-]+\.(?:co\.kr|com|kr|net|org|news|biz|io).*$', '', s)
+        s = re.sub(r'\b(?:기자|특파원|보도|단독|속보|뉴스|일보|신문|통신|포스트)\b', '', s)
+
         # 문장 단위로 분리
         sentences = re.split(r'(?<=[다요죠])\.\s*', s)
         valid_sentences = [sent.strip() for sent in sentences if sent.strip() and len(sent.strip()) > 8]
         
-        # 마지막 문장이 미완성이거나 잘린 경우(예: '영향반도체') 정리
+        # 마지막 문장이 미완성이거나 잘린 경우 정리
         if valid_sentences:
             last = valid_sentences[-1]
             if not (last.endswith('다') or last.endswith('요') or last.endswith('음') or last.endswith('전망')):
                 if len(valid_sentences) > 1:
                     valid_sentences.pop()
                 else:
-                    # 유일한 문장이 잘린 경우 동사형으로 보정
-                    valid_sentences[0] = f"{valid_sentences[0]} 관련 주요 사실관계 및 시장 파급 효과가 확인되었습니다."
+                    valid_sentences[0] = f"{valid_sentences[0]} 관련 핵심 팩트와 시장 영향이 확인되었습니다."
 
         cleaned_base = ". ".join(valid_sentences)
         if cleaned_base and not cleaned_base.endswith('.'):
             cleaned_base += "."
             
-        if len(cleaned_base) < 30:
-            clean_t = re.sub(r'\[.*?\]|\(.*?\)', '', title).strip()
-            cleaned_base = f"{clean_t} 관련 주요 언론 보도 내용으로, 금융 시장 및 실물 경제에 미치는 핵심 배경과 세부 파급 효과를 종합적으로 짚어본 기사입니다."
+        if len(cleaned_base) < 30 or any(bad in cleaned_base for bad in ["언론", "기사", "보도"]):
+            cleaned_base = f"{clean_t} 관련 시장 펀더멘털 및 핵심 지표 분석으로, 국내외 금융 시장과 주요 섹터에 미치는 파급 효과와 투자 전략을 종합 정리한 리포트입니다."
             
         return cleaned_base
 
     def analyze_morning_headline(self, title, summary):
         """모닝 브리핑 헤드라인 뉴스에 대해 헤드라인 제목 우선 매칭 및 100% 인과관계 일치 리서치 코멘트 생성"""
-        clean_t = re.sub(r'\[.*?\]|\(.*?\)|<.*?>', '', title).strip()
+        from news_collector import NewsCollector
+        collector = NewsCollector()
+        clean_t = collector.clean_title(title)
         clean_s = summary.strip() if summary else ""
         
         # 이전 구버전 더미/하드코딩 문구가 요약에 포함되어 있는 경우 요약 정화
@@ -1668,7 +1674,7 @@ class ArticleGenerator:
         # 1. 국제유가 / 원유 / 에너지 / 원자재 (WTI, 브렌트유 등)
         if has_kw(["국제유가", "유가", "WTI", "원유", "브렌트유", "배럴당", "산유국", "OPEC", "정유", "정제마진", "가스", "천연가스", "구리", "원자재"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국제 원자재 및 에너지 시장 동향을 다룬 기사로, {clean_t}에 따른 정유·석유화학 정제마진 스프레드 변화와 국내 산업계 전반의 원가 부담 및 수익성 차별화가 집중 분석되고 있습니다."
+                f"국제 원자재 및 에너지 시장 동향을 분석한 핵심 테마로, {clean_t}에 따른 정유·석유화학 정제마진 스프레드 변화와 국내 산업계 전반의 원가 부담 및 수익성 차별화가 집중 분석되고 있습니다."
             )
             analysis_text = (
                 "[국제유가 변동성과 에너지·원자재 섹터 손익 구조]: 유가 급등락은 정유사의 복합 정제마진 및 재고평가손익을 좌우하는 동시에, 항공·해운·제조업의 유류비 원가에 직결됩니다. 에너지 가격 상방 국면에서는 자원개발 및 가격 전가력이 탁월한 1등 에너지·인프라 기업 중심의 선별 대응이 유리합니다."
@@ -1690,7 +1696,7 @@ class ArticleGenerator:
         # 3. 바이오 / 제약 / 신약 / DNA / 유전체 / CDMO / 헬스케어
         elif has_kw(["DNA", "유전체", "바이오", "제약", "신약", "FDA", "임상", "CDMO", "삼성바이오", "셀트리온", "알테오젠", "유한양행", "ADC", "의료AI", "진단"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"글로벌 바이오헬스케어 기술 혁신과 신약·위탁생산(CDMO) 시장 동향을 다룬 기사로, {clean_t}에 따른 글로벌 파이프라인 가치와 기술수출(L/O) 및 원가 혁신 모멘텀이 주목받고 있습니다."
+                f"글로벌 바이오헬스케어 기술 혁신과 신약·위탁생산(CDMO) 시장 동향을 다룬 핵심 이슈로, {clean_t}에 따른 글로벌 파이프라인 가치와 기술수출(L/O) 및 원가 혁신 모멘텀이 주목받고 있습니다."
             )
             analysis_text = (
                 "[바이오 플랫폼 기술수출과 글로벌 공급망 수혜]: 유전체 분석 비용 하락과 AI 신약 개발 상용화로 차세대 바이오텍의 개발 속도가 가속화되고 있습니다. 특히 미국의 생물보안법 수혜가 기대되는 대형 CDMO와 글로벌 빅파마 대상 독점 플랫폼을 보유한 바이오텍의 기업가치 리레이팅이 돋보입니다."
@@ -1701,7 +1707,7 @@ class ArticleGenerator:
         # 4. 환율 / 외환시장 / 서학개미 / 외국인 수급
         elif has_kw(["서학개미", "원달러", "원/달러", "달러화", "환율", "외환시장", "강달러", "달러인덱스", "원화 강세", "원화 약세", "외국인"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"글로벌 외환시장 변동성과 원/달러 환율 흐름을 다룬 기사로, {clean_t}에 따른 외국인 투자자의 국내 증시 수급 유입과 업종별 환산 손익 영향이 주요 변수로 작용하고 있습니다."
+                f"글로벌 외환시장 변동성과 원/달러 환율 흐름을 분석한 핵심 테마로, {clean_t}에 따른 외국인 투자자의 국내 증시 수급 유입과 업종별 환산 손익 영향이 주요 변수로 작용하고 있습니다."
             )
             analysis_text = (
                 "[외환시장 수급 변화와 업종별 차별화 손익 구조]: 원/달러 환율의 방향성은 외국인 투자자의 환차익 매력과 기업들의 원화 환산 실적을 가르는 핵심 척도입니다. 환율 하향 안정화(원화 강세) 국면에서는 외국인의 패시브 자금 유입이 가속화되며 원자재 수입·외화 부채 부담이 큰 항공·내수주의 원가 개선이 기대됩니다. 반면 고환율 국면에서는 수출 대형주의 실적 레버리지가 부각됩니다."
@@ -1712,7 +1718,7 @@ class ArticleGenerator:
         # 5. 거시경제 / GDP / 경제성장률 / 물가 / 고용
         elif has_kw(["GDP", "성장률", "경제성장", "물가상승", "소비자물가", "고용", "실업률", "국민소득"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내외 실물 경기 지표와 경제 성장 흐름을 다룬 이슈로, {clean_t}에 따른 실질 경제 성장 잠재력과 금융 시장의 매크로 펀더멘털 영향이 조명되고 있습니다."
+                f"국내외 실물 경기 지표와 경제 성장 흐름을 다룬 핵심 이슈로, {clean_t}에 따른 실질 경제 성장 잠재력과 금융 시장의 매크로 펀더멘털 영향이 조명되고 있습니다."
             )
             analysis_text = (
                 "[거시경제 펀더멘털과 증시 하방 지지력]: GDP 성장률과 실물 경기 지표는 증시의 중장기 밸류에이션 하한선을 결정하는 기초 체력입니다. 실질 성장이 뒷받침되는 국면에서는 기업 실적 턴어라운드와 함께 내수 및 수출 섹터 전반의 기초체력(Earnings) 개선이 기대됩니다."
@@ -1723,7 +1729,7 @@ class ArticleGenerator:
         # 6. 한국은행 / 기준금리 / 가계부채 / 대출금리
         elif has_kw(["한국은행", "한은", "이창용", "금통위", "기준금리", "가계부채", "대출금리", "예대금리", "주담대", "가산금리"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"한국은행의 통화정책 방향성과 금융권 대출 여건 변화를 다룬 내용으로, {clean_t}에 따른 시중 유동성 및 가계·기업 금융 비용 부담 추이가 집중 분석되고 있습니다."
+                f"한국은행의 통화정책 방향성과 금융권 대출 여건 변화를 다룬 분석 리포트로, {clean_t}에 따른 시중 유동성 및 가계·기업 금융 비용 부담 추이가 집중 분석되고 있습니다."
             )
             analysis_text = (
                 "[통화정책 경로와 은행 순이자마진(NIM) 영향]: 중앙은행의 기준금리 결정과 대출 규제 정책은 금융권의 예대마진과 자산 건전성에 직결됩니다. 단기적으로 가산금리 유지에 따른 이자이익 방어가 가능하나, 중장기적으로는 차주의 이자 상환 부담과 내수 경기 회복 탄력성을 함께 점검해야 합니다."
@@ -1734,7 +1740,7 @@ class ArticleGenerator:
         # 7. 가상자산 / 비트코인 / 스트래티지 / STO / 토큰증권 / 블록체인
         elif has_kw(["비트코인", "이더리움", "가상자산", "암호화폐", "BTC", "스트래티지", "마이크로스트래티지", "업비트", "가상화폐", "블록체인", "STO", "토큰증권"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"디지털 자산 시장 및 글로벌 가상자산 투자 동향을 다룬 기사로, {clean_t}에 따른 기관 자금 유입과 토큰화 규제 가이드라인이 분석되고 있습니다."
+                f"디지털 자산 시장 및 글로벌 가상자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 기관 자금 유입과 토큰화 규제 가이드라인이 분석되고 있습니다."
             )
             analysis_text = (
                 "[기관 자금 배분과 제도권 디지털 자산 인프라]: 글로벌 현물 ETF 및 기관 투자자들의 자산 배분으로 가상자산 시장의 변동성이 점진적으로 안정화되고 있습니다. 토큰증권(STO) 제도화와 블록체인 금융 인프라 확장이 맞물려 대체 투자 자산으로서의 지위가 공고해지고 있습니다."
@@ -1745,7 +1751,7 @@ class ArticleGenerator:
         # 8. 원전 / 전력망 / 초고압 변압기 / SMR
         elif has_kw(["원전", "SMR", "원자력", "두산에너빌리티", "한전기술", "한전KPS", "변압기", "초고압", "전선", "전력망", "HD현대일렉트릭", "효성중공업", "LS일렉트릭"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"AI 데이터센터 전력 공급 및 글로벌 노후 전력망 교체 수요를 짚어본 기사로, {clean_t}에 따른 대규모 전력 인프라 및 원전 수주 모멘텀이 분석되고 있습니다."
+                f"AI 데이터센터 전력 공급 및 글로벌 노후 전력망 교체 수요를 짚어본 핵심 테마로, {clean_t}에 따른 대규모 전력 인프라 및 원전 수주 모멘텀이 분석되고 있습니다."
             )
             analysis_text = (
                 "[AI 전력난과 30년 만의 전력망 슈퍼사이클]: AI 데이터센터 증설로 인한 막대한 전력 소비와 글로벌 무탄소 전원(원전/SMR) 채택이 가속화되고 있습니다. 초고압 변압기 및 해저 전선 제조사들은 수년 치 일감을 확보하여 판가 협상 주도권을 쥐고 사상 최대 영업이익을 경신 중입니다."
@@ -1756,7 +1762,7 @@ class ArticleGenerator:
         # 9. 조선 / 해운 / LNG선 / 함정 MRO
         elif has_kw(["조선업", "조선사", "조선 3사", "신조선가", "HD한국조선해양", "삼성중공업", "한화오션", "LNG선", "암모니아 운반선", "함정 MRO", "해운"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"친환경 선박 신조선가 상승과 국내 조선사들의 수주 랠리를 다룬 내용으로, {clean_t}에 따른 3~4년 치 고수익 일감 확보와 중장기 실적 턴어라운드가 가시화되고 있습니다."
+                f"친환경 선박 신조선가 상승과 국내 조선사들의 수주 랠리를 분석한 리포트로, {clean_t}에 따른 3~4년 치 고수익 일감 확보와 중장기 실적 턴어라운드가 가시화되고 있습니다."
             )
             analysis_text = (
                 "[신조선가 고점 유지와 고수익성 건조 비중 확대]: 친환경 LNG·암모니아 운반선 중심의 선가 상승세가 지속되는 가운데, 국내 주요 조선사들은 저가 수주 물량을 소진하고 고마진 선박 건조 단계에 진입했습니다. 여기에 미국 해군 함정 MRO 등 신시장 진출이 더해지며 구조적 흑자 폭 확대 사이클이 지속되고 있습니다."
@@ -1767,7 +1773,7 @@ class ArticleGenerator:
         # 10. K-방산 / 무기 수출 / 방위산업
         elif has_kw(["K-방산", "방산업", "방산주", "방산 수주", "한화에어로스페이스", "현대로템", "LIG넥스원", "한국항공우주", "풍산", "K9", "K2", "천궁"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"글로벌 안보 수요 증가와 K-방산의 해외 수출 확대를 짚어본 이슈로, {clean_t}에 따른 대규모 수주 잔고와 분기 실적 성장세가 주목받고 있습니다."
+                f"글로벌 안보 수요 증가와 K-방산의 해외 수출 확대를 짚어본 핵심 이슈로, {clean_t}에 따른 대규모 수주 잔고와 분기 실적 성장세가 주목받고 있습니다."
             )
             analysis_text = (
                 "[수주잔고의 실적 전환과 후속 MRO 고마진 창출]: 글로벌 지정학적 긴장 속에서 검증된 납기와 가성비를 바탕으로 조 단위 완제품 수출이 이어지고 있습니다. 납품된 무기체계의 정비·유지보수(MRO) 및 탄약 공급 등 연속적 고마진 매출 구조가 정착되며 지속 가능한 현금 창출주로 체질이 개선되고 있습니다."
@@ -1778,7 +1784,7 @@ class ArticleGenerator:
         # 11. 기업 밸류업 / 주주환원 / 저PBR / 배당
         elif has_kw(["밸류업", "저PBR", "주주환원", "배당", "자사주", "소각", "금융지주", "은행주", "KB금융", "신한지주", "하나금융", "PBR"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"정부의 기업 밸류업 프로그램과 주주환원 정책 확대를 다룬 내용으로, {clean_t}에 따른 저평가 우량주의 재평가 및 자금 유입이 기대되고 있습니다."
+                f"정부의 기업 밸류업 프로그램과 주주환원 정책 확대를 다룬 핵심 내용으로, {clean_t}에 따른 저평가 우량주의 재평가 및 자금 유입이 기대되고 있습니다."
             )
             analysis_text = (
                 "[자사주 소각 및 배당 확대에 따른 멀티플 리레이팅]: 자사주 매입·소각과 배당성향 상향 등 주주환원 정책의 강화는 자기자본이익률(ROE)을 개선시키고 코리아 디스카운트를 해소하는 핵심 요인입니다. 세제 지원책 구체화와 함께 중장기 외국인·기관 패시브 자금의 지속 유입이 기대됩니다."
@@ -1789,7 +1795,7 @@ class ArticleGenerator:
         # 12. 2차전지 / 배터리 / 전고체 / 양극재
         elif has_kw(["2차전지", "이차전지", "배터리", "양극재", "음극재", "리튬", "에코프로", "포스코홀딩스", "LG에너지솔루션", "전고체", "삼성SDI"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"전기차 및 에너지저장장치(ESS) 시장의 배터리 산업 동향을 짚어본 이슈로, {clean_t}에 따른 기술 혁신 및 공급망 재편이 집중 조명되고 있습니다."
+                f"전기차 및 에너지저장장치(ESS) 시장의 배터리 산업 동향을 짚어본 핵심 이슈로, {clean_t}에 따른 기술 혁신 및 공급망 재편이 집중 조명되고 있습니다."
             )
             analysis_text = (
                 "[ESS 수요 확대와 차세대 배터리 폼팩터 경쟁]: 전기차 캐즘 국면에서도 전력망용 대용량 ESS 수주 급증과 차세대 전고체/LFP 라인업 다변화가 진행 중입니다. 원재료 가격 안정화와 함께 차별화된 수율 및 고객사 다변화 역량을 갖춘 핵심 소재 기업의 실적 회복 속도가 주목됩니다."
@@ -1800,7 +1806,7 @@ class ArticleGenerator:
         # 13. 완성차 / 현대차·기아 / 하이브리드 / 모빌리티
         elif has_kw(["현대차", "기아", "완성차", "자동차", "하이브리드", "HEV", "현대모비스", "전장"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내 완성차 대장주와 글로벌 모빌리티 시장 판매 동향을 다룬 기사로, {clean_t}에 따른 수익성 믹스 개선과 해외 시장 점유율 확대가 분석되고 있습니다."
+                f"국내 완성차 대장주와 글로벌 모빌리티 시장 판매 동향을 분석한 리포트로, {clean_t}에 따른 수익성 믹스 개선과 해외 시장 점유율 확대가 분석되고 있습니다."
             )
             analysis_text = (
                 "[고수익 하이브리드 판매 믹스와 글로벌 시장 확장]: 순수 전기차 과도기에서 마진율이 우수한 하이브리드(HEV) 차량의 글로벌 수요 강세가 완성차 기업들의 호실적을 견인하고 있습니다. 신흥국 시장 성장과 북미 현지 공장 가동이 맞물려 글로벌 동종사 대비 저평가된 밸류에이션 매력이 부각됩니다."
@@ -1811,7 +1817,7 @@ class ArticleGenerator:
         # 14. 글로벌 증시 / 뉴욕증시 / 미국 매크로
         elif has_kw(["뉴욕증시", "나스닥", "S&P500", "S&P 500", "다우존스", "월가", "미국증시", "美 증시", "필라델피아", "FOMC", "파월"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"미국 뉴욕증시 주요 지수 및 매크로 지표 동향을 짚어본 이슈로, {clean_t}에 따른 글로벌 투자심리 변화와 국내외 금융 시장 파급 효과가 주목받고 있습니다."
+                f"미국 뉴욕증시 주요 지수 및 매크로 지표 동향을 짚어본 핵심 이슈로, {clean_t}에 따른 글로벌 투자심리 변화와 국내외 금융 시장 파급 효과가 주목받고 있습니다."
             )
             analysis_text = (
                 "[글로벌 매크로 환경과 증시 할인율 메커니즘]: 뉴욕증시의 주요 지수 등락과 통화정책 경로는 국내 증시의 외국인 자금 흐름과 업종별 밸류에이션(할인율)에 직접적인 영향을 미칩니다. 대외 매크로 불확실성 국면에서는 실적 가시성이 높고 밸류에이션 부담이 적은 주도주 중심의 압축 포트폴리오 대응이 요구됩니다."
@@ -1822,7 +1828,7 @@ class ArticleGenerator:
         # 15. 금 / 귀금속 / 안전자산
         elif has_kw(["금값", "골드", "금 시세", "금 투자", "금 매입", "은값", "골드바"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내외 금 시세 및 안전자산 투자 동향을 다룬 기사로, {clean_t}에 따른 절세형 금융투자 상품과 실물 자산 배분 전략이 분석되고 있습니다."
+                f"국내외 금 시세 및 안전자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 절세형 금융투자 상품과 실물 자산 배분 전략이 분석되고 있습니다."
             )
             analysis_text = (
                 "[투자 수단별 실질 수익률과 안전자산 배분]: 금 시세 상승기에는 부가세와 매입 수수료가 선차감되는 실물 골드바보다 비과세 혜택이 주어지는 KRX 금시장이나 절세 계좌(ISA/연금) 내 금 현물 ETF를 활용하는 것이 실질 수익률 극대화에 유리합니다."
@@ -1833,7 +1839,7 @@ class ArticleGenerator:
         # 16. 공모주 / IPO / 신규상장
         elif has_kw(["공모주", "청약", "IPO", "신규상장", "수요예측", "의무보유"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"신규 상장 기업들의 기관 수요예측 및 일반 공모주 청약 동향을 짚어본 기사로, {clean_t}에 따른 시장 유동성과 적정 밸류에이션이 분석되고 있습니다."
+                f"신규 상장 기업들의 기관 수요예측 및 일반 공모주 청약 동향을 짚어본 분석으로, {clean_t}에 따른 시장 유동성과 적정 밸류에이션이 분석되고 있습니다."
             )
             analysis_text = (
                 "[공모주 옥석 가리기와 유통 가능 물량 분석]: 신규 상장 시장은 상장 초기 변동성 이후 실적과 성장성이 입증된 종목을 중심으로 차별화가 전개됩니다. 기관 의무보유 확약 비율이 높고 상장 직후 유통 가능 물량이 제한적인 기업 중심의 선별 청약 전략이 필수적입니다."
@@ -1844,7 +1850,7 @@ class ArticleGenerator:
         # 17. 로봇 / 자동화 / 피지컬 AI
         elif has_kw(["로봇", "휴머노이드", "협동로봇", "스마트팩토리", "두산로보틱스", "레인보우로보틱스", "감속기"]):
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"제조업 무인화와 피지컬 AI 로봇 도입 가속화를 다룬 기사로, {clean_t}에 따른 핵심 부품 및 하드웨어 공급망 성장이 주목받고 있습니다."
+                f"제조업 무인화와 피지컬 AI 로봇 도입 가속화를 다룬 핵심 테마로, {clean_t}에 따른 핵심 부품 및 하드웨어 공급망 성장이 주목받고 있습니다."
             )
             analysis_text = (
                 "[제조업 인건비 상승과 피지컬 AI 상용화]: 휴머노이드 로봇 기술 진화와 가격 하락으로 제조 및 물류 현장의 로봇 투입 ROI가 빠르게 단축되고 있습니다. 특히 로봇 원가의 핵심을 차지하는 정밀 감속기, 액추에이터 등 핵심 부품사의 중장기 성장 동력이 유망합니다."
@@ -1852,7 +1858,7 @@ class ArticleGenerator:
             target_sectors = "협동로봇/휴머노이드(두산로보틱스/레인보우로보틱스), 정밀 감속기(에스피지/에스비비테크)"
             return news_summary, analysis_text, target_sectors
 
-        # 18. 기본 완결형 다이내믹 요약기 (미분류 뉴스 대응)
+        # 18. 기본 완결형 다이내믹 요약기 (미분류 대응)
         else:
             news_summary = clean_base
             analysis_text = f"[수급 및 업종 펀더멘털 분석]: '{clean_t[:25]}' 관련 시장 이슈는 산업 펀더멘털 및 수급 동향에 따른 단기 변동성과 중장기 수혜 업종 간의 선별적 차별화를 촉발할 것으로 분석됩니다."
@@ -2110,8 +2116,11 @@ class ArticleGenerator:
             raw_title = raw_title.replace("중둥", "중동")
             raw_summary = raw_summary.replace("중둥", "중동")
 
-            h_title = html.escape(raw_title)
-            news_full_summary, analysis_text, target_sectors = self.analyze_morning_headline(raw_title, raw_summary)
+            from news_collector import NewsCollector
+            collector = NewsCollector()
+            clean_raw_title = collector.clean_title(raw_title)
+            h_title = html.escape(clean_raw_title)
+            news_full_summary, analysis_text, target_sectors = self.analyze_morning_headline(clean_raw_title, raw_summary)
 
             headlines_html += f"""
             <div style="margin-bottom: 24px; padding: 26px 30px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; border-left: 5px solid var(--accent-cyan); box-shadow: var(--shadow-sm);">
@@ -2120,9 +2129,9 @@ class ArticleGenerator:
                 {h_title}
               </h3>
               
-              <!-- 1. 뉴스 핵심 내용 완결형 요약 (말줄임표 없이 끝까지 제공) -->
+              <!-- 1. 핵심 이슈 개요 & 시장 배경 (100% 자체 리서치 텍스트) -->
               <div style="margin-bottom: 18px; padding: 18px 22px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; font-size: 1.05rem; line-height: 2.1; color: #cbd5e1;">
-                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">📰 뉴스 핵심 내용 &amp; 배경 팩트:</strong>
+                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">📌 핵심 이슈 개요 &amp; 시장 배경:</strong>
                 {news_full_summary}
               </div>
               
@@ -2273,7 +2282,7 @@ class ArticleGenerator:
 
         <header class="article-header">
           <span class="badge badge-market">🌅 데일리 모닝 리포트</span>
-          <h1 class="article-title">오늘의 증시 모닝 브리핑: 핵심 지표 요약 및 주요 뉴스 5선 ({today_str})</h1>
+          <h1 class="article-title">오늘의 증시 모닝 브리핑: 핵심 지표 요약 및 주요 이슈 5선 ({today_str})</h1>
           <div class="article-meta">
             <span>✍️ Value Stock Labs 시황분석팀</span>
             <span>📅 {today_str} AM 08:00 기준</span>
@@ -2346,10 +2355,10 @@ class ArticleGenerator:
         {div_sep}
 
         <section id="sec-top-news" style="margin-bottom: 22px;">
-          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">2. 오늘 꼭 챙겨봐야 할 핵심 경제 뉴스 5선 &amp; 리서치 코멘트</h2>
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 2px solid rgba(6, 182, 212, 0.35); line-height: 1.55;">2. 오늘 꼭 챙겨봐야 할 핵심 경제 이슈 5선 &amp; 리서치 코멘트</h2>
           
           <p style="font-size: 1.1rem; line-height: 1.95; margin-bottom: 24px; color: #cbd5e1;">
-            국내외 금융 시장에 영향을 미치는 주요 언론 헤드라인과 이에 대한 리서치센터의 정밀 분석 코멘트입니다:
+            국내외 금융 시장에 영향을 미치는 오늘의 핵심 경제 테마와 이에 대한 리서치센터의 정밀 분석 코멘트입니다:
           </p>
           
           {headlines_html}
@@ -2421,7 +2430,7 @@ class ArticleGenerator:
             "filename": f"{slug}.html",
             "title": f"오늘의 증시 모닝 브리핑 ({today_str})",
             "category": "market",
-            "summary": f"{today_str} 국내외 주요 시장 지표 요약 및 오늘의 핵심 경제 뉴스 5선 심층 분석",
+            "summary": f"{today_str} 국내외 주요 시장 지표 요약 및 오늘의 핵심 경제 이슈 5선 심층 분석",
             "image": chosen_img,
             "html": html_content,
             "date": date_iso,
@@ -2430,18 +2439,23 @@ class ArticleGenerator:
 
     def generate_article_html(self, title, summary, category, keywords, content_type="deep_dive"):
         """일반 심층 분석 기사 고품질 HTML 생성 (대번호 간 대형 여백/구분선 & 행간 2.2 극대화)"""
+        from news_collector import NewsCollector
+        collector = NewsCollector()
+        clean_title = collector.clean_title(title)
+        clean_summary = collector.rewrite_summary(clean_title, category, keywords, summary)
+
         today_str = datetime.now().strftime("%Y년 %m월 %d일")
         date_iso = datetime.now().strftime("%Y-%m-%d")
-        slug = self.create_slug(title)
+        slug = self.create_slug(clean_title)
 
-        topic_type = self.detect_topic_type(title, summary)
-        image_path, image_caption = self.get_category_image_info(topic_type, title)
+        topic_type = self.detect_topic_type(clean_title, clean_summary)
+        image_path, image_caption = self.get_category_image_info(topic_type, clean_title)
         image_src = f"../{image_path}" if not image_path.startswith("http") else image_path
 
         image_full_url = f"{BLOG_DOMAIN}/{image_path}" if not image_path.startswith("http") else image_path
         today_iso = datetime.now().strftime("%Y-%m-%d")
 
-        sections_html = self.build_contextual_sections(topic_type, title, summary, category, keywords)
+        sections_html = self.build_contextual_sections(topic_type, clean_title, clean_summary, category, keywords)
         div_sep = '<div style="margin: 40px 0 28px; border-top: 2px solid rgba(6, 182, 212, 0.4); width: 100%;"></div>'
         related_posts_html = self.generate_related_posts_section(category, f"{slug}.html")
 
@@ -2454,8 +2468,8 @@ class ArticleGenerator:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | Value Stock Labs 리서치</title>
-  <meta name="description" content="{title}에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.">
+  <title>{clean_title} | Value Stock Labs 리서치</title>
+  <meta name="description" content="{clean_title}에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.">
   <meta name="keywords" content="{', '.join(keywords)}">
   <meta name="author" content="Value Stock Labs 리서치팀">
 

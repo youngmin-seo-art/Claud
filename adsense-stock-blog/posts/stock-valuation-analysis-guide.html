@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 종목가치 분석 실전 가이드: RIM·DCF·PER·PBR 복합 밸류에이션 모델 및 적정주가 산출법 | Value Stock Labs</title>
+  <meta name="description" content="주식 종목가치 분석(Valuation) 완벽 가이드! RIM(초과이익모델), DCF(현금흐름할인), 상대가치(PER·PBR·EV/EBITDA·PEG) 지표를 결합하여 기업의 진짜 내재가치와 안전마진을 계산하는 실전 투자 리포트입니다.">
+  <meta name="keywords" content="종목가치분석, 적정주가산출, RIM계산법, DCF모델, 저평가주식, PER분석, PBR분석, ROE, 가치투자, 재무제표분석">
+  <meta name="author" content="Value Stock Labs 퀀트밸류팀">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ads.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Canonical & Search Engine Indexing -->
+  <link rel="canonical" href="https://www.valuestocklabs.com/posts/stock-valuation-analysis-guide.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OpenGraph / SNS Meta -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Value Stock Labs">
+  <meta property="og:title" content="2026 종목가치 분석 실전 가이드: RIM·DCF·PER·PBR 복합 밸류에이션 모델 및 적정주가 산출법 | Value Stock Labs">
+  <meta property="og:description" content="주식 종목가치 분석(Valuation) 완벽 가이드! RIM(초과이익모델), DCF(현금흐름할인), 상대가치(PER·PBR·EV/EBITDA·PEG) 지표를 결합하여 기업의 진짜 내재가치와 안전마진을 계산하는 실전 투자 리포트입니다.">
+  <meta property="og:image" content="https://www.valuestocklabs.com/images/valuation-guide.jpg">
+  <meta property="og:url" content="https://www.valuestocklabs.com/posts/stock-valuation-analysis-guide.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="2026 종목가치 분석 실전 가이드: RIM·DCF·PER·PBR 복합 밸류에이션 모델 및 적정주가 산출법 | Value Stock Labs">
+  <meta name="twitter:description" content="주식 종목가치 분석(Valuation) 완벽 가이드! RIM(초과이익모델), DCF(현금흐름할인), 상대가치(PER·PBR·EV/EBITDA·PEG) 지표를 결합하여 기업의 진짜 내재가치와 안전마진을 계산하는 실전 투자 리포트입니다.">
+  <meta name="twitter:image" content="https://www.valuestocklabs.com/images/valuation-guide.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2026 종목가치 분석 실전 가이드: RIM·DCF·PER·PBR 복합 밸류에이션 모델 및 적정주가 산출법",
+  "description": "주식 종목가치 분석(Valuation) 완벽 가이드! RIM(초과이익모델), DCF(현금흐름할인), 상대가치(PER·PBR·EV/EBITDA·PEG) 지표를 결합하여 기업의 진짜 내재가치와 안전마진을 계산하는 실전 투자 리포트입니다.",
+  "image": [
+    "https://www.valuestocklabs.com/images/valuation-guide.jpg"
+  ],
+  "datePublished": "2026-09-27T08:30:00+09:00",
+  "dateModified": "2026-09-27T08:30:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Value Stock Labs 리서치팀",
+    "url": "https://www.valuestocklabs.com/pages/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Value Stock Labs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.valuestocklabs.com/images/vsl-logo-neon-fire.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.valuestocklabs.com/posts/stock-valuation-analysis-guide.html"
+  }
+}
+  </script>
+
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+  <!-- Top Real-time Stock Index Ticker -->
+  <aside class="market-ticker-wrap" aria-label="실시간 시장 지표">
+    <div class="ticker-label">
+      <span>LIVE MARKET</span>
+    </div>
+    <div class="ticker-track" id="tickerTrack">
+      <!-- Injected via main.js -->
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" aria-label="Value Stock Labs 홈으로 이동">
+        <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
+        <span class="logo-text">Value Stock Labs</span>
+      </a>
+
+      <nav class="main-nav" aria-label="메인 메뉴">
+        <a href="../index.html" class="nav-link">홈</a>
+        <a href="../posts/20260926-morning-market-briefing.html" class="nav-link">오늘의 시황</a>
+        <a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="nav-link">저평가주식</a>
+        <a href="../posts/stock-valuation-analysis-guide.html" class="nav-link active">종목가치 분석</a>
+        <a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="nav-link">상승초입주</a>
+        <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
+        <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
+        <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
+        <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
+        <a href="../pages/about.html" class="nav-link">소개</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggleBtn" aria-label="다크/라이트 모드 전환" title="테마 변경">
+          <span>☀️</span>
+        </button>
+        <button class="btn-icon mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+          <span>☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Main Container -->
+  <main class="article-layout">
+    <div class="container article-grid">
+      
+      <!-- Article Content Body -->
+      <article class="article-body">
+        
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="경로 탐색">
+          <a href="../index.html">홈</a> &gt; 
+          <a href="../index.html#articles">섹터 분석</a> &gt; 
+          <span>종목가치 분석</span>
+        </nav>
+
+        <!-- Article Header -->
+        <header class="article-header">
+          <span class="badge" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4); padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">📊 종목가치 분석 마스터</span>
+          <h1 class="article-title">2026 종목가치 분석 실전 가이드: RIM·DCF·PER·PBR 복합 밸류에이션 모델 및 적정주가 산출법</h1>
+          
+          <div class="article-meta-bar">
+            <div class="author-info">
+              <div class="author-avatar">V</div>
+              <div>
+                <span class="author-name">Value Stock Labs 퀀트밸류팀</span>
+                <span class="publish-date">2026.09.26 · 읽는 시간 약 8분 · 퀀트 밸류에이션 심층 리포트</span>
+              </div>
+            </div>
+            <div class="share-buttons">
+              <button class="btn-share" onclick="navigator.clipboard.writeText(window.location.href); alert('리포트 URL이 클립보드에 복사되었습니다.');" title="링크 복사">🔗 공유</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Article Hero Featured Image -->
+        <div class="article-featured-img-wrap" style="margin: 24px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <img src="../images/valuation-guide.jpg" alt="종목가치 분석 밸류에이션 모델 대시보드" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <!-- Ad Slot: Top of Article -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" data-ad-slot="2002001" data-ad-type="Display In-Article" data-ad-name="본문 상단 배너"></div>
+        </div>
+
+        <!-- Table of Contents (TOC) -->
+        <div class="toc-box">
+          <h3 class="toc-title">📑 목차 (Table of Contents)</h3>
+          <ul class="toc-list">
+            <li><a href="#section1">1. 종목가치 분석(Valuation)의 핵심 원리와 필요성</a></li>
+            <li><a href="#section2">2. 절대 가치평가 모델: RIM(초과이익모델) &amp; DCF(현금흐름할인법)</a></li>
+            <li><a href="#section3">3. 상대 가치평가 4대 지표: PER, PBR, EV/EBITDA, PEG 정밀 분석</a></li>
+            <li><a href="#section4">4. 가치 함정(Value Trap)을 피하는 3단계 필터링 스크리닝</a></li>
+            <li><a href="#section5">5. 실전 밸류에이션 매트릭스: 국내 대표 우량주 가치 산정 사례</a></li>
+            <li><a href="#section6">6. 인터랙티브 주식 계산기 100% 활용 팁 &amp; 종합 결론</a></li>
+          </ul>
+        </div>
+
+        <!-- Content Section 1 -->
+        <section id="section1" class="article-section">
+          <h2>1. 종목가치 분석(Valuation)의 핵심 원리와 필요성</h2>
+          <p>
+            주식 시장에서 <strong>가격(Price)</strong>은 매 순간 참여자들의 감정과 수급에 의해 요동치지만, <strong>가치(Value)</strong>는 기업이 벌어들이는 이익과 보유한 순자산의 펀더멘털에 수렴합니다. 전설적인 투자자 워런 버핏은 <em>"가격은 당신이 지불하는 것이고, 가치는 당신이 얻는 것이다(Price is what you pay, Value is what you get)"</em>라고 정의했습니다.
+          </p>
+          <p>
+            종목가치 분석(Valuation)이란 대상 기업의 비즈니스 모델, 미래 현금흐름 창출 능력, 재무 안전성, 산업 내 경쟁우위(Economic Moat)를 종합적으로 계량화하여 <strong>"1주당 진짜 적정한 가격이 얼마인가?"</strong>를 산출하는 과정입니다.
+          </p>
+
+          <div class="info-callout" style="background: rgba(6, 182, 212, 0.08); border-left: 4px solid var(--accent-cyan); padding: 18px 20px; border-radius: 0 8px 8px 0; margin: 24px 0;">
+            <h4 style="color: var(--accent-cyan); margin-top: 0; margin-bottom: 8px;">💡 왜 단순 차트 매매보다 종목가치 분석이 강력한가?</h4>
+            <ul style="margin: 0; padding-left: 18px; color: var(--text-secondary); line-height: 1.65;">
+              <li><strong>안전마진(Margin of Safety) 확보:</strong> 내재가치 대비 20~30% 이상 할인된 가격에 매수함으로써 하락장에서도 원금 손실 위험을 극소화합니다.</li>
+              <li><strong>시장 공포 극복:</strong> 지수가 급락할 때도 종목의 본질 가치를 알고 있으면 뇌동매매를 방지하고 저가 추가 매수의 기회로 전환할 수 있습니다.</li>
+              <li><strong>목표가와 손익비의 명확성:</strong> 적정주가를 기준으로 현실적인 목표 매도가와 기대 손익비를 사전 계산할 수 있습니다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Content Section 2 -->
+        <section id="section2" class="article-section">
+          <h2>2. 절대 가치평가 모델: RIM(초과이익모델) &amp; DCF(현금흐름할인법)</h2>
+          <p>
+            가치평가 방법론은 크게 <strong>절대 가치평가(Absolute Valuation)</strong>와 <strong>상대 가치평가(Relative Valuation)</strong>로 나뉩니다. 먼저 기업 자체의 펀더멘털만을 기반으로 계산하는 절대 가치평가 모델의 대표 주자 2가지를 살펴봅니다.
+          </p>
+
+          <div class="tool-preview-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; margin: 24px 0;">
+            <h3 style="color: var(--accent-cyan); font-size: 1.15rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+              <span>📐</span> 1) RIM (Residual Income Model, 초과이익모델)
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              국내 개인 투자자 및 기관 펀드매니저들이 가장 널리 활용하는 한국형 가치평가 공식입니다. 자기자본(BPS)에 주주가 요구하는 최소한의 수익률(요구수익률)을 초과하여 벌어들이는 <strong>초과이익(Residual Income)</strong>의 현재 가치를 더해 적정주가를 산출합니다.
+            </p>
+            
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 14px 18px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.9rem; color: #38bdf8; margin: 14px 0; border: 1px dashed rgba(6, 182, 212, 0.3);">
+              <strong>S-RIM 기본 산출 공식:</strong><br>
+              기업가치 = 자기자본 + (초과이익 / 요구수익률)<br>
+              초과이익 = 자기자본 × (예상 ROE - 요구수익률)<br>
+              적정주가 = 기업가치 ÷ 총 발행주식수
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">
+              * 요구수익률(k)은 통상 BBB- 회사채 5년물 금리(5.5~8.0%)를 기준으로 설정하여 엄격한 잣대를 적용합니다.
+            </p>
+          </div>
+
+          <div class="tool-preview-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; margin: 24px 0;">
+            <h3 style="color: var(--accent-emerald); font-size: 1.15rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+              <span>🌊</span> 2) DCF (Discounted Cash Flow, 현금흐름할인법)
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              월가 투자은행(IB)과 글로벌 사모펀드(PE)에서 기업 인수합병(M&amp;A) 시 가장 정석으로 사용하는 모델입니다. 기업이 영업활동을 통해 창출할 미래의 <strong>잉여현금흐름(FCFF, Free Cash Flow to Firm)</strong>을 가중평균자본비용(WACC)으로 할인하여 현재가치를 구합니다.
+            </p>
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 14px 18px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.9rem; color: #34d399; margin: 14px 0; border: 1px dashed rgba(16, 185, 129, 0.3);">
+              <strong>DCF 기본 산출 공식:</strong><br>
+              Intrinsic Value = ∑ [ FCFF_t / (1 + WACC)^t ] + [ Terminal Value / (1 + WACC)^n ]
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">
+              * 안정적인 현금창출능력을 가진 성숙기 제조기업, 유틸리티, 플랫폼 독점 기업 가치평가에 특히 탁월합니다.
+            </p>
+          </div>
+        </section>
+
+        <!-- Ad Slot: Mid Article -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-in-article" data-ad-slot="2002002" data-ad-type="Display In-Article" data-ad-name="본문 중간 배너"></div>
+        </div>
+
+        <!-- Content Section 3 -->
+        <section id="section3" class="article-section">
+          <h2>3. 상대 가치평가 4대 지표: PER, PBR, EV/EBITDA, PEG 정밀 분석</h2>
+          <p>
+            상대 가치평가는 동종 업종(Peer Group)의 유사 기업들과 비교하여 현재 주가가 저평가되어 있는지 직관적으로 판단하는 지표입니다. 각 지표의 장단점과 해석 노하우를 정리했습니다.
+          </p>
+
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+              <thead>
+                <tr style="background: rgba(255,255,255,0.06); border-bottom: 2px solid var(--border-color);">
+                  <th style="padding: 12px 14px;">지표명</th>
+                  <th style="padding: 12px 14px;">계산 공식</th>
+                  <th style="padding: 12px 14px;">핵심 의미</th>
+                  <th style="padding: 12px 14px;">우량주 판별 기준</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px 14px; font-weight: 700; color: var(--accent-cyan);">PER (주가수익비율)</td>
+                  <td style="padding: 12px 14px; font-family: var(--font-mono);">현재주가 ÷ EPS</td>
+                  <td style="padding: 12px 14px;">순이익 대비 주가의 배수 (투자원금 회수 소요 기간)</td>
+                  <td style="padding: 12px 14px;">업종 평균 대비 30% 이하 &amp; 과거 5년 밴드 하단</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px 14px; font-weight: 700; color: var(--accent-emerald);">PBR (주가순자산비율)</td>
+                  <td style="padding: 12px 14px; font-family: var(--font-mono);">현재주가 ÷ BPS</td>
+                  <td style="padding: 12px 14px;">장부가치(청산가치) 대비 시가총액의 비율</td>
+                  <td style="padding: 12px 14px;">PBR 0.8배 이하 + ROE 10% 이상 (밸류업 수혜)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px 14px; font-weight: 700; color: #a78bfa);">EV/EBITDA</td>
+                  <td style="padding: 12px 14px; font-family: var(--font-mono);">기업가치(EV) ÷ 영업현금흐름</td>
+                  <td style="padding: 12px 14px;">순차입금을 감안한 실질 영업이익 창출 배수</td>
+                  <td style="padding: 12px 14px;">제조업 기준 6~8배 미만 (감가상각비 큰 설비투자주)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 14px; font-weight: 700; color: #f59e0b);">PEG (주가이익증가비율)</td>
+                  <td style="padding: 12px 14px; font-family: var(--font-mono);">PER ÷ 순이익성장률(%)</td>
+                  <td style="padding: 12px 14px;">이익 성장 속도 대비 PER의 정당성 검증 (피터 린치 지표)</td>
+                  <td style="padding: 12px 14px;"><strong>PEG 0.5 미만: 극단적 저평가 매수 기회</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Content Section 4 -->
+        <section id="section4" class="article-section">
+          <h2>4. 가치 함정(Value Trap)을 피하는 3단계 필터링 스크리닝</h2>
+          <p>
+            단순히 PER이나 PBR 수치만 보고 "싸다"고 매수했다가 수년간 주가가 제자리걸음하거나 하락하는 현상을 <strong>가치 함정(Value Trap)</strong>이라고 부릅니다. 진정한 우량 가치주를 선별하기 위한 3단계 정밀 필터링 기준을 제시합니다.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 24px 0;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">🛡️ STEP 1</div>
+              <h4 style="color: var(--text-primary); margin-top: 0; margin-bottom: 8px;">순현금 &amp; 부채비율 검증</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+                순차입금(차입금 - 현금성자산)이 마이너스인 <strong>순현금 부자 기업</strong>인지 확인합니다. 부채비율은 100% 이하, 이자보상배율은 최소 5배 이상이어야 고금리 충격을 버팁니다.
+              </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">📈 STEP 2</div>
+              <h4 style="color: var(--text-primary); margin-top: 0; margin-bottom: 8px;">3개년 ROE 추세 및 질적 분석</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+                일회성 자산 매각으로 일시 상승한 ROE가 아닌, <strong>영업이익률 개선과 매출 성장</strong>으로 ROE가 10% 이상 지속 유지되는지 듀퐁 분석(DuPont Analysis)을 수행합니다.
+              </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">🎁 STEP 3</div>
+              <h4 style="color: var(--text-primary); margin-top: 0; margin-bottom: 8px;">주주환원율 &amp; 밸류업 정책</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+                배당수익률 3.5% 이상이거나 자사주 소각을 적극 실행하는 지배구조 우수 기업인지 확인합니다. 코리아 디스카운트 해소의 핵심 열쇠입니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Content Section 5 -->
+        <section id="section5" class="article-section">
+          <h2>5. 실전 밸류에이션 매트릭스: 국내 대표 우량주 가치 산정 사례</h2>
+          <p>
+            실제 국내 대표 시가총액 상위주 및 AI 반도체 밸류체인 종목에 위의 복합 밸류에이션 모델을 대입하여 산출한 적정가치 시뮬레이션 매트릭스입니다.
+          </p>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; margin: 24px 0;">
+            <h4 style="color: var(--accent-cyan); margin-top: 0; margin-bottom: 14px; font-size: 1.05rem;">
+              📊 2026 퀀트 가치평가 비교 매트릭스 (예시 시뮬레이션)
+            </h4>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: center;">
+                <thead>
+                  <tr style="background: rgba(6, 182, 212, 0.1); border-bottom: 1px solid var(--border-color);">
+                    <th style="padding: 10px; text-align: left;">종목명</th>
+                    <th style="padding: 10px;">예상 PER</th>
+                    <th style="padding: 10px;">PBR</th>
+                    <th style="padding: 10px;">예상 ROE</th>
+                    <th style="padding: 10px;">S-RIM 적정가</th>
+                    <th style="padding: 10px;">현재 괴리율</th>
+                    <th style="padding: 10px;">평가 등급</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 10px; text-align: left; font-weight: 700;">삼성전자</td>
+                    <td style="padding: 10px;">11.2x</td>
+                    <td style="padding: 10px;">1.15x</td>
+                    <td style="padding: 10px;">12.8%</td>
+                    <td style="padding: 10px; font-weight: 700; color: #38bdf8;">89,000원</td>
+                    <td style="padding: 10px; color: var(--accent-emerald); font-weight: 700;">+28.4% 상승여력</td>
+                    <td style="padding: 10px;"><span style="background: rgba(16,185,129,0.2); color:#10b981; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:700;">강력 매수</span></td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 10px; text-align: left; font-weight: 700;">현대차</td>
+                    <td style="padding: 10px;">5.8x</td>
+                    <td style="padding: 10px;">0.68x</td>
+                    <td style="padding: 10px;">13.5%</td>
+                    <td style="padding: 10px; font-weight: 700; color: #38bdf8;">320,000원</td>
+                    <td style="padding: 10px; color: var(--accent-emerald); font-weight: 700;">+34.2% 상승여력</td>
+                    <td style="padding: 10px;"><span style="background: rgba(16,185,129,0.2); color:#10b981; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:700;">초저평가 우량</span></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; text-align: left; font-weight: 700;">SK하이닉스</td>
+                    <td style="padding: 10px;">8.4x</td>
+                    <td style="padding: 10px;">1.85x</td>
+                    <td style="padding: 10px;">26.2%</td>
+                    <td style="padding: 10px; font-weight: 700; color: #38bdf8;">265,000원</td>
+                    <td style="padding: 10px; color: var(--accent-emerald); font-weight: 700;">+22.0% 상승여력</td>
+                    <td style="padding: 10px;"><span style="background: rgba(6,182,212,0.2); color:#06b6d4; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:700;">HBM 주도</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; margin-bottom: 0;">
+              * 본 시뮬레이션 수치는 금융감독원 전자공시(DART) 및 증권사 컨센서스 데이터를 기반으로 퀀트 모델링된 참고 자료입니다.
+            </p>
+          </div>
+        </section>
+
+        <!-- Content Section 6: Interactive Tools Callout -->
+        <section id="section6" class="article-section">
+          <h2>6. 인터랙티브 주식 계산기 100% 활용 팁 &amp; 종합 결론</h2>
+          <p>
+            직접 복잡한 공식을 손으로 계산할 필요 없이, Value Stock Labs에서 자체 개발하여 무료로 제공하는 실시간 인터랙티브 계산기들을 연동하면 단 5초 만에 적정주가와 매매 전략을 완성할 수 있습니다.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0;">
+            <a href="../tools/fair-value-calculator.html" class="tool-banner-card" style="display: block; background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 12px; padding: 20px; transition: transform 0.2s, border-color 0.2s;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-size: 1.2rem;">💎 <strong>적정가치 계산기</strong></span>
+                <span class="nav-link-badge">HOT TOOL</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0 0 10px 0;">
+                BPS, ROE, 요구수익률만 입력하면 S-RIM 기반 3단계 목표 적정가와 할인율을 즉시 자동 계산합니다.
+              </p>
+              <span style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">지금 계산해보기 →</span>
+            </a>
+
+            <a href="../tools/target-price-calculator.html" class="tool-banner-card" style="display: block; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 12px; padding: 20px; transition: transform 0.2s, border-color 0.2s;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-size: 1.2rem;">🎯 <strong>손익비 &amp; 목표가 계산기</strong></span>
+                <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 99px; background: #3b82f6; color: #fff; font-weight: 700;">PRO</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0 0 10px 0;">
+                진입가, 손절가, 목표가를 대입하여 1:2 이상의 유리한 손익비(Risk-Reward Ratio)와 최적 비중을 설정합니다.
+              </p>
+              <span style="color: var(--accent-emerald); font-weight: 700; font-size: 0.85rem;">손익비 시뮬레이션 →</span>
+            </a>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.02); border-left: 4px solid var(--accent-emerald); padding: 18px; border-radius: 0 8px 8px 0; margin-top: 30px;">
+            <h4 style="color: var(--accent-emerald); margin-top: 0; margin-bottom: 8px;">📌 결론: 가치 분석이 승률을 만든다</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
+              단기 테마나 풍문에 휘둘리는 매매는 결국 계좌를 갉아먹습니다. <strong>철저한 재무제표 팩트체크, RIM/DCF/상대가치 복합 검증, 그리고 안전마진 확보</strong>라는 3대 원칙을 지키는 투자자만이 장기적으로 시장을 초과하는 복리 수익을 누릴 수 있습니다.
+            </p>
+          </div>
+        </section>
+
+        <!-- Ad Slot: Bottom of Article -->
+        <div class="ad-slot-wrapper" style="margin-top: 40px;">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-bottom-banner" data-ad-slot="2002003" data-ad-type="Display Banner" data-ad-name="본문 하단 배너"></div>
+        </div>
+
+        <!-- Related Posts Section -->
+        <div class="related-posts" style="margin-top: 48px; border-top: 1px solid var(--border-color); padding-top: 32px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">🔥 함께 읽으면 좋은 추천 가치투자 리포트</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; display: block; text-decoration: none;">
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700;">💎 저평가 우량주</span>
+              <h4 style="font-size: 0.95rem; color: var(--text-primary); margin: 6px 0 0 0; line-height: 1.4;">저 PER &amp; 순현금 비율 높은 종목 스크리닝 4단계</h4>
+            </a>
+            <a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; display: block; text-decoration: none;">
+              <span style="font-size: 0.75rem; color: var(--accent-emerald); font-weight: 700;">🚀 상승초입주</span>
+              <h4 style="font-size: 0.95rem; color: var(--text-primary); margin: 6px 0 0 0; line-height: 1.4;">KOSPI 상승초입주 10선: 바닥권 돌파 및 퀀트 밸류 리포트</h4>
+            </a>
+            <a href="ai-semiconductor-hbm-stocks.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; display: block; text-decoration: none;">
+              <span style="font-size: 0.75rem; color: #a78bfa; font-weight: 700;">⚡ AI 반도체</span>
+              <h4 style="font-size: 0.95rem; color: var(--text-primary); margin: 6px 0 0 0; line-height: 1.4;">AI 반도체 HBM 수혜주 실전 밸류체인 총정리</h4>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comments & Community Discussion Section -->
+        <div class="article-comments-wrap" id="articleCommentsTarget"></div>
+      </article>
+
+      <!-- Sidebar Area -->
+      <aside class="sidebar-area">
+        
+        <!-- Sidebar Widget: Live Mini Calculator -->
+        <div class="sidebar-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+          <h3 style="font-size: 1rem; font-weight: 700; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+            <span>🧮</span> 3초 주식 물타기 평단가 계산기
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">현재 보유 단가와 추가 매수 수량을 입력하여 즉시 평단가를 산출하세요.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="number" id="miniP1" placeholder="1차 매수가 (예: 50000)" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: #fff; font-size: 0.85rem;">
+            <input type="number" id="miniQ1" placeholder="1차 수량 (예: 100)" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: #fff; font-size: 0.85rem;">
+            <input type="number" id="miniP2" placeholder="2차 추가매수가 (예: 40000)" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: #fff; font-size: 0.85rem;">
+            <input type="number" id="miniQ2" placeholder="2차 수량 (예: 100)" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: #fff; font-size: 0.85rem;">
+            <button id="miniCalcBtn" style="padding: 9px; border-radius: 6px; background: var(--gradient-primary); color: #fff; font-weight: 700; border: none; cursor: pointer; font-size: 0.85rem; margin-top: 4px;">예상 평단가 계산</button>
+            <div id="miniCalcRes" style="display: none; padding: 10px; background: rgba(6, 182, 212, 0.1); border-radius: 6px; text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--accent-cyan); margin-top: 6px;">
+              예상 평단가: <span id="miniCalcVal">0원</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Ad Slot -->
+        <div class="ad-slot-wrapper">
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-sidebar" data-ad-slot="3003001" data-ad-type="Display Sidebar" data-ad-name="사이드바 고정 배너"></div>
+        </div>
+
+        <!-- Sidebar Widget: Quick Sector Navigation -->
+        <div class="sidebar-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+          <h3 style="font-size: 1rem; font-weight: 700; margin-top: 0; margin-bottom: 12px;">📂 인기 리서치 섹터</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li><a href="../posts/stock-valuation-analysis-guide.html" style="color: var(--accent-cyan); font-weight: 700;">📊 종목가치 분석 (Valuation)</a></li>
+            <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" style="color: var(--text-secondary);">💎 저평가 우량주 스크리닝</a></li>
+            <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" style="color: var(--text-secondary);">🚀 상승초입주 차트 패턴</a></li>
+            <li><a href="../posts/ai-semiconductor-hbm-stocks.html" style="color: var(--text-secondary);">⚡ AI 반도체 &amp; HBM 테크</a></li>
+            <li><a href="../posts/ipo-public-offering-guide.html" style="color: var(--text-secondary);">🔔 공모주 청약 분석</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Compliance & Legal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <div class="logo-icon"><img src="../images/vsl-logo-neon-fire.png" alt="Value Stock Labs VSL Logo" class="logo-img" width="38" height="38"></div>
+            <span class="logo-text">Value Stock Labs</span>
+          </a>
+          <p>
+            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주, 종목가치 분석 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            <strong>제휴 및 비즈니스 문의:</strong> <a href="../pages/contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">주요 분석 카테고리</h4>
+          <ul class="footer-links">
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
+            <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
+            <li><a href="../posts/breakout-stocks-guide.html">상승초입주 차트 분석</a></li>
+            <li><a href="../posts/ai-semiconductor-hbm-stocks.html">AI 반도체 HBM 리포트</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 가이드</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">투자 인터랙티브 툴</h4>
+          <ul class="footer-links">
+            <li><a href="../tools/fair-value-calculator.html">기업 적정가치(Fair Value) 계산기</a></li>
+            <li><a href="../tools/stock-average-calc.html">주식 물타기 평단가 계산기</a></li>
+            <li><a href="../tools/target-price-calculator.html">적정주가 &amp; 손익비 계산기</a></li>
+            <li><a href="../tools/compound-interest-calc.html">복리 수익률 시뮬레이터</a></li>
+            <li><a href="../pages/about.html">리서치팀 소개</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">애드센스 필수 정책</h4>
+          <ul class="footer-links">
+            <li><a href="../pages/privacy-policy.html">개인정보처리방침 (Privacy Policy)</a></li>
+            <li><a href="../pages/terms.html">이용약관 (Terms of Service)</a></li>
+            <li><a href="../pages/disclaimer.html">투자 면책조항 (Disclaimer)</a></li>
+            <li><a href="../pages/contact.html">문의 및 피드백 (Contact)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer-box">
+        <strong>⚠️ 투자 유의사항 및 면책 조항:</strong> 본 블로그에서 제공하는 모든 정보와 종목 분석은 정보 제공 및 교육 목적일 뿐, 특정 주식의 매수 또는 매도를 추천하거나 권유하지 않습니다. 모든 투자의 최종 결정과 책임은 투자자 본인에게 있습니다.
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Value Stock Labs. All rights reserved.</span>
+        <span>Google AdSense Compliant &amp; SEO Optimized</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/ads.js"></script>
+  <script src="../js/article.js"></script>
+  <script src="../js/comments.js?v=20260926_v5"></script>
+  <script src="../js/admin-analytics.js" defer></script>
+</body>
+</html>

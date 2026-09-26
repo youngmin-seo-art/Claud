@@ -219,10 +219,20 @@
       <!-- Content Area: Article Grid & Feed Ads -->
       <section class="content-area" aria-label="최신 분석 리포트">
         <div class="section-header">
-          <h2 class="section-title">
-            실전 투자 리서치 포스팅
-            <span class="section-title-badge">HIGH CPC</span>
-          </h2>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h2 class="section-title">
+              실전 투자 리서치 포스팅
+              <span class="section-title-badge">HIGH CPC</span>
+            </h2>
+          </div>
+          <div class="category-tabs" aria-label="카테고리 필터">
+            <button class="cat-tab active" data-category="all">전체</button>
+            <button class="cat-tab" data-category="breakout">🚀 상승초입주</button>
+            <button class="cat-tab" data-category="undervalued">💎 저평가주식</button>
+            <button class="cat-tab" data-category="market">☕ 오늘의 시황</button>
+            <button class="cat-tab" data-category="semiconductor">⚡ AI반도체</button>
+            <button class="cat-tab" data-category="ipo">🔔 공모주</button>
+          </div>
           <div class="search-box">
             <span class="search-icon">🔍</span>
             <input type="text" id="blogSearchInput" class="search-input" placeholder="종목명, 키워드 검색 (예: 시황, HBM, 저평가, 공모주)..." aria-label="블로그 포스트 검색">

@@ -1,111 +1,13 @@
 /**
  * ==========================================================================
  * REAL-TIME INVESTOR COMMUNITY & COMMENTS ENGINE (COMMENTS.JS)
- * LocalStorage Persistent Comment System with Sentiment, Likes & Replies
+ * Pure User-Generated LocalStorage Comment System (No Mock / Dummy Comments)
  * Value Stock Labs (VSL)
  * ==========================================================================
  */
 
 (function () {
   'use strict';
-
-  // Seed / Default Sample Discussions tailored to specific topics for rich engagement
-  const DEFAULT_DISCUSSIONS = {
-    'stock-valuation': [
-      {
-        id: 'c_val_1',
-        author: '가치투자10년차',
-        role: 'VIP 회원',
-        sentiment: 'bull',
-        date: '2026.09.26 10:15',
-        likes: 18,
-        liked: false,
-        text: 'S-RIM 초과이익모델과 DCF 비교 설명이 매우 명쾌하네요! 특히 ROE가 주주요구수익률(Ke)보다 높게 유지될 때와 할인율 민감도 분석 테이블이 실전 투자에서 적정 밸류에이션을 산정할 때 큰 도움이 됩니다. 계산기 툴도 잘 쓰고 있습니다.',
-        replies: [
-          {
-            id: 'c_val_1_r1',
-            author: '퀀트밸류팀',
-            role: '리서치팀',
-            sentiment: 'neutral',
-            date: '2026.09.26 10:40',
-            likes: 9,
-            liked: false,
-            text: '감사합니다! S-RIM 산정 시 BBB- 5년 국채금리 스프레드를 기준으로 안전마진 20~30%를 적용하시면 더욱 보수적이고 안전한 매수가를 도출하실 수 있습니다.'
-          }
-        ]
-      },
-      {
-        id: 'c_val_2',
-        author: '스노우볼개미',
-        role: '독자',
-        sentiment: 'bull',
-        date: '2026.09.26 11:22',
-        likes: 12,
-        liked: false,
-        text: '저평가 우량주 4단계 스크리닝과 결합해서 포트폴리오를 구성해보니 확실히 하방 지지력이 단단해지네요. 적정가치 계산기와 평단가 계산기 링크도 바로 연결되어 있어서 유용합니다.',
-        replies: []
-      },
-      {
-        id: 'c_val_3',
-        author: '차트와가치사이',
-        role: '독자',
-        sentiment: 'neutral',
-        date: '2026.09.26 13:05',
-        likes: 7,
-        liked: false,
-        text: 'PER 10배 이하이면서 순현금 비중이 30% 이상인 종목 중에서 거래량 골든크로스가 터지는 상승초입 타이밍에 분할 진입하는 전략을 테스트 중입니다. 좋은 인사이트 감사합니다!',
-        replies: []
-      }
-    ],
-    'market-briefing': [
-      {
-        id: 'c_mkt_1',
-        author: '모닝루틴트레이더',
-        role: 'VIP 회원',
-        sentiment: 'bull',
-        date: '2026.09.26 08:20',
-        likes: 15,
-        liked: false,
-        text: '매일 아침 8시 출근길에 모닝 브리핑으로 환율이랑 미 증시 마감 지표 한눈에 체크하고 있습니다. 실시간 티커 지표랑 연동되어 있어서 시장 파악이 정말 빠르네요.',
-        replies: []
-      },
-      {
-        id: 'c_mkt_2',
-        author: '환율과수급',
-        role: '독자',
-        sentiment: 'neutral',
-        date: '2026.09.26 09:10',
-        likes: 8,
-        liked: false,
-        text: '원/달러 환율이 1,350원대 안착하면서 외국인 선물 순매수가 유입되는 흐름이 긍정적입니다. 반도체 톱픽 위주 분할 매수 전략 참고하겠습니다.',
-        replies: []
-      }
-    ],
-    'default': [
-      {
-        id: 'c_def_1',
-        author: '스마트인베스터',
-        role: 'VIP 회원',
-        sentiment: 'bull',
-        date: '2026.09.26 09:30',
-        likes: 14,
-        liked: false,
-        text: '데이터와 팩트에 기반한 리서치 리포트 잘 읽었습니다. 퀀트 밸류에이션 모델과 실전 매매 전략이 균형 있게 정리되어 있어 투자 판단에 큰 도움이 됩니다.',
-        replies: []
-      },
-      {
-        id: 'c_def_2',
-        author: '가치성장투자자',
-        role: '독자',
-        sentiment: 'neutral',
-        date: '2026.09.26 11:45',
-        likes: 9,
-        liked: false,
-        text: '핵심 지표와 리스크 요인까지 짚어주셔서 객관적인 시각을 유지할 수 있네요. 다음 분석 리포트도 기대하겠습니다.',
-        replies: []
-      }
-    ]
-  };
 
   // Helper: Get Post Slug Key
   function getPostKey() {
@@ -115,31 +17,26 @@
     return filename;
   }
 
-  // Helper: Select Topic Sample
-  function getTopicDefaults(postKey) {
-    if (postKey.includes('valuation') || postKey.includes('fair-value')) {
-      return JSON.parse(JSON.stringify(DEFAULT_DISCUSSIONS['stock-valuation']));
-    }
-    if (postKey.includes('morning') || postKey.includes('briefing') || postKey.includes('market')) {
-      return JSON.parse(JSON.stringify(DEFAULT_DISCUSSIONS['market-briefing']));
-    }
-    return JSON.parse(JSON.stringify(DEFAULT_DISCUSSIONS['default']));
-  }
-
-  // Storage Manager
+  // Storage Manager - Strictly User-Created Comments Only
   function loadComments(postKey) {
     const storageKey = `vsl_comments_${postKey}`;
     const stored = localStorage.getItem(storageKey);
     if (stored) {
       try {
-        return JSON.parse(stored);
+        const parsed = JSON.parse(stored);
+        // Only keep genuine user-created comments (filter out legacy seed mock data if any)
+        if (Array.isArray(parsed)) {
+          const userOnly = parsed.filter(c => c && c.isCustom);
+          if (userOnly.length !== parsed.length) {
+            saveComments(postKey, userOnly);
+          }
+          return userOnly;
+        }
       } catch (e) {
         console.error('Failed to parse comments from storage', e);
       }
     }
-    const initial = getTopicDefaults(postKey);
-    localStorage.setItem(storageKey, JSON.stringify(initial));
-    return initial;
+    return [];
   }
 
   function saveComments(postKey, comments) {
@@ -273,9 +170,10 @@
   function renderCommentsList(comments, userLikes, postKey) {
     if (!comments || comments.length === 0) {
       return `
-        <div style="text-align: center; padding: 40px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color); color: var(--text-muted);">
-          <span style="font-size: 2rem; display: block; margin-bottom: 8px;">💭</span>
-          첫 번째 투자 인사이트 댓글을 남겨보세요!
+        <div class="no-comments-box" style="text-align: center; padding: 40px 20px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px dashed var(--border-color); color: var(--text-muted);">
+          <span style="font-size: 1.8rem; display: block; margin-bottom: 8px;">💭</span>
+          <p style="margin: 0; font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">아직 등록된 댓글이 없습니다.</p>
+          <p style="margin: 4px 0 0; font-size: 0.82rem; color: var(--text-muted);">첫 번째 투자 의견이나 질문을 남겨보세요!</p>
         </div>
       `;
     }
@@ -308,7 +206,7 @@
                   <button type="button" class="comment-action-btn like-btn ${rLiked ? 'liked' : ''}" data-id="${r.id}" data-parent="${c.id}">
                     <span>👍</span> 추천 <span class="like-count">${r.likes || 0}</span>
                   </button>
-                  ${r.isCustom ? `<button type="button" class="comment-action-btn delete-btn" data-id="${r.id}" data-parent="${c.id}" style="color:#ef4444;"><span>🗑️</span> 삭제</button>` : ''}
+                  <button type="button" class="comment-action-btn delete-btn" data-id="${r.id}" data-parent="${c.id}" style="color:#ef4444;"><span>🗑️</span> 삭제</button>
                 </div>
               </div>
             `;
@@ -340,7 +238,7 @@
               <button type="button" class="comment-action-btn reply-btn" data-id="${c.id}">
                 <span>💬</span> 답글 달기
               </button>
-              ${c.isCustom ? `<button type="button" class="comment-action-btn delete-btn" data-id="${c.id}" style="color:#ef4444;"><span>🗑️</span> 삭제</button>` : ''}
+              <button type="button" class="comment-action-btn delete-btn" data-id="${c.id}" style="color:#ef4444;"><span>🗑️</span> 삭제</button>
             </div>
 
             <!-- Nested Replies Area -->
@@ -435,8 +333,8 @@
           role: '독자',
           sentiment: selectedSentiment,
           date: getFormattedNow(),
-          likes: 1,
-          liked: true,
+          likes: 0,
+          liked: false,
           text: content,
           isCustom: true,
           replies: []
@@ -446,11 +344,6 @@
         comments.unshift(newComment);
         saveComments(postKey, comments);
 
-        // Auto mark user like
-        const userLikes = getUserLikes(postKey);
-        userLikes[newComment.id] = true;
-        saveUserLikes(postKey, userLikes);
-
         // Clear Form
         textarea.value = '';
         if (charCount) charCount.textContent = '0 / 500자';
@@ -458,9 +351,9 @@
         // Re-render
         renderComments(container, postKey);
 
-        // Show toast
+        // Show toast or alert
         if (window.showToast) {
-          window.showToast('투자 의견 댓글이 등록되었습니다! 🚀');
+          window.showToast('투자 의견 댓글이 등록되었습니다! ✨');
         } else {
           alert('댓글이 등록되었습니다! ✨');
         }

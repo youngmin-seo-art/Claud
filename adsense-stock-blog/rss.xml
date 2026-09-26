@@ -5,8 +5,16 @@
     <link>https://www.valuestocklabs.com/</link>
     <description>데이터 기반 국내외 저평가 우량주, 상승초입주 차트 분석, AI 반도체 HBM 수혜주, 공모주 청약 및 실시간 주식 계산기를 제공하는 금융 리서치 블로그</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 24 Sep 2026 10:34:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 21:22:00 +0900</lastBuildDate>
     <atom:link href="https://www.valuestocklabs.com/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>저평가 우량주 발굴: 저 PER &amp; 순현금 비율 높은 종목 스크리닝 4단계 | Value Stock Labs 리서치</title>
+      <link>https://www.valuestocklabs.com/posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html</link>
+      <guid>https://www.valuestocklabs.com/posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html</guid>
+      <pubDate>Sat, 26 Sep 2026 09:00:00 +0900</pubDate>
+      <description>주가수익비율(PER)과 순현금비율(Net Cash Ratio)을 결합하여 강력한 안전마진을 확보하고 '가치 함정(Value Trap)'을 피하는 실전 4단계 퀀트 스크리닝 가이드입니다.</description>
+    </item>
 
     <item>
       <title>오늘의 모닝 증시 브리핑 (2026년 09월 24일) | Value Stock Labs</title>
@@ -443,25 +451,11 @@
       <description>2026년 09월 25일 국내외 주요 시장 지표 요약 및 오늘의 핵심 경제 이슈 5선 심층 분석</description>
     </item>
     <item>
-      <title>[창간 10주년 밸류업 2.0] 삼성전자, AI·반도체 기술혁신 앞세워 초격차전략 가속화</title>
-      <link>https://www.valuestocklabs.com/posts/20260926-창간-10주년-밸류업-20-삼성전자-ai반도체-기술혁신-앞세워-초격차전략-가속화.html</link>
-      <guid>https://www.valuestocklabs.com/posts/20260926-창간-10주년-밸류업-20-삼성전자-ai반도체-기술혁신-앞세워-초격차전략-가속화.html</guid>
-      <pubDate>Sat, 26 Sep 2026 14:22:22 +0900</pubDate>
-      <description>[창간 10주년 밸류업 2.0] 삼성전자, AI·반도체 기술혁신 앞세워 초격차전략 가속화 이슈를 중심으로 글로벌 빅테크 AI 인프라 투자 확대에 따른 차세대 메모리(HBM/CXL) 및 첨단 반도체 소부장 밸류체인의 분기 실적 가시성, 밸류에이션(PER/PBR) 및 수급 집중도를 심층 분석합니다.</description>
-    </item>
-    <item>
       <title>오늘의 증시 모닝 브리핑 (2026년 09월 26일)</title>
       <link>https://www.valuestocklabs.com/posts/20260926-morning-market-briefing.html</link>
       <guid>https://www.valuestocklabs.com/posts/20260926-morning-market-briefing.html</guid>
       <pubDate>Sat, 26 Sep 2026 14:31:11 +0900</pubDate>
       <description>2026년 09월 26일 국내외 주요 시장 지표 요약 및 오늘의 핵심 경제 이슈 5선 심층 분석</description>
-    </item>
-    <item>
-      <title>[창간12주년 기획-밸류업 코리아, 뉴 챌린지] 삼성·SK, AI반도체 패권 경쟁 본격화</title>
-      <link>https://www.valuestocklabs.com/posts/20260926-창간12주년-기획-밸류업-코리아-뉴-챌린지-삼성sk-ai반도체-패권-경쟁-본격화.html</link>
-      <guid>https://www.valuestocklabs.com/posts/20260926-창간12주년-기획-밸류업-코리아-뉴-챌린지-삼성sk-ai반도체-패권-경쟁-본격화.html</guid>
-      <pubDate>Sat, 26 Sep 2026 12:18:58 +0900</pubDate>
-      <description>[창간12주년 기획-밸류업 코리아, 뉴 챌린지] 삼성·SK, AI반도체 패권 경쟁 본격화 이슈를 중심으로 글로벌 빅테크 AI 인프라 투자 확대에 따른 차세대 메모리(HBM/CXL) 및 첨단 반도체 소부장 밸류체인의 분기 실적 가시성, 밸류에이션(PER/PBR) 및 수급 집중도를 심층 분석합니다.</description>
     </item>
   </channel>
 </rss>

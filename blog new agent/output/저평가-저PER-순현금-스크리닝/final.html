@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>저평가 우량주 발굴: 저 PER & 순현금 비율 높은 종목 스크리닝 4단계 | valuestocklabs</title>
+  <!-- Pretendard 폰트 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 16px 32px -6px rgba(15, 23, 42, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.85;
+      font-size: 17px;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 상단 네비게이션 & 스크롤 프로그레스 */
+    .site-header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-logo span { color: var(--text-main); font-weight: 600; }
+    .badge-preview {
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+
+    /* 메인 컨테이너 */
+    .article-container {
+      max-width: 860px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+    }
+
+    /* 아티클 카드 */
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      padding: 52px 48px;
+    }
+    @media (max-width: 640px) {
+      .article-card { padding: 28px 20px; }
+      body { font-size: 16px; }
+    }
+
+    /* 포스트 헤더 영역 */
+    .post-category {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 18px;
+      letter-spacing: -0.2px;
+    }
+    .post-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 22px;
+      letter-spacing: -0.8px;
+    }
+    @media (max-width: 640px) {
+      .post-title { font-size: 26px; }
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* 도입 서브카피 요약 박스 */
+    .post-summary {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    /* 대표 썸네일 이미지 */
+    .hero-thumbnail {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+    .hero-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 목차 박스 */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toc-list a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      padding-left: 4px;
+    }
+
+    /* 본문 타이포그래피 */
+    .article-body h2 {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 52px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      letter-spacing: -0.5px;
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 34px;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .article-body p {
+      margin-bottom: 22px;
+      color: var(--text-body);
+    }
+    .article-body ul, .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-body li {
+      color: var(--text-body);
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* 인포그래픽 이미지 및 캡션 */
+    .article-figure {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .article-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      display: block;
+      margin: 0 auto;
+    }
+    .article-figure figcaption {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      font-weight: 500;
+    }
+
+    /* 코드 / 수식 박스 */
+    pre, code-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 14px;
+      margin: 20px 0 24px 0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    /* 테이블 스타일링 */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fafafa; }
+    tr:hover td { background-color: #f1f5f9; }
+
+    /* 인용구 */
+    blockquote {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      margin: 32px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: #1e293b;
+    }
+
+    /* 면책 조항 박스 */
+    .disclaimer-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 22px 26px;
+      border-radius: var(--radius-sm);
+      margin-top: 50px;
+      font-size: 14px;
+      color: #92400e;
+      line-height: 1.75;
+    }
+    .disclaimer-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 참고 소스 박스 */
+    .references-box {
+      margin-top: 32px;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+    .references-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .references-list {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .references-list a {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-list a:hover { text-decoration: underline; }
+
+    /* 푸터 */
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">ValueStock<span>Labs</span></a>
+      <span class="badge-preview">Preview Mode</span>
+    </div>
+  </header>
+
+  <!-- 본문 컨테이너 -->
+  <main class="article-container">
+    <article class="article-card">
+      
+      <!-- 포스트 헤더 영역 -->
+      <div class="post-header">
+        <span class="post-category">가치투자 & 퀀트 스크리닝</span>
+        <h1 class="post-title">저평가 우량주 발굴: 저 PER & 순현금 비율 높은 종목 스크리닝 4단계</h1>
+        <div class="post-meta">
+          <span>📅 2026-09-26</span>
+          <span>⏱️ 6분 분량</span>
+          <span>✍️ ValueStockLabs 퀀트분석팀</span>
+          <span>🛡️ E-E-A-T 검증 완료</span>
+        </div>
+      </div>
+
+      <!-- 도입 요약 서브카피 -->
+      <div class="post-summary">
+        주가수익비율(PER)과 순현금비율(Net Cash Ratio)을 결합하여 강력한 안전마진을 확보하고 '가치 함정(Value Trap)'을 피하는 실전 퀀트 스크리닝 가이드입니다.
+      </div>
+
+      <!-- 대표 썸네일 이미지 -->
+      <div class="hero-thumbnail">
+        <img src="./images/thumbnail.png" alt="저평가 저PER 및 순현금 비율 우량주 발굴 가이드 대표 썸네일">
+      </div>
+
+      <!-- 목차 네비게이션 -->
+      <nav class="toc-card">
+        <div class="toc-title">📑 목차</div>
+        <ul class="toc-list">
+          <li><a href="#sec-1">1. 왜 저 PER에 순현금 비율을 결합해야 하는가?</a></li>
+          <li><a href="#sec-2">2. 순현금 및 순현금비율의 핵심 계산 공식</a></li>
+          <li><a href="#sec-3">3. 저 PER + 고 순현금 종목 발굴 4단계 스크리닝</a></li>
+          <li><a href="#sec-4">4. 가치 함정(Value Trap)을 피하는 3가지 체크리스트</a></li>
+          <li><a href="#sec-5">5. 결론 및 2026년 밸류업 투자 전략 요약</a></li>
+        </ul>
+      </nav>
+
+      <!-- 본문 섹션 -->
+      <div class="article-body">
+        
+        <!-- 섹션 1 -->
+        <h2 id="sec-1">1. 왜 저 PER에 순현금 비율을 결합해야 하는가?</h2>
+        <p>주식 시장에서 단순히 <strong>PER(주가수익비율)</strong>만 보고 투자했다가 주가가 끝없이 하락하는 이른바 <strong>'가치 함정(Value Trap)'</strong>에 빠진 경험이 있으신가요?</p>
+        <p>PER은 기업의 당기순이익 대비 시가총액의 배수를 나타내지만, <strong>기업이 짊어지고 있는 부채와 보유 현금의 질(Quality)</strong>을 직접적으로 반영하지 못한다는 결정적인 한계가 있습니다. 예를 들어, PER이 동일하게 8배인 두 기업이 있더라도 A사는 시가총액에 육박하는 막대한 현금을 곳간에 쌓아둔 반면, B사는 막대한 이자 비용이 발생하는 단기 차입금으로 연명하고 있을 수 있습니다.</p>
+
+        <!-- 본문 이미지 1 -->
+        <figure class="article-figure">
+          <img src="./images/body-1.png" alt="단순 저PER 기업과 순현금 보유 저PER 기업의 실질 가치 비교 차트">
+          <figcaption>▲ 단순 겉보기 PER과 순현금을 반영한 실질 기업가치(EV) PER 비교</figcaption>
+        </figure>
+
+        <p>이러한 왜곡을 완벽히 보완하는 지표가 바로 <strong>순현금(Net Cash)</strong>과 <strong>순현금비율(순현금/시가총액)</strong>입니다.</p>
+        <ul>
+          <li><strong>안전마진(Margin of Safety) 확보</strong>: 시가총액의 50% 이상이 현금으로 채워져 있다면, 주가가 급락하더라도 보유 현금이 강력한 하방 지지선 역할을 합니다.</li>
+          <li><strong>실질 기업가치(EV) 기준 초저평가</strong>: 시가총액에서 순현금을 차감한 실질 영업 가치 기준으로 평가할 때, 실질 PER은 3~5배 수준으로 극단적인 저평가 상태에 놓이게 됩니다.</li>
+          <li><strong>금리 변동기 이자수익 방어력</strong>: 금리 불확실성 국면에서 부채가 많은 기업은 이자 부담이 급증하지만, 순현금 기업은 막대한 금융 수익을 창출하여 순이익을 방어합니다.</li>
+        </ul>
+
+        <!-- 섹션 2 -->
+        <h2 id="sec-2">2. 순현금 및 순현금비율의 핵심 계산 공식</h2>
+        <p>순현금 종목을 정확히 스크리닝하기 위해서는 재무상태표(DART 공시) 상에서 다음 항목들을 직접 확인하고 계산할 수 있어야 합니다.</p>
+
+        <h3>① 순현금(Net Cash) 산출식</h3>
+        <pre><code>순현금 = (현금 및 현금성자산 + 단기금융상품 + 단기기타금융자산) - (총차입금 + 사채 + 유이자부채)</code></pre>
+
+        <h3>② 순현금비율(Net Cash Ratio) 산출식</h3>
+        <pre><code>순현금비율(%) = (순현금 / 시가총액) × 100</code></pre>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>순현금비율 구간</th>
+                <th>밸류에이션 및 재무적 의미</th>
+                <th>투자 전략 관점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>30% ~ 50%</strong></td>
+                <td>안정적인 현금 완충력 및 우수한 재무 건전성</td>
+                <td>배당 확대 및 신규 투자 여력 충분</td>
+              </tr>
+              <tr>
+                <td><strong>50% ~ 80%</strong></td>
+                <td>주가의 절반 이상이 현금성 자산으로 지지됨</td>
+                <td>강력한 하방 경직성 및 안전마진 확보</td>
+              </tr>
+              <tr>
+                <td><strong>100% 초과</strong></td>
+                <td>벤저민 그레이엄식 청산가치형 <strong>넷넷(Net-Net)</strong></td>
+                <td>기업 매수 후 현금만 회수해도 이익이 남는 극단적 저평가</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 섹션 3 -->
+        <h2 id="sec-3">3. 저 PER + 고 순현금 종목 발굴 4단계 스크리닝</h2>
+        <p>실제 HTS 조건검색이나 퀀트 스크리닝 툴(에프앤가이드, 네이버증권, 퀀트킹 등)을 활용해 유망 종목을 추려내는 <strong>4단계 실전 필터링 프로세스</strong>입니다.</p>
+
+        <!-- 본문 이미지 2 -->
+        <figure class="article-figure">
+          <img src="./images/body-2.png" alt="저PER 순현금 종목 발굴 4단계 스크리닝 프로세스 다이어그램">
+          <figcaption>▲ 안전마진부터 주가 촉매(Catalyst)까지 검증하는 4단계 스크리닝 프로세스</figcaption>
+        </figure>
+
+        <h3>1단계: 순현금 유동성 필터 (재무 안전성)</h3>
+        <ul>
+          <li><code>순현금 &gt; 0</code> (무차입 또는 실질 무차입 기업)</li>
+          <li><code>순현금비율 ≥ 40%</code> (시가총액 대비 순현금이 40% 이상인 종목)</li>
+        </ul>
+
+        <h3>2단계: 밸류에이션 필터 (가격 매력도)</h3>
+        <ul>
+          <li><code>PER ≤ 8.0 ~ 10.0배</code> (업종 평균 대비 저PER)</li>
+          <li><code>PBR ≤ 0.8배</code> (보유 순자산 대비 할인 거래)</li>
+        </ul>
+
+        <h3>3단계: 현금 창출력 검증 (이익의 질)</h3>
+        <ul>
+          <li>최근 3개년 <strong>영업이익 연속 흑자</strong> (일시적 적자 기업 배제)</li>
+          <li><strong>영업활동현금흐름(OCF) &gt; 당기순이익</strong> (장부상 이익이 아닌 실제 통장에 현금이 꽂히는 기업)</li>
+          <li>부채비율 50% 이하, 유동비율 200% 이상</li>
+        </ul>
+
+        <h3>4단계: 주주환원 및 주가 촉매(Catalyst) 확인</h3>
+        <ul>
+          <li>배당수익률 3% 이상 또는 자사주 매입/소각 이력 확인</li>
+          <li>정부/거래소 <strong>기업 밸류업 프로그램(Value-up)</strong> 공시 및 지배구조 건전성 확인</li>
+        </ul>
+
+        <!-- 섹션 4 -->
+        <h2 id="sec-4">4. 가치 함정(Value Trap)을 피하는 3가지 체크리스트</h2>
+        <p>저PER과 고순현금 조건을 모두 만족하더라도 다음 3가지 유형에 해당한다면 투자를 피해야 합니다.</p>
+
+        <!-- 본문 이미지 3 -->
+        <figure class="article-figure">
+          <img src="./images/body-3.png" alt="밸류 트랩을 피하기 위한 핵심 3대 점검 요소 인포그래픽">
+          <figcaption>▲ 가치 함정(Value Trap)을 방지하기 위한 핵심 3대 필터링 체크포인트</figcaption>
+        </figure>
+
+        <ol>
+          <li><strong>현금 방치 및 무주주환원 기업 (대주주 사유화 리스크)</strong><br>
+          현금을 수천억 원 쌓아두고도 배당 성향이 5% 미만이거나, 대주주가 승계나 경영권 방어를 위해 고의로 주가를 억누르는 기업은 피해야 합니다.</li>
+          <li><strong>현금 소진(Cash-Burn)형 적자 기업</strong><br>
+          본업의 경쟁력 상실로 매 분기 영업적자가 지속되어 보유 현금이 빠르게 줄어드는 기업은 안전마진이 소멸될 위험이 있습니다.</li>
+          <li><strong>일회성 자산 매각으로 인한 착시 현상</strong><br>
+          토지, 공장, 지분 매각 등 일회성 영업외수익으로 인해 일시적으로 당기순이익이 급증하여 PER이 낮아진 착시 종목을 필터링해야 합니다.</li>
+        </ol>
+
+        <!-- 섹션 5 -->
+        <h2 id="sec-5">5. 결론 및 2026년 밸류업 투자 전략 요약</h2>
+        <p>2026년 자본시장의 핵심 화두는 <strong>자본 효율성(ROE)과 적극적인 주주환원</strong>입니다. 순현금 비중이 높고 저PER 상태인 기업은 다음과 같은 강력한 상승 모멘텀을 보유하고 있습니다.</p>
+
+        <blockquote>
+          <strong>💡 핵심 요약:</strong><br>
+          순현금비율이 높은 저PER 기업은 하락장에서는 든든한 방패(안전마진)가 되어주고, 자사주 소각이나 배당 확대와 같은 밸류업 공시가 발표되는 순간 폭발적인 주가 리레이팅(Re-rating)의 기회를 제공합니다.
+        </blockquote>
+
+        <p>철저한 4단계 스크리닝과 현금흐름 검증을 통해 시장의 숨은 가치주를 선별해 보시기 바랍니다.</p>
+      </div>
+
+      <!-- 투자 면책 조항 -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">⚠️ 투자 유의사항 및 법적 면책 조항</div>
+        <p>본 글은 정보 제공 및 투자 학습을 목적으로 작성되었으며, 특정 종목에 대한 매수·매도 추천이나 금융 투자 권유가 아닙니다. 모든 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
+      </div>
+
+      <!-- 참고 소스 링크 -->
+      <div class="references-box">
+        <div class="references-title">📚 참고 출처 (References)</div>
+        <ol class="references-list">
+          <li><a href="https://www.fnguide.com" target="_blank" rel="noopener noreferrer">FnGuide (에프앤가이드 기업 재무 분석 가이드) - 순현금 및 EV/EBITDA 산출 방법론</a></li>
+          <li><a href="https://www.krx.co.kr" target="_blank" rel="noopener noreferrer">한국거래소(KRX) 기업 밸류업 포털 - 저PBR/저PER 기업의 주주가치 제고 가이드라인</a></li>
+          <li><a href="https://dart.fss.or.kr" target="_blank" rel="noopener noreferrer">금융감독원 전자공시시스템(DART) - 상장사 재무제표 주석 차입금 및 현금성 자산 분석</a></li>
+          <li><a href="https://www.cfainstitute.org" target="_blank" rel="noopener noreferrer">Benjamin Graham: Security Analysis & Net-Net Approach - 청산가치와 안전마진 개념 원전</a></li>
+        </ol>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <p>© 2026 valuestocklabs.com. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

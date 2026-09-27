@@ -2296,8 +2296,8 @@ class ArticleGenerator:
 
         <!-- Golden Ad #1 -->
         <div class="ad-slot-wrapper">
-          <div class="ad-slot-header"><span class="ad-label">SPONSORED</span></div>
-          <div class="ad-container ad-leaderboard" data-ad-slot="1001001" data-ad-type="Display Leaderboard" data-ad-name="본문 상단 광고" data-ad-size="728x90 Leaderboard"></div>
+          <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
+          <div class="ad-container ad-leaderboard" data-ad-slot="" data-ad-type="Display Leaderboard" data-ad-name="본문 상단 광고" data-ad-size="728x90 Leaderboard"></div>
         </div>
 
         <section id="sec-market-indicators" style="margin-bottom: 22px;">
@@ -2367,7 +2367,7 @@ class ArticleGenerator:
         <!-- Golden Ad #2 -->
         <div class="ad-slot-wrapper">
           <div class="ad-slot-header"><span class="ad-label">SPONSORED CONTENT</span></div>
-          <div class="ad-container ad-in-article" data-ad-slot="2002002" data-ad-type="In-Article Native" data-ad-name="본문 중간 네이티브 광고" data-ad-size="Responsive In-Article"></div>
+          <div class="ad-container ad-in-article" data-ad-slot="" data-ad-type="In-Article Native" data-ad-name="본문 중간 네이티브 광고" data-ad-size="Responsive In-Article"></div>
         </div>
 
         {div_sep}
@@ -2402,7 +2402,7 @@ class ArticleGenerator:
 
         <div class="ad-slot-wrapper">
           <div class="ad-slot-header"><span class="ad-label">ADVERTISEMENT</span></div>
-          <div class="ad-container ad-sidebar-sticky" data-ad-slot="4004004" data-ad-type="Sidebar Half-Page Sticky" data-ad-name="본문 사이드바 광고" data-ad-size="300x600 Half-Page"></div>
+          <div class="ad-container ad-sidebar-sticky" data-ad-slot="" data-ad-type="Sidebar Half-Page Sticky" data-ad-name="본문 사이드바 광고" data-ad-size="300x600 Half-Page"></div>
         </div>
       </aside>
 
@@ -2447,7 +2447,7 @@ class ArticleGenerator:
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">애드센스 필수 정책</h4>
+          <h4 class="footer-col-title">사이트 정책 및 법적 고지</h4>
           <ul class="footer-links">
             <li><a href="../pages/privacy-policy.html">개인정보처리방침 (Privacy Policy)</a></li>
             <li><a href="../pages/terms.html">이용약관 (Terms of Service)</a></li>
@@ -2463,7 +2463,7 @@ class ArticleGenerator:
 
       <div class="footer-bottom">
         <span>© 2026 Value Stock Labs. All rights reserved.</span>
-        <span>Google AdSense Compliant &amp; SEO Optimized</span>
+        <span>공인 데이터 기반 독립 금융 리서치 포털</span>
       </div>
     </div>
   </footer>
@@ -2665,10 +2665,10 @@ class ArticleGenerator:
         <!-- Golden Ad Placement #1: Article Top Leaderboard -->
         <div class="ad-slot-wrapper">
           <div class="ad-slot-header">
-            <span class="ad-label">SPONSORED</span>
+            <span class="ad-label">ADVERTISEMENT</span>
           </div>
           <div class="ad-container ad-leaderboard" 
-               data-ad-slot="1001001" 
+               data-ad-slot="" 
                data-ad-type="Display Leaderboard" 
                data-ad-name="본문 상단 광고" 
                data-ad-size="728x90 Leaderboard">
@@ -2696,7 +2696,7 @@ class ArticleGenerator:
             <span class="ad-label">SPONSORED CONTENT</span>
           </div>
           <div class="ad-container ad-in-article" 
-               data-ad-slot="2002002" 
+               data-ad-slot="" 
                data-ad-type="In-Article Native" 
                data-ad-name="본문 중간 네이티브 광고" 
                data-ad-size="Responsive In-Article">
@@ -2768,7 +2768,7 @@ class ArticleGenerator:
             <span class="ad-label">ADVERTISEMENT</span>
           </div>
           <div class="ad-container ad-sidebar-sticky" 
-               data-ad-slot="4004004" 
+               data-ad-slot="" 
                data-ad-type="Sidebar Half-Page Sticky" 
                data-ad-name="본문 사이드바 광고" 
                data-ad-size="300x600 Half-Page">
@@ -2817,7 +2817,7 @@ class ArticleGenerator:
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">애드센스 필수 정책</h4>
+          <h4 class="footer-col-title">사이트 정책 및 법적 고지</h4>
           <ul class="footer-links">
             <li><a href="../pages/privacy-policy.html">개인정보처리방침 (Privacy Policy)</a></li>
             <li><a href="../pages/terms.html">이용약관 (Terms of Service)</a></li>
@@ -2833,7 +2833,7 @@ class ArticleGenerator:
 
       <div class="footer-bottom">
         <span>© 2026 Value Stock Labs. All rights reserved.</span>
-        <span>Google AdSense Compliant &amp; SEO Optimized</span>
+        <span>공인 데이터 기반 독립 금융 리서치 포털</span>
       </div>
     </div>
   </footer>

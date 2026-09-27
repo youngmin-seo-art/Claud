@@ -48,6 +48,16 @@ class BlogPublisher:
         self.record_published_history(article_data)
 
         # 6. Git Push 자동 배포
+        
+        # 4.5. 애드센스 정책 준수를 위한 내부 링크 및 전체 SEO/사이트맵 자동 동기화
+        try:
+            import fix_all_internal_links
+            import fix_all_seo_and_sitemap
+            fix_all_internal_links.fix_all_files()
+            fix_all_seo_and_sitemap.rebuild_all()
+        except Exception as e:
+            print(f"[알림] 사후 링크/사이트맵 동기화: {e}")
+
         if auto_push:
             self.git_push(article_data["title"])
 

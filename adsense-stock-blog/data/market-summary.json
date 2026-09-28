@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-28 16:14:11",
-  "timestamp": 1790579651345,
+  "updatedAt": "2026-09-28 15:41:48",
+  "timestamp": 1790610108950,
   "instruments": [
     {
       "id": "kospi",
@@ -36,10 +36,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 51828.62,
-      "baseClose": 51350.0,
-      "diffRate": 0.93,
-      "diff": 478.62
+      "price": 51447.19,
+      "baseClose": 51828.62,
+      "diffRate": -0.74,
+      "diff": -381.43
     },
     {
       "id": "sp500",
@@ -49,10 +49,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 7743.41,
-      "baseClose": 7704.13,
-      "diffRate": 0.51,
-      "diff": 39.28
+      "price": 7678.28,
+      "baseClose": 7743.41,
+      "diffRate": -0.84,
+      "diff": -65.13
     },
     {
       "id": "nasdaq",
@@ -62,10 +62,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 27068.717,
-      "baseClose": 26939.4,
-      "diffRate": 0.48,
-      "diff": 129.32
+      "price": 26799.422,
+      "baseClose": 27068.717,
+      "diffRate": -0.99,
+      "diff": -269.3
     },
     {
       "id": "sox",
@@ -75,10 +75,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 12668.929,
-      "baseClose": 12492.5,
-      "diffRate": 1.41,
-      "diff": 176.43
+      "price": 12346.684,
+      "baseClose": 12668.929,
+      "diffRate": -2.54,
+      "diff": -322.25
     },
     {
       "id": "usdkrw",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1362.63,
+      "price": 1360.68,
       "baseClose": 1355.28,
-      "diffRate": 0.54,
-      "diff": 7.35
+      "diffRate": 0.4,
+      "diff": 5.4
     },
     {
       "id": "samsung",
@@ -296,10 +296,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 225.07,
-      "baseClose": 224.58,
-      "diffRate": 0.22,
-      "diff": 0.49
+      "price": 230.18,
+      "baseClose": 225.07,
+      "diffRate": 2.27,
+      "diff": 5.11
     },
     {
       "id": "aapl",
@@ -309,10 +309,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 341.07,
-      "baseClose": 335.92,
-      "diffRate": 1.53,
-      "diff": 5.15
+      "price": 340.845,
+      "baseClose": 341.07,
+      "diffRate": -0.07,
+      "diff": -0.22
     },
     {
       "id": "msft",
@@ -322,10 +322,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 516.17,
-      "baseClose": 497.93,
-      "diffRate": 3.66,
-      "diff": 18.24
+      "price": 508.97,
+      "baseClose": 516.17,
+      "diffRate": -1.39,
+      "diff": -7.2
     },
     {
       "id": "googl",
@@ -335,10 +335,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 343.92,
-      "baseClose": 342.36,
-      "diffRate": 0.46,
-      "diff": 1.56
+      "price": 340.305,
+      "baseClose": 343.92,
+      "diffRate": -1.05,
+      "diff": -3.62
     },
     {
       "id": "amzn",
@@ -348,10 +348,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 249.67,
-      "baseClose": 249.38,
-      "diffRate": 0.12,
-      "diff": 0.29
+      "price": 246.49,
+      "baseClose": 249.67,
+      "diffRate": -1.27,
+      "diff": -3.18
     },
     {
       "id": "meta",
@@ -361,10 +361,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 751.66,
-      "baseClose": 777.59,
-      "diffRate": -3.33,
-      "diff": -25.93
+      "price": 718.83,
+      "baseClose": 751.66,
+      "diffRate": -4.37,
+      "diff": -32.83
     },
     {
       "id": "tsla",
@@ -374,10 +374,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 372.11,
-      "baseClose": 377.94,
-      "diffRate": -1.54,
-      "diff": -5.83
+      "price": 359.68,
+      "baseClose": 372.11,
+      "diffRate": -3.34,
+      "diff": -12.43
     },
     {
       "id": "avgo",
@@ -387,10 +387,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 352.81,
-      "baseClose": 350.36,
-      "diffRate": 0.7,
-      "diff": 2.45
+      "price": 349.93,
+      "baseClose": 352.81,
+      "diffRate": -0.82,
+      "diff": -2.88
     },
     {
       "id": "brk",
@@ -400,10 +400,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 505.48,
-      "baseClose": 505.18,
-      "diffRate": 0.06,
-      "diff": 0.3
+      "price": 505.155,
+      "baseClose": 505.48,
+      "diffRate": -0.06,
+      "diff": -0.33
     },
     {
       "id": "lly",
@@ -413,10 +413,10 @@
       "precision": 2,
       "prefix": "$",
       "suffix": "",
-      "price": 1183.46,
-      "baseClose": 1181.89,
-      "diffRate": 0.13,
-      "diff": 1.57
+      "price": 1187.155,
+      "baseClose": 1183.46,
+      "diffRate": 0.31,
+      "diff": 3.69
     },
     {
       "id": "btc",
@@ -427,10 +427,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 112991000.0,
+      "price": 113193000.0,
       "baseClose": 114450000.0,
-      "diffRate": -1.27,
-      "diff": -1459000.0
+      "diffRate": -1.1,
+      "diff": -1257000.0
     },
     {
       "id": "eth",
@@ -441,10 +441,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 3598000.0,
+      "price": 3640000.0,
       "baseClose": 3640000.0,
-      "diffRate": -1.15,
-      "diff": -42000.0
+      "diffRate": 0,
+      "diff": 0.0
     },
     {
       "id": "xrp",
@@ -455,10 +455,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 2012.0,
+      "price": 2031.0,
       "baseClose": 2054.0,
-      "diffRate": -2.04,
-      "diff": -42.0
+      "diffRate": -1.12,
+      "diff": -23.0
     },
     {
       "id": "sol",
@@ -469,10 +469,10 @@
       "prefix": "₩",
       "suffix": "",
       "isCrypto": true,
-      "price": 161300.0,
+      "price": 161200.0,
       "baseClose": 165300.0,
-      "diffRate": -2.42,
-      "diff": -4000.0
+      "diffRate": -2.48,
+      "diff": -4100.0
     }
   ]
 }

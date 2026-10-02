@@ -350,26 +350,103 @@ function performRandomMarketTicks() {
 /* ==========================================================================
    CATEGORY & SEARCH FILTER
    ========================================================================== */
-function initCategoryFilter() {
+function filterCategory(category, shouldScroll = false) {
   const tabs = document.querySelectorAll('.cat-tab');
   const cards = document.querySelectorAll('.post-card');
+  const searchInput = document.getElementById('blogSearchInput');
 
+  if (searchInput) searchInput.value = ''; // Reset search on category switch
+
+  // 1. Update tab active state
+  let matchedTab = null;
+  tabs.forEach(t => {
+    if (t.getAttribute('data-category') === category) {
+      t.classList.add('active');
+      matchedTab = t;
+    } else {
+      t.classList.remove('active');
+    }
+  });
+
+  if (!matchedTab && tabs.length > 0) {
+    tabs[0].classList.add('active'); // fallback to 'all'
+    category = 'all';
+  }
+
+  // 2. Filter post cards
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = 'flex';
+      card.style.opacity = '1';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // 3. Smooth scroll to grid if requested
+  if (shouldScroll) {
+    const gridEl = document.getElementById('postsGrid') || document.querySelector('.content-area');
+    if (gridEl) {
+      const topOffset = gridEl.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    }
+  }
+}
+
+function initCategoryFilter() {
+  const tabs = document.querySelectorAll('.cat-tab');
+  const navLinks = document.querySelectorAll('.main-nav a');
+
+  // Tab click listeners
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
       const category = tab.getAttribute('data-category');
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (category === 'all' || cardCat === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      filterCategory(category, false);
+      
+      // Update URL without full page reload
+      const newUrl = new URL(window.location);
+      if (category === 'all') {
+        newUrl.searchParams.delete('cat');
+      } else {
+        newUrl.searchParams.set('cat', category);
+      }
+      history.replaceState(null, '', newUrl.toString());
     });
   });
+
+  // Main navigation category links handler
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href') || '';
+    if (href.includes('cat=')) {
+      link.addEventListener('click', (e) => {
+        // If on index.html, intercept and filter smoothly
+        const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || !window.location.pathname.includes('/posts/');
+        if (isIndex) {
+          e.preventDefault();
+          const match = href.match(/cat=([a-zA-Z0-9_-]+)/);
+          if (match && match[1]) {
+            filterCategory(match[1], true);
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('cat', match[1]);
+            history.pushState(null, '', newUrl.toString());
+          }
+        }
+      });
+    }
+  });
+
+  // Check URL parameters on initial page load
+  const urlParams = new URLSearchParams(window.location.search);
+  const catParam = urlParams.get('cat');
+  const hashParam = window.location.hash.replace('#', '').replace('cat=', '');
+
+  if (catParam) {
+    filterCategory(catParam, true);
+  } else if (hashParam && ['market', 'undervalued', 'valuation', 'breakout', 'semiconductor'].includes(hashParam)) {
+    filterCategory(hashParam, true);
+  }
 }
 
 function initSearch() {

@@ -357,7 +357,7 @@ function filterCategory(category, shouldScroll = false) {
 
   if (searchInput) searchInput.value = ''; // Reset search on category switch
 
-  // 1. Update tab active state
+  // 1. Update tab active state and top navLinks active state
   let matchedTab = null;
   tabs.forEach(t => {
     if (t.getAttribute('data-category') === category) {
@@ -365,6 +365,18 @@ function filterCategory(category, shouldScroll = false) {
       matchedTab = t;
     } else {
       t.classList.remove('active');
+    }
+  });
+
+  const navLinks = document.querySelectorAll('.main-nav a');
+  navLinks.forEach(nl => {
+    const href = nl.getAttribute('href') || '';
+    if (category === 'all' && (href === 'index.html' || href === '../index.html')) {
+      nl.classList.add('active');
+    } else if (href.includes(`cat=${category}`)) {
+      nl.classList.add('active');
+    } else {
+      nl.classList.remove('active');
     }
   });
 

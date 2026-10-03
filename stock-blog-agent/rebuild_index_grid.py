@@ -132,7 +132,8 @@ def rebuild_index_grid():
     )
     
     # Update latest briefing link in hero / nav
-    latest_briefing = "20260927-morning-market-briefing.html"
+    briefing_files = sorted([Path(p).name for p in post_files if "morning-market-briefing" in p], reverse=True)
+    latest_briefing = briefing_files[0] if briefing_files else "20261003-morning-market-briefing.html"
     content = re.sub(
         r'<a href="posts/[^"]*morning-market-briefing\.html" class="briefing-btn"[^>]*>',
         f'<a href="posts/{latest_briefing}" class="briefing-btn" id="latestBriefingLink">',

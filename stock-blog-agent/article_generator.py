@@ -31,29 +31,30 @@ class ArticleGenerator:
         return f"{date_prefix}-{clean_slug}" if clean_slug else f"{date_prefix}-report"
 
     def detect_topic_type(self, title, summary=""):
-        """제목 및 요약문을 분석하여 세부 리포트 템플릿 유형 결정 (10개 섹터 정밀 분류)"""
-        full_text = f"{title} {summary}"
+        """제목 및 요약문을 정밀 분석하여 세부 리포트 템플릿 유형 결정"""
+        from news_collector import NewsCollector
+        collector = NewsCollector()
+        topic_id, _, _ = collector.classify_headline_topic(title, summary)
+        
+        mapping = {
+            "ai_semiconductor": "ai_semiconductor",
+            "macro_rate_fx": "macro_interest_rate",
+            "macro_growth": "macro_interest_rate",
+            "valueup": "valueup_dividend",
+            "battery_mobility": "battery_mobility",
+            "bio_healthcare": "bio_healthcare",
+            "ipo": "ipo",
+            "nuclear_power": "power_energy",
+            "oil_energy": "geopolitics",
+            "defense": "geopolitics",
+            "shipbuilding": "geopolitics",
+            "breakout": "breakout_stocks",
+            "robotics": "battery_mobility",
+            "gold_safe": "macro_interest_rate",
+            "global_market": "general_stock"
+        }
+        return mapping.get(topic_id, "general_stock")
 
-        if any(k in full_text for k in ["반도체", "HBM", "엔비디아", "하이닉스", "삼성전자", "파운드리", "CXL", "온디바이스", "소부장", "빅테크", "AI투자", "AI 반도체", "SK 밸류업", "최태원"]):
-            return "ai_semiconductor"
-        elif any(k in full_text for k in ["대출", "가계부채", "가산금리", "월급쟁이", "예대", "주담대", "신용대출", "금리", "한은", "한국은행", "기준금리", "물가", "환율", "인플레", "통화정책"]):
-            return "macro_interest_rate"
-        elif any(k in full_text for k in ["밸류업", "저PBR", "배당", "주주환원", "자사주", "금융지주", "은행주", "보험주", "지주사"]):
-            return "valueup_dividend"
-        elif any(k in full_text for k in ["현대차", "기아", "완성차", "2차전지", "배터리", "전고체", "양극재", "에코프로", "포스코", "로봇", "자율주행", "모빌리티", "인도법인"]):
-            return "battery_mobility"
-        elif any(k in full_text for k in ["바이오", "제약", "임상", "FDA", "CDMO", "신약", "기술수출", "비만치료제", "ADC", "헬스케어"]):
-            return "bio_healthcare"
-        elif any(k in full_text for k in ["공모주", "청약", "IPO", "상장", "수요예측", "의무보유"]):
-            return "ipo"
-        elif any(k in full_text for k in ["전력", "변압기", "전선", "데이터센터", "원전", "SMR", "에너지", "전력망"]):
-            return "power_energy"
-        elif any(k in full_text for k in ["유가", "방산", "중동", "지정학", "해운", "조선", "방위산업", "원자재"]):
-            return "geopolitics"
-        elif any(k in full_text for k in ["상승초입", "골든크로스", "돌파", "신고가", "바닥권", "거래량 급증", "박스권"]):
-            return "breakout_stocks"
-        else:
-            return "general_stock"
 
     def get_category_image_info(self, topic_type, title):
         """주제 유형 및 제목 고유 해시를 바탕으로 중복 없이 다양한 썸네일 이미지 매핑"""
@@ -1646,7 +1647,7 @@ class ArticleGenerator:
         return cleaned_base
 
     def analyze_morning_headline(self, title, summary):
-        """모닝 브리핑 헤드라인 뉴스에 대해 헤드라인 제목 우선 매칭 및 100% 인과관계 일치 리서치 코멘트 생성"""
+        """모닝 브리핑 헤드라인 뉴스에 대해 정밀 주제 분류 및 100% 인과관계 일치 리서치 코멘트 생성"""
         from news_collector import NewsCollector
         collector = NewsCollector()
         clean_t = collector.clean_title(title)
@@ -1666,24 +1667,64 @@ class ArticleGenerator:
             clean_s = ""
 
         clean_base = self.clean_and_complete_text(title, clean_s)
+        topic_id, _, _ = collector.classify_headline_topic(clean_t, clean_s)
+        has_contrast = any(c in clean_t for c in ["웃을 때", "눈물", "소외", "안 듣는", "그늘", "한숨", "비명", "양극화", "차별화", "박탈감", "주춤", "뚝"])
 
-        # 주제 판별은 헤드라인(clean_t)을 최우선으로 검사하고, 없을 경우에만 요약문 참조
-        def has_kw(keywords):
-            return any(k in clean_t for k in keywords) or (any(k in clean_s for k in keywords) if clean_s else False)
-
-        # 1. 국제유가 / 원유 / 에너지 / 원자재 (WTI, 브렌트유 등)
-        if has_kw(["국제유가", "유가", "WTI", "원유", "브렌트유", "배럴당", "산유국", "OPEC", "정유", "정제마진", "가스", "천연가스", "구리", "원자재"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국제 원자재 및 에너지 시장 동향을 분석한 핵심 테마로, {clean_t}에 따른 정유·석유화학 정제마진 스프레드 변화와 국내 산업계 전반의 원가 부담 및 수익성 차별화가 집중 분석되고 있습니다."
-            )
-            analysis_text = (
-                "[국제유가 변동성과 에너지·원자재 섹터 손익 구조]: 유가 급등락은 정유사의 복합 정제마진 및 재고평가손익을 좌우하는 동시에, 항공·해운·제조업의 유류비 원가에 직결됩니다. 에너지 가격 상방 국면에서는 자원개발 및 가격 전가력이 탁월한 1등 에너지·인프라 기업 중심의 선별 대응이 유리합니다."
-            )
-            target_sectors = "정유/에너지 대장주(S-Oil/SK이노베이션/HD현대), 자원개발 및 가스주(한국가스공사/대성에너지) vs 원가 부담 항공/화학"
+        # 1. 바이오 / 제약 / 헬스케어 / CDMO / 신약
+        if topic_id == "bio_healthcare":
+            if has_contrast:
+                news_summary = (
+                    f"반도체 등 첨단 기술주 랠리 국면에서 상대적으로 소외된 코스닥 제약·바이오 섹터의 밸류에이션 및 수급 분석으로, {clean_t}에 따른 신약 파이프라인 가치와 금리 인하 국면에서의 바이오텍 순환매 가능성을 집중 조명합니다."
+                )
+                analysis_text = (
+                    "[바이오 밸류에이션 바닥권과 금리 인하 수혜 모멘텀]: AI·반도체로 수급이 집중되며 코스닥 제약·바이오 섹터의 상대적 박탈감이 심화되었으나, 역사적 밸류에이션 하단에 근접한 종목들의 가격 메리트가 부각되고 있습니다. 특히 글로벌 금리 인하 사이클 진입과 함께 미국 FDA 임상 마일스톤 및 기술수출(L/O) 역량을 입증한 핵심 바이오텍으로의 선별적 순환매(Sector Rotation)가 기대됩니다."
+                )
+                target_sectors = "코스닥 제약/바이오 대장주(알테오젠/리가켐바이오/삼천당제약), 대형 바이오시밀러/CDMO(삼성바이오로직스/셀트리온), 실적 턴어라운드 전통 제약주(유한양행/한미약품/보령)"
+            else:
+                news_summary = clean_base if len(clean_base) >= 35 else (
+                    f"글로벌 바이오헬스케어 기술 혁신과 신약·위탁생산(CDMO) 시장 동향을 다룬 핵심 이슈로, {clean_t}에 따른 글로벌 파이프라인 가치와 기술수출(L/O) 및 원가 혁신 모멘텀이 주목받고 있습니다."
+                )
+                analysis_text = (
+                    "[바이오 플랫폼 기술수출과 글로벌 공급망 수혜]: 유전체 분석 비용 하락과 AI 신약 개발 상용화로 차세대 바이오텍의 개발 속도가 가속화되고 있습니다. 특히 미국의 생물보안법 수혜가 기대되는 대형 CDMO와 글로벌 빅파마 대상 독점 플랫폼을 보유한 바이오텍의 기업가치 리레이팅이 돋보입니다."
+                )
+                target_sectors = "대형 CDMO/바이오시밀러(삼성바이오로직스/셀트리온), 플랫폼 기술수출(알테오젠/리가켐바이오/유한양행), 유전체/진단(마크로젠/랩지노믹스)"
             return news_summary, analysis_text, target_sectors
 
-        # 2. 반도체 / HBM / AI 가속기 / 소부장
-        elif has_kw(["HBM", "반도체", "SK하이닉스", "삼성전자", "엔비디아", "CXL", "파운드리", "소부장", "패키징", "TC본더", "온디바이스", "ASML", "TSMC"]):
+        # 2. 원전 / 전력망 / 웨스팅하우스 / 초고압 변압기 / SMR
+        elif topic_id == "nuclear_power":
+            news_summary = clean_base if (len(clean_base) >= 35 and "펀더멘털 및 퀀트" not in clean_base) else (
+                f"글로벌 원전 시장 경쟁 및 미국 웨스팅하우스와의 지식재산권(IP) 협상을 다룬 핵심 분석으로, {clean_t}에 따른 팀코리아의 해외 원전(체코 등) 수주 수익성과 원전 밸류체인의 중장기 수혜 영향을 심층 분석합니다."
+            )
+            analysis_text = (
+                "[팀코리아 원전 수출 경쟁력과 IP 리스크 관리]: 체코 원전 우선협상대상자 선정 이후 웨스팅하우스와의 기술사용료(로열티) 및 공동 진출 협상은 불가피한 수순입니다. 협상 타결 시 단기 노이즈는 해소되고 주기기 제작 및 시공 능력을 독점한 국내 원전 밸류체인의 30조 원 규모 수주 잔고가 안정적 매출로 연결될 전망입니다."
+            )
+            target_sectors = "원전 주기기/정비(두산에너빌리티/한전기술/한전KPS), 초고압 전력기기/변압기(HD현대일렉트릭/효성중공업/LS일렉트릭), 원전 시공(대우건설/현대건설)"
+            return news_summary, analysis_text, target_sectors
+
+        # 3. 국제유가 / 원유 / 에너지 / 정유 / 기름값
+        elif topic_id == "oil_energy":
+            news_summary = clean_base if (len(clean_base) >= 35 and "펀더멘털 및 퀀트" not in clean_base) else (
+                f"국제 원유 수급과 국내 유류 가격 동향을 분석한 핵심 테마로, {clean_t}에 따른 정유사 정제마진 스프레드와 원가 변동이 산업계 및 가계 소비에 미치는 영향을 분석합니다."
+            )
+            analysis_text = (
+                "[국제유가-국내 기름값 시차 효과와 정유·화학 마진 구조]: 국제유가 등락과 국내 주유소 판가 간에는 2~3주의 정제·유통 시차가 존재하며, 유류세 환원 조치 및 환율 변동성이 복합적으로 작용합니다. 정유사는 복합 정제마진 안정화로 실적 방어가 기대되는 반면, 항공·해운 등 유류비 비중이 높은 업종의 원가 부담 추이를 면밀히 모니터링해야 합니다."
+            )
+            target_sectors = "정유/에너지 대장주(S-Oil/SK이노베이션/HD현대), 자원개발/가스(한국가스공사/대성에너지) vs 원가 부담 업종(항공/해운)"
+            return news_summary, analysis_text, target_sectors
+
+        # 4. 거시경제 성장률 / GDP / AMRO / 경기 지표
+        elif topic_id == "macro_growth":
+            news_summary = clean_base if (len(clean_base) >= 35 and "펀더멘털 및 퀀트" not in clean_base) else (
+                f"국내외 실물 경기 지표와 경제 성장률 전망치 조정을 다룬 핵심 리포트로, {clean_t}에 따른 반도체 등 수출 주도의 GDP 견인 효과와 경기 펀더멘털 개선 흐름을 집중 점검합니다."
+            )
+            analysis_text = (
+                "[수출 주도 경제성장과 펀더멘털 개선]: 반도체 및 첨단 제조업 호황에 힘입어 주요 국제기구(AMRO, IMF, OECD)의 한국 성장률 전망치가 상향 조정되고 있습니다. 수출 호조에 따른 기업 이익 턴어라운드가 고용 및 내수 회복으로 확산되는 선순환 국면 진입 여부가 향후 증시 밸류에이션 상단을 결정할 핵심 변수입니다."
+            )
+            target_sectors = "수출 주도 대형주(반도체/자동차/조선), 경기 민감주(철강/화학), 코스피200 지수 추종 ETF"
+            return news_summary, analysis_text, target_sectors
+
+        # 5. AI 반도체 / HBM / 첨단 테크 / 소부장
+        elif topic_id == "ai_semiconductor":
             news_summary = clean_base if len(clean_base) >= 35 else (
                 f"글로벌 빅테크의 맞춤형 AI 인프라 투자와 차세대 AI 가속기 양산이 본격화되면서 {clean_t} 관련 고대역폭 메모리(HBM) 및 첨단 반도체 소부장 밸류체인의 분기 실적 가시성이 뚜렷하게 상향 조정되고 있습니다."
             )
@@ -1693,85 +1734,30 @@ class ArticleGenerator:
             target_sectors = "HBM 선도사(SK하이닉스/삼성전자), 첨단 패키징/본딩(한미반도체/이수페타시스/테크윙), 반도체 전공정/후공정 소부장"
             return news_summary, analysis_text, target_sectors
 
-        # 3. 바이오 / 제약 / 신약 / DNA / 유전체 / CDMO / 헬스케어
-        elif has_kw(["DNA", "유전체", "바이오", "제약", "신약", "FDA", "임상", "CDMO", "삼성바이오", "셀트리온", "알테오젠", "유한양행", "ADC", "의료AI", "진단"]):
+        # 6. 한국은행 / 기준금리 / 환율 / 외환시장
+        elif topic_id == "macro_rate_fx":
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"글로벌 바이오헬스케어 기술 혁신과 신약·위탁생산(CDMO) 시장 동향을 다룬 핵심 이슈로, {clean_t}에 따른 글로벌 파이프라인 가치와 기술수출(L/O) 및 원가 혁신 모멘텀이 주목받고 있습니다."
+                f"글로벌 외환시장 변동성과 한국은행 통화정책 경로를 분석한 핵심 테마로, {clean_t}에 따른 외국인 투자자의 국내 증시 수급 유입과 업종별 손익 영향이 주요 변수로 작용하고 있습니다."
             )
             analysis_text = (
-                "[바이오 플랫폼 기술수출과 글로벌 공급망 수혜]: 유전체 분석 비용 하락과 AI 신약 개발 상용화로 차세대 바이오텍의 개발 속도가 가속화되고 있습니다. 특히 미국의 생물보안법 수혜가 기대되는 대형 CDMO와 글로벌 빅파마 대상 독점 플랫폼을 보유한 바이오텍의 기업가치 리레이팅이 돋보입니다."
+                "[통화정책 경로와 외환시장 수급 구조]: 기준금리 결정과 원/달러 환율 방향성은 외국인 투자자의 환차익 매력과 금융권의 순이자마진(NIM)을 가르는 핵심 척도입니다. 환율 하향 안정화(원화 강세) 국면에서는 외국인의 패시브 자금 유입이 가속화되며 원자재 수입·외화 부채 부담이 큰 항공·내수주의 원가 개선이 기대됩니다."
             )
-            target_sectors = "대형 CDMO/바이오시밀러(삼성바이오로직스/셀트리온), 플랫폼 기술수출(알테오젠/리가켐바이오/유한양행), 유전체/진단(마크로젠/랩지노믹스)"
+            target_sectors = "예대마진 방어 대형 금융지주(KB금융/신한지주), 외국인 순매수 선호 대형주(반도체/완성차), 환율 수혜 수출주"
             return news_summary, analysis_text, target_sectors
 
-        # 4. 환율 / 외환시장 / 서학개미 / 외국인 수급
-        elif has_kw(["서학개미", "원달러", "원/달러", "달러화", "환율", "외환시장", "강달러", "달러인덱스", "원화 강세", "원화 약세", "외국인"]):
+        # 7. 기업 밸류업 / 주주환원 / 저PBR / 배당
+        elif topic_id == "valueup":
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"글로벌 외환시장 변동성과 원/달러 환율 흐름을 분석한 핵심 테마로, {clean_t}에 따른 외국인 투자자의 국내 증시 수급 유입과 업종별 환산 손익 영향이 주요 변수로 작용하고 있습니다."
+                f"정부의 기업 밸류업 프로그램과 주주환원 정책 확대를 다룬 핵심 내용으로, {clean_t}에 따른 저평가 우량주의 재평가 및 외국인·기관 자금 유입이 기대되고 있습니다."
             )
             analysis_text = (
-                "[외환시장 수급 변화와 업종별 차별화 손익 구조]: 원/달러 환율의 방향성은 외국인 투자자의 환차익 매력과 기업들의 원화 환산 실적을 가르는 핵심 척도입니다. 환율 하향 안정화(원화 강세) 국면에서는 외국인의 패시브 자금 유입이 가속화되며 원자재 수입·외화 부채 부담이 큰 항공·내수주의 원가 개선이 기대됩니다. 반면 고환율 국면에서는 수출 대형주의 실적 레버리지가 부각됩니다."
+                "[자사주 소각 및 배당 확대에 따른 멀티플 리레이팅]: 자사주 매입·소각과 배당성향 상향 등 주주환원 정책의 강화는 자기자본이익률(ROE)을 개선시키고 코리아 디스카운트를 해소하는 핵심 요인입니다. 세제 지원책 구체화와 함께 중장기 외국인·기관 패시브 자금의 지속 유입이 기대됩니다."
             )
-            target_sectors = "외국인 순매수 선호 대형주(반도체/금융지주), 환율 변동성 수혜주(항공/정유화학/수출대형주)"
+            target_sectors = "대형 금융지주(KB금융/신한지주/하나금융), 지주사, 고배당 가치주 및 저PBR 우량주"
             return news_summary, analysis_text, target_sectors
 
-        # 5. 거시경제 / GDP / 경제성장률 / 물가 / 고용
-        elif has_kw(["GDP", "성장률", "경제성장", "물가상승", "소비자물가", "고용", "실업률", "국민소득"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내외 실물 경기 지표와 경제 성장 흐름을 다룬 핵심 이슈로, {clean_t}에 따른 실질 경제 성장 잠재력과 금융 시장의 매크로 펀더멘털 영향이 조명되고 있습니다."
-            )
-            analysis_text = (
-                "[거시경제 펀더멘털과 증시 하방 지지력]: GDP 성장률과 실물 경기 지표는 증시의 중장기 밸류에이션 하한선을 결정하는 기초 체력입니다. 실질 성장이 뒷받침되는 국면에서는 기업 실적 턴어라운드와 함께 내수 및 수출 섹터 전반의 기초체력(Earnings) 개선이 기대됩니다."
-            )
-            target_sectors = "경기 민감 대형주(제조업/화학/철강), 내수 유통/소비재, 지수 추종 ETF"
-            return news_summary, analysis_text, target_sectors
-
-        # 6. 한국은행 / 기준금리 / 가계부채 / 대출금리
-        elif has_kw(["한국은행", "한은", "이창용", "금통위", "기준금리", "가계부채", "대출금리", "예대금리", "주담대", "가산금리"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"한국은행의 통화정책 방향성과 금융권 대출 여건 변화를 다룬 분석 리포트로, {clean_t}에 따른 시중 유동성 및 가계·기업 금융 비용 부담 추이가 집중 분석되고 있습니다."
-            )
-            analysis_text = (
-                "[통화정책 경로와 은행 순이자마진(NIM) 영향]: 중앙은행의 기준금리 결정과 대출 규제 정책은 금융권의 예대마진과 자산 건전성에 직결됩니다. 단기적으로 가산금리 유지에 따른 이자이익 방어가 가능하나, 중장기적으로는 차주의 이자 상환 부담과 내수 경기 회복 탄력성을 함께 점검해야 합니다."
-            )
-            target_sectors = "예대마진 방어 대형 금융지주(KB금융/신한지주/하나금융), 고배당 보험주 vs 내수 소비재/건설"
-            return news_summary, analysis_text, target_sectors
-
-        # 7. 가상자산 / 비트코인 / 스트래티지 / STO / 토큰증권 / 블록체인
-        elif has_kw(["비트코인", "이더리움", "가상자산", "암호화폐", "BTC", "스트래티지", "마이크로스트래티지", "업비트", "가상화폐", "블록체인", "STO", "토큰증권"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"디지털 자산 시장 및 글로벌 가상자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 기관 자금 유입과 토큰화 규제 가이드라인이 분석되고 있습니다."
-            )
-            analysis_text = (
-                "[기관 자금 배분과 제도권 디지털 자산 인프라]: 글로벌 현물 ETF 및 기관 투자자들의 자산 배분으로 가상자산 시장의 변동성이 점진적으로 안정화되고 있습니다. 토큰증권(STO) 제도화와 블록체인 금융 인프라 확장이 맞물려 대체 투자 자산으로서의 지위가 공고해지고 있습니다."
-            )
-            target_sectors = "가상자산/핀테크 밸류체인(우리기술투자/한화투자증권), STO 플랫폼 및 보안 솔루션주"
-            return news_summary, analysis_text, target_sectors
-
-        # 8. 원전 / 전력망 / 초고압 변압기 / SMR
-        elif has_kw(["원전", "SMR", "원자력", "두산에너빌리티", "한전기술", "한전KPS", "변압기", "초고압", "전선", "전력망", "HD현대일렉트릭", "효성중공업", "LS일렉트릭"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"AI 데이터센터 전력 공급 및 글로벌 노후 전력망 교체 수요를 짚어본 핵심 테마로, {clean_t}에 따른 대규모 전력 인프라 및 원전 수주 모멘텀이 분석되고 있습니다."
-            )
-            analysis_text = (
-                "[AI 전력난과 30년 만의 전력망 슈퍼사이클]: AI 데이터센터 증설로 인한 막대한 전력 소비와 글로벌 무탄소 전원(원전/SMR) 채택이 가속화되고 있습니다. 초고압 변압기 및 해저 전선 제조사들은 수년 치 일감을 확보하여 판가 협상 주도권을 쥐고 사상 최대 영업이익을 경신 중입니다."
-            )
-            target_sectors = "초고압 변압기/전력기기(HD현대일렉트릭/효성중공업/LS일렉트릭), 원전 주기기/정비(두산에너빌리티/한전기술), 초고압 전선(LS/대한전선)"
-            return news_summary, analysis_text, target_sectors
-
-        # 9. 조선 / 해운 / LNG선 / 함정 MRO
-        elif has_kw(["조선업", "조선사", "조선 3사", "신조선가", "HD한국조선해양", "삼성중공업", "한화오션", "LNG선", "암모니아 운반선", "함정 MRO", "해운"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"친환경 선박 신조선가 상승과 국내 조선사들의 수주 랠리를 분석한 리포트로, {clean_t}에 따른 3~4년 치 고수익 일감 확보와 중장기 실적 턴어라운드가 가시화되고 있습니다."
-            )
-            analysis_text = (
-                "[신조선가 고점 유지와 고수익성 건조 비중 확대]: 친환경 LNG·암모니아 운반선 중심의 선가 상승세가 지속되는 가운데, 국내 주요 조선사들은 저가 수주 물량을 소진하고 고마진 선박 건조 단계에 진입했습니다. 여기에 미국 해군 함정 MRO 등 신시장 진출이 더해지며 구조적 흑자 폭 확대 사이클이 지속되고 있습니다."
-            )
-            target_sectors = "대형 조선사(HD한국조선해양/삼성중공업/한화오션), 친환경 선박 엔진/보냉재(HD현대마린엔진/동성화인텍/한국카본)"
-            return news_summary, analysis_text, target_sectors
-
-        # 10. K-방산 / 무기 수출 / 방위산업
-        elif has_kw(["K-방산", "방산업", "방산주", "방산 수주", "한화에어로스페이스", "현대로템", "LIG넥스원", "한국항공우주", "풍산", "K9", "K2", "천궁"]):
+        # 8. K-방산 / 무기 수출 / 방위산업
+        elif topic_id == "defense":
             news_summary = clean_base if len(clean_base) >= 35 else (
                 f"글로벌 안보 수요 증가와 K-방산의 해외 수출 확대를 짚어본 핵심 이슈로, {clean_t}에 따른 대규모 수주 잔고와 분기 실적 성장세가 주목받고 있습니다."
             )
@@ -1781,63 +1767,41 @@ class ArticleGenerator:
             target_sectors = "체계 종합사(한화에어로스페이스/현대로템/LIG넥스원), 탄약/특수소재(풍산), 항공우주(KAI)"
             return news_summary, analysis_text, target_sectors
 
-        # 11. 기업 밸류업 / 주주환원 / 저PBR / 배당
-        elif has_kw(["밸류업", "저PBR", "주주환원", "배당", "자사주", "소각", "금융지주", "은행주", "KB금융", "신한지주", "하나금융", "PBR"]):
+        # 9. 조선 / 해운 / LNG선 / 함정 MRO
+        elif topic_id == "shipbuilding":
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"정부의 기업 밸류업 프로그램과 주주환원 정책 확대를 다룬 핵심 내용으로, {clean_t}에 따른 저평가 우량주의 재평가 및 자금 유입이 기대되고 있습니다."
+                f"친환경 선박 신조선가 상승과 국내 조선사들의 수주 랠리를 분석한 리포트로, {clean_t}에 따른 3~4년 치 고수익 일감 확보와 중장기 실적 턴어라운드가 가시화되고 있습니다."
             )
             analysis_text = (
-                "[자사주 소각 및 배당 확대에 따른 멀티플 리레이팅]: 자사주 매입·소각과 배당성향 상향 등 주주환원 정책의 강화는 자기자본이익률(ROE)을 개선시키고 코리아 디스카운트를 해소하는 핵심 요인입니다. 세제 지원책 구체화와 함께 중장기 외국인·기관 패시브 자금의 지속 유입이 기대됩니다."
+                "[신조선가 고점 유지와 고수익성 건조 비중 확대]: 친환경 LNG·암모니아 운반선 중심의 선가 상승세가 지속되는 가운데, 국내 주요 조선사들은 저가 수주 물량을 소진하고 고마진 선박 건조 단계에 진입했습니다. 여기에 미국 해군 함정 MRO 등 신시장 진출이 더해지며 구조적 흑자 폭 확대 사이클이 지속되고 있습니다."
             )
-            target_sectors = "대형 금융지주(KB금융/신한지주/하나금융), 지주사, 고배당 가치주 및 저PBR 우량주"
+            target_sectors = "대형 조선사(HD한국조선해양/삼성중공업/한화오션), 친환경 선박 엔진/보냉재(HD현대마린엔진/동성화인텍/한국카본)"
             return news_summary, analysis_text, target_sectors
 
-        # 12. 2차전지 / 배터리 / 전고체 / 양극재
-        elif has_kw(["2차전지", "이차전지", "배터리", "양극재", "음극재", "리튬", "에코프로", "포스코홀딩스", "LG에너지솔루션", "전고체", "삼성SDI"]):
+        # 10. 2차전지 / 모빌리티 / 완성차 / 하이브리드
+        elif topic_id == "battery_mobility":
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"전기차 및 에너지저장장치(ESS) 시장의 배터리 산업 동향을 짚어본 핵심 이슈로, {clean_t}에 따른 기술 혁신 및 공급망 재편이 집중 조명되고 있습니다."
+                f"국내 완성차 대장주 및 2차전지 산업 동향을 분석한 리포트로, {clean_t}에 따른 수익성 믹스 개선과 기술 혁신 및 공급망 재편이 집중 조명되고 있습니다."
             )
             analysis_text = (
-                "[ESS 수요 확대와 차세대 배터리 폼팩터 경쟁]: 전기차 캐즘 국면에서도 전력망용 대용량 ESS 수주 급증과 차세대 전고체/LFP 라인업 다변화가 진행 중입니다. 원재료 가격 안정화와 함께 차별화된 수율 및 고객사 다변화 역량을 갖춘 핵심 소재 기업의 실적 회복 속도가 주목됩니다."
+                "[하이브리드 판매 믹스와 차세대 배터리 폼팩터 경쟁]: 순수 전기차 과도기에서 마진율이 우수한 하이브리드(HEV) 차량 수요 강세와 전력망용 대용량 ESS 수주 급증이 실적을 견인하고 있습니다. 원재료 가격 안정화와 함께 차별화된 수율 및 기술력을 갖춘 선도 기업의 가치가 부각됩니다."
             )
-            target_sectors = "배터리 셀 3사(LG에너지솔루션/삼성SDI/SK온), 하이니켈/LFP 양극재(에코프로비엠/포스코퓨처엠/엘앤에프)"
+            target_sectors = "완성차 대장주(현대차/기아), 배터리 셀 3사(LG에너지솔루션/삼성SDI), 양극재(에코프로비엠/포스코퓨처엠)"
             return news_summary, analysis_text, target_sectors
 
-        # 13. 완성차 / 현대차·기아 / 하이브리드 / 모빌리티
-        elif has_kw(["현대차", "기아", "완성차", "자동차", "하이브리드", "HEV", "현대모비스", "전장"]):
+        # 11. 가상자산 / 비트코인 / 토큰증권
+        elif topic_id == "crypto":
             news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내 완성차 대장주와 글로벌 모빌리티 시장 판매 동향을 분석한 리포트로, {clean_t}에 따른 수익성 믹스 개선과 해외 시장 점유율 확대가 분석되고 있습니다."
+                f"디지털 자산 시장 및 글로벌 가상자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 기관 자금 유입과 토큰화 규제 가이드라인이 분석되고 있습니다."
             )
             analysis_text = (
-                "[고수익 하이브리드 판매 믹스와 글로벌 시장 확장]: 순수 전기차 과도기에서 마진율이 우수한 하이브리드(HEV) 차량의 글로벌 수요 강세가 완성차 기업들의 호실적을 견인하고 있습니다. 신흥국 시장 성장과 북미 현지 공장 가동이 맞물려 글로벌 동종사 대비 저평가된 밸류에이션 매력이 부각됩니다."
+                "[기관 자금 배분과 제도권 디지털 자산 인프라]: 글로벌 현물 ETF 및 기관 투자자들의 자산 배분으로 가상자산 시장의 변동성이 점진적으로 안정화되고 있습니다. 토큰증권(STO) 제도화와 블록체인 금융 인프라 확장이 맞물려 대체 투자 자산으로서의 지위가 공고해지고 있습니다."
             )
-            target_sectors = "완성차 대장주(현대차/기아), 핵심 전장/모빌리티 부품사(현대모비스/HL만도/에스엘)"
+            target_sectors = "가상자산/핀테크 밸류체인(우리기술투자/한화투자증권), STO 플랫폼 및 보안 솔루션주"
             return news_summary, analysis_text, target_sectors
 
-        # 14. 글로벌 증시 / 뉴욕증시 / 미국 매크로
-        elif has_kw(["뉴욕증시", "나스닥", "S&P500", "S&P 500", "다우존스", "월가", "미국증시", "美 증시", "필라델피아", "FOMC", "파월"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"미국 뉴욕증시 주요 지수 및 매크로 지표 동향을 짚어본 핵심 이슈로, {clean_t}에 따른 글로벌 투자심리 변화와 국내외 금융 시장 파급 효과가 주목받고 있습니다."
-            )
-            analysis_text = (
-                "[글로벌 매크로 환경과 증시 할인율 메커니즘]: 뉴욕증시의 주요 지수 등락과 통화정책 경로는 국내 증시의 외국인 자금 흐름과 업종별 밸류에이션(할인율)에 직접적인 영향을 미칩니다. 대외 매크로 불확실성 국면에서는 실적 가시성이 높고 밸류에이션 부담이 적은 주도주 중심의 압축 포트폴리오 대응이 요구됩니다."
-            )
-            target_sectors = "미국 빅테크(MSFT/NVDA/AAPL/GOOGL), 나스닥100/S&P500 추종 ETF, 수출 대형주"
-            return news_summary, analysis_text, target_sectors
-
-        # 15. 금 / 귀금속 / 안전자산
-        elif has_kw(["금값", "골드", "금 시세", "금 투자", "금 매입", "은값", "골드바"]):
-            news_summary = clean_base if len(clean_base) >= 35 else (
-                f"국내외 금 시세 및 안전자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 절세형 금융투자 상품과 실물 자산 배분 전략이 분석되고 있습니다."
-            )
-            analysis_text = (
-                "[투자 수단별 실질 수익률과 안전자산 배분]: 금 시세 상승기에는 부가세와 매입 수수료가 선차감되는 실물 골드바보다 비과세 혜택이 주어지는 KRX 금시장이나 절세 계좌(ISA/연금) 내 금 현물 ETF를 활용하는 것이 실질 수익률 극대화에 유리합니다."
-            )
-            target_sectors = "KRX 금시장 연동 상품, 금·귀금속 채굴 ETF(ACE KRX금현물/TIGER 골드선물), 안전자산 배분 펀드"
-            return news_summary, analysis_text, target_sectors
-
-        # 16. 공모주 / IPO / 신규상장
-        elif has_kw(["공모주", "청약", "IPO", "신규상장", "수요예측", "의무보유"]):
+        # 12. 공모주 / IPO / 신규상장
+        elif topic_id == "ipo":
             news_summary = clean_base if len(clean_base) >= 35 else (
                 f"신규 상장 기업들의 기관 수요예측 및 일반 공모주 청약 동향을 짚어본 분석으로, {clean_t}에 따른 시장 유동성과 적정 밸류에이션이 분석되고 있습니다."
             )
@@ -1847,8 +1811,8 @@ class ArticleGenerator:
             target_sectors = "IPO 대표 주관 증권사, 신규 상장 동종 피어(Peer) 그룹 수혜주"
             return news_summary, analysis_text, target_sectors
 
-        # 17. 로봇 / 자동화 / 피지컬 AI
-        elif has_kw(["로봇", "휴머노이드", "협동로봇", "스마트팩토리", "두산로보틱스", "레인보우로보틱스", "감속기"]):
+        # 13. 로봇 / 자동화 / 피지컬 AI
+        elif topic_id == "robotics":
             news_summary = clean_base if len(clean_base) >= 35 else (
                 f"제조업 무인화와 피지컬 AI 로봇 도입 가속화를 다룬 핵심 테마로, {clean_t}에 따른 핵심 부품 및 하드웨어 공급망 성장이 주목받고 있습니다."
             )
@@ -1858,10 +1822,32 @@ class ArticleGenerator:
             target_sectors = "협동로봇/휴머노이드(두산로보틱스/레인보우로보틱스), 정밀 감속기(에스피지/에스비비테크)"
             return news_summary, analysis_text, target_sectors
 
-        # 18. 기본 완결형 다이내믹 요약기 (미분류 대응)
+        # 14. 금 / 귀금속 / 안전자산
+        elif topic_id == "gold_safe":
+            news_summary = clean_base if len(clean_base) >= 35 else (
+                f"국내외 금 시세 및 안전자산 투자 동향을 다룬 핵심 분석으로, {clean_t}에 따른 절세형 금융투자 상품과 실물 자산 배분 전략이 분석되고 있습니다."
+            )
+            analysis_text = (
+                "[투자 수단별 실질 수익률과 안전자산 배분]: 금 시세 상승기에는 부가세와 매입 수수료가 선차감되는 실물 골드바보다 비과세 혜택이 주어지는 KRX 금시장이나 절세 계좌(ISA/연금) 내 금 현물 ETF를 활용하는 것이 실질 수익률 극대화에 유리합니다."
+            )
+            target_sectors = "KRX 금시장 연동 상품, 금·귀금속 채굴 ETF(ACE KRX금현물/TIGER 골드선물), 안전자산 배분 펀드"
+            return news_summary, analysis_text, target_sectors
+
+        # 15. 글로벌 증시 / 뉴욕증시 / 미국 매크로
+        elif topic_id == "global_market":
+            news_summary = clean_base if len(clean_base) >= 35 else (
+                f"미국 뉴욕증시 주요 지수 및 매크로 지표 동향을 짚어본 핵심 이슈로, {clean_t}에 따른 글로벌 투자심리 변화와 국내외 금융 시장 파급 효과가 주목받고 있습니다."
+            )
+            analysis_text = (
+                "[글로벌 매크로 환경과 증시 할인율 메커니즘]: 뉴욕증시의 주요 지수 등락과 통화정책 경로는 국내 증시의 외국인 자금 흐름과 업종별 밸류에이션(할인율)에 직접적인 영향을 미칩니다. 대외 매크로 불확실성 국면에서는 실적 가시성이 높고 밸류에이션 부담이 적은 주도주 중심의 압축 포트폴리오 대응이 요구됩니다."
+            )
+            target_sectors = "미국 빅테크(MSFT/NVDA/AAPL/GOOGL), 나스닥100/S&P500 추종 ETF, 수출 대형주"
+            return news_summary, analysis_text, target_sectors
+
+        # 16. 기본 완결형 다이내믹 요약기 (미분류 대응)
         else:
             news_summary = clean_base
-            analysis_text = f"[수급 및 업종 펀더멘털 분석]: '{clean_t[:25]}' 관련 시장 이슈는 산업 펀더멘털 및 수급 동향에 따른 단기 변동성과 중장기 수혜 업종 간의 선별적 차별화를 촉발할 것으로 분석됩니다."
+            analysis_text = f"[수급 및 업종 펀더멘털 분석]: '{clean_t}' 관련 시장 이슈는 산업 펀더멘털 및 수급 동향에 따른 단기 변동성과 중장기 수혜 업종 간의 선별적 차별화를 촉발할 것으로 분석됩니다."
             target_sectors = "업종별 1등 대표주 및 실적 펀더멘털 기반 수급 유입 우량주"
             return news_summary, analysis_text, target_sectors
 

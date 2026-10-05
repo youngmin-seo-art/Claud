@@ -3,14 +3,14 @@
   "cleanUrls": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/((?!ads\\.txt|robots\\.txt|sitemap\\.xml).*)",
       "has": [
         {
           "type": "host",
           "value": "valuestocklabs.com"
         }
       ],
-      "destination": "https://www.valuestocklabs.com/:path*",
+      "destination": "https://www.valuestocklabs.com/$1",
       "permanent": true
     },
     {

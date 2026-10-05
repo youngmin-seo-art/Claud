@@ -106,6 +106,9 @@ def run_agent(keyword=None, is_morning=False, is_test=False, force=False):
         article_data = generator.generate_morning_briefing(headlines)
         print(f"📌 생성된 모닝 브리핑: {article_data['title']}")
     elif keyword:
+        if collector.is_banned(keyword):
+            print(f"🛑 [차단 알림] 지정된 키워드('{keyword}')는 영구 차단 목록에 포함되어 있어 발행할 수 없습니다.")
+            return False
         clean_kw = re.sub(r'^(20\d\d\s*)+', '', keyword).strip()
         final_kw = clean_kw if clean_kw else keyword
         topic = {
@@ -114,13 +117,24 @@ def run_agent(keyword=None, is_morning=False, is_test=False, force=False):
             "keywords": [final_kw, "저평가우량주", "상승초입", "목표주가"],
             "summary": f"{final_kw}에 대한 펀더멘털 및 기술적 차트 지표 심층 분석"
         }
+        if collector.is_banned(topic["title"], topic["summary"]):
+            print(f"🛑 [차단 알림] 생성된 주제('{topic['title']}')가 영구 차단 목록에 해당하여 발행을 중단합니다.")
+            return False
         article_data = generator.generate_article_content(topic)
         print(f"📌 선정된 아티클 주제: {topic['title']}")
     else:
         print("🔍 [자동 모드] 금융 RSS 피드에서 최신 핫이슈 탐색 중...")
         topic = collector.collect_trending_topics()
+        if collector.is_banned(topic.get("title", ""), topic.get("summary", "")):
+            print(f"🛑 [차단 알림] 선정된 주제('{topic.get('title')}')가 영구 차단 목록에 해당하여 발행을 중단합니다.")
+            return False
         article_data = generator.generate_article_content(topic)
         print(f"📌 선정된 아티클 주제: {topic['title']}")
+
+    # 안전 검증: article_data 제목 및 본문 차단 키워드 2차 검증
+    if collector.is_banned(article_data.get("title", ""), article_data.get("excerpt", "")):
+        print(f"🛑 [차단 알림] 최종 생성물('{article_data.get('title')}')이 영구 차단 정책에 위배되어 발행을 취소합니다.")
+        return False
 
     # 3. 블로그 자동 반영 & 배포
     print("🚀 [배포 파이프라인] adsense-stock-blog에 포스팅 등록 및 사이트맵/피드 갱신 중...")

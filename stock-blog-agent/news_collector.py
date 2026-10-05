@@ -22,7 +22,15 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-from config import RSS_FEEDS, HIGH_CPC_KEYWORDS, POSTS_DIR, HISTORY_FILE
+from config import (
+    RSS_FEEDS,
+    HIGH_CPC_KEYWORDS,
+    POSTS_DIR,
+    HISTORY_FILE,
+    BANNED_TOPIC_KEYWORDS,
+    BANNED_TITLES,
+    BANNED_TOPICS_FILE
+)
 
 class NewsCollector:
     def __init__(self):
@@ -30,6 +38,7 @@ class NewsCollector:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         }
+        self.banned_titles = self.load_banned_topics()
         self.published_titles = self.load_published_history()
 
     def clean_text(self, text):
@@ -111,6 +120,49 @@ class NewsCollector:
         """제목 비교를 위한 정규화 (특수문자 및 공백 제거)"""
         return re.sub(r'[\W_]+', '', title.lower())
 
+    def load_banned_topics(self):
+        """영구 차단된 주제 및 키워드 목록 로드 (재발행 절대 금지)"""
+        banned = set()
+        for t in BANNED_TITLES:
+            banned.add(self.normalize_title(t))
+        
+        if BANNED_TOPICS_FILE.exists():
+            try:
+                with open(BANNED_TOPICS_FILE, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    for item in data:
+                        if isinstance(item, dict):
+                            t = item.get("title", "")
+                            if t:
+                                banned.add(self.normalize_title(t))
+                            for kw in item.get("banned_keywords", []):
+                                BANNED_TOPIC_KEYWORDS.append(kw)
+                        elif isinstance(item, str):
+                            banned.add(self.normalize_title(item))
+            except Exception as e:
+                print(f"[알림] 차단 목록 파일 읽기 실패: {e}")
+        return banned
+
+    def is_banned(self, title, description=""):
+        """영구 차단 키워드 또는 차단 제목 패턴에 해당하는지 검사 (절대 재발행 불가)"""
+        if not title:
+            return True
+        full_text = f"{title} {description}".lower()
+        
+        # 1. 차단 키워드 검사 (e.g. 5850, 5850선 등)
+        for kw in BANNED_TOPIC_KEYWORDS:
+            if kw.lower() in full_text:
+                return True
+        
+        # 2. 정규화된 차단 제목 목록 검사
+        norm = self.normalize_title(title)
+        if norm in self.banned_titles:
+            return True
+        for b in self.banned_titles:
+            if b and (b in norm or norm in b):
+                return True
+        return False
+
     def load_published_history(self):
         """기존 발행된 글 목록(히스토리 파일 + posts 디렉토리) 로드"""
         published = set()
@@ -151,7 +203,10 @@ class NewsCollector:
         return published
 
     def is_already_published(self, title):
-        """이미 발행된 기사인지 검사 (정확 일치 및 높은 유사도)"""
+        """이미 발행된 기사인지 또는 영구 차단된 기사인지 검사"""
+        if self.is_banned(title):
+            return True
+
         norm = self.normalize_title(title)
         if not norm:
             return True
@@ -343,9 +398,14 @@ class NewsCollector:
 
     def score_news(self, item):
         """뉴스 항목에 대한 투자 가치 및 광고 적합도 점수 산출"""
-        score = 0
         t = item.get("title", "")
         d = item.get("description", "") or item.get("summary", "")
+
+        # 차단 키워드 또는 차단 제목인 경우 최하점 부여 (선별 배제)
+        if self.is_banned(t, d):
+            return -999999
+
+        score = 0
 
         # 핵심 금융 키워드 가중치
         for kw in HIGH_CPC_KEYWORDS:
@@ -369,7 +429,7 @@ class NewsCollector:
         return score
 
     def collect_trending_topics(self):
-        """여러 금융 RSS 소스에서 '중복되지 않은 가장 신선한 최신 뉴스' 선별 수집 및 100% 저작권 안전 리서치 가공"""
+        """여러 금융 RSS 소스에서 '중복되지 않고 차단되지 않은 가장 신선한 최신 뉴스' 선별 수집 및 100% 저작권 안전 리서치 가공"""
         all_news = []
         for feed in RSS_FEEDS:
             items = self.fetch_feed(feed["url"])
@@ -380,15 +440,21 @@ class NewsCollector:
 
         print(f"[정보] 총 {len(all_news)}건의 실시간 뉴스 아이템 수집 완료. 중복 및 기발행 여부 검사 중...")
 
-        # 1. 이미 발행된 기사 필터링
+        # 1. 이미 발행된 기사 및 차단 기사 필터링
         fresh_news = []
         for item in all_news:
-            title = self.clean_title(item["title"])
+            raw_t = item.get("title", "")
+            desc = item.get("description", "")
+            if self.is_banned(raw_t, desc):
+                continue
+            title = self.clean_title(raw_t)
+            if self.is_banned(title, desc):
+                continue
             if not self.is_already_published(title):
                 item["title"] = title
                 fresh_news.append(item)
 
-        print(f"[정보] 기발행 제외 후 신규 뉴스 후보: {len(fresh_news)}건")
+        print(f"[정보] 기발행 및 차단 항목 제외 후 신규 뉴스 후보: {len(fresh_news)}건")
 
         if not fresh_news:
             print("⚠️ [알림] 새로운 RSS 기사가 모두 기발행되었거나 없어 날짜별 고유 테마 캘린더에서 선별합니다.")
@@ -399,6 +465,10 @@ class NewsCollector:
         best_item = fresh_news[0]
 
         clean_final_title = self.clean_title(best_item["title"])
+        if self.is_banned(clean_final_title, best_item.get("description", "")):
+            print(f"⚠️ [차단 알림] 선별된 기사('{clean_final_title}')가 영구 차단 목록에 해당하여 대체 주제로 전환합니다.")
+            return self.get_fallback_topic()
+
         category, keywords = self.classify_category_and_keywords(clean_final_title, best_item.get("description", ""))
         rewritten_summary = self.rewrite_summary(clean_final_title, category, keywords, best_item.get("description", ""))
 

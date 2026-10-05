@@ -16,6 +16,16 @@ INDEX_HTML = BLOG_DIR / "index.html"
 SITEMAP_XML = BLOG_DIR / "sitemap.xml"
 RSS_XML = BLOG_DIR / "rss.xml"
 HISTORY_FILE = AGENT_DIR / "published_history.json"
+BANNED_TOPICS_FILE = AGENT_DIR / "banned_topics.json"
+
+# 영구 차단 키워드 및 제목 (다시 자동 생성/발행되지 않도록 절대 차단)
+BANNED_TOPIC_KEYWORDS = [
+    "5850", "5850선", "상단 돌파 시험대", "5850선 안착한 코스피"
+]
+BANNED_TITLES = [
+    "5850선 안착한 코스피, 'HBM·밸류업' 훈풍 타고 상단 돌파 시험대",
+    "5850선 안착한 코스피, 'HBM·밸류업' 훈풍 타고"
+]
 
 # 공식 블로그 도메인 및 메타데이터 (Vercel 기본 호스트: www.valuestocklabs.com)
 BLOG_DOMAIN = "https://www.valuestocklabs.com"

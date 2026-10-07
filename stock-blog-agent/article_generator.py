@@ -2512,10 +2512,9 @@ class ArticleGenerator:
     <section class="morning-briefing-wrap" id="morningBriefingSession" aria-label="오늘의 증시 시황">
       <div class="briefing-header">
         <div class="briefing-title-group">
-          <span class="briefing-badge"><span class="pulse-dot"></span> LIVE 08:00 AM</span>
           <h2 class="briefing-title">☕ 오늘의 증시 모닝 브리핑 &amp; 글로벌 핵심 경제 이슈</h2>
         </div>
-        <span class="briefing-date" id="briefingDate">{datetime.now().strftime('%Y.%m.%d')} 08:00 AM 업데이트</span>
+        <span class="briefing-date" id="briefingDate">{datetime.now().strftime('%Y.%m.%d %H:%M')} 업데이트</span>
       </div>
 
       <!-- Live Global Market Snapshot -->

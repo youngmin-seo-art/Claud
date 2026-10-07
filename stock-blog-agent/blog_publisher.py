@@ -178,10 +178,10 @@ class BlogPublisher:
                     f'<a href="posts/{article_data["filename"]}" class="nav-link">오늘의 시황</a>',
                     content
                 )
-                today_display = datetime.now().strftime("%Y.%m.%d")
+                now_display = datetime.now().strftime("%Y.%m.%d %H:%M")
                 content = re.sub(
                     r'<span class="briefing-date" id="briefingDate">[^<]+</span>',
-                    f'<span class="briefing-date" id="briefingDate">{today_display} 08:00 AM 업데이트</span>',
+                    f'<span class="briefing-date" id="briefingDate">{now_display} 업데이트</span>',
                     content
                 )
             else:

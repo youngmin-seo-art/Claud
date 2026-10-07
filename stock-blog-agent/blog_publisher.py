@@ -157,6 +157,15 @@ class BlogPublisher:
                 avatar = "M"
                 excerpt = f"{article_data['title']} - 밤사이 뉴욕증시 마감 및 거시경제 지표, 장 시작 전 국내 핵심 주도 섹터와 주요 뉴스 총정리."
                 
+                # 상단 오늘의 시황 세션 전체 내용 및 지표 동기화
+                if article_data.get("briefing_section_html"):
+                    content = re.sub(
+                        r'<!-- Morning Market Briefing Section.*?-->\s*<section class="morning-briefing-wrap" id="morningBriefingSession"[^>]*>.*?</section>',
+                        article_data["briefing_section_html"],
+                        content,
+                        flags=re.DOTALL
+                    )
+
                 # 상단 오늘의 시황 세션 링크 및 날짜 갱신
                 content = re.sub(
                     r'<a href="posts/[^"]+" class="briefing-btn" id="latestBriefingLink">',

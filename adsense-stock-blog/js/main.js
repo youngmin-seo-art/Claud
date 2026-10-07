@@ -118,21 +118,18 @@ async function initLiveMarketEngine() {
     renderInitialTicker(track);
   }
 
-  // 1. Initial sync to briefing chips on page
-  syncBriefingChips();
-
-  // 2. Load latest real-time market summary from JSON if available
+  // 1. Load latest real-time market summary from JSON if available for ticker track
   await loadMarketSummaryJSON();
 
-  // 3. Fetch real live cryptocurrency data via Upbit Public API
+  // 2. Fetch real live cryptocurrency data via Upbit Public API
   fetchUpbitRealtime();
   setInterval(fetchUpbitRealtime, 15000);
 
-  // 4. Fetch real live USD/KRW exchange rate
+  // 3. Fetch real live USD/KRW exchange rate
   fetchLiveExchangeRate();
   setInterval(fetchLiveExchangeRate, 60000);
 
-  // 5. Start high-frequency live market tick simulator (creates authentic active trading ticks)
+  // 4. Start high-frequency live market tick simulator (for top ticker track)
   startMarketTickSimulator();
 }
 
@@ -191,44 +188,18 @@ function renderInitialTicker(track) {
   track.innerHTML = html;
 }
 
-function syncBriefingChips() {
-  MARKET_INSTRUMENTS.forEach(inst => {
-    updateBriefingChip(inst, false);
-  });
-}
-
-function updateBriefingChip(inst, shouldFlash = false) {
-  const chipValEl = document.querySelector(`.market-chip[data-chip-id="${inst.id}"] .market-chip-val`);
-  if (!chipValEl) return;
-
-  const isUp = inst.diffRate >= 0;
-  const priceStr = formatPriceString(inst);
-  const diffStr = (inst.diffRate >= 0 ? '+' : '') + inst.diffRate.toFixed(2) + '%';
-  const arrow = isUp ? '▲' : '▼';
-
-  chipValEl.textContent = `${priceStr} ${arrow} ${diffStr}`;
-  chipValEl.className = `market-chip-val ${isUp ? 'ticker-up' : 'ticker-down'}`;
-
-  if (shouldFlash) {
-    const flashClass = isUp ? 'flash-tick-up' : 'flash-tick-down';
-    chipValEl.classList.remove('flash-tick-up', 'flash-tick-down');
-    void chipValEl.offsetWidth; // Force reflow for restart
-    chipValEl.classList.add(flashClass);
-  }
-}
-
 function updateInstrumentUI(inst, isUpTick = null) {
   const priceFormatted = formatPriceString(inst);
   const diffFormatted = formatDiffString(inst.diffRate);
   const isUp = inst.diffRate >= 0;
 
-  // 1. Update all ticker elements in DOM
-  const priceEls = document.querySelectorAll(`[data-price-id="${inst.id}"]`);
+  // Update ticker elements in ticker track only
+  const priceEls = document.querySelectorAll(`#tickerTrack [data-price-id="${inst.id}"]`);
   priceEls.forEach(el => {
     el.textContent = priceFormatted;
   });
 
-  const diffEls = document.querySelectorAll(`[data-diff-id="${inst.id}"]`);
+  const diffEls = document.querySelectorAll(`#tickerTrack [data-diff-id="${inst.id}"]`);
   diffEls.forEach(el => {
     el.textContent = diffFormatted;
     el.className = isUp ? 'ticker-up' : 'ticker-down';
@@ -239,9 +210,6 @@ function updateInstrumentUI(inst, isUpTick = null) {
       el.classList.add(flashClass);
     }
   });
-
-  // 2. Update briefing cards if present
-  updateBriefingChip(inst, isUpTick !== null);
 }
 
 /* ==========================================================================

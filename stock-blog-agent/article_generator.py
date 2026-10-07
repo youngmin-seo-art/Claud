@@ -2469,6 +2469,104 @@ class ArticleGenerator:
 </body>
 </html>
 """
+
+        def fmt_chip(item, default_p, default_chg):
+            p_val = item.get("price", default_p) if isinstance(item, dict) else default_p
+            chg_val = item.get("change", item.get("diffRate", default_chg)) if isinstance(item, dict) else default_chg
+            is_up = chg_val >= 0
+            arrow = "▲" if is_up else "▼"
+            sign = "+" if is_up else ""
+            cls_name = "ticker-up" if is_up else "ticker-down"
+            p_str = f"{p_val:,.2f}" if isinstance(p_val, float) else f"{p_val:,}"
+            return f'<span class="market-chip-val {cls_name}">{p_str} {arrow} {sign}{chg_val:.2f}%</span>'
+
+        dji = market_data.get("^DJI", market_data.get("dji", {}))
+        sox = market_data.get("^SOX", market_data.get("sox", {}))
+
+        chip_kospi_html = fmt_chip(kospi, 6803.90, -1.98)
+        chip_kosdaq_html = fmt_chip(kosdaq, 898.43, 0.58)
+        chip_dji_html = fmt_chip(dji, 51179.87, -0.66)
+        chip_sp500_html = fmt_chip(sp500, 7801.77, -0.22)
+        chip_nasdaq_html = fmt_chip(nasdaq, 27538.69, -0.22)
+        chip_sox_html = fmt_chip(sox, 13059.30, -1.20)
+        chip_usdkrw_html = fmt_chip(usdkrw, 1339.13, 0.17)
+
+        sp500_chg = sp500.get('change', sp500.get('diffRate', -0.22)) if isinstance(sp500, dict) else -0.22
+        nasdaq_chg = nasdaq.get('change', nasdaq.get('diffRate', -0.22)) if isinstance(nasdaq, dict) else -0.22
+        dji_chg = dji.get('change', dji.get('diffRate', -0.66)) if isinstance(dji, dict) else -0.66
+        usdkrw_val = usdkrw.get('price', 1339.13) if isinstance(usdkrw, dict) else 1339.13
+        usdkrw_chg = usdkrw.get('change', usdkrw.get('diffRate', 0.17)) if isinstance(usdkrw, dict) else 0.17
+        kospi_val = kospi.get('price', 6803.90) if isinstance(kospi, dict) else 6803.90
+
+        us_tone = "상승세를 이어갔습니다" if (sp500_chg >= 0 and nasdaq_chg >= 0) else "혼조세 및 숨고르기 흐름을 보였습니다" if (sp500_chg * nasdaq_chg <= 0) else "소폭 조정을 받으며 숨고르기 장세를 보였습니다"
+        fx_tone = "원화 강세 기조가 지속되는 가운데" if usdkrw_val < 1360 else "안정적인 박스권 흐름을 유지하는 가운데"
+
+        index_summary_text = f"밤사이 뉴욕증시는 국채금리 등락 속 3대 주요 지수가 {us_tone}. 원/달러 환율은 {usdkrw_val:,.2f}원으로 {fx_tone}, 국내 증시는 코스피 {kospi_val:,.0f}선 지지력 테스트 및 반도체·원전·실적 우량주 중심의 선별적 반등 시도가 주목됩니다."
+
+        point_us = f"📌 <strong>뉴욕증시 동향:</strong> S&amp;P 500({sp500_chg:+.2f}%), 나스닥({nasdaq_chg:+.2f}%), 다우({dji_chg:+.2f}%) 등 주요 지수 등락 속 테크주 실적 가시성 주시."
+        point_fx = f"📌 <strong>환율 &amp; 수급:</strong> 원/달러 환율 {usdkrw_val:,.2f}원({usdkrw_chg:+.2f}%)으로 외국인 선물 순매수 방향성 주목."
+        point_strat = "📌 <strong>오늘의 시장 전략:</strong> 웨스팅하우스 IP 협상 수혜 원전·전력 인프라 및 AI 반도체·HBM 핵심 소부장 중심 분할 매매 대응."
+
+        briefing_section_html = f"""    <!-- Morning Market Briefing Section (오늘의 시황 세션) -->
+    <section class="morning-briefing-wrap" id="morningBriefingSession" aria-label="오늘의 증시 시황">
+      <div class="briefing-header">
+        <div class="briefing-title-group">
+          <span class="briefing-badge"><span class="pulse-dot"></span> LIVE 08:00 AM</span>
+          <h2 class="briefing-title">☕ 오늘의 증시 모닝 브리핑 &amp; 글로벌 핵심 경제 이슈</h2>
+        </div>
+        <span class="briefing-date" id="briefingDate">{datetime.now().strftime('%Y.%m.%d')} 08:00 AM 업데이트</span>
+      </div>
+
+      <!-- Live Global Market Snapshot -->
+      <div class="briefing-market-grid">
+        <div class="market-chip" data-chip-id="kospi">
+          <span class="market-chip-name">🇰🇷 코스피</span>
+          {chip_kospi_html}
+        </div>
+        <div class="market-chip" data-chip-id="kosdaq">
+          <span class="market-chip-name">🇰🇷 코스닥</span>
+          {chip_kosdaq_html}
+        </div>
+        <div class="market-chip" data-chip-id="dji">
+          <span class="market-chip-name">🇺🇸 다우존스</span>
+          {chip_dji_html}
+        </div>
+        <div class="market-chip" data-chip-id="sp500">
+          <span class="market-chip-name">🇺🇸 S&amp;P 500</span>
+          {chip_sp500_html}
+        </div>
+        <div class="market-chip" data-chip-id="nasdaq">
+          <span class="market-chip-name">🇺🇸 나스닥 100</span>
+          {chip_nasdaq_html}
+        </div>
+        <div class="market-chip" data-chip-id="sox">
+          <span class="market-chip-name">🇺🇸 필라델피아 반도체</span>
+          {chip_sox_html}
+        </div>
+        <div class="market-chip" data-chip-id="usdkrw">
+          <span class="market-chip-name">🇰🇷 원/달러 환율</span>
+          {chip_usdkrw_html}
+        </div>
+      </div>
+
+      <div class="briefing-content-summary">
+        {index_summary_text}
+      </div>
+
+      <ul class="briefing-points">
+        <li>{point_us}</li>
+        <li>{point_fx}</li>
+        <li>{point_strat}</li>
+      </ul>
+
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <a href="posts/{slug}.html" class="briefing-btn" id="latestBriefingLink">
+          📰 오늘의 시황 분석 리포트 전문 읽기 →
+        </a>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">매일 아침 8시 최신 경제 데이터로 자동 갱신됩니다.</span>
+      </div>
+    </section>"""
+
         return {
             "slug": slug,
             "filename": f"{slug}.html",
@@ -2478,7 +2576,8 @@ class ArticleGenerator:
             "image": chosen_img,
             "html": html_content,
             "date": date_iso,
-            "is_morning": True
+            "is_morning": True,
+            "briefing_section_html": briefing_section_html
         }
 
     def generate_article_html(self, title, summary, category, keywords, content_type="deep_dive"):

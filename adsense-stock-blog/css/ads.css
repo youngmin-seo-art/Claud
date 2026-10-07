@@ -1,233 +1,94 @@
 /* ==========================================================================
-   ADSENSE GOLDEN PLACEMENT & CTR OPTIMIZATION STYLES (ADS.CSS)
+   GOOGLE ADSENSE CLEAN COMPLIANCE & CTR STYLES (ADS.CSS)
+   ========================================================================== 
+   * 심사 승인 전/빈 슬롯 상태: 모든 빈 광고 영역, 라벨, 더미 플레이스홀더를 완전 은닉
+   * 승인 후/실제 광고 송출 시: 실제 로드된 광고(iframe)만 부드럽고 깔끔하게 표시
+   * CLS(누적 레이아웃 이동) 방지 및 구글 E-E-A-T / 인벤토리 정책 100% 준수
    ========================================================================== */
 
-/* Base Ad Container (Prevents Cumulative Layout Shift - CLS) */
-.ad-slot-wrapper {
-  margin: 32px 0;
-  position: relative;
+/* 1. 기본 상태: 실제 송출되는 광고가 없는 모든 빈 영역, 더미 라벨, 플레이스홀더를 완전 은닉 */
+.ad-slot-wrapper,
+.ad-container,
+.ad-slot-header,
+.ad-label,
+.ad-placeholder,
+.mobile-anchor-ad,
+.ads-status-bar {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
+}
+
+/* 2. 실제 구글 광고가 수신되어 채워진 경우(filled)에만 자연스럽게 활성화 */
+.ad-slot-wrapper:has(ins.adsbygoogle[data-ad-status="filled"]),
+.ad-slot-wrapper:has(iframe),
+.ad-container:has(ins.adsbygoogle[data-ad-status="filled"]),
+.ad-container:has(iframe) {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+  min-height: auto !important;
+  margin: 32px auto !important;
   text-align: center;
   clear: both;
 }
 
-.ad-slot-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.ad-label {
+.ad-slot-wrapper:has(ins.adsbygoogle[data-ad-status="filled"]) .ad-slot-header,
+.ad-slot-wrapper:has(iframe) .ad-slot-header,
+.ad-slot-wrapper:has(ins.adsbygoogle[data-ad-status="filled"]) .ad-label,
+.ad-slot-wrapper:has(iframe) .ad-label {
+  display: flex !important;
+  opacity: 0.65 !important;
+  visibility: visible !important;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--text-muted);
-  opacity: 0.75;
+  justify-content: center;
+  margin-bottom: 6px;
 }
 
-/* Ad Containers with Reserved Aspect Ratios */
-.ad-container {
-  display: flex;
+.ad-container:has(ins.adsbygoogle[data-ad-status="filled"]),
+.ad-container:has(iframe) {
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  border-radius: var(--radius-sm);
-  background: var(--bg-secondary);
-  border: 1px dashed var(--border-color);
-  overflow: hidden;
-  position: relative;
-  transition: all var(--transition-fast);
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
 }
 
-/* Leaderboard (Top / Bottom Banner) */
-.ad-leaderboard {
-  min-height: 90px;
+/* 3. 리더보드 / 본문 인피드 / 사이드바 규격 (광고가 로드되었을 때만 적용) */
+.ad-leaderboard:has(iframe) {
   max-width: 970px;
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .ad-leaderboard {
-    min-height: 100px;
-    max-width: 320px;
-  }
-}
-
-/* In-Article Native Ad (High CTR - Inserted in Post) */
-.ad-in-article {
-  min-height: 250px;
+.ad-in-article:has(iframe) {
   max-width: 728px;
   width: 100%;
-  margin: 36px auto;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
 }
 
-/* Sticky Sidebar Ad (300x600 Half-page / 300x250 Medium Rectangle) */
-.ad-sidebar-sticky {
-  min-height: 600px;
+.ad-sidebar-sticky:has(iframe) {
   max-width: 300px;
   width: 100%;
   position: sticky;
   top: calc(var(--header-height) + 20px);
 }
 
-@media (max-width: 1024px) {
-  .ad-sidebar-sticky {
-    min-height: 250px;
-    max-width: 100%;
-    position: static;
-  }
+/* 4. 구글 자동 광고(Auto Ads) 네이티브 요소 최적화 */
+ins.adsbygoogle {
+  background: transparent !important;
 }
 
-/* Multiplex / Grid Recommendation Ads */
-.ad-multiplex {
-  min-height: 280px;
-  width: 100%;
-}
-
-/* ==========================================================================
-   ADSENSE PLACEHOLDER (DEVELOPMENT / PRE-APPROVAL PREVIEW MODE)
-   ========================================================================== */
-.ad-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-  color: var(--text-secondary);
-  position: relative;
-  overflow: hidden;
-}
-
-.ad-placeholder::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
-  animation: adPulse 8s ease-in-out infinite;
-}
-
-@keyframes adPulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.15); opacity: 0.8; }
-}
-
-.ad-placeholder-icon {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  color: var(--accent-cyan);
-  z-index: 1;
-}
-
-.ad-placeholder-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-  z-index: 1;
-}
-
-.ad-placeholder-desc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  z-index: 1;
-  max-width: 320px;
-  line-height: 1.4;
-}
-
-.ad-placeholder-badge {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--accent-cyan);
-  font-size: 0.7rem;
-  font-weight: 700;
-  z-index: 1;
-  font-family: var(--font-mono);
-}
-
-/* ==========================================================================
-   MOBILE STICKY ANCHOR AD (모바일 하단 고정 앵커 광고)
-   ========================================================================== */
-.mobile-anchor-ad {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-  display: none;
-  padding: 6px 10px;
-}
-
-@media (max-width: 768px) {
-  .mobile-anchor-ad {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.anchor-close-btn {
-  position: absolute;
-  top: -24px;
-  right: 12px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  color: var(--text-secondary);
-  font-size: 0.72rem;
-  padding: 2px 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* ==========================================================================
-   ADSENSE STATUS BADGE (관리자용 상태 확인 토글)
-   ========================================================================== */
-.ads-status-bar {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 10px 16px;
-  margin: 16px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.82rem;
-}
-
-.ads-status-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 99px;
-  background: var(--accent-emerald);
-  box-shadow: 0 0 8px var(--accent-emerald);
-}
-
-.status-dot.pending {
-  background: var(--accent-gold);
-  box-shadow: 0 0 8px var(--accent-gold);
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
 }

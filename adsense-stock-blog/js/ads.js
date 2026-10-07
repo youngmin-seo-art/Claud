@@ -12,7 +12,7 @@ const ADSENSE_CONFIG = {
   // 자동 광고(Auto Ads) 활성화
   autoAds: true,
 
-  // 심사 단계에서는 존재하지 않는 더미 슬롯 요청을 방지
+  // 심사 단계에서는 미승인 더미 슬롯 요청 방지
   testMode: false
 };
 
@@ -24,6 +24,7 @@ class AdSenseEngine {
 
   init() {
     this.ensureGoogleScript();
+    this.cleanEmptyAdSlots();
     this.renderAdSlots();
   }
 
@@ -36,12 +37,23 @@ class AdSenseEngine {
     document.head.appendChild(script);
   }
 
+  cleanEmptyAdSlots() {
+    // 승인 전 빈 광고 영역이 페이지 가독성을 해치거나 심사 감점 요인이 되지 않도록 완전 은닉
+    const wrappers = document.querySelectorAll('.ad-slot-wrapper, .ad-container, .mobile-anchor-ad, .ads-status-bar');
+    wrappers.forEach(wrap => {
+      const ins = wrap.querySelector('ins.adsbygoogle');
+      if (!ins || ins.getAttribute('data-ad-status') === 'unfilled') {
+        wrap.style.setProperty('display', 'none', 'important');
+      }
+    });
+  }
+
   renderAdSlots() {
     const slots = document.querySelectorAll('.ad-container[data-ad-slot]');
     slots.forEach(slot => {
       const slotId = slot.getAttribute('data-ad-slot');
       
-      // Only request manual ad units if a valid 10-digit Google AdSense slot ID is present
+      // 실제 유효한 10자리 이상의 슬롯 ID가 부여된 경우에만 광고 태그 생성
       if (slotId && /^[0-9]{10,}$/.test(slotId)) {
         slot.innerHTML = `
           <ins class="adsbygoogle"

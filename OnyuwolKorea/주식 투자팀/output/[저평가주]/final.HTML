@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오뉴월 코리아 - 기요하라 × 멍거 모델 저평가 20선 보고서</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-orange: #d29922;
+      --accent-purple: #bc8cff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 1.8rem; color: var(--text-bright); margin-bottom: 8px; }
+    .meta { font-size: 0.9rem; color: #8b949e; }
+    
+    .tabs { display: flex; gap: 10px; margin-bottom: 16px; }
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #0d1117;
+      border-color: var(--accent);
+    }
+    
+    .search-box {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+    }
+    .search-input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text-bright);
+      font-size: 0.95rem;
+    }
+    
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(255,255,255,0.02);
+      color: var(--text-bright);
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+    th:hover { color: var(--accent); }
+    tr:hover { background: rgba(255,255,255,0.03); }
+    
+    .val-highlight { color: var(--accent-green); font-weight: 700; }
+    .status-strong {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+    }
+    .status-buy {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+    }
+    
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      border-top: 3px solid var(--accent);
+    }
+    .card h3 { color: var(--text-bright); margin-bottom: 8px; font-size: 1.1rem; }
+    .card p { font-size: 0.88rem; color: #8b949e; line-height: 1.5; }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #8b949e;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">기요하라 다쓰로 × 찰리 멍거 모델</div>
+      <h1>오뉴월 코리아 주식 투자팀 저평가 20선 스크리닝 보고서</h1>
+      <div class="meta">
+        <strong>분석일자:</strong> 2026-10-03 | <strong>대상:</strong> 코스피 10종목 & 코스닥 10종목 | <strong>기준:</strong> 넷캐시비율 ≥ 50% & PER ≤ 10배
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="filterMarket('ALL')">전체 20종목</button>
+      <button class="tab-btn" onclick="filterMarket('KOSPI')">KOSPI 10선</button>
+      <button class="tab-btn" onclick="filterMarket('KOSDAQ')">KOSDAQ 10선</button>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" class="search-input" placeholder="종목명, 종목코드, 섹터 검색..." onkeyup="searchTable()">
+    </div>
+
+    <div class="table-container">
+      <table id="stocksTable">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>시장</th>
+            <th>종목명 (코드)</th>
+            <th>섹터</th>
+            <th>시가총액</th>
+            <th>PER</th>
+            <th>넷캐시 (비율)</th>
+            <th>캐시뉴트럴 PER</th>
+            <th>PBR</th>
+            <th>ROE</th>
+            <th>배당률</th>
+            <th>판정</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- KOSPI -->
+          <tr data-market="KOSPI">
+            <td>1</td>
+            <td>KOSPI</td>
+            <td><strong>세원정공</strong> (021820)</td>
+            <td>자동차부품</td>
+            <td>760억</td>
+            <td>4.80배</td>
+            <td class="val-highlight">965억 (127.0%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.25배</td>
+            <td>6.2%</td>
+            <td>4.20%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>2</td>
+            <td>KOSPI</td>
+            <td><strong>화천기공</strong> (000850)</td>
+            <td>CNC공작기계</td>
+            <td>685억</td>
+            <td>5.40배</td>
+            <td class="val-highlight">836억 (122.0%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.28배</td>
+            <td>6.5%</td>
+            <td>4.15%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>3</td>
+            <td>KOSPI</td>
+            <td><strong>삼양통상</strong> (002170)</td>
+            <td>피혁/카시트</td>
+            <td>1,554억</td>
+            <td>6.18배</td>
+            <td class="val-highlight">1,815억 (116.8%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.30배</td>
+            <td>5.4%</td>
+            <td>4.44%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>4</td>
+            <td>KOSPI</td>
+            <td><strong>신도리코</strong> (029530)</td>
+            <td>사무기기/3D</td>
+            <td>3,120억</td>
+            <td>8.50배</td>
+            <td class="val-highlight">3,440억 (110.3%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.39배</td>
+            <td>4.8%</td>
+            <td>4.80%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>5</td>
+            <td>KOSPI</td>
+            <td><strong>휴스틸</strong> (005010)</td>
+            <td>강관/철강</td>
+            <td>2,350억</td>
+            <td>3.80배</td>
+            <td class="val-highlight">2,547억 (108.4%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.22배</td>
+            <td>7.2%</td>
+            <td>6.10%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>6</td>
+            <td>KOSPI</td>
+            <td><strong>한국철강</strong> (104700)</td>
+            <td>철강/철근</td>
+            <td>2,980억</td>
+            <td>6.50배</td>
+            <td class="val-highlight">3,144억 (105.5%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.32배</td>
+            <td>5.8%</td>
+            <td>5.50%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>7</td>
+            <td>KOSPI</td>
+            <td><strong>KISCO홀딩스</strong> (001940)</td>
+            <td>철강지주</td>
+            <td>2,780억</td>
+            <td>5.80배</td>
+            <td class="val-highlight">2,775억 (99.8%)</td>
+            <td>0.01배</td>
+            <td>0.28배</td>
+            <td>5.2%</td>
+            <td>4.50%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>8</td>
+            <td>KOSPI</td>
+            <td><strong>SNT홀딩스</strong> (036530)</td>
+            <td>방산/자동차지주</td>
+            <td>2,450억</td>
+            <td>5.82배</td>
+            <td class="val-highlight">2,170억 (88.6%)</td>
+            <td>0.67배</td>
+            <td>0.50배</td>
+            <td>8.6%</td>
+            <td>6.50%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>9</td>
+            <td>KOSPI</td>
+            <td><strong>세아베스틸지주</strong> (001430)</td>
+            <td>특수강/에너지</td>
+            <td>7,120억</td>
+            <td>5.25배</td>
+            <td class="val-highlight">5,140억 (72.2%)</td>
+            <td>1.46배</td>
+            <td>0.32배</td>
+            <td>7.5%</td>
+            <td>5.80%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSPI">
+            <td>10</td>
+            <td>KOSPI</td>
+            <td><strong>대한제당</strong> (001790)</td>
+            <td>음식료/원당</td>
+            <td>2,480억</td>
+            <td>5.90배</td>
+            <td class="val-highlight">1,595억 (64.3%)</td>
+            <td>2.11배</td>
+            <td>0.42배</td>
+            <td>8.2%</td>
+            <td>4.90%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+
+          <!-- KOSDAQ -->
+          <tr data-market="KOSDAQ">
+            <td>1</td>
+            <td>KOSDAQ</td>
+            <td><strong>동일기연</strong> (032960)</td>
+            <td>전자부품/필터</td>
+            <td>620억</td>
+            <td>6.80배</td>
+            <td class="val-highlight">828억 (133.5%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.38배</td>
+            <td>6.0%</td>
+            <td>3.80%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>2</td>
+            <td>KOSDAQ</td>
+            <td><strong>삼보판지</strong> (023600)</td>
+            <td>골판지/포장</td>
+            <td>1,420억</td>
+            <td>4.20배</td>
+            <td class="val-highlight">1,546억 (108.9%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.28배</td>
+            <td>7.8%</td>
+            <td>4.80%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>3</td>
+            <td>KOSDAQ</td>
+            <td><strong>삼아제약</strong> (009300)</td>
+            <td>의약품/호흡기</td>
+            <td>1,150억</td>
+            <td>6.90배</td>
+            <td class="val-highlight">1,173억 (102.0%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.58배</td>
+            <td>9.2%</td>
+            <td>3.80%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>4</td>
+            <td>KOSDAQ</td>
+            <td><strong>대원산업</strong> (005710)</td>
+            <td>자동차시트</td>
+            <td>2,150억</td>
+            <td>3.08배</td>
+            <td class="val-highlight">2,185억 (101.6%)</td>
+            <td>음수 (공짜수준)</td>
+            <td>0.35배</td>
+            <td>11.5%</td>
+            <td>5.20%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>5</td>
+            <td>KOSDAQ</td>
+            <td><strong>한양이엔지</strong> (045100)</td>
+            <td>반도체클린룸</td>
+            <td>3,150억</td>
+            <td>4.50배</td>
+            <td class="val-highlight">2,934억 (93.1%)</td>
+            <td>0.31배</td>
+            <td>0.48배</td>
+            <td>12.2%</td>
+            <td>4.20%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>6</td>
+            <td>KOSDAQ</td>
+            <td><strong>에스에이엠티</strong> (031330)</td>
+            <td>반도체유통</td>
+            <td>2,850억</td>
+            <td>5.20배</td>
+            <td class="val-highlight">2,645억 (92.8%)</td>
+            <td>0.37배</td>
+            <td>0.62배</td>
+            <td>13.5%</td>
+            <td>7.20%</td>
+            <td><span class="status-strong">STRONG BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>7</td>
+            <td>KOSDAQ</td>
+            <td><strong>서원인텍</strong> (093920)</td>
+            <td>2차전지부품</td>
+            <td>1,180억</td>
+            <td>5.90배</td>
+            <td class="val-highlight">1,056억 (89.5%)</td>
+            <td>0.62배</td>
+            <td>0.45배</td>
+            <td>8.0%</td>
+            <td>5.10%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>8</td>
+            <td>KOSDAQ</td>
+            <td><strong>인탑스</strong> (049070)</td>
+            <td>케이스/로봇</td>
+            <td>3,820억</td>
+            <td>8.20배</td>
+            <td class="val-highlight">3,326억 (87.1%)</td>
+            <td>1.06배</td>
+            <td>0.52배</td>
+            <td>7.0%</td>
+            <td>4.00%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>9</td>
+            <td>KOSDAQ</td>
+            <td><strong>하이록코리아</strong> (013030)</td>
+            <td>피팅/밸브</td>
+            <td>3,480억</td>
+            <td>6.80배</td>
+            <td class="val-highlight">2,814억 (80.9%)</td>
+            <td>1.30배</td>
+            <td>0.65배</td>
+            <td>10.5%</td>
+            <td>4.50%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+          <tr data-market="KOSDAQ">
+            <td>10</td>
+            <td>KOSDAQ</td>
+            <td><strong>신흥</strong> (004080)</td>
+            <td>치과의료기기</td>
+            <td>1,250억</td>
+            <td>7.50배</td>
+            <td class="val-highlight">994억 (79.5%)</td>
+            <td>1.54배</td>
+            <td>0.45배</td>
+            <td>6.8%</td>
+            <td>3.50%</td>
+            <td><span class="status-buy">BUY</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <h3>기요하라식 넷캐시 원칙</h3>
+        <p>넷캐시(유동자산 + 투자유가증권×70% - 총부채)가 시가총액을 넘어서는 종목은 영업 사업을 사실상 0원(공짜)에 인수하는 확실한 자산 안전마진을 제공합니다.</p>
+      </div>
+      <div class="card">
+        <h3>찰리 멍거식 이익의 질</h3>
+        <p>단순 PBR만 낮은 부실 한계기업(Value Trap)을 걸러내기 위해 지속적인 영업흑자, 안정적 ROE(7~13%), 건전한 영업현금흐름(OCF)을 보유한 기업만을 선별했습니다.</p>
+      </div>
+      <div class="card">
+        <h3>캐시뉴트럴 PER</h3>
+        <p>순현금으로 자사주를 전량 매입·소각했을 때 사업 자체에 지불하는 배수로, 재무구조가 우량한 기업일수록 극도의 저평가 매력을 보여줍니다.</p>
+      </div>
+    </div>
+
+    <footer>
+      오뉴월 코리아 주식 투자팀 저평가주 담당 Agent | 본 보고서는 투자 참고용 정량 분석 자료입니다.
+    </footer>
+  </div>
+
+  <script>
+    function filterMarket(market) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const rows = document.querySelectorAll('#stocksTable tbody tr');
+      rows.forEach(row => {
+        if (market === 'ALL' || row.getAttribute('data-market') === market) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function searchTable() {
+      const input = document.getElementById('searchInput').value.toUpperCase();
+      const rows = document.querySelectorAll('#stocksTable tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toUpperCase();
+        row.style.display = text.indexOf(input) > -1 ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

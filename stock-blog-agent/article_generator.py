@@ -2123,20 +2123,20 @@ class ArticleGenerator:
                 {h_title}
               </h3>
               
-              <!-- 1. 핵심 이슈 개요 & 시장 배경 (100% 자체 리서치 텍스트) -->
+              <!-- 1. 핵심 요약 -->
               <div style="margin-bottom: 18px; padding: 18px 22px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; font-size: 1.05rem; line-height: 2.1; color: #cbd5e1;">
-                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">📌 핵심 이슈 개요 &amp; 시장 배경:</strong>
+                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">📌 핵심 요약:</strong>
                 {news_full_summary}
               </div>
               
-              <!-- 2. 리서치센터 전문 코멘트 & 관련 섹터 -->
+              <!-- 2. 리서치 코멘트 & 관련 섹터 -->
               <div style="padding: 18px 22px; background: rgba(6, 182, 212, 0.06); border-radius: 10px; font-size: 1rem; line-height: 2.0;">
                 <div style="margin-bottom: 12px;">
-                  <strong style="color:var(--accent-cyan);">💡 리서치센터 전문 코멘트:</strong><br>
+                  <strong style="color:var(--accent-cyan);">💡 리서치 코멘트:</strong><br>
                   {analysis_text}
                 </div>
                 <div>
-                  <strong style="color:var(--accent-emerald);">🎯 시장 영향 &amp; 관련 섹터:</strong><br>
+                  <strong style="color:var(--accent-emerald);">🎯 관련 섹터:</strong><br>
                   {target_sectors}
                 </div>
               </div>

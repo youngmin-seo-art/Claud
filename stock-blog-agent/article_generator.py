@@ -2499,13 +2499,14 @@ class ArticleGenerator:
         kospi_val = kospi.get('price', 6803.90) if isinstance(kospi, dict) else 6803.90
 
         us_tone = "상승세를 이어갔습니다" if (sp500_chg >= 0 and nasdaq_chg >= 0) else "혼조세 및 숨고르기 흐름을 보였습니다" if (sp500_chg * nasdaq_chg <= 0) else "소폭 조정을 받으며 숨고르기 장세를 보였습니다"
-        fx_tone = "원화 강세 기조가 지속되는 가운데" if usdkrw_val < 1360 else "안정적인 박스권 흐름을 유지하는 가운데"
+        fx_tone = f"{usdkrw_val:,.0f}원 선에서 안정세를 보이는 가운데" if usdkrw_val < 1360 else "안정적인 박스권 흐름을 유지하는 가운데"
+        sox_chg_val = sox.get("change", sox.get("diffRate", -1.15)) if isinstance(sox, dict) else -1.15
 
-        index_summary_text = f"밤사이 뉴욕증시는 국채금리 등락 속 3대 주요 지수가 {us_tone}. 원/달러 환율은 {usdkrw_val:,.2f}원으로 {fx_tone}, 국내 증시는 코스피 {kospi_val:,.0f}선 지지력 테스트 및 반도체·원전·실적 우량주 중심의 선별적 반등 시도가 주목됩니다."
+        index_summary_text = f"밤사이 뉴욕증시는 3대 주요 지수가 {us_tone}. 원/달러 환율이 {fx_tone}, 국내 증시는 코스피 {kospi_val:,.0f}선 지지력 테스트 및 반도체·원전·실적 우량주 중심의 선별적 반등 시도가 주목됩니다."
 
-        point_us = f"📌 <strong>뉴욕증시 동향:</strong> S&amp;P 500({sp500_chg:+.2f}%), 나스닥({nasdaq_chg:+.2f}%), 다우({dji_chg:+.2f}%) 등 주요 지수 등락 속 테크주 실적 가시성 주시."
-        point_fx = f"📌 <strong>환율 &amp; 수급:</strong> 원/달러 환율 {usdkrw_val:,.2f}원({usdkrw_chg:+.2f}%)으로 외국인 선물 순매수 방향성 주목."
-        point_strat = "📌 <strong>오늘의 시장 전략:</strong> 웨스팅하우스 IP 협상 수혜 원전·전력 인프라 및 AI 반도체·HBM 핵심 소부장 중심 분할 매매 대응."
+        point_us = f"📌 <strong>뉴욕증시 동향:</strong> S&amp;P 500({sp500_chg:+.2f}%), 나스닥({nasdaq_chg:+.2f}%), 다우({dji_chg:+.2f}%), 필라델피아 반도체({sox_chg_val:+.2f}%) 주요 지수 숨고르기 속 실적 장세 지속."
+        point_fx = f"📌 <strong>환율 &amp; 수급:</strong> 원/달러 환율 {usdkrw_val:,.2f}원({usdkrw_chg:+.2f}%)으로 외국인 코스피200 선물 순매수 방향성 주목."
+        point_strat = "📌 <strong>오늘의 시장 전략:</strong> 웨스팅하우스 IP 협상 수혜 원전·전력 인프라 및 AI 반도체·HBM 핵심 소부장, 저PBR 밸류업 압축 대응."
 
         briefing_section_html = f"""    <!-- Morning Market Briefing Section (오늘의 시황 세션) -->
     <section class="morning-briefing-wrap" id="morningBriefingSession" aria-label="오늘의 증시 시황">

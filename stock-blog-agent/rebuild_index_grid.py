@@ -84,6 +84,11 @@ def rebuild_index_grid():
             badge_html = '<span class="post-badge breakout">🚀 상승초입주</span>'
             author = "차트마스터"
             avatar = "C"
+        elif "valuation" in filename or "삼성중공업" in filename or "종목가치" in raw_title:
+            category = "valuation"
+            badge_html = '<span class="post-badge valuation" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; font-weight:700;">📊 종목가치 분석</span>'
+            author = "기업분석팀"
+            avatar = "V"
         else:
             category = "undervalued"
             badge_html = '<span class="post-badge undervalued">💎 저평가 가치주</span>'

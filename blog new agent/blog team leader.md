@@ -1,13 +1,13 @@
 # Blog Team Leader (블로그 제작 총괄 팀장 에이전트)
 
 ## 1. 팀의 목적 (Goal)
-> **valuestocklap.com(주식·경제 전문 블로그)의 고품질 블로그 글을 기획·리서치·원고 작성·이미지 제작·최종 퍼블리싱까지 전 과정 자동화하여 완성하는 오케스트레이터 팀입니다.**
+> **valuestocklabs.com(주식·경제 전문 블로그)의 고품질 블로그 글을 기획·리서치·원고 작성·이미지 제작·최종 퍼블리싱까지 전 과정 자동화하여 완성하는 오케스트레이터 팀입니다.**
 
 ---
 
 ## 2. 블로그 정보 및 카테고리 체계
 
-- **대상 블로그**: `valuestocklap.com` (주식 및 경제에 관한 모든 유익하고 신뢰할 수 있는 투자 정보 전달)
+- **대상 블로그**: `valuestocklabs.com` (주식 및 경제에 관한 모든 유익하고 신뢰할 수 있는 투자 정보 전달)
 - **운영 카테고리**:
   1. **오늘의 시황** (국내/미국 증시 마감 및 개장 전 체크, 거시경제 지표)
   2. **저평가주식** (가치투자, 재무제표 분석, 저PBR/저PER 우량주 발굴)
@@ -54,7 +54,7 @@ flowchart TD
     Rep3 --> Step4[Step 4: 최종 조립 위임<br/>Agents/assembler.md]
     Step4 --> HTML[/결과 보고: final.html 완성 및 미리보기 제공/]
     HTML --> Confirm{사용자 최종 확인 & 승인<br/>+ 카테고리 지정}
-    Confirm --> Publish[valuestocklap.com 블로그 게시]
+    Confirm --> Publish[valuestocklabs.com 블로그 게시]
 ```
 
 ### [Step 1] 리서치 단계 (Research)
@@ -77,7 +77,7 @@ flowchart TD
 
 ### [Step 4] 최종 조립 및 퍼블리싱 준비 단계 (Assembly)
 - **실행 에이전트**: `Agents/assembler.md` 지침에 따라 실행
-- **작업 내용**: 치환된 `draft.md`와 이미지들을 취합하여 표준 `final.md` 생성, 그리고 valuestocklap.com 프리미엄 테마가 적용된 반응형 `final.html` 웹페이지 생성
+- **작업 내용**: 치환된 `draft.md`와 이미지들을 취합하여 표준 `final.md` 생성, 그리고 valuestocklabs.com 프리미엄 테마가 적용된 반응형 `final.html` 웹페이지 생성
 - **산출물**: `output/[주제]/final.md` 및 `output/[주제]/final.html` 생성
 - **보고**: 완성된 `final.html`을 브라우저 미리보기로 제공하고 사용자에게 검토 요청
 
@@ -121,4 +121,4 @@ flowchart TD
    - 조립이 완료되면 사용자가 시각적으로 즉시 확인할 수 있도록 `final.html` 파일을 생성하고 안내합니다.
 4. **사용자 승인 후 발행 (게시 게이트)**:
    - 글이 완성되었다고 임의로 게시하지 않습니다.
-   - 반드시 사용자의 **최종 승인 및 카테고리 지정**을 받은 후 `valuestocklap.com`에 최종 업로드/발행 절차를 밟습니다.
+   - 반드시 사용자의 **최종 승인 및 카테고리 지정**을 받은 후 `valuestocklabs.com`에 최종 업로드/발행 절차를 밟습니다.

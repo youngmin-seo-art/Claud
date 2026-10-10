@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두산에너빌리티 (034020) — 기요하라 × 멍거 모델 심층 리서치</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-orange: #d29922;
+      --accent-red: #f85149;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .container { max-width: 1040px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(248, 81, 73, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(248, 81, 73, 0.3);
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 1.9rem; color: var(--text-bright); margin-bottom: 8px; }
+    .meta { font-size: 0.85rem; color: #8b949e; margin-bottom: 16px; }
+    .verdict-box {
+      background: rgba(248, 81, 73, 0.1);
+      border-left: 4px solid var(--accent-red);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-top: 16px;
+      font-size: 1.05rem;
+      color: var(--text-bright);
+    }
+    .verdict-box strong { color: var(--accent-red); }
+    
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3 { font-size: 1.05rem; color: var(--accent); margin: 16px 0 8px 0; }
+    
+    .grid-kpi {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: #21262d;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .kpi-title { font-size: 0.8rem; color: #8b949e; margin-bottom: 4px; }
+    .kpi-val { font-size: 1.4rem; font-weight: 700; color: var(--text-bright); }
+    .kpi-val.red { color: var(--accent-red); }
+    .kpi-val.green { color: var(--accent-green); }
+    .kpi-desc { font-size: 0.75rem; color: #8b949e; margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background-color: #21262d;
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+    tr:hover { background-color: rgba(255,255,255,0.02); }
+    .highlight { font-weight: 700; color: var(--accent-red); }
+    .highlight-green { font-weight: 700; color: var(--accent-green); }
+    .pass { color: var(--accent-green); font-weight: 700; }
+    .fail { color: var(--accent-red); font-weight: 700; }
+    
+    ul, ol { padding-left: 20px; margin-top: 8px; }
+    li { margin-bottom: 8px; font-size: 0.92rem; }
+    
+    .alert {
+      background: rgba(210, 153, 34, 0.1);
+      border-left: 4px solid var(--accent-orange);
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .alert-danger {
+      background: rgba(248, 81, 73, 0.12);
+      border-left: 4px solid var(--accent-red);
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #8b949e;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">기요하라 × 찰리 멍거 모델 심층 리서치</div>
+      <h1>두산에너빌리티 (034020)</h1>
+      <div class="meta">
+        기준일자: 2026년 10월 10일 | 작성: 오뉴월 코리아 주식 투자팀 저평가주 담당 Agent | 대상: KOSPI 대형 플랜트/원전
+      </div>
+      <div class="verdict-box">
+        <strong>📌 최종 판정: [ 탈락 (FAIL / 투자 부적격) ]</strong><br>
+        체코 원전 및 SMR 르네상스라는 강력한 내러티브가 존재하나, 시가총액(약 51.6조 원) 대비 넷캐시가 마이너스 5.0조 원(넷캐시 비율 -9.74%)에 달하고, PER 152~463배 및 PBR 6.31배에 거래되는 전형적인 '고평가 수주 모멘텀 대형주'로서 기요하라식 넷캐시 안전마진과 찰리 멍거식 자본수익률(ROE 1~4%) 및 지배구조 필터를 전면 결격함.
+      </div>
+    </header>
+
+    <!-- Key Metrics Grid -->
+    <div class="grid-kpi">
+      <div class="kpi-card">
+        <div class="kpi-title">시가총액 (2026-10-10)</div>
+        <div class="kpi-val">51.6조 원</div>
+        <div class="kpi-desc">주가 80,500원 기준</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">기요하라 넷캐시</div>
+        <div class="kpi-val red">-5조 220억</div>
+        <div class="kpi-desc">유동자산 + 유가증권(70%) - 부채총계</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">넷캐시 비율</div>
+        <div class="kpi-val red">-9.74%</div>
+        <div class="kpi-desc">기준: 100% 이상 (결격)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Trailing PER / PBR</div>
+        <div class="kpi-val red">462.9배 / 6.31배</div>
+        <div class="kpi-desc">Forward PER 152.1배</div>
+      </div>
+    </div>
+
+    <!-- 1. 사업 요약 -->
+    <div class="card">
+      <h2>1. 사업 요약 (능력의 범위)</h2>
+      <ol>
+        <li><strong>핵심 역량:</strong> 두산에너빌리티는 대형 원자력발전소 주기기(원자로, 증기발생기, 터빈발전기), 대형 가스터빈, SMR(소형 모듈 원자로), 해상풍력 설비를 제작·공급하는 국내 유일의 원자력·발전 플랜트 종합 중공업 기업입니다.</li>
+        <li><strong>수주 및 공급망:</strong> 팀코리아 컨소시엄을 통한 체코 신규 원전 주기기 공급권을 확보하고 있으며, 미국 뉴스케일파워(NuScale)·엑스에너지(X-energy) 등 글로벌 SMR 선도 개발사들의 핵심 단조 기자재 공급망을 선점하고 있습니다.</li>
+        <li><strong>구조적 한계:</strong> 대형 플랜트 수주 산업 특성상 수주에서 매출 인식까지 수년이 소요되고, 과거 두산중공업 시절 누적된 15조 원 이상의 막대한 부채와 그룹 지배구조 개편에 따른 일반 주주 권익 침해 리스크가 상존합니다.</li>
+      </ol>
+    </div>
+
+    <!-- 2. 숫자 검증 -->
+    <div class="card">
+      <h2>2. 숫자 검증 (기요하라 필터)</h2>
+      <p style="font-size:0.85rem; color:#8b949e; margin-bottom:12px;">DART 연결 재무제표 및 KRX 시세 기준 (단위: 억 원, 주가 80,500원 기준 Python 오차 제로 연산)</p>
+      <table>
+        <thead>
+          <tr>
+            <th>평가 항목</th>
+            <th>산출값</th>
+            <th>공시 출처 및 산출 기준</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>시가총액</strong></td>
+            <td><strong>515,652 억 원 (약 51.6조 원)</strong></td>
+            <td>KRX 2026-10-10 종가 80,500원 × 640,561,146주</td>
+          </tr>
+          <tr>
+            <td><strong>유동자산</strong></td>
+            <td><strong>107,720 억 원</strong></td>
+            <td>DART 최신 연결 재무상태표</td>
+          </tr>
+          <tr>
+            <td><strong>투자유가증권 (70% 반영)</strong></td>
+            <td><strong>1,610 억 원</strong></td>
+            <td>비유동 금융자산 2,300억 원 × 0.7</td>
+          </tr>
+          <tr>
+            <td><strong>부채총계</strong></td>
+            <td><strong>159,550 억 원</strong></td>
+            <td>DART 연결 재무상태표 (차입금 및 사채 포함)</td>
+          </tr>
+          <tr>
+            <td><strong>재고자산</strong></td>
+            <td><strong>28,950 억 원</strong></td>
+            <td>원재료, 재공품 및 미착품 재고</td>
+          </tr>
+          <tr>
+            <td><strong class="highlight">넷캐시 (Net Cash)</strong></td>
+            <td class="highlight"><strong>-50,220 억 원 (-5.0조 원)</strong></td>
+            <td>$107,720억 + 1,610억 - 159,550억$ (만성 음수)</td>
+          </tr>
+          <tr>
+            <td><strong class="highlight">보수적 넷캐시 (재고 차감)</strong></td>
+            <td class="highlight"><strong>-79,170 억 원 (-7.9조 원)</strong></td>
+            <td>$-50,220억 - 28,950억$</td>
+          </tr>
+          <tr>
+            <td><strong class="highlight">넷캐시 비율 (Net Cash Ratio)</strong></td>
+            <td class="highlight"><strong>-9.74%</strong></td>
+            <td>넷캐시 ÷ 시가총액 (기준 100% 대비 극심한 결격)</td>
+          </tr>
+          <tr>
+            <td><strong>PER (Trailing 지배순익)</strong></td>
+            <td class="highlight"><strong>462.88 배</strong></td>
+            <td>시총 ÷ 2024년 결산 지배주주순이익(1,114억 원)</td>
+          </tr>
+          <tr>
+            <td><strong>PER (Forward 2026E)</strong></td>
+            <td class="highlight"><strong>152.11 배</strong></td>
+            <td>시총 ÷ 2026년 추정 지배순익(3,390억 원)</td>
+          </tr>
+          <tr>
+            <td><strong>캐시뉴트럴 PER</strong></td>
+            <td class="highlight"><strong>507.96 배</strong></td>
+            <td>$\text{PER} \times (1 - \text{넷캐시비율})$ (부채로 가중)</td>
+          </tr>
+          <tr>
+            <td><strong>PBR</strong></td>
+            <td class="highlight"><strong>6.31 배</strong></td>
+            <td>주가 80,500원 ÷ BPS 12,767원</td>
+          </tr>
+          <tr>
+            <td><strong>ROE (자기자본이익률)</strong></td>
+            <td><strong>1.11% ~ 1.52%</strong></td>
+            <td>최근 3개년 평균 1%대 초반 (2026E 4.22%)</td>
+          </tr>
+          <tr>
+            <td><strong>1단계 모델 적정 PER</strong></td>
+            <td><strong>12.50 배</strong></td>
+            <td>$r=8\%, g=0\%$ 보수적 무성장 기준</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert-danger" style="margin-top:16px;">
+        <strong>⚠️ 기요하라식 안전마진 완전 붕괴:</strong> 시가총액이 51.6조 원에 달하는 반면, 회사의 유동자산에서 전체 부채를 뺀 넷캐시는 <strong>마이너스 5.0조 원</strong>에 달합니다. '회사를 공짜로 사고 순현금을 얹어 받는' 기요하라식 저평가주 기준에 정반대편에 위치한 극단의 고평가 상태입니다.
+      </div>
+    </div>
+
+    <!-- 3. 경영자 평가 -->
+    <div class="card">
+      <h2>3. 경영자 평가 및 자본 배치</h2>
+      <ul>
+        <li><strong>기술 및 성장 비전:</strong> 가스터빈 1호기 국산화 상용화 및 초대형 SMR 단조 설비 구축 등 원전 르네상스 국면에서의 기술 리더십과 외형 확장 의지는 인정됨.</li>
+        <li><strong>지배구조 및 주주가치 훼손 논란 (찰리 멍거 감점 요인):</strong> 2024년 알짜 자회사인 두산밥캣을 적자 상태의 두산로보틱스로 포괄적 주식교환 하려다 일반 주주들의 극심한 반발과 금융당국 제동으로 무산된 사건은, 경영진이 일반 주주의 비례적 이익보다 대주주의 지배권 이익을 우선시한다는 심각한 거버넌스 불신을 초래함.</li>
+        <li><strong>주주환원 정책 부재:</strong> 무배당 지속(시가배당률 0%), 부채비율 136%에 따른 이자비용 부담으로 자사주 매입/소각 등 실질 주주환원 여력 전무.</li>
+      </ul>
+    </div>
+
+    <!-- 4. 찰리 멍거 10대 체크리스트 -->
+    <div class="card">
+      <h2>4. 찰리 멍거 10대 체크리스트 검증</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>질문 항목</th>
+            <th style="width:100px;">판정</th>
+            <th>세부 검증 근거</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>사업 구조를 쉽게 설명할 수 있는가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>초대형 플랜트 수주, 지재권 소송, 원전 인허가, 복잡한 파이낸싱 구조 등 난도 극상</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>10년 뒤에도 시장 지배력이 유지되는가?</td>
+            <td class="pass">통과 (Pass)</td>
+            <td>AI 전력 수요 및 무탄소 기저부하 수요로 독점적 기자재 공급 지위 유지 전망</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>경제적 해자가 명확한가?</td>
+            <td class="pass">통과 (Pass)</td>
+            <td>17,000톤급 프레스 기반 초대형 주단조 설비 및 APR1400 원자로 제작 독점력</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>장기 자본수익률(ROE)이 우수한가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>최근 3개년 ROE 1.1%~1.5%로 자본비용(COE 8~10%)에 크게 미달하는 자본 파괴적 상태</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>경영진이 정직하고 주주 친화적인가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>두산밥캣 합병 논란 및 과거 유상증자 등 일반 주주 권익 침해 이력 존재</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>부채 수준이 감당 가능한가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>부채총계 15.9조 원, 부채비율 136%, 넷캐시 -5.0조 원으로 거시 충격 취약</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>현재 주가가 충분히 싼가? (안전마진)</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>PBR 6.31배, PER 152~463배로 안전마진 전무 (사상 최고조 프리미엄)</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>최선의 대안 종목보다 기대수익이 높은가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>넷캐시 비율 100% 이상, PER 4~6배, ROE 12%+ 알짜 종목 대비 열위</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>실패 시나리오(사전 부검)를 검토했는가?</td>
+            <td class="pass">통과 (Pass)</td>
+            <td>체코 원전 본계약 지연, WEC 소송 리스크 등 5대 위험 요인 확인 완료</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>25가지 심리 편향 점검을 마쳤는가?</td>
+            <td class="fail">결격 (Fail)</td>
+            <td>화려한 원전 내러티브에 휘둘리는 가용성 및 이유존중 편향 노출</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert" style="margin-top:16px;">
+        <strong>멍거의 곱셈 법칙:</strong> 10개 문항 중 6개 결격 ($이해(0) \times 해자(1) \times 경영진(0) \times 가격(0) = 0$). 필터 곱셈 원칙상 최종 판정은 <strong>[ 탈락 ]</strong>입니다.
+      </div>
+    </div>
+
+    <!-- 5. 사전 부검 5선 -->
+    <div class="card">
+      <h2>5. 반대 논리 및 사전 부검 (Pre-Mortem 5선)</h2>
+      <p style="font-size:0.9rem; margin-bottom:12px; color:#8b949e;">"만약 3년 뒤 두산에너빌리티 주가가 50% 폭락했다면 그 원인은 무엇인가?"</p>
+      <ul>
+        <li><strong>1. 웨스팅하우스(WEC) 지재권 분쟁 장기화:</strong> 한미 원전 합의 과정에서 거액의 로열티 지급 또는 독점권 양보로 체코 등 해외 원전 프로젝트의 실질 마진이 훼손될 위험.</li>
+        <li><strong>2. SMR(소형 모듈 원자로) 상용화 지연:</strong> 뉴스케일파워 등 북미 프로젝트의 인허가 지연과 건설 단가 상승으로 실제 착공이 2030년 이후로 지연되며 밸류에이션 버블이 붕괴될 위험.</li>
+        <li><strong>3. 지배구조 개편 리스크 재발:</strong> 그룹 차원의 자회사 합병/분할 과정에서 일반 주주가치가 희석되는 구조 개편이 재추진될 위험.</li>
+        <li><strong>4. 고금리 장기화에 따른 금융비용 압박 및 유상증자:</strong> 15조 원 부채의 이자비용과 CAPEX를 감당하지 못해 주주배정 유상증자를 단행할 위험.</li>
+        <li><strong>5. 글로벌 에너지 정책 변동성:</strong> 유럽 등 주요국의 정치 지형 변화로 신규 원전 발주가 취소되거나 지연되는 정책적 리스크.</li>
+      </ul>
+    </div>
+
+    <!-- 6. 심리 편향 점검 -->
+    <div class="card">
+      <h2>6. 심리 편향 점검 및 롤라팔루자 경고</h2>
+      <ul>
+        <li><strong>가용성 오판 편향:</strong> 체코 원전 우선협상자 선정, AI 데이터센터 원전 붐 등 언론 헤드라인에 취해 15조 원 부채와 1%대 ROE라는 재무적 현실을 외면함.</li>
+        <li><strong>대비 오반응 편향:</strong> 최근 단기 조정 폭을 보고 싸다고 착각하나, 장기 PBR 6.31배는 역사적 최고 수준의 고평가 영역임.</li>
+        <li><strong>이유 존중 편향:</strong> 'AI 전력난 때문에 원전이 필수'라는 거시적 이유가 타당하다고 해서, 적정 PER(12.5배)의 12배를 웃도는 가격(152배)을 정당화함.</li>
+      </ul>
+      <div class="alert-danger">
+        <strong>⚠️ 롤라팔루자(Lollapalooza) 경고 발동:</strong> 복수의 심리 편향이 중첩되어 비이성적 과열 상태가 형성됨. 기요하라 × 멍거 모델 기준 매수 절대 불가 및 비중 축소 권고 대상.
+      </div>
+    </div>
+
+    <footer>
+      오뉴월 코리아 주식 투자팀 저평가주 담당 Agent | DART 공시 및 KRX 시세 기반 객관적 분석<br>
+      ⚠️ 본 리포트는 가치평가 방법론에 입각한 객관적 분석 자료이며 매수·매도를 추천하지 않습니다. 최종 투자 결정과 책임은 투자자 본인에게 있습니다.
+    </footer>
+  </div>
+</body>
+</html>

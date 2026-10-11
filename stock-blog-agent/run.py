@@ -9,13 +9,13 @@ STOCK BLOG AGENT - MASTER CLI (run.py)
   - KST(한국 표준시) 타임존 완벽 지원 (로컬 PC 및 GitHub Actions 환경 호환)
 =============================================================================
 사용법:
-  1. 자동 트렌드 분석 & 발행 (주말/공휴일 자동 스킵): python run.py --auto
-  2. 아침 8시 모닝 시황 브리핑 (주말/공휴일 자동 스킵): python run.py --morning
-  3. 주말/공휴일에도 강제 발행: python run.py --auto --force
-  4. 특정 종목/키워드 지정: python run.py --keyword "삼성전자 HBM4 반도체"
-  5. 로컬 테스트 (Git Push 제외): python run.py --auto --test
-  6. 정기 시각 스케줄러: python run.py --daily-at 08:00
-  7. 오늘 휴장일/공휴일 여부 확인: python run.py --check-holiday
+  1. 자동 트렌드 종목 분석 & 발행 (주말/공휴일 자동 스킵): python run.py --auto
+  2. 주말/공휴일에도 강제 발행: python run.py --auto --force
+  3. 특정 종목/키워드 지정: python run.py --keyword "삼성전자 HBM4 반도체"
+  4. 로컬 테스트 (Git Push 제외): python run.py --auto --test
+  5. 정기 시각 스케줄러: python run.py --daily-at 08:00
+  6. 오늘 휴장일/공휴일 여부 확인: python run.py --check-holiday
+  ※ '오늘의 시황'은 blog new agent/blog team leader.md 파이프라인에서 전담합니다.
 =============================================================================
 """
 

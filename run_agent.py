@@ -2,10 +2,10 @@
 루트 디렉토리 바로가기 실행기
 사용법:
   python run_agent.py --auto
-  python run_agent.py --morning
   python run_agent.py --auto --force
   python run_agent.py --keyword "삼성전자 HBM4"
   python run_agent.py --check-holiday
+  (※ 오늘의 시황은 blog new agent/blog team leader.md에서 전담)
 """
 import sys
 import subprocess

@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-11",
+ "season": 1,
+ "day": 2,
+ "theme_ko": "시즌 1 · 레이첼의 첫 월급과 원숭이 마르셀",
+ "createdAt": "2026-10-11T15:42:48+09:00",
+ "words": [
+  {
+   "en": "broke",
+   "ipa": "/broʊk/",
+   "pos": "adjective",
+   "ko": "빈털터리인",
+   "def_en": "having no money",
+   "ex_en": "Joey is broke again, so Chandler pays for pizza.",
+   "ex_ko": "조이가 또 빈털터리라서 챈들러가 피자값을 내.",
+   "scene_ko": "일거리가 없는 조이가 친구에게 기댈 때"
+  },
+  {
+   "en": "paycheck",
+   "ipa": "/ˈpeɪtʃek/",
+   "pos": "noun",
+   "ko": "월급, 급료",
+   "def_en": "the money you receive for your work",
+   "ex_en": "Rachel finally got her first paycheck today!",
+   "ex_ko": "레이첼이 오늘 드디어 첫 월급을 받았어!",
+   "scene_ko": "레이첼이 커피숍에서 일해 처음 월급을 받을 때"
+  },
+  {
+   "en": "clumsy",
+   "ipa": "/ˈklʌmzi/",
+   "pos": "adjective",
+   "ko": "서투른, 덜렁대는",
+   "def_en": "moving or acting in an awkward, careless way",
+   "ex_en": "Sorry, I'm so clumsy. I spilled coffee again.",
+   "ex_ko": "미안, 내가 너무 덜렁대서 또 커피를 쏟았어.",
+   "scene_ko": "서빙이 서툰 레이첼이 실수를 연발할 때"
+  },
+  {
+   "en": "sarcastic",
+   "ipa": "/sɑːrˈkæstɪk/",
+   "pos": "adjective",
+   "ko": "비꼬는, 빈정대는",
+   "def_en": "saying the opposite of what you mean to mock",
+   "ex_en": "Chandler gets sarcastic whenever he feels nervous.",
+   "ex_ko": "챈들러는 긴장할 때마다 비꼬는 말을 해.",
+   "scene_ko": "챈들러가 어색한 순간을 농담으로 넘길 때"
+  },
+  {
+   "en": "gorgeous",
+   "ipa": "/ˈɡɔːrdʒəs/",
+   "pos": "adjective",
+   "ko": "아주 멋진, 근사한",
+   "def_en": "very beautiful or attractive",
+   "ex_en": "Monica, this apartment is gorgeous!",
+   "ex_ko": "모니카, 이 아파트 정말 근사하다!",
+   "scene_ko": "친구들이 모니카의 넓은 아파트를 부러워할 때"
+  },
+  {
+   "en": "stubborn",
+   "ipa": "/ˈstʌbərn/",
+   "pos": "adjective",
+   "ko": "고집 센",
+   "def_en": "refusing to change your mind",
+   "ex_en": "Ross is too stubborn to admit he's wrong.",
+   "ex_ko": "로스는 고집이 너무 세서 틀린 걸 인정 안 해.",
+   "scene_ko": "로스가 자기 주장을 끝까지 굽히지 않을 때"
+  },
+  {
+   "en": "overreact",
+   "ipa": "/ˌoʊvəriˈækt/",
+   "pos": "verb",
+   "ko": "과민 반응하다",
+   "def_en": "to react more strongly than necessary",
+   "ex_en": "Relax, Monica. You're overreacting about a little mess.",
+   "ex_ko": "진정해, 모니카. 좀 어질러진 걸로 과민 반응이야.",
+   "scene_ko": "깔끔한 모니카가 어질러진 집을 보고 난리 칠 때"
+  },
+  {
+   "en": "humiliating",
+   "ipa": "/hjuːˈmɪlieɪtɪŋ/",
+   "pos": "adjective",
+   "ko": "굴욕적인, 창피한",
+   "def_en": "making you feel very embarrassed",
+   "ex_en": "Getting dumped on my birthday was so humiliating.",
+   "ex_ko": "생일에 차인 건 정말 굴욕적이었어.",
+   "scene_ko": "실연당한 친구가 창피했던 일을 털어놓을 때"
+  },
+  {
+   "en": "exhausted",
+   "ipa": "/ɪɡˈzɔːstɪd/",
+   "pos": "adjective",
+   "ko": "기진맥진한",
+   "def_en": "extremely tired",
+   "ex_en": "Phoebe's exhausted after singing at the coffee house all night.",
+   "ex_ko": "피비는 밤새 커피숍에서 노래하고 녹초가 됐어.",
+   "scene_ko": "피비가 센트럴 퍼크 공연을 마친 뒤"
+  },
+  {
+   "en": "ultrasound",
+   "ipa": "/ˈʌltrəsaʊnd/",
+   "pos": "noun",
+   "ko": "초음파 검사",
+   "def_en": "a scan that shows a baby inside the body",
+   "ex_en": "Ross is nervous about going to Carol's ultrasound.",
+   "ex_ko": "로스는 캐롤의 초음파 검사에 가는 게 긴장돼.",
+   "scene_ko": "로스가 전 부인 캐롤의 아기 검진에 함께 갈 때"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "make ends meet",
+   "ipa": "",
+   "pos": "",
+   "ko": "근근이 먹고살다",
+   "def_en": "to earn just enough money to live",
+   "ex_en": "Rachel works extra shifts just to make ends meet.",
+   "ex_ko": "레이첼은 겨우 먹고살려고 추가 근무를 해.",
+   "scene_ko": "아빠 카드 없이 혼자 생활비를 벌게 된 레이첼"
+  },
+  {
+   "en": "a piece of cake",
+   "ipa": "",
+   "pos": "",
+   "ko": "식은 죽 먹기",
+   "def_en": "something very easy",
+   "ex_en": "Making coffee? Please, that's a piece of cake.",
+   "ex_ko": "커피 만들기? 그건 식은 죽 먹기지.",
+   "scene_ko": "레이첼이 첫 출근 날 자신만만할 때"
+  },
+  {
+   "en": "behind someone's back",
+   "ipa": "",
+   "pos": "",
+   "ko": "몰래, 뒤에서",
+   "def_en": "secretly, without the person knowing",
+   "ex_en": "Did you talk about me behind my back, Monica?",
+   "ex_ko": "모니카, 너 내 뒤에서 내 얘기 했어?",
+   "scene_ko": "친구들끼리 비밀 얘기가 들통났을 때"
+  },
+  {
+   "en": "in the same boat",
+   "ipa": "",
+   "pos": "",
+   "ko": "같은 처지인",
+   "def_en": "in the same difficult situation",
+   "ex_en": "Don't worry, Ross. We're all in the same boat.",
+   "ex_ko": "걱정 마, 로스. 우리 다 같은 처지야.",
+   "scene_ko": "모두 연애가 잘 안 풀려 서로 위로할 때"
+  },
+  {
+   "en": "cross the line",
+   "ipa": "",
+   "pos": "",
+   "ko": "선을 넘다",
+   "def_en": "to go beyond what is acceptable",
+   "ex_en": "Joey, reading her diary crosses the line.",
+   "ex_ko": "조이, 그녀 일기를 읽는 건 선 넘는 거야.",
+   "scene_ko": "장난이 지나쳐 친구가 화가 났을 때"
+  },
+  {
+   "en": "give it a shot",
+   "ipa": "",
+   "pos": "",
+   "ko": "한번 해 보다",
+   "def_en": "to try something",
+   "ex_en": "Never cooked before? Just give it a shot, Rachel.",
+   "ex_ko": "요리 안 해 봤어? 그냥 한번 해 봐, 레이첼.",
+   "scene_ko": "레이첼이 처음으로 혼자 무언가에 도전할 때"
+  },
+  {
+   "en": "on the rebound",
+   "ipa": "",
+   "pos": "",
+   "ko": "실연의 반동으로",
+   "def_en": "dating soon after a breakup while still upset",
+   "ex_en": "Careful. Ross might be dating her on the rebound.",
+   "ex_ko": "조심해. 로스가 실연 반동으로 그녀를 만나는 걸 수도 있어.",
+   "scene_ko": "이혼한 로스가 서둘러 새 데이트를 시작할 때"
+  },
+  {
+   "en": "for the record",
+   "ipa": "",
+   "pos": "",
+   "ko": "분명히 말해 두는데",
+   "def_en": "said to make your position clear",
+   "ex_en": "For the record, I never touched your sandwich.",
+   "ex_ko": "분명히 말해 두는데, 난 네 샌드위치 안 건드렸어.",
+   "scene_ko": "억울한 누명을 쓴 친구가 해명할 때"
+  },
+  {
+   "en": "spill the beans",
+   "ipa": "",
+   "pos": "",
+   "ko": "비밀을 털어놓다",
+   "def_en": "to reveal a secret",
+   "ex_en": "Okay, Phoebe, spill the beans. Who's the guy?",
+   "ex_ko": "좋아 피비, 털어놔. 그 남자 누구야?",
+   "scene_ko": "친구들이 피비의 새 남자친구를 캐물을 때"
+  },
+  {
+   "en": "keep an eye on",
+   "ipa": "",
+   "pos": "",
+   "ko": "~을 지켜보다, 봐 주다",
+   "def_en": "to watch or look after",
+   "ex_en": "Can you keep an eye on Marcel for me?",
+   "ex_ko": "나 대신 마르셀 좀 봐 줄래?",
+   "scene_ko": "로스가 애완 원숭이를 친구에게 맡길 때"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "chip in",
+   "ipa": "",
+   "pos": "",
+   "ko": "(돈을) 조금씩 보태다",
+   "def_en": "to give money together with others",
+   "ex_en": "Let's all chip in for Monica's birthday present.",
+   "ex_ko": "다 같이 돈 모아서 모니카 생일 선물 사자.",
+   "scene_ko": "친구들이 함께 선물 값을 나눌 때"
+  },
+  {
+   "en": "calm down",
+   "ipa": "",
+   "pos": "",
+   "ko": "진정하다",
+   "def_en": "to become less upset or excited",
+   "ex_en": "Calm down, Chandler. It's just a blind date.",
+   "ex_ko": "진정해, 챈들러. 그냥 소개팅일 뿐이야.",
+   "scene_ko": "소개팅을 앞둔 챈들러가 안절부절할 때"
+  },
+  {
+   "en": "come over",
+   "ipa": "",
+   "pos": "",
+   "ko": "(집에) 들르다, 놀러 오다",
+   "def_en": "to visit someone's home",
+   "ex_en": "Wanna come over and watch the game tonight?",
+   "ex_ko": "오늘 밤 와서 경기 같이 볼래?",
+   "scene_ko": "조이와 챈들러가 친구를 집에 부를 때"
+  },
+  {
+   "en": "run into",
+   "ipa": "",
+   "pos": "",
+   "ko": "우연히 마주치다",
+   "def_en": "to meet someone by chance",
+   "ex_en": "I ran into Rachel's ex at the supermarket!",
+   "ex_ko": "슈퍼에서 레이첼 전 남친을 우연히 마주쳤어!",
+   "scene_ko": "길에서 뜻밖의 사람을 만났을 때"
+  },
+  {
+   "en": "make up",
+   "ipa": "",
+   "pos": "",
+   "ko": "화해하다",
+   "def_en": "to become friends again after a fight",
+   "ex_en": "Monica and Rachel made up after their big fight.",
+   "ex_ko": "모니카와 레이첼은 크게 싸운 뒤 화해했어.",
+   "scene_ko": "룸메이트끼리 다툰 후 화해할 때"
+  },
+  {
+   "en": "put up with",
+   "ipa": "",
+   "pos": "",
+   "ko": "참다, 견디다",
+   "def_en": "to accept something annoying",
+   "ex_en": "How do you put up with Joey's snoring?",
+   "ex_ko": "조이 코 고는 소리를 어떻게 참아?",
+   "scene_ko": "룸메이트의 생활 습관이 거슬릴 때"
+  },
+  {
+   "en": "sort out",
+   "ipa": "",
+   "pos": "",
+   "ko": "해결하다, 정리하다",
+   "def_en": "to deal with a problem",
+   "ex_en": "Don't worry, we'll sort out the rent problem.",
+   "ex_ko": "걱정 마, 집세 문제는 우리가 해결할게.",
+   "scene_ko": "돈 문제로 고민하는 친구를 도울 때"
+  },
+  {
+   "en": "fall for",
+   "ipa": "",
+   "pos": "",
+   "ko": "~에게 반하다",
+   "def_en": "to start loving someone",
+   "ex_en": "I think Ross is falling for Rachel again.",
+   "ex_ko": "로스가 또 레이첼에게 빠지는 것 같아.",
+   "scene_ko": "로스의 레이첼을 향한 마음이 드러날 때"
+  },
+  {
+   "en": "back off",
+   "ipa": "",
+   "pos": "",
+   "ko": "물러서다, 간섭을 그만두다",
+   "def_en": "to stop pressuring someone",
+   "ex_en": "Back off, guys. Let her decide for herself.",
+   "ex_ko": "얘들아, 그만해. 그녀가 스스로 결정하게 둬.",
+   "scene_ko": "친구들이 지나치게 참견할 때"
+  },
+  {
+   "en": "cheer up",
+   "ipa": "",
+   "pos": "",
+   "ko": "기운 내다",
+   "def_en": "to become happier",
+   "ex_en": "Cheer up, Ross! Let's grab some coffee.",
+   "ex_ko": "힘내, 로스! 커피 한잔하자.",
+   "scene_ko": "우울한 로스를 친구들이 위로할 때"
+  }
+ ]
+}

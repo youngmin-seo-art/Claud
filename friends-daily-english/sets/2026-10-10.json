@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-10",
+  "season": 1,
+  "day": 1,
+  "theme_ko": "시즌 1 · 웨딩드레스를 입고 나타난 레이첼",
+  "createdAt": "2026-10-10T12:00:00+09:00",
+  "words": [
+    {"en": "awkward", "ipa": "/ˈɔːkwərd/", "pos": "adjective", "ko": "어색한, 불편한", "def_en": "uncomfortable or embarrassing", "ex_en": "It's so awkward when Carol walks into the room.", "ex_ko": "캐롤이 방에 들어오면 정말 어색해.", "scene_ko": "로스가 전 부인 캐롤과 마주칠 때"},
+    {"en": "divorce", "ipa": "/dɪˈvɔːrs/", "pos": "noun", "ko": "이혼", "def_en": "the legal end of a marriage", "ex_en": "Ross is still getting over his divorce.", "ex_ko": "로스는 아직 이혼의 아픔을 극복하는 중이야.", "scene_ko": "시즌 초반, 이혼한 로스를 친구들이 위로할 때"},
+    {"en": "independent", "ipa": "/ˌɪndɪˈpendənt/", "pos": "adjective", "ko": "독립적인", "def_en": "not relying on others for money or support", "ex_en": "Rachel wants to be independent from her dad.", "ex_ko": "레이첼은 아빠에게서 독립하고 싶어 해.", "scene_ko": "레이첼이 혼자 힘으로 살아보겠다고 결심할 때"},
+    {"en": "pathetic", "ipa": "/pəˈθetɪk/", "pos": "adjective", "ko": "한심한, 딱한", "def_en": "so weak or bad that it makes people feel sorry", "ex_en": "Chandler, waiting by the phone all night is pathetic.", "ex_ko": "챈들러, 밤새 전화만 기다리는 건 한심해.", "scene_ko": "친구들이 서로의 연애를 놀릴 때"},
+    {"en": "nervous", "ipa": "/ˈnɜːrvəs/", "pos": "adjective", "ko": "긴장한, 초조한", "def_en": "worried and a little afraid", "ex_en": "Monica is so nervous about her date tonight.", "ex_ko": "모니카는 오늘 밤 데이트 때문에 엄청 긴장했어.", "scene_ko": "모니카가 데이트를 앞두고 안절부절할 때"},
+    {"en": "pregnant", "ipa": "/ˈpreɡnənt/", "pos": "adjective", "ko": "임신한", "def_en": "having a baby growing inside the body", "ex_en": "Carol is pregnant, and Ross is going to be a dad.", "ex_ko": "캐롤이 임신했고, 로스는 아빠가 될 거야.", "scene_ko": "로스가 캐롤의 임신 소식을 들을 때"},
+    {"en": "desperate", "ipa": "/ˈdespərət/", "pos": "adjective", "ko": "절박한, 간절한", "def_en": "wanting something very much, almost without hope", "ex_en": "Joey is desperate for any acting job.", "ex_ko": "조이는 연기 일이라면 뭐든 간절해.", "scene_ko": "무명 배우 조이가 오디션을 보러 다닐 때"},
+    {"en": "jealous", "ipa": "/ˈdʒeləs/", "pos": "adjective", "ko": "질투하는", "def_en": "unhappy because someone has what you want", "ex_en": "Ross gets jealous every time Rachel mentions Paolo.", "ex_ko": "레이첼이 파올로 얘기만 하면 로스는 질투해.", "scene_ko": "레이첼에게 이탈리아 남자친구 파올로가 생겼을 때"},
+    {"en": "obsessed", "ipa": "/əbˈsest/", "pos": "adjective", "ko": "집착하는, 푹 빠진", "def_en": "thinking about something all the time", "ex_en": "Monica is obsessed with keeping her apartment clean.", "ex_ko": "모니카는 집을 깨끗하게 유지하는 데 집착해.", "scene_ko": "깔끔쟁이 모니카의 집에서"},
+    {"en": "roommate", "ipa": "/ˈruːmmeɪt/", "pos": "noun", "ko": "룸메이트, 같이 사는 사람", "def_en": "a person who shares an apartment with you", "ex_en": "Do you want to be my roommate, Rachel?", "ex_ko": "레이첼, 나랑 같이 살래?", "scene_ko": "모니카가 갈 곳 없는 레이첼을 받아줄 때"}
+  ],
+  "idioms": [
+    {"en": "have a crush on", "ko": "~에게 반하다, 짝사랑하다", "def_en": "to secretly like someone romantically", "ex_en": "Ross has had a crush on Rachel since high school.", "ex_ko": "로스는 고등학교 때부터 레이첼을 짝사랑해 왔어.", "scene_ko": "로스의 오랜 짝사랑이 드러날 때"},
+    {"en": "get cold feet", "ko": "막판에 겁먹다", "def_en": "to suddenly become too nervous to do something planned", "ex_en": "Rachel got cold feet and ran out of her wedding.", "ex_ko": "레이첼은 겁이 나서 결혼식장에서 도망쳤어.", "scene_ko": "웨딩드레스 차림의 레이첼이 카페에 나타날 때"},
+    {"en": "out of one's league", "ko": "넘볼 수 없는 상대", "def_en": "too attractive or successful for someone", "ex_en": "Come on, Ross. She's not out of your league.", "ex_ko": "에이, 로스. 그녀가 너한테 과분한 사람은 아니야.", "scene_ko": "로스가 레이첼에게 고백할 용기가 없을 때"},
+    {"en": "make a move", "ko": "먼저 다가가다, 대시하다", "def_en": "to start a romantic approach", "ex_en": "If you like her, you have to make a move.", "ex_ko": "그녀가 좋으면 네가 먼저 다가가야지.", "scene_ko": "친구들이 로스에게 고백하라고 부추길 때"},
+    {"en": "friend zone", "ko": "친구로만 남는 관계", "def_en": "a situation where someone sees you only as a friend", "ex_en": "Wait too long and you'll end up in the friend zone.", "ex_ko": "너무 오래 기다리면 그냥 친구로 굳어버린다.", "scene_ko": "조이가 로스에게 연애 조언을 할 때"},
+    {"en": "no big deal", "ko": "별일 아니야", "def_en": "not important or serious", "ex_en": "Relax, Monica. It's no big deal, it's just a lamp.", "ex_ko": "진정해, 모니카. 별거 아니야, 그냥 램프잖아.", "scene_ko": "작은 일에 예민해진 친구를 달랠 때"},
+    {"en": "welcome to the real world", "ko": "현실 세계에 온 걸 환영해", "def_en": "said to someone facing adult life for the first time", "ex_en": "No more Daddy's money? Welcome to the real world.", "ex_ko": "이제 아빠 돈은 없다고? 현실 세계에 온 걸 환영해.", "scene_ko": "레이첼이 처음으로 혼자 살아가기 시작할 때"},
+    {"en": "out of the blue", "ko": "갑자기, 난데없이", "def_en": "suddenly and unexpectedly", "ex_en": "Carol called Ross out of the blue with big news.", "ex_ko": "캐롤이 난데없이 로스에게 큰 소식을 전했어.", "scene_ko": "예상치 못한 소식이 날아들 때"},
+    {"en": "pull yourself together", "ko": "정신 차려, 진정해", "def_en": "to calm down and control your emotions", "ex_en": "Pull yourself together, Ross. We'll find Marcel.", "ex_ko": "정신 차려, 로스. 마르셀은 우리가 찾을 거야.", "scene_ko": "로스의 원숭이 마르셀이 사라졌을 때"},
+    {"en": "the last straw", "ko": "더는 못 참게 만든 마지막 일", "def_en": "the final problem that makes you lose patience", "ex_en": "Paolo flirting with Phoebe was the last straw.", "ex_ko": "파올로가 피비에게 집적댄 게 결정타였어.", "scene_ko": "레이첼이 파올로에게 실망할 때"}
+  ],
+  "phrasal": [
+    {"en": "get over", "ko": "극복하다, 잊다", "def_en": "to recover from something sad", "ex_en": "Ross needs to get over Carol and move forward.", "ex_ko": "로스는 캐롤을 잊고 앞으로 나아가야 해.", "scene_ko": "이혼 후 우울한 로스를 친구들이 격려할 때"},
+    {"en": "hang out", "ko": "어울려 놀다", "def_en": "to spend relaxed time with friends", "ex_en": "We hang out at Central Perk almost every day.", "ex_ko": "우리는 거의 매일 센트럴 퍼크에서 놀아.", "scene_ko": "여섯 친구의 단골 카페에서"},
+    {"en": "ask out", "ko": "데이트 신청하다", "def_en": "to invite someone on a date", "ex_en": "Just ask her out already, Ross!", "ex_ko": "로스, 그냥 빨리 데이트 신청해!", "scene_ko": "로스가 망설이기만 할 때"},
+    {"en": "break up", "ko": "헤어지다", "def_en": "to end a romantic relationship", "ex_en": "Monica broke up with her boyfriend last night.", "ex_ko": "모니카가 어젯밤 남자친구랑 헤어졌어.", "scene_ko": "모니카의 연애가 또 끝났을 때"},
+    {"en": "move in", "ko": "이사 들어오다, 같이 살기 시작하다", "def_en": "to start living in a new place", "ex_en": "Rachel is moving in with Monica this weekend.", "ex_ko": "레이첼이 이번 주말에 모니카네로 들어와 살아.", "scene_ko": "레이첼이 모니카와 함께 살게 될 때"},
+    {"en": "freak out", "ko": "기겁하다, 멘붕이 오다", "def_en": "to suddenly become very upset or scared", "ex_en": "Don't freak out, but I think the baby is coming.", "ex_ko": "놀라지 마, 근데 아기가 나오려나 봐.", "scene_ko": "캐롤의 출산이 다가올 때"},
+    {"en": "show up", "ko": "나타나다", "def_en": "to arrive, often unexpectedly", "ex_en": "Rachel showed up at the café in a wedding dress.", "ex_ko": "레이첼이 웨딩드레스를 입고 카페에 나타났어.", "scene_ko": "시리즈 첫 장면, 레이첼의 등장"},
+    {"en": "figure out", "ko": "알아내다, 이해하다", "def_en": "to understand or solve something", "ex_en": "Nobody can figure out what Chandler does for a living.", "ex_ko": "챈들러가 무슨 일을 하는지 아무도 모르겠어.", "scene_ko": "챈들러의 직업이 늘 농담거리가 될 때"},
+    {"en": "hit on", "ko": "작업 걸다, 집적대다", "def_en": "to flirt with someone, often unwanted", "ex_en": "Was that guy hitting on you, Phoebe?", "ex_ko": "피비, 저 남자가 너한테 작업 건 거야?", "scene_ko": "누군가 피비에게 수작을 걸 때"},
+    {"en": "cut up", "ko": "잘게 자르다", "def_en": "to cut something into small pieces", "ex_en": "Rachel cut up her dad's credit cards.", "ex_ko": "레이첼은 아빠 신용카드를 잘라버렸어.", "scene_ko": "레이첼이 독립을 선언할 때"}
+  ]
+}

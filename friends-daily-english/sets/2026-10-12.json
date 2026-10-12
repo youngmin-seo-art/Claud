@@ -1,0 +1,43 @@
+{
+ "date": "2026-10-12",
+ "season": 1,
+ "day": 3,
+ "theme_ko": "시즌 1 · 정전된 밤과 파올로의 등장",
+ "createdAt": "2026-10-12T10:20:00+09:00",
+ "words": [
+  {"en":"blackout","ipa":"/ˈblækaʊt/","pos":"noun","ko":"정전","def_en":"a period when the electricity stops working","ex_en":"The whole city is dark. It's a total blackout!","ex_ko":"도시 전체가 깜깜해. 완전히 정전이야!","scene_ko":"뉴욕 전체가 정전되어 친구들이 모니카 집에 모였을 때"},
+  {"en":"flirt","ipa":"/flɝːt/","pos":"verb","ko":"추파를 던지다, 집적대다","def_en":"to act playfully to show romantic interest","ex_en":"Is that Italian guy flirting with Rachel?","ex_ko":"저 이탈리아 남자가 레이첼한테 추파 던지는 거야?","scene_ko":"낯선 남자가 레이첼에게 다가와 관심을 보일 때"},
+  {"en":"charming","ipa":"/ˈtʃɑːrmɪŋ/","pos":"adjective","ko":"매력적인","def_en":"pleasant and attractive","ex_en":"He barely speaks English, but he's so charming.","ex_ko":"영어는 거의 못 하는데 정말 매력적이야.","scene_ko":"레이첼이 새로 만난 남자에게 반했을 때"},
+  {"en":"stranded","ipa":"/ˈstrændɪd/","pos":"adjective","ko":"오도 가도 못하는, 갇힌","def_en":"stuck somewhere with no way to leave","ex_en":"Chandler is stranded in the ATM booth with a model.","ex_ko":"챈들러가 모델이랑 ATM 부스에 갇혀 버렸어.","scene_ko":"정전 때문에 챈들러가 낯선 곳에 갇혔을 때"},
+  {"en":"hopeless","ipa":"/ˈhoʊpləs/","pos":"adjective","ko":"가망 없는","def_en":"having no chance of success","ex_en":"Face it, Ross. It's hopeless with Rachel.","ex_ko":"인정해, 로스. 레이첼이랑은 가망 없어.","scene_ko":"로스가 레이첼에게 고백할 타이밍을 계속 놓칠 때"},
+  {"en":"leftovers","ipa":"/ˈleftˌoʊvərz/","pos":"noun","ko":"남은 음식","def_en":"food remaining after a meal","ex_en":"Monica made too much. We'll eat leftovers all week.","ex_ko":"모니카가 너무 많이 만들었어. 일주일 내내 남은 거 먹겠다.","scene_ko":"추수감사절 저녁 뒤 음식이 잔뜩 남았을 때"},
+  {"en":"annoying","ipa":"/əˈnɔɪɪŋ/","pos":"adjective","ko":"짜증 나는","def_en":"making you a little angry","ex_en":"Janice's laugh is so annoying, Chandler!","ex_ko":"재니스 웃음소리 진짜 짜증 나, 챈들러!","scene_ko":"친구들이 챈들러의 여자친구를 견디기 힘들어할 때"},
+  {"en":"irresistible","ipa":"/ˌɪrɪˈzɪstəbəl/","pos":"adjective","ko":"거부할 수 없는","def_en":"too attractive to say no to","ex_en":"Monica's lasagna is simply irresistible.","ex_ko":"모니카의 라자냐는 그냥 거부할 수가 없어.","scene_ko":"모니카의 요리 앞에서 아무도 다이어트를 못 지킬 때"},
+  {"en":"confess","ipa":"/kənˈfes/","pos":"verb","ko":"고백하다, 털어놓다","def_en":"to admit something you feel or did","ex_en":"Ross wants to confess his feelings tonight.","ex_ko":"로스는 오늘 밤 자기 마음을 고백하고 싶어 해.","scene_ko":"로스가 레이첼에게 마음을 털어놓으려 할 때"},
+  {"en":"reluctant","ipa":"/rɪˈlʌktənt/","pos":"adjective","ko":"마지못한, 내키지 않는","def_en":"not wanting to do something","ex_en":"Joey was reluctant to share his sandwich.","ex_ko":"조이는 샌드위치 나눠 주기를 내켜 하지 않았어.","scene_ko":"먹을 것에 집착하는 조이가 음식을 양보해야 할 때"}
+ ],
+ "idioms": [
+  {"en":"miss the boat","ipa":"","pos":"","ko":"기회를 놓치다","def_en":"to lose a chance by being too slow","ex_en":"If you wait any longer, you'll miss the boat.","ex_ko":"더 기다리면 기회 놓친다.","scene_ko":"친구들이 망설이는 로스를 재촉할 때"},
+  {"en":"head over heels","ipa":"","pos":"","ko":"홀딱 반한","def_en":"completely in love","ex_en":"Rachel is head over heels for Paolo.","ex_ko":"레이첼은 파올로한테 홀딱 반했어.","scene_ko":"레이첼이 새 남자친구에게 푹 빠졌을 때"},
+  {"en":"now or never","ipa":"","pos":"","ko":"지금 아니면 기회 없다","def_en":"you must act right now","ex_en":"Come on, Ross. It's now or never!","ex_ko":"어서, 로스. 지금 아니면 끝이야!","scene_ko":"로스가 고백할 결정적 순간을 맞았을 때"},
+  {"en":"bite one's tongue","ipa":"","pos":"","ko":"할 말을 꾹 참다","def_en":"to stop yourself from saying something","ex_en":"Monica had to bite her tongue at dinner.","ex_ko":"모니카는 저녁 자리에서 말을 꾹 참아야 했어.","scene_ko":"부모님 앞에서 모니카가 불만을 삼킬 때"},
+  {"en":"play hard to get","ipa":"","pos":"","ko":"튕기다, 비싸게 굴다","def_en":"to pretend you're not interested","ex_en":"Stop playing hard to get. Just call him!","ex_ko":"그만 튕기고 그냥 전화해!","scene_ko":"친구가 데이트 상대에게 일부러 무심한 척할 때"},
+  {"en":"be on the same page","ipa":"","pos":"","ko":"생각이 같다","def_en":"to agree or understand each other","ex_en":"Are we on the same page about Thanksgiving?","ex_ko":"추수감사절 얘기 우리 생각 같은 거 맞지?","scene_ko":"모니카가 추수감사절 계획을 친구들과 맞출 때"},
+  {"en":"drive someone crazy","ipa":"","pos":"","ko":"~를 미치게 하다","def_en":"to annoy someone very much","ex_en":"That alarm clock is driving me crazy!","ex_ko":"저 알람시계 때문에 미치겠어!","scene_ko":"사소한 소음에 룸메이트가 폭발할 때"},
+  {"en":"go with the flow","ipa":"","pos":"","ko":"흐름에 맡기다","def_en":"to relax and accept what happens","ex_en":"Phoebe always goes with the flow.","ex_ko":"피비는 항상 흘러가는 대로 살아.","scene_ko":"태평한 피비가 계획 없이 하루를 보낼 때"},
+  {"en":"a blessing in disguise","ipa":"","pos":"","ko":"전화위복","def_en":"something bad that turns out good","ex_en":"Losing that job was a blessing in disguise.","ex_ko":"그 일자리 잃은 게 전화위복이었어.","scene_ko":"실직한 친구가 더 나은 기회를 만났을 때"},
+  {"en":"sleep on it","ipa":"","pos":"","ko":"하룻밤 생각해 보다","def_en":"to wait until tomorrow to decide","ex_en":"Don't answer now, Chandler. Sleep on it.","ex_ko":"지금 대답하지 마, 챈들러. 하룻밤 생각해 봐.","scene_ko":"챈들러가 중요한 결정을 앞두고 망설일 때"}
+ ],
+ "phrasal": [
+  {"en":"stick around","ipa":"","pos":"","ko":"곁에 머물다, 더 있다","def_en":"to stay somewhere a little longer","ex_en":"Stick around. Monica's making dessert.","ex_ko":"좀 더 있어. 모니카가 디저트 만들고 있어.","scene_ko":"친구들이 모니카 집에서 저녁을 먹을 때"},
+  {"en":"let down","ipa":"","pos":"","ko":"실망시키다","def_en":"to disappoint someone","ex_en":"I promised Phoebe. I can't let her down.","ex_ko":"피비랑 약속했어. 실망시킬 순 없어.","scene_ko":"친구와의 약속을 지켜야 할 때"},
+  {"en":"turn down","ipa":"","pos":"","ko":"거절하다","def_en":"to say no to an offer","ex_en":"Joey turned down the role? Really?","ex_ko":"조이가 그 배역을 거절했다고? 진짜?","scene_ko":"배우 조이가 마음에 안 드는 배역을 받았을 때"},
+  {"en":"go out with","ipa":"","pos":"","ko":"~와 데이트하다, 사귀다","def_en":"to date someone","ex_en":"Rachel is going out with Paolo tonight.","ex_ko":"레이첼은 오늘 밤 파올로랑 데이트해.","scene_ko":"레이첼이 새 남자친구와 약속을 잡았을 때"},
+  {"en":"bring up","ipa":"","pos":"","ko":"(화제를) 꺼내다","def_en":"to start talking about a subject","ex_en":"Please don't bring up Carol at dinner.","ex_ko":"제발 저녁 자리에서 캐롤 얘기 꺼내지 마.","scene_ko":"로스가 전처 얘기를 피하고 싶을 때"},
+  {"en":"chicken out","ipa":"","pos":"","ko":"겁먹고 그만두다","def_en":"to not do something because you're scared","ex_en":"Ross chickened out again at the last second.","ex_ko":"로스가 마지막 순간에 또 겁먹고 포기했어.","scene_ko":"로스가 고백 직전에 용기를 잃었을 때"},
+  {"en":"end up","ipa":"","pos":"","ko":"결국 ~하게 되다","def_en":"to finally be in a situation","ex_en":"We ended up eating cereal for Thanksgiving.","ex_ko":"결국 추수감사절에 시리얼을 먹게 됐어.","scene_ko":"추수감사절 요리가 엉망이 되었을 때"},
+  {"en":"get through","ipa":"","pos":"","ko":"견뎌내다, 이겨내다","def_en":"to manage a difficult time","ex_en":"We'll get through this blackout together.","ex_ko":"이 정전, 우리 같이 견뎌내자.","scene_ko":"정전 속에서 친구들이 촛불을 켜고 모였을 때"},
+  {"en":"talk into","ipa":"","pos":"","ko":"설득해서 ~하게 하다","def_en":"to persuade someone to do something","ex_en":"Monica talked me into cooking with her.","ex_ko":"모니카가 같이 요리하자고 날 설득했어.","scene_ko":"모니카가 친구를 부엌일에 끌어들일 때"},
+  {"en":"give up","ipa":"","pos":"","ko":"포기하다","def_en":"to stop trying","ex_en":"Don't give up on Rachel yet, Ross.","ex_ko":"아직 레이첼 포기하지 마, 로스.","scene_ko":"친구들이 낙담한 로스를 응원할 때"}
+ ]
+}

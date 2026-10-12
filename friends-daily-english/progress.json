@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 4,
+ "day": 5,
  "used": [
   "awkward",
   "divorce",
@@ -91,7 +91,37 @@
   "end up",
   "get through",
   "talk into",
-  "give up"
+  "give up",
+  "gossip",
+  "addicted",
+  "withdrawal",
+  "impressed",
+  "embarrassed",
+  "suspicious",
+  "grateful",
+  "bargain",
+  "rumor",
+  "grumpy",
+  "bite the bullet",
+  "hit the roof",
+  "beat around the bush",
+  "under the weather",
+  "on the fence",
+  "break the ice",
+  "a fish out of water",
+  "call it a night",
+  "learn the ropes",
+  "the ball is in your court",
+  "give out",
+  "pick up",
+  "drop by",
+  "work out",
+  "check out",
+  "turn up",
+  "look forward to",
+  "hold on",
+  "lay off",
+  "fill in"
  ],
  "history": [
   {
@@ -112,6 +142,13 @@
    "date": "2026-10-12",
    "season": 1,
    "day": 3,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-13",
+   "season": 1,
+   "day": 4,
    "db": true,
    "kakao": true
   }

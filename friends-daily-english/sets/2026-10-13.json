@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-13",
+ "season": 1,
+ "day": 4,
+ "theme_ko": "시즌 1 · 챈들러의 금연 도전과 카페 수다",
+ "createdAt": "2026-10-13T07:00:00+09:00",
+ "words": [
+  {
+   "en": "gossip",
+   "ipa": "/ˈɡɑːsɪp/",
+   "pos": "noun",
+   "ko": "험담, 소문",
+   "def_en": "talk about other people's private lives",
+   "ex_en": "Phoebe loves hearing gossip at the coffee shop.",
+   "ex_ko": "피비는 커피숍에서 소문 듣는 걸 좋아해.",
+   "scene_ko": "친구들이 카페에서 수다 떠는 상황"
+  },
+  {
+   "en": "addicted",
+   "ipa": "/əˈdɪktɪd/",
+   "pos": "adjective",
+   "ko": "중독된",
+   "def_en": "unable to stop doing something",
+   "ex_en": "Chandler is addicted to cigarettes.",
+   "ex_ko": "챈들러는 담배에 중독돼 있어.",
+   "scene_ko": "챈들러가 금연에 도전하는 상황"
+  },
+  {
+   "en": "withdrawal",
+   "ipa": "/wɪðˈdrɔːəl/",
+   "pos": "noun",
+   "ko": "금단 증상",
+   "def_en": "bad feelings when you stop a habit",
+   "ex_en": "Chandler's withdrawal makes him very grumpy.",
+   "ex_ko": "챈들러는 금단 증상 때문에 몹시 짜증을 내.",
+   "scene_ko": "금연 중 예민해진 모습"
+  },
+  {
+   "en": "impressed",
+   "ipa": "/ɪmˈprest/",
+   "pos": "adjective",
+   "ko": "감명받은",
+   "def_en": "feeling admiration for someone",
+   "ex_en": "Monica was impressed by his cooking.",
+   "ex_ko": "모니카는 그의 요리에 감탄했어.",
+   "scene_ko": "모니카가 데이트 상대를 평가하는 상황"
+  },
+  {
+   "en": "embarrassed",
+   "ipa": "/ɪmˈbærəst/",
+   "pos": "adjective",
+   "ko": "창피한",
+   "def_en": "ashamed or awkward in public",
+   "ex_en": "Joey was embarrassed by his old photo.",
+   "ex_ko": "조이는 옛날 사진이 창피했어.",
+   "scene_ko": "친구들 앞에서 망신당하는 상황"
+  },
+  {
+   "en": "suspicious",
+   "ipa": "/səˈspɪʃəs/",
+   "pos": "adjective",
+   "ko": "수상쩍어하는",
+   "def_en": "thinking something is wrong",
+   "ex_en": "Ross got suspicious of the new guy.",
+   "ex_ko": "로스는 그 새 남자를 수상하게 여겼어.",
+   "scene_ko": "새로 나타난 인물을 경계하는 상황"
+  },
+  {
+   "en": "grateful",
+   "ipa": "/ˈɡreɪtfl/",
+   "pos": "adjective",
+   "ko": "고마워하는",
+   "def_en": "feeling thankful",
+   "ex_en": "Rachel was grateful for the free coffee.",
+   "ex_ko": "레이첼은 공짜 커피가 고마웠어.",
+   "scene_ko": "도움을 받고 감사하는 상황"
+  },
+  {
+   "en": "bargain",
+   "ipa": "/ˈbɑːrɡən/",
+   "pos": "noun",
+   "ko": "싼 물건, 득템",
+   "def_en": "something bought for less than usual",
+   "ex_en": "Monica found a real bargain at the market.",
+   "ex_ko": "모니카는 시장에서 진짜 득템했어.",
+   "scene_ko": "저렴한 가구를 사는 상황"
+  },
+  {
+   "en": "rumor",
+   "ipa": "/ˈruːmər/",
+   "pos": "noun",
+   "ko": "소문",
+   "def_en": "unconfirmed story people spread",
+   "ex_en": "There's a rumor Joey got the part.",
+   "ex_ko": "조이가 배역을 땄다는 소문이 있어.",
+   "scene_ko": "오디션 소식이 퍼지는 상황"
+  },
+  {
+   "en": "grumpy",
+   "ipa": "/ˈɡrʌmpi/",
+   "pos": "adjective",
+   "ko": "심술궂은",
+   "def_en": "bad-tempered and irritable",
+   "ex_en": "Chandler is grumpy before his first coffee.",
+   "ex_ko": "챈들러는 첫 커피 전엔 심술쟁이야.",
+   "scene_ko": "아침 일찍 모인 거실 장면"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "bite the bullet",
+   "ipa": "",
+   "pos": "",
+   "ko": "큰맘 먹고 하다",
+   "def_en": "do something hard you've avoided",
+   "ex_en": "Monica, just bite the bullet and call him.",
+   "ex_ko": "모니카, 그냥 참고 그에게 전화해.",
+   "scene_ko": "망설이던 연락을 결심하는 상황"
+  },
+  {
+   "en": "hit the roof",
+   "ipa": "",
+   "pos": "",
+   "ko": "몹시 화내다",
+   "def_en": "become very angry",
+   "ex_en": "Ross will hit the roof if he finds out.",
+   "ex_ko": "로스가 알면 불같이 화낼 거야.",
+   "scene_ko": "비밀이 들통날 뻔한 상황"
+  },
+  {
+   "en": "beat around the bush",
+   "ipa": "",
+   "pos": "",
+   "ko": "말을 빙빙 돌리다",
+   "def_en": "avoid saying the main point",
+   "ex_en": "Stop beating around the bush, Chandler!",
+   "ex_ko": "챈들러, 돌려 말하지 마!",
+   "scene_ko": "말을 빙빙 돌리는 친구에게"
+  },
+  {
+   "en": "under the weather",
+   "ipa": "",
+   "pos": "",
+   "ko": "몸이 안 좋은",
+   "def_en": "feeling slightly sick",
+   "ex_en": "Phoebe is under the weather today.",
+   "ex_ko": "피비는 오늘 몸이 안 좋아.",
+   "scene_ko": "감기에 걸린 친구를 챙기는 상황"
+  },
+  {
+   "en": "on the fence",
+   "ipa": "",
+   "pos": "",
+   "ko": "결정 못 하고 망설이는",
+   "def_en": "undecided",
+   "ex_en": "Rachel is still on the fence about the job.",
+   "ex_ko": "레이첼은 그 일자리를 아직 고민 중이야.",
+   "scene_ko": "결정을 못 내리는 상황"
+  },
+  {
+   "en": "break the ice",
+   "ipa": "",
+   "pos": "",
+   "ko": "어색한 분위기를 깨다",
+   "def_en": "make people feel relaxed at first",
+   "ex_en": "Joey told a joke to break the ice.",
+   "ex_ko": "조이는 어색함을 깨려고 농담했어.",
+   "scene_ko": "첫 만남 자리의 분위기"
+  },
+  {
+   "en": "a fish out of water",
+   "ipa": "",
+   "pos": "",
+   "ko": "낯선 환경에 놓인 사람",
+   "def_en": "someone in an unfamiliar place",
+   "ex_en": "Rachel felt like a fish out of water downtown.",
+   "ex_ko": "레이첼은 시내가 낯설어 어색했어.",
+   "scene_ko": "도시 생활에 적응하는 초반"
+  },
+  {
+   "en": "call it a night",
+   "ipa": "",
+   "pos": "",
+   "ko": "오늘은 그만 마치다",
+   "def_en": "stop and go to bed",
+   "ex_en": "It's late. Let's call it a night.",
+   "ex_ko": "늦었어. 오늘은 그만하자.",
+   "scene_ko": "늦게까지 놀다 헤어지는 상황"
+  },
+  {
+   "en": "learn the ropes",
+   "ipa": "",
+   "pos": "",
+   "ko": "일을 익히다",
+   "def_en": "learn how a job is done",
+   "ex_en": "Rachel is learning the ropes at the café.",
+   "ex_ko": "레이첼은 카페 일을 배우는 중이야.",
+   "scene_ko": "새 직장에서 일을 익히는 상황"
+  },
+  {
+   "en": "the ball is in your court",
+   "ipa": "",
+   "pos": "",
+   "ko": "이제 상대가 결정할 차례",
+   "def_en": "it's your turn to act",
+   "ex_en": "I asked her out. Now the ball's in her court.",
+   "ex_ko": "내가 데이트 신청했으니 이제 그녀 차례야.",
+   "scene_ko": "상대의 답을 기다리는 상황"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "give out",
+   "ipa": "",
+   "pos": "",
+   "ko": "나눠주다",
+   "def_en": "distribute",
+   "ex_en": "Joey gave out free tickets to everyone.",
+   "ex_ko": "조이가 모두에게 공짜 표를 나눠줬어.",
+   "scene_ko": "친구들에게 뭔가 나눠주는 상황"
+  },
+  {
+   "en": "pick up",
+   "ipa": "",
+   "pos": "",
+   "ko": "데리러 가다",
+   "def_en": "collect someone or something",
+   "ex_en": "Can you pick up Monica at six?",
+   "ex_ko": "6시에 모니카 좀 데리러 갈래?",
+   "scene_ko": "약속 장소로 데리러 가는 상황"
+  },
+  {
+   "en": "drop by",
+   "ipa": "",
+   "pos": "",
+   "ko": "잠깐 들르다",
+   "def_en": "visit briefly without notice",
+   "ex_en": "Ross dropped by to see Rachel.",
+   "ex_ko": "로스가 레이첼을 보러 잠깐 들렀어.",
+   "scene_ko": "친구 집에 불쑥 들르는 상황"
+  },
+  {
+   "en": "work out",
+   "ipa": "",
+   "pos": "",
+   "ko": "잘 풀리다; 운동하다",
+   "def_en": "exercise; or be resolved",
+   "ex_en": "I hope things work out for Monica.",
+   "ex_ko": "모니카 일이 잘 풀리길 바라.",
+   "scene_ko": "연애가 잘 되길 바라는 상황"
+  },
+  {
+   "en": "check out",
+   "ipa": "",
+   "pos": "",
+   "ko": "확인하다, 구경하다",
+   "def_en": "look at; leave a place",
+   "ex_en": "Check out Joey's new jacket!",
+   "ex_ko": "조이의 새 재킷 좀 봐!",
+   "scene_ko": "새 옷을 자랑하는 상황"
+  },
+  {
+   "en": "turn up",
+   "ipa": "",
+   "pos": "",
+   "ko": "불쑥 나타나다",
+   "def_en": "appear unexpectedly",
+   "ex_en": "Chandler turned up late again.",
+   "ex_ko": "챈들러가 또 늦게 나타났어.",
+   "scene_ko": "약속에 늦는 친구"
+  },
+  {
+   "en": "look forward to",
+   "ipa": "",
+   "pos": "",
+   "ko": "~을 기대하다",
+   "def_en": "anticipate with pleasure",
+   "ex_en": "I'm looking forward to the party.",
+   "ex_ko": "파티가 너무 기대돼.",
+   "scene_ko": "주말 모임을 기다리는 상황"
+  },
+  {
+   "en": "hold on",
+   "ipa": "",
+   "pos": "",
+   "ko": "잠깐 기다리다",
+   "def_en": "wait",
+   "ex_en": "Hold on, Phoebe is still singing.",
+   "ex_ko": "잠깐만, 피비가 아직 노래하는 중이야.",
+   "scene_ko": "카페에서 피비가 공연하는 상황"
+  },
+  {
+   "en": "lay off",
+   "ipa": "",
+   "pos": "",
+   "ko": "~를 내버려 두다, 그만하다",
+   "def_en": "stop doing something; fire",
+   "ex_en": "Lay off Chandler, he's trying to quit.",
+   "ex_ko": "챈들러 좀 내버려 둬, 끊으려고 애쓰는 중이야.",
+   "scene_ko": "금연 중인 친구를 건드리지 않는 상황"
+  },
+  {
+   "en": "fill in",
+   "ipa": "",
+   "pos": "",
+   "ko": "대신 일하다",
+   "def_en": "replace temporarily",
+   "ex_en": "Rachel filled in for a sick waitress.",
+   "ex_ko": "레이첼은 아픈 직원 대신 일했어.",
+   "scene_ko": "대타로 일하는 상황"
+  }
+ ]
+}

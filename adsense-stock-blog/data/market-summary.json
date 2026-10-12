@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08 06:16:21",
+  "updatedAt": "2026-10-12 14:17:48",
   "timestamp": 1791407781159,
   "instruments": [
     {
@@ -10,10 +10,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 6803.9,
+      "price": 6453.18,
       "baseClose": 6941.39,
-      "diffRate": -1.98,
-      "diff": -137.49
+      "diffRate": -2.61,
+      "diff": -172.75
     },
     {
       "id": "kosdaq",
@@ -23,10 +23,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 898.43,
+      "price": 866.8,
       "baseClose": 893.29,
-      "diffRate": 0.58,
-      "diff": 5.14
+      "diffRate": -2.85,
+      "diff": -25.47
     },
     {
       "id": "dji",
@@ -36,10 +36,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 51179.87,
+      "price": 51654.95,
       "baseClose": 51521.28,
-      "diffRate": -0.66,
-      "diff": -341.41
+      "diffRate": 0.83,
+      "diff": 423.31
     },
     {
       "id": "sp500",
@@ -49,10 +49,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 7801.77,
+      "price": 7811.54,
       "baseClose": 7818.93,
-      "diffRate": -0.22,
-      "diff": -17.16
+      "diffRate": 0.59,
+      "diff": 46.18
     },
     {
       "id": "nasdaq",
@@ -62,10 +62,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 27538.691,
+      "price": 27366.17,
       "baseClose": 27599.887,
-      "diffRate": -0.22,
-      "diff": -61.2
+      "diffRate": 0.64,
+      "diff": 172.83
     },
     {
       "id": "sox",
@@ -75,10 +75,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "pt",
-      "price": 13066.149,
+      "price": 12572.42,
       "baseClose": 13217.823,
-      "diffRate": -1.15,
-      "diff": -151.67
+      "diffRate": -0.41,
+      "diff": -51.8
     },
     {
       "id": "usdkrw",
@@ -88,10 +88,10 @@
       "precision": 2,
       "prefix": "",
       "suffix": "원",
-      "price": 1339.19,
+      "price": 1336.4,
       "baseClose": 1336.89,
-      "diffRate": 0.17,
-      "diff": 2.3
+      "diffRate": -0.27,
+      "diff": -3.6
     },
     {
       "id": "samsung",

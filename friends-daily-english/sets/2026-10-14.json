@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-14",
+ "season": 1,
+ "day": 5,
+ "theme_ko": "시즌 1 · 모니카의 부엌과 조이의 오디션",
+ "createdAt": "2026-10-14T07:50:00+09:00",
+ "words": [
+  {
+   "en": "reckless",
+   "ipa": "/ˈrekləs/",
+   "pos": "adjective",
+   "ko": "무모한",
+   "def_en": "careless about danger",
+   "ex_en": "Joey's reckless driving scares everyone.",
+   "ex_ko": "조이의 무모한 운전은 모두를 겁먹게 해.",
+   "scene_ko": "친구들이 충동적인 결정을 내릴 때"
+  },
+  {
+   "en": "stingy",
+   "ipa": "/ˈstɪndʒi/",
+   "pos": "adjective",
+   "ko": "인색한",
+   "def_en": "unwilling to spend money",
+   "ex_en": "Don't be stingy, Ross. Pay for the coffee!",
+   "ex_ko": "인색하게 굴지 마, 로스. 커피값 내!",
+   "scene_ko": "돈이 빠듯한 친구들이 계산을 미룰 때"
+  },
+  {
+   "en": "audition",
+   "ipa": "/ɔːˈdɪʃən/",
+   "pos": "noun",
+   "ko": "오디션",
+   "def_en": "a short test performance for a role",
+   "ex_en": "Joey has an audition tomorrow morning.",
+   "ex_ko": "조이는 내일 아침에 오디션이 있어.",
+   "scene_ko": "배우 지망생 조이가 역할을 따려 할 때"
+  },
+  {
+   "en": "fussy",
+   "ipa": "/ˈfʌsi/",
+   "pos": "adjective",
+   "ko": "까다로운",
+   "def_en": "hard to please",
+   "ex_en": "Monica is so fussy about her kitchen.",
+   "ex_ko": "모니카는 자기 주방에 정말 까다로워.",
+   "scene_ko": "정리에 집착하는 모니카의 아파트"
+  },
+  {
+   "en": "rehearse",
+   "ipa": "/rɪˈhɜːrs/",
+   "pos": "verb",
+   "ko": "리허설하다, 연습하다",
+   "def_en": "to practice before a performance",
+   "ex_en": "Let's rehearse the speech one more time.",
+   "ex_ko": "그 연설을 한 번만 더 연습해 보자.",
+   "scene_ko": "중요한 말을 앞두고 연습할 때"
+  },
+  {
+   "en": "tipsy",
+   "ipa": "/ˈtɪpsi/",
+   "pos": "adjective",
+   "ko": "알딸딸한",
+   "def_en": "slightly drunk",
+   "ex_en": "Phoebe gets tipsy after one glass of wine.",
+   "ex_ko": "피비는 와인 한 잔에 알딸딸해져.",
+   "scene_ko": "카페나 모임에서 가볍게 술을 마신 날"
+  },
+  {
+   "en": "casserole",
+   "ipa": "/ˈkæsəroʊl/",
+   "pos": "noun",
+   "ko": "캐서롤(오븐 요리)",
+   "def_en": "a dish baked slowly in the oven",
+   "ex_en": "Monica made a huge casserole for dinner.",
+   "ex_ko": "모니카가 저녁으로 커다란 캐서롤을 만들었어.",
+   "scene_ko": "모니카가 친구들에게 요리를 해줄 때"
+  },
+  {
+   "en": "grudge",
+   "ipa": "/ɡrʌdʒ/",
+   "pos": "noun",
+   "ko": "원한, 앙금",
+   "def_en": "a lasting angry feeling toward someone",
+   "ex_en": "Rachel doesn't hold a grudge for long.",
+   "ex_ko": "레이첼은 오랫동안 앙금을 품지 않아.",
+   "scene_ko": "다툰 뒤 화해하는 친구 사이"
+  },
+  {
+   "en": "nosy",
+   "ipa": "/ˈnoʊzi/",
+   "pos": "adjective",
+   "ko": "참견하기 좋아하는",
+   "def_en": "too curious about others' business",
+   "ex_en": "Don't be nosy, Chandler. It's private.",
+   "ex_ko": "참견하지 마, 챈들러. 사적인 일이야.",
+   "scene_ko": "남의 연애사를 캐묻는 친구들"
+  },
+  {
+   "en": "tedious",
+   "ipa": "/ˈtiːdiəs/",
+   "pos": "adjective",
+   "ko": "지루한, 따분한",
+   "def_en": "boring and long",
+   "ex_en": "Ross's science talks can be really tedious.",
+   "ex_ko": "로스의 과학 이야기는 정말 지루할 수 있어.",
+   "scene_ko": "교수인 로스가 설명을 길게 늘어놓을 때"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "cost an arm and a leg",
+   "ipa": "",
+   "pos": "",
+   "ko": "엄청나게 비싸다",
+   "def_en": "to be very expensive",
+   "ex_en": "That sofa cost an arm and a leg.",
+   "ex_ko": "그 소파는 엄청나게 비쌌어.",
+   "scene_ko": "가구나 옷을 사며 돈이 부족할 때"
+  },
+  {
+   "en": "break a leg",
+   "ipa": "",
+   "pos": "",
+   "ko": "행운을 빌어요(공연 전)",
+   "def_en": "good luck, said before a performance",
+   "ex_en": "Break a leg at your audition, Joey!",
+   "ex_ko": "오디션 잘 봐, 조이!",
+   "scene_ko": "조이가 오디션에 가기 전"
+  },
+  {
+   "en": "get the hang of",
+   "ipa": "",
+   "pos": "",
+   "ko": "요령을 익히다",
+   "def_en": "to learn how to do something",
+   "ex_en": "Rachel is getting the hang of waitressing.",
+   "ex_ko": "레이첼이 웨이트리스 일의 요령을 익히고 있어.",
+   "scene_ko": "새 일을 배우는 레이첼"
+  },
+  {
+   "en": "hit the nail on the head",
+   "ipa": "",
+   "pos": "",
+   "ko": "정곡을 찌르다",
+   "def_en": "to say exactly the right thing",
+   "ex_en": "Phoebe hit the nail on the head again.",
+   "ex_ko": "피비가 또 정곡을 찔렀어.",
+   "scene_ko": "엉뚱한 피비가 의외로 맞는 말을 할 때"
+  },
+  {
+   "en": "let the cat out of the bag",
+   "ipa": "",
+   "pos": "",
+   "ko": "비밀을 누설하다",
+   "def_en": "to reveal a secret by accident",
+   "ex_en": "Oops, I let the cat out of the bag.",
+   "ex_ko": "이런, 내가 비밀을 말해버렸네.",
+   "scene_ko": "서프라이즈 계획이 새어 나갈 때"
+  },
+  {
+   "en": "pull someone's leg",
+   "ipa": "",
+   "pos": "",
+   "ko": "~를 놀리다, 농담하다",
+   "def_en": "to joke with someone",
+   "ex_en": "Are you pulling my leg, Chandler?",
+   "ex_ko": "나 놀리는 거지, 챈들러?",
+   "scene_ko": "장난기 많은 챈들러의 농담"
+  },
+  {
+   "en": "bend over backwards",
+   "ipa": "",
+   "pos": "",
+   "ko": "최선을 다하다",
+   "def_en": "to try very hard to help",
+   "ex_en": "Monica bent over backwards for her guests.",
+   "ex_ko": "모니카는 손님들을 위해 최선을 다했어.",
+   "scene_ko": "손님 접대에 열심인 모니카"
+  },
+  {
+   "en": "in over one's head",
+   "ipa": "",
+   "pos": "",
+   "ko": "감당 못 할 상황에 빠진",
+   "def_en": "in a situation too hard to handle",
+   "ex_en": "I'm in over my head with this job.",
+   "ex_ko": "이 일은 내가 감당하기 벅차.",
+   "scene_ko": "새 직장에 적응하느라 허덕일 때"
+  },
+  {
+   "en": "take it with a grain of salt",
+   "ipa": "",
+   "pos": "",
+   "ko": "곧이곧대로 믿지 않다",
+   "def_en": "to not fully believe something",
+   "ex_en": "Take Joey's advice with a grain of salt.",
+   "ex_ko": "조이의 조언은 곧이곧대로 듣지 마.",
+   "scene_ko": "허풍 섞인 조이의 말을 들을 때"
+  },
+  {
+   "en": "steal the show",
+   "ipa": "",
+   "pos": "",
+   "ko": "주목을 독차지하다",
+   "def_en": "to get the most attention",
+   "ex_en": "Phoebe stole the show with her song.",
+   "ex_ko": "피비가 노래로 주목을 독차지했어.",
+   "scene_ko": "카페에서 피비가 노래할 때"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "cut out",
+   "ipa": "",
+   "pos": "",
+   "ko": "~을 잘라내다, 끊다",
+   "def_en": "to remove or stop doing",
+   "ex_en": "You should cut out junk food, Joey.",
+   "ex_ko": "조이, 정크푸드는 끊어야 해.",
+   "scene_ko": "식습관을 바꾸려는 친구들"
+  },
+  {
+   "en": "mess up",
+   "ipa": "",
+   "pos": "",
+   "ko": "망치다",
+   "def_en": "to make a mistake or ruin",
+   "ex_en": "I totally messed up the dinner.",
+   "ex_ko": "내가 저녁 식사를 완전히 망쳤어.",
+   "scene_ko": "요리나 데이트가 어긋날 때"
+  },
+  {
+   "en": "pass out",
+   "ipa": "",
+   "pos": "",
+   "ko": "기절하다",
+   "def_en": "to faint",
+   "ex_en": "Ross almost passed out from the heat.",
+   "ex_ko": "로스는 더위에 거의 기절할 뻔했어.",
+   "scene_ko": "당황하거나 지친 로스"
+  },
+  {
+   "en": "dress up",
+   "ipa": "",
+   "pos": "",
+   "ko": "옷을 차려입다",
+   "def_en": "to wear nice or special clothes",
+   "ex_en": "Let's dress up for the party tonight.",
+   "ex_ko": "오늘 밤 파티에 차려입자.",
+   "scene_ko": "파티에 가는 친구들"
+  },
+  {
+   "en": "clean up",
+   "ipa": "",
+   "pos": "",
+   "ko": "치우다, 청소하다",
+   "def_en": "to make a place tidy",
+   "ex_en": "Who's going to clean up this mess?",
+   "ex_ko": "이 난장판 누가 치울 거야?",
+   "scene_ko": "어질러진 아파트"
+  },
+  {
+   "en": "set up",
+   "ipa": "",
+   "pos": "",
+   "ko": "소개해 주다, 준비하다",
+   "def_en": "to arrange or introduce",
+   "ex_en": "Monica wants to set me up with her friend.",
+   "ex_ko": "모니카가 자기 친구를 나한테 소개해 주려 해.",
+   "scene_ko": "친구들이 소개팅을 주선할 때"
+  },
+  {
+   "en": "show off",
+   "ipa": "",
+   "pos": "",
+   "ko": "자랑하다, 뽐내다",
+   "def_en": "to try to impress people",
+   "ex_en": "Stop showing off, Joey. We get it.",
+   "ex_ko": "그만 뽐내, 조이. 알겠으니까.",
+   "scene_ko": "잘난 척하는 조이"
+  },
+  {
+   "en": "wear out",
+   "ipa": "",
+   "pos": "",
+   "ko": "지치게 하다, 닳다",
+   "def_en": "to make very tired or use up",
+   "ex_en": "Working double shifts wore me out.",
+   "ex_ko": "더블 근무가 날 완전히 지치게 했어.",
+   "scene_ko": "일이 고된 날"
+  },
+  {
+   "en": "burst in",
+   "ipa": "",
+   "pos": "",
+   "ko": "불쑥 들어오다",
+   "def_en": "to enter suddenly",
+   "ex_en": "Joey burst in without knocking.",
+   "ex_ko": "조이가 노크도 없이 불쑥 들어왔어.",
+   "scene_ko": "이웃집처럼 드나드는 친구들"
+  },
+  {
+   "en": "play along",
+   "ipa": "",
+   "pos": "",
+   "ko": "장단을 맞추다",
+   "def_en": "to pretend to agree",
+   "ex_en": "Just play along for tonight, okay?",
+   "ex_ko": "오늘 밤만 장단 맞춰 줘, 알았지?",
+   "scene_ko": "친구의 거짓말을 도와줄 때"
+  }
+ ]
+}

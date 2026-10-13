@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 5,
+ "day": 6,
  "used": [
   "awkward",
   "divorce",
@@ -121,7 +121,37 @@
   "look forward to",
   "hold on",
   "lay off",
-  "fill in"
+  "fill in",
+  "reckless",
+  "stingy",
+  "audition",
+  "fussy",
+  "rehearse",
+  "tipsy",
+  "casserole",
+  "grudge",
+  "nosy",
+  "tedious",
+  "cost an arm and a leg",
+  "break a leg",
+  "get the hang of",
+  "hit the nail on the head",
+  "let the cat out of the bag",
+  "pull someone's leg",
+  "bend over backwards",
+  "in over one's head",
+  "take it with a grain of salt",
+  "steal the show",
+  "cut out",
+  "mess up",
+  "pass out",
+  "dress up",
+  "clean up",
+  "set up",
+  "show off",
+  "wear out",
+  "burst in",
+  "play along"
  ],
  "history": [
   {
@@ -149,6 +179,13 @@
    "date": "2026-10-13",
    "season": 1,
    "day": 4,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-14",
+   "season": 1,
+   "day": 5,
    "db": true,
    "kakao": true
   }

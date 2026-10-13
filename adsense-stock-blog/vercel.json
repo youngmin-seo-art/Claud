@@ -3,7 +3,7 @@
   "cleanUrls": false,
   "redirects": [
     {
-      "source": "/((?!ads\\.txt|robots\\.txt|sitemap\\.xml).*)",
+      "source": "/((?!ads\\.txt$|robots\\.txt$|sitemap\\.xml$|rss\\.xml$).*)",
       "has": [
         {
           "type": "host",
@@ -11,12 +11,12 @@
         }
       ],
       "destination": "https://www.valuestocklabs.com/$1",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/index.html",
       "destination": "/",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "headers": [

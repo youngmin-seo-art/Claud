@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 증시 시황: 美 9월 CPI 안도 랠리와 환율 급락, TSMC 실적 발표와 코스피 6,200선 탈환 전략 | valuestocklabs</title>
+  <!-- Pretendard 폰트 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.85;
+      font-size: 17px;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 상단 네비게이션 */
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo span { color: var(--text-main); font-weight: 600; }
+    .badge-preview {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    /* 메인 컨테이너 */
+    .article-container {
+      max-width: 860px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+    }
+
+    /* 아티클 카드 */
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      padding: 48px 44px;
+    }
+    @media (max-width: 640px) {
+      .article-card { padding: 28px 20px; }
+      body { font-size: 16px; }
+    }
+
+    /* 포스트 헤더 */
+    .post-category {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 18px;
+    }
+    .post-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 20px;
+      letter-spacing: -0.8px;
+    }
+    @media (max-width: 640px) {
+      .post-title { font-size: 26px; }
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* 도입 서브카피 요약 */
+    .post-summary {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    /* 대표 썸네일 */
+    .hero-thumbnail {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 목차 박스 */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 44px;
+    }
+    .toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toc-list a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* 본문 스타일링 */
+    .article-body h2 {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 48px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .article-body p {
+      margin-bottom: 22px;
+      color: var(--text-body);
+    }
+    .article-body ul, .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-body li {
+      color: var(--text-body);
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* 이미지 및 캡션 */
+    .article-figure {
+      margin: 36px 0;
+      text-align: center;
+    }
+    .article-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      display: block;
+      margin: 0 auto;
+    }
+    .article-figure figcaption {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* 테이블 */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fafafa; }
+    tr:hover td { background-color: #f1f5f9; }
+
+    /* 면책 조항 박스 */
+    .disclaimer-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px 24px;
+      border-radius: var(--radius-sm);
+      margin-top: 50px;
+      font-size: 14px;
+      color: #92400e;
+      line-height: 1.7;
+    }
+    .disclaimer-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 참고 소스 박스 */
+    .references-box {
+      margin-top: 32px;
+      padding: 24px;
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+    .references-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .references-list {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .references-list a {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-list a:hover { text-decoration: underline; }
+
+    /* 푸터 */
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">ValueStock<span>Labs</span></a>
+      <span class="badge-preview">Preview Mode</span>
+    </div>
+  </header>
+
+  <!-- 본문 컨테이너 -->
+  <main class="article-container">
+    <article class="article-card">
+      
+      <!-- 포스트 헤더 영역 -->
+      <div class="post-header">
+        <span class="post-category">오늘의 시황 & 마켓브리핑</span>
+        <h1 class="post-title">오늘의 증시 시황: 美 9월 CPI 안도 랠리와 환율 급락, TSMC 실적 발표와 코스피 6,200선 탈환 전략</h1>
+        <div class="post-meta">
+          <span>📅 2026-10-15</span>
+          <span>⏱️ 5분 분량</span>
+          <span>✍️ ValueStockLabs 리서치팀</span>
+          <span>🛡️ E-E-A-T 검증 완료</span>
+        </div>
+      </div>
+
+      <!-- 도입 요약 서브카피 -->
+      <div class="post-summary">
+        미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,460원대 급락으로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC의 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵을 총정리합니다.
+      </div>
+
+      <!-- 대표 썸네일 -->
+      <div class="hero-thumbnail">
+        <img src="./images/thumbnail.png" alt="2026년 10월 15일 오늘의 증시 시황 대표 썸네일: 美 9월 CPI 안도 랠리와 TSMC 실적 발표, 코스피 6,200선 탈환 전략">
+      </div>
+
+      <!-- 목차 -->
+      <nav class="toc-card">
+        <div class="toc-title">📑 목차</div>
+        <ul class="toc-list">
+          <li><a href="#sec-1">1. 국내 증시 현황: 6,100선 안착 성공과 외국인 수급 정상화 기류</a></li>
+          <li><a href="#sec-2">2. 글로벌 증시 및 매크로 지표: 美 9월 CPI 훈풍과 국채금리·환율 급락 점검</a></li>
+          <li><a href="#sec-3">3. 오늘의 최대 관전 포인트: 대만 TSMC 3분기 실적 발표와 AI 반도체 파급 효과</a></li>
+          <li><a href="#sec-4">4. 코스피 6,200선 탈환 대비 3대 실전 투자 행동 강령</a></li>
+          <li><a href="#sec-5">5. 결론 및 오늘의 투자 인사이트</a></li>
+        </ul>
+      </nav>
+
+      <!-- 본문 섹션 -->
+      <div class="article-body">
+        
+        <h2 id="sec-1">1. 국내 증시 현황: 6,100선 안착 성공과 외국인 수급 정상화 기류</h2>
+        <p>지난 10월 13일 사상 초유의 4조 5,000억 원대 외국인 순매도 폭탄과 매도 사이드카 발동으로 6,000선 붕괴 위기까지 몰렸던 국내 증시가 단 하루 만에 강력한 자생적 복원력을 증명했습니다.</p>
+        <p>10월 14일 코스피는 전 거래일 대비 <strong>+1.55%(93.55 pt)</strong> 상승한 <strong>6,128.90</strong>으로 마감하며 6,100선을 안정적으로 탈환했습니다. 코스닥 지수 역시 낙폭 과대 바이오 및 반도체 소부장 종목들을 중심으로 강한 반발 매수세가 유입되며 <strong>+2.20%(18.05 pt)</strong> 오른 <strong>838.20</strong>에 거래를 마쳤습니다.</p>
+        <p>무엇보다 고무적인 변화는 <strong>수급 환경의 뚜렷한 진정세</strong>입니다. 13일 4조 5,200억 원의 기록적인 현물 투매를 감행했던 외국인 투자자는 14일 현물 매도 규모를 <strong>1,840억 원 수준으로 대폭 축소</strong>했습니다. 특히 코스피200 선물 시장에서는 하루 만에 <strong>1조 2,400억 원어치를 순매수</strong>로 쓸어 담으며 시장의 하방을 단단히 닫아걸었습니다. 기관 투자자 역시 금융투자와 연기금을 중심으로 4,800억 원대 순매수를 기록하며 지수 반등을 적극 뒷받침했습니다.</p>
+
+        <!-- 본문 이미지 1 -->
+        <figure class="article-figure">
+          <img src="./images/body-1.png" alt="코스피 6,100선 탈환 및 투자자별 수급 정상화와 시총 상위주 등락 비교 인포그래픽">
+          <figcaption>▲ 코스피 6,100선 탈환 및 투자자별 수급 정상화와 시총 상위주 등락 비교 인포그래픽</figcaption>
+        </figure>
+
+        <h3>주요 지표 및 시총 상위 종목 변동 현황</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>10월 13일(폭락 마감)</th>
+                <th>10월 14일(반등 마감)</th>
+                <th>등락률</th>
+                <th>핵심 수급 및 시사점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>코스피(KOSPI)</strong></td>
+                <td>6,035.35 pt</td>
+                <td><strong>6,128.90 pt</strong></td>
+                <td><strong style="color: #ef4444;">+1.55%</strong></td>
+                <td>사이드카 충격 딛고 6,100선 안착 성공</td>
+              </tr>
+              <tr>
+                <td><strong>코스닥(KOSDAQ)</strong></td>
+                <td>820.15 pt</td>
+                <td><strong>838.20 pt</strong></td>
+                <td><strong style="color: #ef4444;">+2.20%</strong></td>
+                <td>소부장·바이오 낙폭 과대 우량주 반발 매수</td>
+              </tr>
+              <tr>
+                <td><strong>삼성전자</strong></td>
+                <td>232,000원</td>
+                <td><strong>237,500원</strong></td>
+                <td><strong style="color: #ef4444;">+2.37%</strong></td>
+                <td>외인 매도세 급감 및 6일 만의 수급 진정</td>
+              </tr>
+              <tr>
+                <td><strong>SK하이닉스</strong></td>
+                <td>1,443,000원</td>
+                <td><strong>1,488,000원</strong></td>
+                <td><strong style="color: #ef4444;">+3.12%</strong></td>
+                <td>HBM3E 독점 경쟁력 재부각되며 148만 원 회복</td>
+              </tr>
+              <tr>
+                <td><strong>원/달러 환율</strong></td>
+                <td>1,478.20원</td>
+                <td><strong>1,474.50원</strong></td>
+                <td><strong style="color: #2563eb;">-3.70원</strong></td>
+                <td>야간 NDF에서 1,468원대로 추가 급락</td>
+              </tr>
+              <tr>
+                <td><strong>외국인 선물 수급</strong></td>
+                <td>-2조 1,000억 원</td>
+                <td><strong>+1조 2,400억 원</strong></td>
+                <td><strong style="color: #10b981;">순매수 전환</strong></td>
+                <td>선물 환매수로 지수 하방 지지력 확보</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>전일 폭락을 이끌었던 반도체 투톱 삼성전자(+2.37%)와 SK하이닉스(+3.12%)가 동반 반등하며 지수 하방 경직성을 확보했습니다. 여기에 현대차(+1.2%), 기아(+1.8%) 등 밸류업 자동차주와 3분기 실적 호전이 확실시되는 한화에어로스페이스(+3.4%), 삼성중공업(+2.8%)이 강세를 유지하며 시장 전반의 체력을 빠르게 회복시켰습니다.</p>
+
+        <h2 id="sec-2">2. 글로벌 증시 및 매크로 지표: 美 9월 CPI 훈풍과 국채금리·환율 급락 점검</h2>
+        <p>간밤 미국 뉴욕증시는 글로벌 금융시장의 최대 긴장 요인이었던 <strong>미국 9월 소비자물가지수(CPI)</strong>가 안도감을 선사하며 3대 지수가 일제히 상승 랠리를 펼쳤습니다.</p>
+        <ul>
+          <li><strong>다우존스 30 산업평균지수</strong>: 51,913.35 pt (+243.25 pt, <strong>+0.47%</strong>)</li>
+          <li><strong>S&P 500 지수</strong>: 7,860.90 pt (+55.45 pt, <strong>+0.71%</strong>)</li>
+          <li><strong>나스닥 종합지수</strong>: 27,470.80 pt (+266.42 pt, <strong>+0.98%</strong>)</li>
+          <li><strong>필라델피아반도체 지수</strong>: 12,273.15 pt (+222.95 pt, <strong>+1.85%</strong>)</li>
+        </ul>
+        <p>미국 노동통계국(BLS)이 발표한 <strong>9월 헤드라인 CPI는 전년 동월 대비 +2.3%</strong> 상승하여 시장 컨센서스(2.3%)에 정확히 부합했습니다. 변동성이 큰 식료품과 에너지를 제외한 <strong>근원(Core) CPI 역시 전년비 +2.7%</strong>를 기록하며 인플레이션 하향 안정화 추세가 확고함을 증명했습니다.</p>
+        <p>이 같은 지표 안도감에 힘입어 시카고상품거래소(CME) 페드워치(FedWatch)의 <strong>11월 FOMC 25bp 금리 인하 확률은 86.5%로 상향</strong>되었습니다.</p>
+        <p>매크로 지표의 안정세는 더욱 극적입니다. <strong>미국 10년물 국채금리는 3.98%로 마감하며 심리적 저항선인 4.0% 선을 하회</strong>했습니다. 글로벌 달러 인덱스 또한 101.8선으로 밀려나며 달러 독주에 제동이 걸렸습니다.</p>
+        <p>특히 외환시장에서 역외 차액결제선물환(NDF) <strong>원/달러 환율은 1,468.50원</strong>으로 마감하며, 전일 서울 정규장 마감가(1,478.20원) 대비 <strong>무려 10원 가까이 급락</strong>했습니다. 환율이 1,460원대로 진입함에 따라, 오늘 코스피 시장에서 외국인의 본격적인 현물 순매수 복귀를 기대할 수 있는 최적의 환경이 마련되었습니다.</p>
+
+        <h2 id="sec-3">3. 오늘의 최대 관전 포인트: 대만 TSMC 3분기 실적 발표와 AI 반도체 파급 효과</h2>
+        <p>14일 밤 미국 CPI 고비를 성공적으로 넘긴 글로벌 증시의 시선은 이제 오늘(15일) 오후 발표될 <strong>글로벌 파운드리 1위 대만 TSMC의 3분기 실적 콘퍼런스콜(한국시간 15:00 전후)</strong>로 향하고 있습니다.</p>
+        <p>이번 실적 발표는 단순한 개별 기업의 성적표를 넘어, 최근 월가와 여의도를 뒤흔들었던 <strong>'AI 반도체 정점론'</strong>과 <strong>'중국 창신메모리(CXMT) 추격 노이즈'</strong>의 실체를 가늠할 2026년 하반기 최대의 분수령입니다.</p>
+
+        <!-- 본문 이미지 2 -->
+        <figure class="article-figure">
+          <img src="./images/body-2.png" alt="대만 TSMC 3분기 실적 및 CAPEX 전망과 국내 AI 반도체 밸류체인 수혜 구조 다이어그램">
+          <figcaption>▲ 대만 TSMC 3분기 실적 및 CAPEX 전망과 국내 AI 반도체 밸류체인 수혜 구조 다이어그램</figcaption>
+        </figure>
+
+        <h3>TSMC 실적 콘퍼런스콜 3대 핵심 체크포인트</h3>
+        <ol>
+          <li><strong>역대 최대 3분기 매출과 매출총이익률(GPM) 55% 수성</strong>: 이미 공개된 TSMC의 3분기 잠정 매출은 467억 달러로 사상 최대치입니다. 이번 발표에서 고부가가치 3nm 및 AI 가속기 웨이퍼 비중 확대에 힘입어 매출총이익률 55% 이상을 달성했는지가 수익성 검증의 핵심입니다.</li>
+          <li><strong>연간 설비투자(CAPEX) 380억~420억 달러 상향 여부</strong>: 기존 연간 설비투자 가이던스(300억~320억 달러)를 400억 달러 안팎으로 대폭 상향할 경우, 글로벌 반도체 장비 및 소재 기업들에 강력한 재평가 모멘텀이 부여됩니다.</li>
+          <li><strong>2nm 공정 선점 경쟁 및 CoWoS 어드밴스드 패키징 증설 속도</strong>: 엔비디아의 블랙웰 울트라(Blackwell Ultra), AMD MI350, 애플 M5 칩에 적용될 2nm 양산 스케줄과, 현재 공급 부족 상태인 CoWoS 캐파를 2026년 말까지 2배 이상 확대하겠다는 가이던스가 재확인될 경우 국내 HBM 서플라이체인(SK하이닉스, 한미반도체 등)에 직격 탄력이 붙을 것입니다.</li>
+        </ol>
+        <p>TSMC가 공격적인 투자 확대를 선언한다면, "AI 인프라 수요는 공급이 못 따라갈 뿐 여전히 견고하다"는 강력한 팩트가 입증되며 국내 반도체 투톱과 소부장 업종의 2차 랠리를 촉발할 전망입니다.</p>
+
+        <h2 id="sec-4">4. 코스피 6,200선 탈환 대비 3대 실전 투자 행동 강령</h2>
+        <p>미국 물가 지표 안정, 뉴욕증시 랠리, 환율 급락(1,460원대)이라는 3대 호재가 맞물리면서 오늘 코스피는 <strong>6,170~6,190선 안팎에서 강한 갭상승 출발</strong>이 확실시됩니다.</p>
+        <p>하지만 개장 직후 무리한 추격 매수를 감행하는 것은 금물입니다. 오늘 장중 TSMC 실적 발표에 따른 변동성을 염두에 두고 아래 <strong>3대 실전 투자 행동 강령</strong>을 준수하시기 바랍니다.</p>
+
+        <!-- 본문 이미지 3 -->
+        <figure class="article-figure">
+          <img src="./images/body-3.png" alt="10월 15일 글로벌 슈퍼위크 핵심 이벤트 및 3대 실전 투자 행동 강령 요약 카드">
+          <figcaption>▲ 10월 15일 글로벌 슈퍼위크 핵심 이벤트 및 3대 실전 투자 행동 강령 요약 카드</figcaption>
+        </figure>
+
+        <h3>투자자를 위한 3대 행동 강령</h3>
+        <ul>
+          <li><strong>원칙 1 [시초가 갭상승 추격 매수 자제, 6,160~6,180선 지지력 확인 후 분할 매수]</strong>: 간밤 호재를 반영해 장 초반 1% 이상 갭상승할 경우 단기 차익 실현 매물이 일시 출회될 수 있습니다. 9시 개장 직후 흥분 매수하기보다는, 오전 10시 전후로 6,160~6,180선에서 외국인 현물 순매수가 실제로 유입되며 지지선이 형성되는 것을 확인한 후 분할 진입하는 것이 정석입니다.</li>
+          <li><strong>원칙 2 [오후 TSMC 가이던스 확인 후 HBM·소부장 선별 압축]</strong>: TSMC의 실적과 2026~2027년 설비투자 가이던스가 긍정적으로 확인되는 시점(오후 3시 전후)에 맞춰, HBM4 핵심 장비주(한미반도체), 고성능 PCB(이수페타시스), 고압수소어닐링(HPSP) 등 실질 수혜가 보장된 1등 소부장주로 포트폴리오를 압축하십시오.</li>
+          <li><strong>원칙 3 [실적 확실한 가치주·고배당 밸류업으로 5:5 바벨 전략 유지]</strong>: 성장주 단일 섹터에 자산을 집중하는 위험을 방지해야 합니다. 3분기 사상 최대 실적이 예고된 방산(한화에어로스페이스, 현대로템), 친환경 고선가 선박 인도가 본격화된 조선(삼성중공업, HD현대중공업), AI 전력망 수혜주(HD현대일렉트릭, LS일렉트릭), 자사주 소각 공시가 예정된 금융지주(KB금융)를 포트폴리오의 40~50% 비중으로 균형 배치하는 '바벨(Barbell) 전략'이 극심한 장세에서 계좌 수익률을 지키는 최선의 방패입니다.</li>
+        </ul>
+
+        <h2 id="sec-5">5. 결론 및 오늘의 투자 인사이트</h2>
+        <p>10월 13일 사이드카 발동 당시의 극단적인 공포는 불과 이틀 만에 <strong>'저가 매수자의 환호'</strong>로 바뀌고 있습니다. 미국 CPI가 인플레이션 종식을 확인해 주었고, 1,460원대로 내려앉은 원/달러 환율은 외국인 자금 유입의 든든한 마중물이 될 것입니다.</p>
+        <p>오늘 코스피의 지상 과제는 <strong>6,200선 안착</strong>입니다. 장중 발표될 TSMC의 실적 결과를 차분히 점검하시면서, 단기 소음과 변동성에 흔들리지 않고 <strong>'실적이 뒷받침되는 AI 반도체 주도주'</strong>와 <strong>'안정적인 하방 경직성을 지닌 3분기 호실적 가치주'</strong>의 조화로운 포트폴리오를 구축하시기 바랍니다.</p>
+
+      </div>
+
+      <!-- 투자 면책 조항 -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">⚠️ 투자 유의사항 및 법적 면책 조항</div>
+        <p>본 리포트는 신뢰할 수 있는 공개 자료를 바탕으로 작성된 정보 제공 목적의 콘텐츠이며, 특정 주식의 매수·매도 추천이나 금융 투자에 대한 자문이 아닙니다. 모든 투자의 최종 판단과 결과에 대한 책임은 투자자 본인에게 귀속됩니다.</p>
+      </div>
+
+      <!-- 참고 소스 링크 -->
+      <div class="references-box">
+        <div class="references-title">📚 참고 출처 (References)</div>
+        <ol class="references-list">
+          <li><a href="http://data.krx.co.kr" target="_blank" rel="noopener noreferrer">한국거래소(KRX) 시장정보포털 - 10월 14일 코스피 6,128.90 마감 및 수급 통계</a></li>
+          <li><a href="https://www.bls.gov/cpi/" target="_blank" rel="noopener noreferrer">U.S. Bureau of Labor Statistics (BLS) - 2026년 9월 미국 소비자물가지수(CPI) 공식 발표</a></li>
+          <li><a href="https://finance.yahoo.com" target="_blank" rel="noopener noreferrer">Yahoo Finance - 10월 14일 뉴욕증시 3대 지수 반등, 10년물 국채금리 3.98% 및 엔비디아 주가 동향</a></li>
+          <li><a href="https://www.yna.co.kr" target="_blank" rel="noopener noreferrer">연합뉴스(Yonhap News) - 환율 NDF 1,468원대 급락 및 코스피 6,200선 안착 시도 분석</a></li>
+          <li><a href="https://investor.tsmc.com" target="_blank" rel="noopener noreferrer">TSMC Investor Relations - 2026년 3분기 실적 발표 콘퍼런스콜 공시 및 가이던스 안건</a></li>
+        </ol>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <p>© 2026 valuestocklabs.com. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

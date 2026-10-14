@@ -59,7 +59,7 @@ def rebuild_index_grid():
             date_str = "2026.09.27"
             
         # Category classification
-        if "morning-market" in filename or "시황" in raw_title or "애드센스" in filename or "adsense" in filename:
+        if "morning-market" in filename or "시황" in raw_title:
             category = "market"
             badge_html = '<span class="post-badge market" style="background:#059669; color:#fff;">☕ 모닝 시황</span>'
             author = "시황분석팀"

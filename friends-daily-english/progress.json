@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 6,
+ "day": 7,
  "used": [
   "awkward",
   "divorce",
@@ -151,7 +151,37 @@
   "show off",
   "wear out",
   "burst in",
-  "play along"
+  "play along",
+  "hilarious",
+  "ridiculous",
+  "sneaky",
+  "thrilled",
+  "wardrobe",
+  "promotion",
+  "coworker",
+  "deadline",
+  "adorable",
+  "ashamed",
+  "hit the jackpot",
+  "on cloud nine",
+  "bark up the wrong tree",
+  "have second thoughts",
+  "jump the gun",
+  "in hot water",
+  "sit tight",
+  "come clean",
+  "wing it",
+  "call the shots",
+  "take over",
+  "turn into",
+  "look after",
+  "take off",
+  "hand in",
+  "catch up",
+  "set off",
+  "back up",
+  "pay back",
+  "sign up"
  ],
  "history": [
   {
@@ -186,6 +216,13 @@
    "date": "2026-10-14",
    "season": 1,
    "day": 5,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-15",
+   "season": 1,
+   "day": 6,
    "db": true,
    "kakao": true
   }

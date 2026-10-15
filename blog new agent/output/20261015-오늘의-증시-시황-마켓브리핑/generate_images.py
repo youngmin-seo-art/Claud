@@ -170,7 +170,7 @@ thumbnail_html = """<!DOCTYPE html>
     
     <div class="main-content">
       <h1 class="title">
-        美 CPI 안도 랠리 · 환율 1,460원대 급락<br>
+        美 CPI 안도 랠리 · 환율 1,330원대 안정<br>
         <span class="highlight">오늘 TSMC 실적 발표 & 6,200선 탈환</span>
       </h1>
       <p class="subtitle">
@@ -187,8 +187,8 @@ thumbnail_html = """<!DOCTYPE html>
       </div>
       <div class="metric-box">
         <span class="metric-label">원/달러 환율 (NDF)</span>
-        <span class="metric-val">1,468.5원</span>
-        <span class="metric-desc">전일비 -9.7원 급락(원화강세)</span>
+        <span class="metric-val">1,338.5원</span>
+        <span class="metric-desc">전일비 -5.7원 하락(원화 안정세)</span>
       </div>
       <div class="metric-box">
         <span class="metric-label">오늘 핵심 이벤트</span>
@@ -353,7 +353,7 @@ body1_html = """<!DOCTYPE html>
       </div>
       <div class="stat-row">
         <span class="stat-name">원/달러 환율 (NDF)</span>
-        <span class="stat-val blue">1,468.50원 (-9.7원)</span>
+        <span class="stat-val blue">1,338.50원 (-5.7원)</span>
       </div>
       <div class="stat-row">
         <span class="stat-name">외인 선물 순매수</span>
@@ -813,7 +813,7 @@ async def render():
         await page4.close()
 
         await browser.close()
-    print("🎉 모든 이미지 캡처 완료!")
+    print("[성공] 모든 이미지 캡처 완료!")
 
 if __name__ == "__main__":
     asyncio.run(render())

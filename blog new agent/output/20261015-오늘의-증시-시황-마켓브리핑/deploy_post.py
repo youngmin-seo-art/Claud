@@ -32,7 +32,7 @@ html_content = html_content.replace('src="./images/', 'src="../images/daily-mark
 
 # canonical 태그, adsense 스크립트, meta 태그 추가
 canonical_url = f"https://www.valuestocklabs.com/posts/{post_filename}"
-meta_tags = f'''  <meta name="description" content="미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,460원대 급락으로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵 총정리.">
+meta_tags = f'''  <meta name="description" content="미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,330원대 하향 안정세(1,338.50원)로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵 총정리.">
   <meta name="keywords" content="오늘의시황, 코스피, 코스닥, 뉴욕증시, 나스닥, 미국CPI, TSMC실적, 환율하락, 반도체, HBM, valuestocklabs">
   <link rel="canonical" href="{canonical_url}">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
@@ -155,17 +155,17 @@ briefing_section_html = f'''            <!-- Morning Market Briefing Section (�
         </div>
         <div class="market-chip" data-chip-id="usdkrw">
           <span class="market-chip-name">🇰🇷 원/달러 환율</span>
-          <span class="market-chip-val ticker-down">1,468.50 ▼ -0.66%</span>
+          <span class="market-chip-val ticker-down">1,338.50 ▼ -0.42%</span>
         </div>
       </div>
 
       <div class="briefing-content-summary">
-        미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,460원대 급락으로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC의 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵을 총정리합니다.
+        미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,330원대 하향 안정세(1,338.50원)로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC의 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵을 총정리합니다.
       </div>
 
       <ul class="briefing-points">
         <li>📌 <strong>국내증시 수급:</strong> 코스피 6,128.90(+1.55%) 6,100선 안착 성공, 외국인 코스피200 선물 1조 2,400억 원 순매수 전환.</li>
-        <li>📌 <strong>뉴욕증시 &amp; 환율:</strong> 美 9월 CPI 2.3% 부합으로 3대 지수 랠리, 10년물 국채금리 3.98% 하회 및 NDF 환율 1,468.50원 급락.</li>
+        <li>📌 <strong>뉴욕증시 &amp; 환율:</strong> 美 9월 CPI 2.3% 부합으로 3대 지수 랠리, 10년물 국채금리 3.98% 하회 및 NDF 환율 1,338.50원 안정.</li>
         <li>📌 <strong>오늘의 시장 전략:</strong> 시초가 갭상승 추격 매수 자제 속 6,160선 지지 확인 분할 매수, 오후 TSMC 실적 확인 후 HBM·가치주 5:5 바벨 전략.</li>
       </ul>
 
@@ -183,12 +183,12 @@ path.insert(0, str(ROOT_DIR / "stock-blog-agent"))
 from blog_publisher import BlogPublisher
 
 article_data = {
-    "title": "오늘의 증시 시황: 美 9월 CPI 안도 랠리와 환율 급락, TSMC 실적 발표와 코스피 6,200선 탈환 전략",
+    "title": "오늘의 증시 시황: 美 9월 CPI 안도 랠리와 환율 안정, TSMC 실적 발표와 코스피 6,200선 탈환 전략",
     "filename": post_filename,
     "date": "2026-10-15",
     "category": "market",
     "image": "images/daily-market-20261015/thumbnail.png",
-    "summary": "미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,460원대 급락으로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵 총정리.",
+    "summary": "미국 9월 CPI 안정과 국채금리 4% 하회, 원/달러 환율 1,330원대 하향 안정세(1,338.50원)로 글로벌 위험자산 투자 심리가 되살아났습니다! 오늘 오후 대만 TSMC의 3분기 실적 발표를 앞두고 코스피 6,200선 탈환을 위한 3대 실전 대응 로드맵 총정리.",
     "is_morning": True,
     "briefing_section_html": briefing_section_html
 }

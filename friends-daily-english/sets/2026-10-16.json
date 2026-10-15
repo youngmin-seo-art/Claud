@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-16",
+ "season": 1,
+ "day": 7,
+ "theme_ko": "시즌 1 · 센트럴 퍼크의 수다와 모니카의 첫 데이트",
+ "createdAt": "2026-10-16T07:45:00+09:00",
+ "words": [
+  {
+   "en": "hectic",
+   "ipa": "/ˈhektɪk/",
+   "pos": "adjective",
+   "ko": "정신없이 바쁜",
+   "def_en": "very busy and full of activity",
+   "ex_en": "Monica's Friday night shift was hectic.",
+   "ex_ko": "모니카의 금요일 밤 근무는 정신없이 바빴어.",
+   "scene_ko": "식당 주방이 몰려 바쁜 상황"
+  },
+  {
+   "en": "gloomy",
+   "ipa": "/ˈɡluːmi/",
+   "pos": "adjective",
+   "ko": "우울한, 음침한",
+   "def_en": "sad or dark in mood",
+   "ex_en": "Why is Ross so gloomy today?",
+   "ex_ko": "로스는 오늘 왜 이렇게 우울해?",
+   "scene_ko": "기운 없는 친구를 걱정하는 상황"
+  },
+  {
+   "en": "snooty",
+   "ipa": "/ˈsnuːti/",
+   "pos": "adjective",
+   "ko": "거만한",
+   "def_en": "acting superior to others",
+   "ex_en": "The waiter was kind of snooty to Joey.",
+   "ex_ko": "그 웨이터는 조이에게 좀 거만했어.",
+   "scene_ko": "불친절한 직원을 만난 상황"
+  },
+  {
+   "en": "fidgety",
+   "ipa": "/ˈfɪdʒəti/",
+   "pos": "adjective",
+   "ko": "안절부절못하는",
+   "def_en": "unable to stay still",
+   "ex_en": "Rachel gets fidgety before a big meeting.",
+   "ex_ko": "레이첼은 중요한 회의 전에 안절부절못해.",
+   "scene_ko": "긴장해서 가만있지 못하는 친구"
+  },
+  {
+   "en": "generous",
+   "ipa": "/ˈdʒenərəs/",
+   "pos": "adjective",
+   "ko": "후한, 너그러운",
+   "def_en": "happy to give more than needed",
+   "ex_en": "Phoebe was generous with her tips.",
+   "ex_ko": "피비는 팁을 후하게 줬어.",
+   "scene_ko": "친구에게 베푸는 상황"
+  },
+  {
+   "en": "spontaneous",
+   "ipa": "/spɑːnˈteɪniəs/",
+   "pos": "adjective",
+   "ko": "즉흥적인",
+   "def_en": "done without planning",
+   "ex_en": "Joey loves spontaneous road trips.",
+   "ex_ko": "조이는 즉흥적인 여행을 좋아해.",
+   "scene_ko": "계획 없이 떠나자는 친구"
+  },
+  {
+   "en": "tacky",
+   "ipa": "/ˈtæki/",
+   "pos": "adjective",
+   "ko": "촌스러운",
+   "def_en": "cheap-looking and in bad taste",
+   "ex_en": "That lamp is kind of tacky, Monica.",
+   "ex_ko": "모니카, 그 램프 좀 촌스러워.",
+   "scene_ko": "집 인테리어를 평하는 상황"
+  },
+  {
+   "en": "sentimental",
+   "ipa": "/ˌsentɪˈmentl/",
+   "pos": "adjective",
+   "ko": "감상적인",
+   "def_en": "emotional about memories",
+   "ex_en": "Ross gets sentimental about old songs.",
+   "ex_ko": "로스는 옛 노래에 감상에 젖어.",
+   "scene_ko": "추억에 잠기는 친구"
+  },
+  {
+   "en": "recipe",
+   "ipa": "/ˈresəpi/",
+   "pos": "noun",
+   "ko": "조리법",
+   "def_en": "instructions for cooking a dish",
+   "ex_en": "Monica won't share her secret recipe.",
+   "ex_ko": "모니카는 비밀 레시피를 안 알려줘.",
+   "scene_ko": "요리사 친구가 레시피를 지키는 상황"
+  },
+  {
+   "en": "tease",
+   "ipa": "/tiːz/",
+   "pos": "verb",
+   "ko": "놀리다",
+   "def_en": "to make fun of someone playfully",
+   "ex_en": "Stop teasing Ross about his hair.",
+   "ex_ko": "로스 머리 가지고 그만 놀려.",
+   "scene_ko": "친구를 장난스레 놀리는 상황"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "take a rain check",
+   "ipa": "",
+   "pos": "",
+   "ko": "다음으로 미루다",
+   "def_en": "to postpone an invitation",
+   "ex_en": "Can I take a rain check, Monica?",
+   "ex_ko": "모니카, 다음으로 미뤄도 될까?",
+   "scene_ko": "저녁 초대를 정중히 미루는 상황"
+  },
+  {
+   "en": "give someone the cold shoulder",
+   "ipa": "",
+   "pos": "",
+   "ko": "냉랭하게 대하다",
+   "def_en": "to ignore someone on purpose",
+   "ex_en": "Rachel gave Ross the cold shoulder.",
+   "ex_ko": "레이첼은 로스를 쌀쌀맞게 대했어.",
+   "scene_ko": "다툰 뒤 서먹한 사이"
+  },
+  {
+   "en": "bite off more than you can chew",
+   "ipa": "",
+   "pos": "",
+   "ko": "무리하게 떠맡다",
+   "def_en": "to take on too much",
+   "ex_en": "Chandler bit off more than he could chew.",
+   "ex_ko": "챈들러는 무리하게 일을 떠맡았어.",
+   "scene_ko": "일이 너무 많아진 친구"
+  },
+  {
+   "en": "once in a blue moon",
+   "ipa": "",
+   "pos": "",
+   "ko": "아주 드물게",
+   "def_en": "very rarely",
+   "ex_en": "Ross cooks once in a blue moon.",
+   "ex_ko": "로스는 아주 드물게 요리해.",
+   "scene_ko": "거의 안 하는 일을 하는 상황"
+  },
+  {
+   "en": "see eye to eye",
+   "ipa": "",
+   "pos": "",
+   "ko": "의견이 일치하다",
+   "def_en": "to agree with someone",
+   "ex_en": "Joey and Chandler rarely see eye to eye.",
+   "ex_ko": "조이와 챈들러는 의견이 잘 안 맞아.",
+   "scene_ko": "룸메이트끼리의 의견 충돌"
+  },
+  {
+   "en": "the whole nine yards",
+   "ipa": "",
+   "pos": "",
+   "ko": "있는 것 전부, 완벽하게",
+   "def_en": "everything possible",
+   "ex_en": "Monica did the whole nine yards for dinner.",
+   "ex_ko": "모니카는 저녁을 완벽하게 차렸어.",
+   "scene_ko": "정성껏 파티를 준비한 상황"
+  },
+  {
+   "en": "hit the sack",
+   "ipa": "",
+   "pos": "",
+   "ko": "자러 가다",
+   "def_en": "to go to bed",
+   "ex_en": "I'm exhausted. I'm going to hit the sack.",
+   "ex_ko": "나 지쳤어. 자러 갈래.",
+   "scene_ko": "늦은 밤 귀가한 친구"
+  },
+  {
+   "en": "face the music",
+   "ipa": "",
+   "pos": "",
+   "ko": "결과를 받아들이다",
+   "def_en": "to accept the consequences",
+   "ex_en": "Joey has to face the music now.",
+   "ex_ko": "조이는 이제 결과를 받아들여야 해.",
+   "scene_ko": "실수를 인정해야 하는 상황"
+  },
+  {
+   "en": "call it a day",
+   "ipa": "",
+   "pos": "",
+   "ko": "오늘은 그만하다",
+   "def_en": "to stop working for the day",
+   "ex_en": "Let's call it a day and get coffee.",
+   "ex_ko": "오늘은 그만하고 커피 마시자.",
+   "scene_ko": "일 마치고 카페로 가는 상황"
+  },
+  {
+   "en": "hang in there",
+   "ipa": "",
+   "pos": "",
+   "ko": "버텨, 힘내",
+   "def_en": "to keep trying in a hard time",
+   "ex_en": "Hang in there, Rachel. It gets easier.",
+   "ex_ko": "힘내, 레이첼. 점점 쉬워질 거야.",
+   "scene_ko": "새 일이 힘든 친구를 격려"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "pull off",
+   "ipa": "",
+   "pos": "",
+   "ko": "해내다",
+   "def_en": "to succeed in doing something hard",
+   "ex_en": "Can Monica pull off this dinner?",
+   "ex_ko": "모니카가 이 저녁 파티를 해낼 수 있을까?",
+   "scene_ko": "어려운 요리를 도전하는 상황"
+  },
+  {
+   "en": "turn out",
+   "ipa": "",
+   "pos": "",
+   "ko": "~로 밝혀지다",
+   "def_en": "to end up being",
+   "ex_en": "It turned out Joey was right.",
+   "ex_ko": "결국 조이가 맞았던 걸로 드러났어.",
+   "scene_ko": "예상과 다른 결과"
+  },
+  {
+   "en": "look up to",
+   "ipa": "",
+   "pos": "",
+   "ko": "존경하다",
+   "def_en": "to respect someone",
+   "ex_en": "Ross looks up to his old professor.",
+   "ex_ko": "로스는 옛 교수님을 존경해.",
+   "scene_ko": "멘토를 떠올리는 상황"
+  },
+  {
+   "en": "put off",
+   "ipa": "",
+   "pos": "",
+   "ko": "미루다",
+   "def_en": "to delay",
+   "ex_en": "Stop putting off your laundry, Chandler.",
+   "ex_ko": "챈들러, 빨래 그만 미뤄.",
+   "scene_ko": "집안일을 미루는 룸메이트"
+  },
+  {
+   "en": "stand up",
+   "ipa": "",
+   "pos": "",
+   "ko": "바람맞히다",
+   "def_en": "to fail to meet on a date",
+   "ex_en": "Don't stand me up again, Ross.",
+   "ex_ko": "로스, 또 바람맞히지 마.",
+   "scene_ko": "약속을 어긴 상대"
+  },
+  {
+   "en": "tag along",
+   "ipa": "",
+   "pos": "",
+   "ko": "따라가다",
+   "def_en": "to go with someone uninvited",
+   "ex_en": "Can I tag along to the movie?",
+   "ex_ko": "나도 영화 따라가도 돼?",
+   "scene_ko": "친구들 나들이에 끼는 상황"
+  },
+  {
+   "en": "back out",
+   "ipa": "",
+   "pos": "",
+   "ko": "발을 빼다",
+   "def_en": "to cancel a promise",
+   "ex_en": "Phoebe backed out of the trip.",
+   "ex_ko": "피비가 여행에서 빠졌어.",
+   "scene_ko": "약속을 취소하는 친구"
+  },
+  {
+   "en": "zone out",
+   "ipa": "",
+   "pos": "",
+   "ko": "멍하니 있다",
+   "def_en": "to stop paying attention",
+   "ex_en": "Joey zoned out during the lecture.",
+   "ex_ko": "조이는 강의 중에 멍하니 있었어.",
+   "scene_ko": "딴생각에 빠진 친구"
+  },
+  {
+   "en": "settle down",
+   "ipa": "",
+   "pos": "",
+   "ko": "정착하다",
+   "def_en": "to start a stable life",
+   "ex_en": "Monica wants to settle down someday.",
+   "ex_ko": "모니카는 언젠가 정착하고 싶어 해.",
+   "scene_ko": "결혼과 미래를 이야기하는 상황"
+  },
+  {
+   "en": "cut back",
+   "ipa": "",
+   "pos": "",
+   "ko": "줄이다",
+   "def_en": "to reduce",
+   "ex_en": "Chandler is cutting back on cigarettes.",
+   "ex_ko": "챈들러는 담배를 줄이는 중이야.",
+   "scene_ko": "습관을 고치려는 친구"
+  }
+ ]
+}

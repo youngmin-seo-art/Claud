@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 7,
+ "day": 8,
  "used": [
   "awkward",
   "divorce",
@@ -181,7 +181,37 @@
   "set off",
   "back up",
   "pay back",
-  "sign up"
+  "sign up",
+  "hectic",
+  "gloomy",
+  "snooty",
+  "fidgety",
+  "generous",
+  "spontaneous",
+  "tacky",
+  "sentimental",
+  "recipe",
+  "tease",
+  "take a rain check",
+  "give someone the cold shoulder",
+  "bite off more than you can chew",
+  "once in a blue moon",
+  "see eye to eye",
+  "the whole nine yards",
+  "hit the sack",
+  "face the music",
+  "call it a day",
+  "hang in there",
+  "pull off",
+  "turn out",
+  "look up to",
+  "put off",
+  "stand up",
+  "tag along",
+  "back out",
+  "zone out",
+  "settle down",
+  "cut back"
  ],
  "history": [
   {
@@ -223,6 +253,13 @@
    "date": "2026-10-15",
    "season": 1,
    "day": 6,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-16",
+   "season": 1,
+   "day": 7,
    "db": true,
    "kakao": true
   }

@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-17",
+ "season": 1,
+ "day": 8,
+ "theme_ko": "시즌 1 · 피비의 기타 노래와 아파트 이사 소동",
+ "createdAt": "2026-10-17T07:00:00+09:00",
+ "words": [
+  {
+   "en": "eccentric",
+   "ipa": "/ɪkˈsentrɪk/",
+   "pos": "adjective",
+   "ko": "별난, 괴짜인",
+   "def_en": "unusual in a way people find odd",
+   "ex_en": "Phoebe's eccentric songs make everyone smile.",
+   "ex_ko": "피비의 별난 노래는 모두를 웃게 해.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "sublet",
+   "ipa": "/ˈsʌblet/",
+   "pos": "verb",
+   "ko": "전대하다",
+   "def_en": "to rent your place to someone else",
+   "ex_en": "Joey wants to sublet his room for a month.",
+   "ex_ko": "조이는 한 달간 자기 방을 전대하고 싶어 해.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "furniture",
+   "ipa": "/ˈfɜːrnɪtʃər/",
+   "pos": "noun",
+   "ko": "가구",
+   "def_en": "tables, chairs, beds, etc.",
+   "ex_en": "Chandler helped carry the heavy furniture upstairs.",
+   "ex_ko": "챈들러가 무거운 가구를 위층으로 옮기는 걸 도왔어.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "cranky",
+   "ipa": "/ˈkræŋki/",
+   "pos": "adjective",
+   "ko": "짜증 내는",
+   "def_en": "easily annoyed or in a bad mood",
+   "ex_en": "Ross gets cranky when he skips breakfast.",
+   "ex_ko": "로스는 아침을 거르면 짜증을 내.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "tune",
+   "ipa": "/tuːn/",
+   "pos": "noun",
+   "ko": "곡조, 멜로디",
+   "def_en": "a series of musical notes",
+   "ex_en": "Phoebe can't get that tune out of her head.",
+   "ex_ko": "피비는 그 멜로디가 머릿속에서 안 떠나.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "fabulous",
+   "ipa": "/ˈfæbjələs/",
+   "pos": "adjective",
+   "ko": "굉장한",
+   "def_en": "extremely good",
+   "ex_en": "Rachel looks fabulous in that new jacket.",
+   "ex_ko": "레이첼은 새 재킷을 입으니 정말 멋져 보여.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "grumble",
+   "ipa": "/ˈɡrʌmbl/",
+   "pos": "verb",
+   "ko": "투덜대다",
+   "def_en": "to complain quietly",
+   "ex_en": "Joey grumbled about washing the dishes again.",
+   "ex_ko": "조이는 또 설거지해야 한다고 투덜댔어.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "budget",
+   "ipa": "/ˈbʌdʒɪt/",
+   "pos": "noun",
+   "ko": "예산",
+   "def_en": "the money you plan to spend",
+   "ex_en": "Monica made a budget for the party.",
+   "ex_ko": "모니카는 파티 예산을 짰어.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "cozy",
+   "ipa": "/ˈkoʊzi/",
+   "pos": "adjective",
+   "ko": "아늑한",
+   "def_en": "warm and comfortable",
+   "ex_en": "Their cozy couch is Chandler's favorite spot.",
+   "ex_ko": "그들의 아늑한 소파는 챈들러가 제일 좋아하는 자리야.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  },
+  {
+   "en": "gloat",
+   "ipa": "/ɡloʊt/",
+   "pos": "verb",
+   "ko": "의기양양해하다",
+   "def_en": "to enjoy your success in a smug way",
+   "ex_en": "Don't gloat just because you won, Ross.",
+   "ex_ko": "이겼다고 으스대지 마, 로스.",
+   "scene_ko": "피비의 노래와 친구들의 집 생활 상황"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "have a heart",
+   "ipa": "",
+   "pos": "",
+   "ko": "인정을 베풀다, 봐주다",
+   "def_en": "to be kind and show mercy",
+   "ex_en": "Have a heart, Monica, I'm so tired.",
+   "ex_ko": "좀 봐줘, 모니카. 나 너무 피곤해.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "on the house",
+   "ipa": "",
+   "pos": "",
+   "ko": "공짜로, 가게 부담으로",
+   "def_en": "free, paid by the business",
+   "ex_en": "Gunther said the coffee is on the house.",
+   "ex_ko": "건터가 커피는 서비스래.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "in a nutshell",
+   "ipa": "",
+   "pos": "",
+   "ko": "간단히 말해서",
+   "def_en": "in a few words",
+   "ex_en": "In a nutshell, Rachel hates her old job.",
+   "ex_ko": "간단히 말해, 레이첼은 옛 직장이 싫어.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "get the picture",
+   "ipa": "",
+   "pos": "",
+   "ko": "상황을 이해하다",
+   "def_en": "to understand a situation",
+   "ex_en": "Okay, Joey, I get the picture.",
+   "ex_ko": "알았어, 조이. 무슨 상황인지 알겠어.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "down in the dumps",
+   "ipa": "",
+   "pos": "",
+   "ko": "우울한",
+   "def_en": "feeling sad",
+   "ex_en": "Phoebe was down in the dumps after the breakup.",
+   "ex_ko": "피비는 이별 후 우울해했어.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "by the book",
+   "ipa": "",
+   "pos": "",
+   "ko": "원칙대로",
+   "def_en": "strictly following the rules",
+   "ex_en": "Monica does everything by the book.",
+   "ex_ko": "모니카는 모든 걸 원칙대로 해.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "hold your horses",
+   "ipa": "",
+   "pos": "",
+   "ko": "잠깐 기다려, 서두르지 마",
+   "def_en": "wait and be patient",
+   "ex_en": "Hold your horses, Chandler, I'm not ready.",
+   "ex_ko": "잠깐만, 챈들러. 나 아직 준비 안 됐어.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "a long shot",
+   "ipa": "",
+   "pos": "",
+   "ko": "가능성이 낮은 시도",
+   "def_en": "something unlikely to succeed",
+   "ex_en": "Getting that role is a long shot, Joey.",
+   "ex_ko": "그 역을 따는 건 가능성이 낮아, 조이.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "on thin ice",
+   "ipa": "",
+   "pos": "",
+   "ko": "위태로운 상황인",
+   "def_en": "in a risky situation",
+   "ex_en": "Ross is on thin ice with Rachel now.",
+   "ex_ko": "로스는 지금 레이첼과 아슬아슬한 상태야.",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  },
+  {
+   "en": "lose your touch",
+   "ipa": "",
+   "pos": "",
+   "ko": "감을 잃다",
+   "def_en": "to no longer be good at something",
+   "ex_en": "Did Monica lose her touch in the kitchen?",
+   "ex_ko": "모니카가 요리 감을 잃은 거야?",
+   "scene_ko": "친구들이 카페와 아파트에서 나누는 대화 상황"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "move out",
+   "ipa": "",
+   "pos": "",
+   "ko": "이사 나가다",
+   "def_en": "to leave your home to live elsewhere",
+   "ex_en": "Rachel might move out next month.",
+   "ex_ko": "레이첼은 다음 달에 이사 나갈지도 몰라.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "pitch in",
+   "ipa": "",
+   "pos": "",
+   "ko": "거들다, 힘을 보태다",
+   "def_en": "to help with a task",
+   "ex_en": "Everyone pitched in to clean Monica's place.",
+   "ex_ko": "모두가 모니카 집 청소를 거들었어.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "drop off",
+   "ipa": "",
+   "pos": "",
+   "ko": "내려주다, 맡기다",
+   "def_en": "to deliver or leave something",
+   "ex_en": "Can you drop off this box at Joey's?",
+   "ex_ko": "이 상자를 조이네에 갖다줄래?",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "pass on",
+   "ipa": "",
+   "pos": "",
+   "ko": "거절하다, 넘기다",
+   "def_en": "to decide not to take something",
+   "ex_en": "Chandler passed on the free pizza.",
+   "ex_ko": "챈들러는 공짜 피자를 사양했어.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "work on",
+   "ipa": "",
+   "pos": "",
+   "ko": "~에 매달리다, 노력하다",
+   "def_en": "to spend time improving something",
+   "ex_en": "Phoebe is working on a new song.",
+   "ex_ko": "피비는 새 노래를 작업 중이야.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "clear out",
+   "ipa": "",
+   "pos": "",
+   "ko": "치우다, 비우다",
+   "def_en": "to empty a place of things",
+   "ex_en": "Joey needs to clear out his closet.",
+   "ex_ko": "조이는 옷장을 비워야 해.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "hang up",
+   "ipa": "",
+   "pos": "",
+   "ko": "전화를 끊다",
+   "def_en": "to end a phone call",
+   "ex_en": "Rachel hung up before Ross could explain.",
+   "ex_ko": "로스가 설명하기도 전에 레이첼이 끊었어.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "count on",
+   "ipa": "",
+   "pos": "",
+   "ko": "~를 믿고 의지하다",
+   "def_en": "to depend on someone",
+   "ex_en": "You can count on me, Monica.",
+   "ex_ko": "나만 믿어, 모니카.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "tone down",
+   "ipa": "",
+   "pos": "",
+   "ko": "수위를 낮추다",
+   "def_en": "to make less extreme",
+   "ex_en": "Chandler, tone down the jokes a little.",
+   "ex_ko": "챈들러, 농담 수위 좀 낮춰.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  },
+  {
+   "en": "sleep in",
+   "ipa": "",
+   "pos": "",
+   "ko": "늦잠 자다",
+   "def_en": "to sleep later than usual",
+   "ex_en": "On Sundays, Joey likes to sleep in.",
+   "ex_ko": "일요일마다 조이는 늦잠 자는 걸 좋아해.",
+   "scene_ko": "이사와 일상 준비로 바쁜 친구들 상황"
+  }
+ ]
+}

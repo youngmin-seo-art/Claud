@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 8,
+ "day": 9,
  "used": [
   "awkward",
   "divorce",
@@ -211,7 +211,37 @@
   "back out",
   "zone out",
   "settle down",
-  "cut back"
+  "cut back",
+  "eccentric",
+  "sublet",
+  "furniture",
+  "cranky",
+  "tune",
+  "fabulous",
+  "grumble",
+  "budget",
+  "cozy",
+  "gloat",
+  "have a heart",
+  "on the house",
+  "in a nutshell",
+  "get the picture",
+  "down in the dumps",
+  "by the book",
+  "hold your horses",
+  "a long shot",
+  "on thin ice",
+  "lose your touch",
+  "move out",
+  "pitch in",
+  "drop off",
+  "pass on",
+  "work on",
+  "clear out",
+  "hang up",
+  "count on",
+  "tone down",
+  "sleep in"
  ],
  "history": [
   {
@@ -260,6 +290,13 @@
    "date": "2026-10-16",
    "season": 1,
    "day": 7,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-17",
+   "season": 1,
+   "day": 8,
    "db": true,
    "kakao": true
   }

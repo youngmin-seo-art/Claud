@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 증시 시황: 15일 서킷브레이커 쇼크 후 코스피 5,700선 반등... 환율 1,340원대와 PBR 1.0배 지지선 점검 | valuestocklabs</title>
+  <!-- Pretendard 폰트 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.85;
+      font-size: 17px;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 상단 네비게이션 */
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo span { color: var(--text-main); font-weight: 600; }
+    .badge-preview {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* 레이아웃 */
+    .container {
+      max-width: 860px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* 포스트 헤더 */
+    .post-header {
+      margin-bottom: 36px;
+    }
+    .category-badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .post-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-main);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+
+    /* 핵심 요약 박스 */
+    .summary-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+    }
+    .summary-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #166534;
+      margin-bottom: 14px;
+    }
+    .summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .summary-list li {
+      position: relative;
+      padding-left: 20px;
+      color: #15803d;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .summary-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      font-size: 20px;
+      line-height: 1;
+      color: #16a34a;
+    }
+
+    /* 목차 박스 */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 40px;
+    }
+    .toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toc-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* 아티클 본문 */
+    .article-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-sm);
+    }
+    .article-content h2 {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 48px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--primary-light);
+      letter-spacing: -0.5px;
+    }
+    .article-content h2:first-of-type {
+      margin-top: 10px;
+    }
+    .article-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 28px 0 12px;
+      letter-spacing: -0.3px;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      color: var(--text-body);
+      font-size: 17px;
+    }
+    .article-content strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* 인포그래픽 이미지 컨테이너 */
+    .post-img-wrap {
+      margin: 36px 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      background: #0f172a;
+    }
+    .post-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-caption {
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* 비교 테이블 */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 28px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .data-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) { background: #fafafa; }
+    .ticker-up { color: #16a34a; font-weight: 700; }
+    .ticker-down { color: #dc2626; font-weight: 700; }
+
+    /* 콜아웃 박스 */
+    .callout-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 18px 22px;
+      margin: 28px 0;
+      font-size: 15.5px;
+      color: #1e40af;
+      line-height: 1.7;
+    }
+
+    /* 면책 조항 */
+    .disclaimer-card {
+      margin-top: 48px;
+      background: #f8fafc;
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* 반응형 스타일 */
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; margin: 24px auto 60px; }
+      .article-content { padding: 26px 20px; }
+      .post-title { font-size: 26px; }
+      .article-content h2 { font-size: 21px; margin: 36px 0 16px; }
+      .article-content p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">ValueStock<span>Labs</span></a>
+      <span class="badge-preview">Preview Mode</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <!-- 포스트 헤더 -->
+      <header class="post-header">
+        <span class="category-badge">증시 시황 리포트</span>
+        <h1 class="post-title">오늘의 증시 시황: 15일 서킷브레이커 쇼크 후 코스피 5,700선 반등... 환율 1,340원대와 PBR 1.0배 지지선 점검</h1>
+        <div class="post-meta">
+          <span>작성일: 2026년 10월 16일</span>
+          <span>•</span>
+          <span>카테고리: 시장 브리핑</span>
+          <span>•</span>
+          <span>작성: ValueStockLabs 리서치팀</span>
+        </div>
+      </header>
+
+      <!-- 핵심 요약 박스 -->
+      <div class="summary-card">
+        <div class="summary-title">📌 오늘의 핵심 요약 (Key Takeaways)</div>
+        <ul class="summary-list">
+          <li><strong>14~15일 연쇄 폭락 쇼크:</strong> 10월 14일 6,008.81(-0.44%)에 이어 15일(검은 목요일) 코스피가 <strong>-7.57% 폭락한 5,554.22</strong>로 마감하며 양대 시장에 <strong>서킷브레이커(CB)와 사이드카가 동시 발동</strong>되는 초유의 패닉을 겪었습니다.</li>
+          <li><strong>16일 5,700선 기술적 반등:</strong> 뉴욕증시 3대 지수 반등과 단기 과매도 인식에 따른 저가 매수세 유입으로 코스피가 <strong>장중 +1%~3%대 급반등하며 5,720선(오전 장중 5,600~5,745선)을 회복</strong>했습니다.</li>
+          <li><strong>환율 1,340원대 안정 유지:</strong> 원/달러 환율은 서울 외환시장에서 <strong>1,341~1,348원대(평균 1,343.8원 내외, 15일 종가 1,344.6원)</strong>로 움직이며 주가 급등락 속에서도 1,340원대에서 견고하게 방어되어 외환위기 우려를 차단하고 있습니다.</li>
+          <li><strong>객관적 밸류에이션 점검:</strong> 현재 코스피 5,700선은 <strong>12개월 선행 PBR 약 1.08배~1.1배</strong>, <strong>PER은 4배 수준</strong>까지 떨어졌으며, 증권가에서는 <strong>PBR 1.0배(지수 5,000선)</strong>를 강력한 역사적 1차 안전판 지지선으로 설정하고 있습니다.</li>
+        </ul>
+      </div>
+
+      <!-- 목차 -->
+      <nav class="toc-card" aria-label="목차">
+        <div class="toc-title">📑 바로가기 목차</div>
+        <ul class="toc-list">
+          <li><a href="#sec-1">1. 10월 14~16일 증시 타임라인: 서킷브레이커 쇼크에서 5,700선 회복까지</a></li>
+          <li><a href="#sec-2">2. 15일 대폭락의 3대 원인과 16일 반등의 실체</a></li>
+          <li><a href="#sec-3">3. 객관적 밸류에이션: 코스피 5,700선 PBR 1.08배와 지지선 분석</a></li>
+          <li><a href="#sec-4">4. 금요일 증시 실전 투자자 비상 대응 3대 수칙</a></li>
+          <li><a href="#sec-5">5. 결론 및 향후 관전 포인트</a></li>
+        </ul>
+      </nav>
+
+      <!-- 아티클 본문 -->
+      <div class="article-content">
+        <!-- 썸네일 이미지 -->
+        <div class="post-img-wrap">
+          <img src="./images/thumbnail.png" alt="15일 서킷브레이커 쇼크 후 코스피 5,700선 기술적 반등과 환율 1,340원대 메인 인포그래픽 썸네일">
+        </div>
+        <p class="img-caption">▲ [그림 1] 10월 15일 서킷브레이커 폭락과 16일 코스피 5,700선 기술적 반등 핵심 지표 요약</p>
+
+        <h2 id="sec-1">1. 10월 14~16일 증시 타임라인: 서킷브레이커 쇼크에서 5,700선 회복까지</h2>
+        <p>국내 주식시장이 7거래일 연속 가파른 조정을 거친 끝에, 10월 15일 역사적인 '검은 목요일' 쇼크를 통과하고 16일 기술적 반등을 시도하고 있습니다.</p>
+
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>거래일</th>
+                <th>코스피 종가/장중</th>
+                <th>등락률</th>
+                <th>원/달러 환율</th>
+                <th>주요 시장 동향 및 특징</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>10월 14일 (화)</strong></td>
+                <td>6,008.81</td>
+                <td class="ticker-down">-0.44%</td>
+                <td>1,338.3원</td>
+                <td>장 초반 반등 시도 후 외인 매도세로 6,000선 턱걸이 마감</td>
+              </tr>
+              <tr>
+                <td><strong>10월 15일 (수)</strong></td>
+                <td><strong class="ticker-down">5,554.22</strong></td>
+                <td class="ticker-down"><strong>-7.57% (-454.59p)</strong></td>
+                <td>1,344.6원</td>
+                <td><strong>코스피·코스닥 서킷브레이커(CB) 발동</strong>, AI 수익성 및 미 물가 쇼크</td>
+              </tr>
+              <tr>
+                <td><strong>10월 16일 (목)</strong></td>
+                <td><strong class="ticker-up">5,720선 안팎</strong></td>
+                <td class="ticker-up"><strong>+1.5% ~ +3.0% (반등)</strong></td>
+                <td>1,343.8원</td>
+                <td><strong>저가 매수세 유입으로 5,700선 탈환</strong>, 코스닥 +4.1% 급반등(792선)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>10월 15일 코스피는 장중 낙폭이 8%를 넘어서며 매매가 20분간 전면 중단되는 서킷브레이커가 발동되었고, 지수는 5,554.22까지 밀려났습니다. 그러나 16일 장 시작과 함께 낙폭 과대에 따른 반발 매수세와 뉴욕증시 3대 지수 반등 소식이 전해지며 코스피는 단숨에 5,700선을 회복(장중 5,745선 고점)하는 롤러코스터 장세를 보이고 있습니다.</p>
+
+        <!-- 바디 1 이미지 -->
+        <div class="post-img-wrap">
+          <img src="./images/body-1.png" alt="14·15·16일 코스피 지수 급변동과 환율·수급 비교 인포그래픽 차트">
+        </div>
+        <p class="img-caption">▲ [그림 2] 10월 14~16일 국내 증시 지표 및 일자별 변동 비교표</p>
+
+        <h2 id="sec-2">2. 15일 대폭락의 3대 원인과 16일 반등의 실체</h2>
+        <p>어제와 오늘 이어진 극단적 변동성의 이면에는 글로벌 거시경제 변수와 국내 시장 고유의 수급 구조가 맞물려 있습니다.</p>
+
+        <h3>① 미국 9월 CPI 쇼크와 연내 긴축 경계감</h3>
+        <p>예상치를 상회한 미국의 9월 소비자물가지수(CPI)가 발표되면서, 연준(Fed)의 추가 금리 인하 기대감이 후퇴하고 연내 긴축 장기화 우려가 다시 고개를 들었습니다. 이는 글로벌 위험자산 전반에 즉각적인 할인율 상승 압력으로 작용했습니다.</p>
+
+        <h3>② AI 빅테크 부채 부담 및 수익성 회수 지연 의구심</h3>
+        <p>천문학적인 AI 인프라 투자 대비 실질적인 현금 흐름 회수 시점이 늦어지고 있다는 시장의 회의론이 대두되었습니다. 이에 따라 글로벌 펀드들이 반도체 및 하드웨어 밸류체인에 대한 비중을 축소(De-risking)하면서 아시아 반도체 주식에 매도세가 집중되었습니다.</p>
+
+        <h3>③ 환율 1,340원대 안정과 정부 구두 개입 효과</h3>
+        <p>일부 우려와 달리 서울 외환시장에서 <strong>원/달러 환율은 1,340원대 초중반(1,341~1,348원, 전일 1,344.6원)</strong>에서 안정적으로 등락하고 있습니다. 1,400원대를 훌쩍 넘어섰던 과거 외환위기성 고환율 국면이 아니기 때문에, 외환 건전성에 대한 신뢰를 바탕으로 정부의 시장상황점검회의 발표와 연기금·개인의 저가 매수세가 지수 5,500선 부근에서 강력하게 유입된 것입니다.</p>
+
+        <!-- 바디 2 이미지 -->
+        <div class="post-img-wrap">
+          <img src="./images/body-2.png" alt="코스피 12M Fwd PBR 1.08배 밸류에이션 분석과 PBR 1.0배(5,000선) 지지선 도표">
+        </div>
+        <p class="img-caption">▲ [그림 3] 15일 서킷브레이커 3대 원인 및 코스피 5,700선 PBR 밸류에이션 점검</p>
+
+        <h2 id="sec-3">3. 객관적 밸류에이션: 코스피 5,700선 PBR 1.08배와 지지선 분석</h2>
+        <p>냉정한 투자자라면 시장의 공포와 환호 속에서 '객관적 숫자'를 직시해야 합니다.</p>
+
+        <div class="callout-box">
+          <strong>💡 밸류에이션 핵심 팩트:</strong><br>
+          15일 5,554선까지의 급락으로 인해 코스피의 <strong>12개월 선행 PBR은 약 1.08배 ~ 1.1배</strong>까지 낮아졌습니다. <strong>12개월 선행 PER은 4배 수준</strong>까지 떨어져 역사적 저평가 영역에 진입했습니다. 증권가 주요 리서치센터장들의 분석에 따르면, <strong>코스피 12개월 선행 PBR 1.0배 수준은 지수 약 5,000 ~ 5,200선</strong>입니다. 즉, 현재 5,700선은 청산가치(1.0배)에 근접한 강력한 밸류에이션 과매도 완충 지대입니다.
+        </div>
+
+        <h3>반도체 투톱의 주가 흐름 점검</h3>
+        <p>코스피 시가총액 최상위인 반도체 대형주들도 전일 극단적 폭락 후 숨고르기에 들어갔습니다.</p>
+        <ul style="padding-left: 20px; margin-bottom: 22px;">
+          <li><strong>삼성전자:</strong> 15일 -9.48% 급락 후 16일 장중 <strong>21만 4,000원 ~ 21만 5,000원대(+1.9%~2.5%)</strong>로 반등 시도.</li>
+          <li><strong>SK하이닉스:</strong> 15일 -11.06% 폭락 후 16일 장중 <strong>127만 원 ~ 130만 원대(+0.7%~3.5%)</strong>로 숨고르기 진행.</li>
+        </ul>
+        <p>다만 지수는 급반등했으나 외국인은 코스피 시장에서 2,000억~3,000억원대의 순매도 우위를 유지하고 있어, 무차별적 추격 매수보다는 기관·외인의 수급 균형 형성을 확인해야 합니다.</p>
+
+        <!-- 바디 3 이미지 -->
+        <div class="post-img-wrap">
+          <img src="./images/body-3.png" alt="서킷브레이커 익일 반등 장세 실전 비상 리스크 관리 3대 수칙 체크리스트 인포그래픽">
+        </div>
+        <p class="img-caption">▲ [그림 4] 서킷브레이커 익일 반등 장세 실전 비상 3대 수칙</p>
+
+        <h2 id="sec-4">4. 금요일 증시 실전 투자자 비상 대응 3대 수칙</h2>
+        <p>서킷브레이커 다음 날의 반등 장세에서 투자자가 범하기 쉬운 실수를 막기 위한 실전 지침입니다.</p>
+
+        <h3>수칙 1: 기술적 반등 시 '뇌동 추격 매수' 엄금</h3>
+        <p>대폭락 직후의 첫 반등은 통상 낙폭 과대에 따른 자율 반등(Dead Cat Bounce) 성격이 강합니다. 시초가 갭상승 종목을 추격 매수하기보다는, 5,700선 지지력이 오후 장 마감까지 유지되는지 2차 바닥(W자 쌍바닥) 테스트를 확인해야 합니다.</p>
+
+        <h3>수칙 2: 외국인 선물 및 현물 수급의 '실제 전환' 확인</h3>
+        <p>지수 반등에도 불구하고 외국인은 장중 2,000억 원 이상 순매도를 이어가고 있습니다. 코스피 200 선물 시장에서 외국인의 대규모 순매수 전환이 나타나거나, 현물 매도세가 1,000억 원 미만으로 축소되는 수급 변곡점이 확인되어야 비로소 안심할 수 있습니다.</p>
+
+        <h3>수칙 3: PBR 1.0배(5,000선) 하방 버퍼를 감안한 분할 매수</h3>
+        <p>현재 5,700선(PBR 1.08배)은 밸류에이션 매력이 충분하지만, 거시경제 불확실성에 따른 추가 하락 룸(PBR 1.0배인 5,000선)을 완전히 배제할 수는 없습니다. 현금 비중 최소 30%를 반드시 확보한 상태에서, HBM 선도주 및 실적 호전 가치주를 중심으로 3~4회에 걸쳐 분할 매수(Scale-in)하는 원칙을 고수해야 합니다.</p>
+
+        <h2 id="sec-5">5. 결론 및 향후 관전 포인트</h2>
+        <p>10월 15일의 서킷브레이커 쇼크는 공포스러웠지만, 16일 5,700선 반등과 1,340원대 환율 방어는 한국 증시의 시스템 리스크가 아님을 방증합니다.</p>
+        <p>단기 과매도 국면을 통과한 지금, 감정적인 패닉 매도나 성급한 풀매수를 모두 경계하고, **PBR 1.0배(5,000선)의 안전 마진을 염두에 둔 분할 대응**만이 이번 변동성 장세를 기회로 바꾸는 열쇠입니다.</p>
+
+        <div class="disclaimer-card">
+          <p><strong>⚠️ 투자 유의사항 및 면책 공지:</strong> 본 리포트는 공개된 금융 및 거시경제 지표를 바탕으로 작성된 시황 분석 자료이며, 특정 종목에 대한 매수 또는 매도를 권유하지 않습니다. 투자에 따른 손익의 최종 귀속 주체는 투자자 본인입니다.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 14px; border-top: 1px solid var(--border-color); background: #ffffff;">
+    <p>© 2026 valuestocklabs.com. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 9,
+ "day": 10,
  "used": [
   "awkward",
   "divorce",
@@ -241,7 +241,37 @@
   "hang up",
   "count on",
   "tone down",
-  "sleep in"
+  "sleep in",
+  "jittery",
+  "clueless",
+  "fluent",
+  "mediocre",
+  "thoughtful",
+  "shy",
+  "shortcoming",
+  "compliment",
+  "misunderstanding",
+  "reunion",
+  "go back to square one",
+  "play it by ear",
+  "under the impression",
+  "fall hard for",
+  "a shoulder to cry on",
+  "the talk of the town",
+  "cut to the chase",
+  "rub it in",
+  "on pins and needles",
+  "get the wrong end of the stick",
+  "fall apart",
+  "mix up",
+  "run out of",
+  "find out",
+  "work up to",
+  "stand for",
+  "pick on",
+  "sneak out",
+  "catch on",
+  "get along with"
  ],
  "history": [
   {
@@ -297,6 +327,13 @@
    "date": "2026-10-17",
    "season": 1,
    "day": 8,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-18",
+   "season": 1,
+   "day": 9,
    "db": true,
    "kakao": true
   }

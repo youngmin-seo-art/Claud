@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-18",
+ "season": 1,
+ "day": 9,
+ "theme_ko": "시즌 1 · 로스의 새 연애와 친구들의 수다",
+ "createdAt": "2026-10-18T07:40:00+09:00",
+ "words": [
+  {
+   "en": "jittery",
+   "ipa": "/ˈdʒɪtəri/",
+   "pos": "adjective",
+   "ko": "초조한, 불안한",
+   "def_en": "nervous and unable to relax",
+   "ex_en": "Ross felt jittery before the date.",
+   "ex_ko": "로스는 데이트 전에 초조했어.",
+   "scene_ko": "데이트 직전"
+  },
+  {
+   "en": "clueless",
+   "ipa": "/ˈkluːləs/",
+   "pos": "adjective",
+   "ko": "아무것도 모르는",
+   "def_en": "knowing nothing about something",
+   "ex_en": "Joey is totally clueless about girls' hints.",
+   "ex_ko": "조이는 여자들의 눈치를 전혀 몰라.",
+   "scene_ko": "눈치 없는 상황"
+  },
+  {
+   "en": "fluent",
+   "ipa": "/ˈfluːənt/",
+   "pos": "adjective",
+   "ko": "유창한",
+   "def_en": "able to speak a language easily",
+   "ex_en": "Ross wants to be fluent in French.",
+   "ex_ko": "로스는 프랑스어를 유창하게 하고 싶어 해.",
+   "scene_ko": "새 연인과 대화하려는 상황"
+  },
+  {
+   "en": "mediocre",
+   "ipa": "/ˌmiːdiˈoʊkər/",
+   "pos": "adjective",
+   "ko": "평범한, 별로인",
+   "def_en": "not very good",
+   "ex_en": "Joey said the pizza was mediocre.",
+   "ex_ko": "조이는 그 피자가 별로라고 했어.",
+   "scene_ko": "음식이나 공연을 평가할 때"
+  },
+  {
+   "en": "thoughtful",
+   "ipa": "/ˈθɔːtfl/",
+   "pos": "adjective",
+   "ko": "사려 깊은",
+   "def_en": "caring about others' feelings",
+   "ex_en": "Monica's gift was really thoughtful.",
+   "ex_ko": "모니카의 선물은 정말 사려 깊었어.",
+   "scene_ko": "친구를 챙길 때"
+  },
+  {
+   "en": "shy",
+   "ipa": "/ʃaɪ/",
+   "pos": "adjective",
+   "ko": "수줍은",
+   "def_en": "nervous around other people",
+   "ex_en": "Ross gets shy around pretty women.",
+   "ex_ko": "로스는 예쁜 여자 앞에서 수줍어해.",
+   "scene_ko": "새로운 사람을 만날 때"
+  },
+  {
+   "en": "shortcoming",
+   "ipa": "/ˈʃɔːrtkʌmɪŋ/",
+   "pos": "noun",
+   "ko": "단점, 결점",
+   "def_en": "a weakness in someone or something",
+   "ex_en": "Everyone has shortcomings, even Ross.",
+   "ex_ko": "누구나 결점이 있어, 로스도 마찬가지야.",
+   "scene_ko": "서로의 단점을 얘기할 때"
+  },
+  {
+   "en": "compliment",
+   "ipa": "/ˈkɑːmpləmənt/",
+   "pos": "noun",
+   "ko": "칭찬",
+   "def_en": "a kind remark about someone",
+   "ex_en": "Chandler gave Monica an unexpected compliment.",
+   "ex_ko": "챈들러가 모니카에게 뜻밖의 칭찬을 했어.",
+   "scene_ko": "서로를 칭찬하는 순간"
+  },
+  {
+   "en": "misunderstanding",
+   "ipa": "/ˌmɪsʌndərˈstændɪŋ/",
+   "pos": "noun",
+   "ko": "오해",
+   "def_en": "a failure to understand correctly",
+   "ex_en": "It was just a big misunderstanding, Ross.",
+   "ex_ko": "그냥 큰 오해였어, 로스.",
+   "scene_ko": "연애 중 생긴 오해"
+  },
+  {
+   "en": "reunion",
+   "ipa": "/riːˈjuːnjən/",
+   "pos": "noun",
+   "ko": "재회, 동창회",
+   "def_en": "a meeting after a long time apart",
+   "ex_en": "Monica planned a small reunion with old friends.",
+   "ex_ko": "모니카는 옛 친구들과 작은 모임을 계획했어.",
+   "scene_ko": "오랜만에 만난 사람들"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "go back to square one",
+   "ipa": "",
+   "pos": "",
+   "ko": "원점으로 돌아가다",
+   "def_en": "to have to start again",
+   "ex_en": "Now we're back to square one, Monica.",
+   "ex_ko": "이제 우린 원점이야, 모니카.",
+   "scene_ko": "계획이 틀어졌을 때"
+  },
+  {
+   "en": "play it by ear",
+   "ipa": "",
+   "pos": "",
+   "ko": "즉흥적으로 하다",
+   "def_en": "to decide as things happen",
+   "ex_en": "Let's play it by ear, Joey.",
+   "ex_ko": "즉흥적으로 가 보자, 조이.",
+   "scene_ko": "계획 없는 주말"
+  },
+  {
+   "en": "under the impression",
+   "ipa": "",
+   "pos": "",
+   "ko": "~라고 생각하고 있다",
+   "def_en": "to believe something, maybe wrongly",
+   "ex_en": "I was under the impression you were free.",
+   "ex_ko": "너 한가한 줄 알았어.",
+   "scene_ko": "엇갈린 약속"
+  },
+  {
+   "en": "fall hard for",
+   "ipa": "",
+   "pos": "",
+   "ko": "깊이 반하다",
+   "def_en": "to fall deeply in love",
+   "ex_en": "Ross may fall hard for Julie.",
+   "ex_ko": "로스는 줄리에게 푹 빠질지도 몰라.",
+   "scene_ko": "새로운 사랑의 시작"
+  },
+  {
+   "en": "a shoulder to cry on",
+   "ipa": "",
+   "pos": "",
+   "ko": "위로해 주는 사람",
+   "def_en": "someone who comforts you",
+   "ex_en": "Monica was a shoulder to cry on for Rachel.",
+   "ex_ko": "모니카는 레이첼에게 기댈 어깨였어.",
+   "scene_ko": "힘들 때 곁에 있어 주는 친구"
+  },
+  {
+   "en": "the talk of the town",
+   "ipa": "",
+   "pos": "",
+   "ko": "화제의 중심",
+   "def_en": "something everyone discusses",
+   "ex_en": "Joey's new job is the talk of the town.",
+   "ex_ko": "조이의 새 일이 화제야.",
+   "scene_ko": "소문이 퍼진 상황"
+  },
+  {
+   "en": "cut to the chase",
+   "ipa": "",
+   "pos": "",
+   "ko": "본론으로 들어가다",
+   "def_en": "to get to the main point",
+   "ex_en": "Cut to the chase, Chandler. What happened?",
+   "ex_ko": "본론만 말해, 챈들러. 무슨 일이야?",
+   "scene_ko": "돌려 말하는 친구에게"
+  },
+  {
+   "en": "rub it in",
+   "ipa": "",
+   "pos": "",
+   "ko": "(일부러) 계속 상기시키다",
+   "def_en": "to keep reminding someone of a failure",
+   "ex_en": "Don't rub it in, Joey.",
+   "ex_ko": "자꾸 상기시키지 마, 조이.",
+   "scene_ko": "실수를 놀릴 때"
+  },
+  {
+   "en": "on pins and needles",
+   "ipa": "",
+   "pos": "",
+   "ko": "조마조마한",
+   "def_en": "very anxious while waiting",
+   "ex_en": "Rachel was on pins and needles all night.",
+   "ex_ko": "레이첼은 밤새 조마조마했어.",
+   "scene_ko": "결과를 기다리는 순간"
+  },
+  {
+   "en": "get the wrong end of the stick",
+   "ipa": "",
+   "pos": "",
+   "ko": "오해하다",
+   "def_en": "to misunderstand a situation",
+   "ex_en": "You got the wrong end of the stick, Ross.",
+   "ex_ko": "너 오해했어, 로스.",
+   "scene_ko": "오해로 말다툼이 날 때"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "fall apart",
+   "ipa": "",
+   "pos": "",
+   "ko": "무너지다",
+   "def_en": "to break down emotionally or physically",
+   "ex_en": "Rachel almost fell apart at the wedding.",
+   "ex_ko": "레이첼은 결혼식에서 거의 무너질 뻔했어.",
+   "scene_ko": "큰 충격을 받은 순간"
+  },
+  {
+   "en": "mix up",
+   "ipa": "",
+   "pos": "",
+   "ko": "혼동하다",
+   "def_en": "to confuse one thing with another",
+   "ex_en": "Joey mixed up the two dates.",
+   "ex_ko": "조이는 두 날짜를 헷갈렸어.",
+   "scene_ko": "약속 날짜 착각"
+  },
+  {
+   "en": "run out of",
+   "ipa": "",
+   "pos": "",
+   "ko": "~이 바닥나다",
+   "def_en": "to have no more of something",
+   "ex_en": "We ran out of coffee again!",
+   "ex_ko": "커피가 또 떨어졌어!",
+   "scene_ko": "카페에서 재료가 떨어질 때"
+  },
+  {
+   "en": "find out",
+   "ipa": "",
+   "pos": "",
+   "ko": "알아내다",
+   "def_en": "to learn a fact",
+   "ex_en": "Ross found out about Julie's party.",
+   "ex_ko": "로스는 줄리의 파티에 대해 알게 됐어.",
+   "scene_ko": "비밀이 들통날 때"
+  },
+  {
+   "en": "work up to",
+   "ipa": "",
+   "pos": "",
+   "ko": "서서히 준비하다",
+   "def_en": "to gradually prepare for something",
+   "ex_en": "I'm working up to asking her out.",
+   "ex_ko": "그녀에게 데이트 신청할 준비 중이야.",
+   "scene_ko": "고백을 망설일 때"
+  },
+  {
+   "en": "stand for",
+   "ipa": "",
+   "pos": "",
+   "ko": "의미하다, 참다",
+   "def_en": "to represent or tolerate",
+   "ex_en": "I won't stand for rude jokes, Chandler.",
+   "ex_ko": "무례한 농담은 못 참아, 챈들러.",
+   "scene_ko": "선을 넘는 농담"
+  },
+  {
+   "en": "pick on",
+   "ipa": "",
+   "pos": "",
+   "ko": "괴롭히다, 놀리다",
+   "def_en": "to treat someone unkindly",
+   "ex_en": "Stop picking on Ross!",
+   "ex_ko": "로스 그만 놀려!",
+   "scene_ko": "친구를 놀리는 상황"
+  },
+  {
+   "en": "sneak out",
+   "ipa": "",
+   "pos": "",
+   "ko": "몰래 빠져나가다",
+   "def_en": "to leave secretly",
+   "ex_en": "Joey sneaked out before dinner ended.",
+   "ex_ko": "조이는 저녁이 끝나기 전에 몰래 나갔어.",
+   "scene_ko": "불편한 자리에서"
+  },
+  {
+   "en": "catch on",
+   "ipa": "",
+   "pos": "",
+   "ko": "눈치채다",
+   "def_en": "to start to understand",
+   "ex_en": "Phoebe finally caught on to the joke.",
+   "ex_ko": "피비는 마침내 농담을 이해했어.",
+   "scene_ko": "뒤늦게 눈치챌 때"
+  },
+  {
+   "en": "get along with",
+   "ipa": "",
+   "pos": "",
+   "ko": "~와 잘 지내다",
+   "def_en": "to have a good relationship",
+   "ex_en": "Do you get along with Julie, Rachel?",
+   "ex_ko": "줄리랑 잘 지내, 레이첼?",
+   "scene_ko": "새 사람과의 관계"
+  }
+ ]
+}

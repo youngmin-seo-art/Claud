@@ -64,6 +64,11 @@ def rebuild_index_grid():
             badge_html = '<span class="post-badge market" style="background:#059669; color:#fff;">☕ 모닝 시황</span>'
             author = "시황분석팀"
             avatar = "M"
+        elif "valuation" in filename or "삼성중공업" in filename or "기아" in filename or "한미반도체" in filename or "종목가치" in raw_title:
+            category = "valuation"
+            badge_html = '<span class="post-badge valuation" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; font-weight:700;">📊 종목가치 분석</span>'
+            author = "기업분석팀"
+            avatar = "V"
         elif "semiconductor" in filename or "반도체" in raw_title or "hbm" in filename:
             category = "semiconductor"
             badge_html = '<span class="post-badge breakout">⚡ AI 반도체</span>'
@@ -84,11 +89,6 @@ def rebuild_index_grid():
             badge_html = '<span class="post-badge breakout">🚀 상승초입주</span>'
             author = "차트마스터"
             avatar = "C"
-        elif "valuation" in filename or "삼성중공업" in filename or "종목가치" in raw_title:
-            category = "valuation"
-            badge_html = '<span class="post-badge valuation" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; font-weight:700;">📊 종목가치 분석</span>'
-            author = "기업분석팀"
-            avatar = "V"
         else:
             category = "undervalued"
             badge_html = '<span class="post-badge undervalued">💎 저평가 가치주</span>'

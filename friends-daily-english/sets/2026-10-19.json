@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-19",
+ "season": 1,
+ "day": 10,
+ "theme_ko": "시즌 1 · 모니카의 바쁜 주방과 챈들러의 장난",
+ "createdAt": "2026-10-19T07:40:00+09:00",
+ "words": [
+  {
+   "en": "gullible",
+   "ipa": "/ˈɡʌləbəl/",
+   "pos": "adjective",
+   "ko": "잘 속는, 순진한",
+   "def_en": "easily tricked or fooled",
+   "ex_en": "Joey is so gullible, Chandler fooled him again.",
+   "ex_ko": "조이는 너무 잘 속아서 챈들러가 또 속였어.",
+   "scene_ko": "챈들러의 장난에 걸려드는 상황"
+  },
+  {
+   "en": "picky",
+   "ipa": "/ˈpɪki/",
+   "pos": "adjective",
+   "ko": "까다로운",
+   "def_en": "hard to please, especially about food",
+   "ex_en": "Monica is picky about how the plates are arranged.",
+   "ex_ko": "모니카는 접시 배열에 까다로워.",
+   "scene_ko": "모니카가 주방을 정리하는 상황"
+  },
+  {
+   "en": "sloppy",
+   "ipa": "/ˈslɑːpi/",
+   "pos": "adjective",
+   "ko": "엉성한, 칠칠맞은",
+   "def_en": "careless and messy",
+   "ex_en": "Don't be sloppy, Joey. Wipe the table.",
+   "ex_ko": "칠칠맞게 굴지 마, 조이. 테이블 닦아.",
+   "scene_ko": "룸메이트 집이 어질러진 상황"
+  },
+  {
+   "en": "frazzled",
+   "ipa": "/ˈfræzəld/",
+   "pos": "adjective",
+   "ko": "녹초가 된, 정신없는",
+   "def_en": "tired and stressed from being too busy",
+   "ex_en": "Monica looked frazzled after the dinner rush.",
+   "ex_ko": "모니카는 저녁 피크 타임 후 녹초가 돼 보였어.",
+   "scene_ko": "식당 주방이 바쁜 밤"
+  },
+  {
+   "en": "bland",
+   "ipa": "/blænd/",
+   "pos": "adjective",
+   "ko": "싱거운, 밋밋한",
+   "def_en": "having little taste or interest",
+   "ex_en": "This soup is bland. Add some salt.",
+   "ex_ko": "이 수프 싱거워. 소금 좀 넣어.",
+   "scene_ko": "모니카가 요리를 맛보는 상황"
+  },
+  {
+   "en": "resourceful",
+   "ipa": "/rɪˈsɔːrsfəl/",
+   "pos": "adjective",
+   "ko": "수완 좋은",
+   "def_en": "good at finding ways to solve problems",
+   "ex_en": "Phoebe is resourceful when she has no money.",
+   "ex_ko": "피비는 돈이 없을 때 수완이 좋아.",
+   "scene_ko": "돈 없이 해결책을 찾는 상황"
+  },
+  {
+   "en": "procrastinate",
+   "ipa": "/proʊˈkræstɪneɪt/",
+   "pos": "verb",
+   "ko": "미루다",
+   "def_en": "to delay doing something",
+   "ex_en": "Ross always procrastinates before his lectures.",
+   "ex_ko": "로스는 강의 전에 항상 미뤄.",
+   "scene_ko": "마감 직전까지 미루는 상황"
+  },
+  {
+   "en": "bossy",
+   "ipa": "/ˈbɔːsi/",
+   "pos": "adjective",
+   "ko": "명령조의, 잘난 체하는",
+   "def_en": "always telling others what to do",
+   "ex_en": "Rachel, stop being so bossy at work.",
+   "ex_ko": "레이첼, 일할 때 너무 명령하지 마.",
+   "scene_ko": "친구들 사이에서 주도하려 할 때"
+  },
+  {
+   "en": "sincere",
+   "ipa": "/sɪnˈsɪr/",
+   "pos": "adjective",
+   "ko": "진심 어린",
+   "def_en": "honest and meant seriously",
+   "ex_en": "Ross gave Rachel a sincere apology.",
+   "ex_ko": "로스는 레이첼에게 진심 어린 사과를 했어.",
+   "scene_ko": "화해하는 상황"
+  },
+  {
+   "en": "frugal",
+   "ipa": "/ˈfruːɡəl/",
+   "pos": "adjective",
+   "ko": "검소한",
+   "def_en": "careful about spending money",
+   "ex_en": "Rachel is learning to be frugal.",
+   "ex_ko": "레이첼은 검소하게 사는 법을 배우는 중이야.",
+   "scene_ko": "첫 월급으로 생활하는 상황"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "on the same wavelength",
+   "ipa": "",
+   "pos": "",
+   "ko": "생각이 잘 통하는",
+   "def_en": "thinking in a similar way",
+   "ex_en": "Monica and Phoebe are on the same wavelength.",
+   "ex_ko": "모니카와 피비는 생각이 잘 통해.",
+   "scene_ko": "두 친구가 같은 생각을 할 때"
+  },
+  {
+   "en": "cut corners",
+   "ipa": "",
+   "pos": "",
+   "ko": "대충 하다, 편법을 쓰다",
+   "def_en": "to do something cheaply or carelessly",
+   "ex_en": "Monica never cuts corners in her kitchen.",
+   "ex_ko": "모니카는 주방에서 절대 대충 하지 않아.",
+   "scene_ko": "요리에 완벽을 기하는 상황"
+  },
+  {
+   "en": "hit it off",
+   "ipa": "",
+   "pos": "",
+   "ko": "금방 친해지다",
+   "def_en": "to quickly become friends",
+   "ex_en": "Joey and the new girl hit it off.",
+   "ex_ko": "조이와 새로 만난 여자는 금방 친해졌어.",
+   "scene_ko": "처음 만난 사람과 잘 맞을 때"
+  },
+  {
+   "en": "through thick and thin",
+   "ipa": "",
+   "pos": "",
+   "ko": "좋을 때나 나쁠 때나",
+   "def_en": "in good times and bad",
+   "ex_en": "Friends stick together through thick and thin.",
+   "ex_ko": "친구는 좋을 때나 나쁠 때나 함께해.",
+   "scene_ko": "친구들끼리 의리를 다지는 상황"
+  },
+  {
+   "en": "back to the drawing board",
+   "ipa": "",
+   "pos": "",
+   "ko": "처음부터 다시 시작하다",
+   "def_en": "time to start planning again",
+   "ex_en": "The plan failed, so it's back to the drawing board.",
+   "ex_ko": "계획이 실패해서 처음부터 다시 해야 해.",
+   "scene_ko": "계획이 틀어졌을 때"
+  },
+  {
+   "en": "out of the question",
+   "ipa": "",
+   "pos": "",
+   "ko": "절대 안 되는",
+   "def_en": "impossible; not allowed",
+   "ex_en": "Lending Joey money is out of the question.",
+   "ex_ko": "조이에게 돈을 빌려주는 건 절대 안 돼.",
+   "scene_ko": "돈을 빌려 달라는 상황"
+  },
+  {
+   "en": "pass the buck",
+   "ipa": "",
+   "pos": "",
+   "ko": "책임을 떠넘기다",
+   "def_en": "to blame someone else",
+   "ex_en": "Don't pass the buck, Chandler. It was you.",
+   "ex_ko": "챈들러, 책임 떠넘기지 마. 너였잖아.",
+   "scene_ko": "잘못을 남 탓하는 상황"
+  },
+  {
+   "en": "put your foot in your mouth",
+   "ipa": "",
+   "pos": "",
+   "ko": "실언하다",
+   "def_en": "to say something embarrassing",
+   "ex_en": "Chandler put his foot in his mouth again.",
+   "ex_ko": "챈들러가 또 실언했어.",
+   "scene_ko": "민망한 말을 해 버린 상황"
+  },
+  {
+   "en": "keep your fingers crossed",
+   "ipa": "",
+   "pos": "",
+   "ko": "행운을 빌다",
+   "def_en": "to hope for good luck",
+   "ex_en": "Keep your fingers crossed for my audition.",
+   "ex_ko": "내 오디션이 잘되게 빌어 줘.",
+   "scene_ko": "조이의 오디션 전날"
+  },
+  {
+   "en": "read between the lines",
+   "ipa": "",
+   "pos": "",
+   "ko": "행간을 읽다",
+   "def_en": "to find the hidden meaning",
+   "ex_en": "Read between the lines, Ross. She's not interested.",
+   "ex_ko": "로스, 행간을 읽어. 그녀는 관심 없어.",
+   "scene_ko": "말 속 의미를 파악하는 상황"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "mellow out",
+   "ipa": "",
+   "pos": "",
+   "ko": "느긋해지다",
+   "def_en": "to become calm and relaxed",
+   "ex_en": "Mellow out, Monica. It's only dinner.",
+   "ex_ko": "모니카, 진정해. 그냥 저녁이잖아.",
+   "scene_ko": "예민한 모니카를 달랠 때"
+  },
+  {
+   "en": "chime in",
+   "ipa": "",
+   "pos": "",
+   "ko": "끼어들어 한마디 하다",
+   "def_en": "to join a conversation with a comment",
+   "ex_en": "Phoebe chimed in with her own idea.",
+   "ex_ko": "피비가 자기 아이디어를 끼어들어 말했어.",
+   "scene_ko": "카페 대화에 끼어드는 상황"
+  },
+  {
+   "en": "own up",
+   "ipa": "",
+   "pos": "",
+   "ko": "솔직히 인정하다",
+   "def_en": "to admit a mistake",
+   "ex_en": "Joey, just own up to eating my sandwich.",
+   "ex_ko": "조이, 내 샌드위치 먹었다고 인정해.",
+   "scene_ko": "누가 음식을 먹었는지 따질 때"
+  },
+  {
+   "en": "boss around",
+   "ipa": "",
+   "pos": "",
+   "ko": "이래라저래라 하다",
+   "def_en": "to give orders to people",
+   "ex_en": "Stop bossing me around, Monica!",
+   "ex_ko": "모니카, 나한테 그만 이래라저래라 해!",
+   "scene_ko": "모니카가 지시를 많이 할 때"
+  },
+  {
+   "en": "crack up",
+   "ipa": "",
+   "pos": "",
+   "ko": "웃음을 터뜨리다",
+   "def_en": "to laugh suddenly and loudly",
+   "ex_en": "Chandler's joke made everyone crack up.",
+   "ex_ko": "챈들러의 농담에 모두 빵 터졌어.",
+   "scene_ko": "농담에 웃음이 터진 상황"
+  },
+  {
+   "en": "slip up",
+   "ipa": "",
+   "pos": "",
+   "ko": "실수하다",
+   "def_en": "to make a small mistake",
+   "ex_en": "Ross slipped up and mentioned the surprise.",
+   "ex_ko": "로스가 실수로 깜짝 선물을 말해 버렸어.",
+   "scene_ko": "비밀을 흘려 버린 상황"
+  },
+  {
+   "en": "butt in",
+   "ipa": "",
+   "pos": "",
+   "ko": "끼어들다",
+   "def_en": "to interrupt rudely",
+   "ex_en": "Sorry to butt in, but I know that guy.",
+   "ex_ko": "끼어들어서 미안한데 나 그 사람 알아.",
+   "scene_ko": "남의 대화에 끼어드는 상황"
+  },
+  {
+   "en": "space out",
+   "ipa": "",
+   "pos": "",
+   "ko": "멍하니 있다",
+   "def_en": "to stop paying attention",
+   "ex_en": "Rachel spaced out during Ross's story.",
+   "ex_ko": "레이첼은 로스의 이야기 중에 멍해졌어.",
+   "scene_ko": "지루한 이야기를 들을 때"
+  },
+  {
+   "en": "blow off",
+   "ipa": "",
+   "pos": "",
+   "ko": "(약속을) 바람맞히다",
+   "def_en": "to ignore or skip something planned",
+   "ex_en": "Don't blow off dinner with Monica again.",
+   "ex_ko": "모니카와의 저녁을 또 펑크 내지 마.",
+   "scene_ko": "약속을 어기는 상황"
+  },
+  {
+   "en": "fess up",
+   "ipa": "",
+   "pos": "",
+   "ko": "실토하다",
+   "def_en": "to confess, informal",
+   "ex_en": "Come on, Chandler, fess up!",
+   "ex_ko": "챈들러, 어서 실토해!",
+   "scene_ko": "잘못을 캐묻는 상황"
+  }
+ ]
+}

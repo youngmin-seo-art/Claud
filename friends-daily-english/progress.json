@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 10,
+ "day": 11,
  "used": [
   "awkward",
   "divorce",
@@ -271,7 +271,37 @@
   "pick on",
   "sneak out",
   "catch on",
-  "get along with"
+  "get along with",
+  "gullible",
+  "picky",
+  "sloppy",
+  "frazzled",
+  "bland",
+  "resourceful",
+  "procrastinate",
+  "bossy",
+  "sincere",
+  "frugal",
+  "on the same wavelength",
+  "cut corners",
+  "hit it off",
+  "through thick and thin",
+  "back to the drawing board",
+  "out of the question",
+  "pass the buck",
+  "put your foot in your mouth",
+  "keep your fingers crossed",
+  "read between the lines",
+  "mellow out",
+  "chime in",
+  "own up",
+  "boss around",
+  "crack up",
+  "slip up",
+  "butt in",
+  "space out",
+  "blow off",
+  "fess up"
  ],
  "history": [
   {
@@ -334,6 +364,13 @@
    "date": "2026-10-18",
    "season": 1,
    "day": 9,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-19",
+   "season": 1,
+   "day": 10,
    "db": true,
    "kakao": true
   }

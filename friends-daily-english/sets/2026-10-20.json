@@ -1,0 +1,37 @@
+{"date":"2026-10-20","season":1,"day":11,"theme_ko":"시즌 1 · 센트럴 퍼크 단골들의 수다","createdAt":"2026-10-20T07:40:00+09:00",
+"words":[
+{"en":"flustered","ipa":"/ˈflʌstərd/","pos":"adjective","ko":"당황한, 허둥대는","def_en":"nervous and confused","ex_en":"Rachel got flustered when the café filled up.","ex_ko":"카페가 꽉 차자 레이첼은 허둥댔다.","scene_ko":"손님이 몰려 정신없는 카페 상황"},
+{"en":"cheesy","ipa":"/ˈtʃiːzi/","pos":"adjective","ko":"느끼한, 유치한","def_en":"cute or romantic in a way that feels corny","ex_en":"Joey's pickup line was so cheesy.","ex_ko":"조이의 작업 멘트는 너무 느끼했다.","scene_ko":"조이가 여자에게 작업을 거는 장면"},
+{"en":"oblivious","ipa":"/əˈblɪviəs/","pos":"adjective","ko":"전혀 눈치채지 못하는","def_en":"not aware of what is happening around you","ex_en":"Ross was oblivious to Rachel's hints.","ex_ko":"로스는 레이첼의 힌트를 전혀 눈치채지 못했다.","scene_ko":"로스가 주변 분위기를 못 읽는 상황"},
+{"en":"bewildered","ipa":"/bɪˈwɪldərd/","pos":"adjective","ko":"어리둥절한","def_en":"very confused and surprised","ex_en":"Phoebe looked bewildered by Chandler's joke.","ex_ko":"피비는 챈들러의 농담에 어리둥절해 보였다.","scene_ko":"엉뚱한 농담에 모두가 멍해지는 상황"},
+{"en":"mortified","ipa":"/ˈmɔːrtɪfaɪd/","pos":"adjective","ko":"몹시 창피한","def_en":"extremely embarrassed","ex_en":"Monica was mortified when everyone heard her.","ex_ko":"모니카는 모두가 자기 말을 들어서 몹시 창피했다.","scene_ko":"모니카가 사람들 앞에서 망신당한 상황"},
+{"en":"clingy","ipa":"/ˈklɪŋi/","pos":"adjective","ko":"들러붙는, 집착하는","def_en":"too dependent on another person","ex_en":"Ross worried he was being too clingy.","ex_ko":"로스는 자기가 너무 집착하는 건 아닌지 걱정했다.","scene_ko":"연애 초반 너무 붙어 다니는 상황"},
+{"en":"stoked","ipa":"/stoʊkt/","pos":"adjective","ko":"엄청 신난","def_en":"very excited and happy","ex_en":"Joey was stoked about the free pizza.","ex_ko":"조이는 공짜 피자에 엄청 신났다.","scene_ko":"조이가 음식 앞에서 들뜨는 상황"},
+{"en":"petty","ipa":"/ˈpeti/","pos":"adjective","ko":"쪼잔한, 사소한","def_en":"caring too much about small unimportant things","ex_en":"Don't be petty, Chandler. Just share it.","ex_ko":"쪼잔하게 굴지 마, 챈들러. 그냥 나눠 먹어.","scene_ko":"사소한 일로 티격태격하는 친구들"},
+{"en":"smug","ipa":"/smʌɡ/","pos":"adjective","ko":"잘난 척하는, 의기양양한","def_en":"too pleased with yourself","ex_en":"Monica looked smug after winning again.","ex_ko":"모니카는 또 이기고 나서 의기양양해 보였다.","scene_ko":"모니카가 승부에서 이기고 으스대는 상황"},
+{"en":"ditch","ipa":"/dɪtʃ/","pos":"verb","ko":"버리다, 따돌리고 가 버리다","def_en":"to leave or get rid of someone or something","ex_en":"Did you ditch me for Joey's party?","ex_ko":"조이 파티 때문에 나를 버리고 간 거야?","scene_ko":"약속을 깨고 다른 곳으로 가 버린 상황"}
+],
+"idioms":[
+{"en":"pull an all-nighter","ipa":"","pos":"","ko":"밤을 새우다","def_en":"to stay up all night to finish something","ex_en":"Ross pulled an all-nighter for his lecture.","ex_ko":"로스는 강의 준비로 밤을 새웠다.","scene_ko":"로스가 일 때문에 밤을 새우는 상황"},
+{"en":"from scratch","ipa":"","pos":"","ko":"처음부터, 맨바닥에서","def_en":"from the very beginning, without using ready-made parts","ex_en":"Monica made the sauce from scratch.","ex_ko":"모니카는 소스를 처음부터 직접 만들었다.","scene_ko":"모니카가 요리를 직접 만드는 상황"},
+{"en":"in a rut","ipa":"","pos":"","ko":"쳇바퀴 같은 일상에 빠진","def_en":"stuck in a boring routine","ex_en":"Chandler felt like he was in a rut.","ex_ko":"챈들러는 쳇바퀴 같은 일상에 빠진 기분이었다.","scene_ko":"챈들러가 지루한 직장 생활을 푸념하는 상황"},
+{"en":"put on the spot","ipa":"","pos":"","ko":"난처한 질문을 받다","def_en":"to be forced to answer or decide suddenly","ex_en":"Phoebe felt put on the spot by Rachel.","ex_ko":"피비는 레이첼 때문에 난처해졌다.","scene_ko":"갑자기 곤란한 질문을 받는 상황"},
+{"en":"play it cool","ipa":"","pos":"","ko":"침착한 척하다","def_en":"to act calm and not show your feelings","ex_en":"Just play it cool when she walks in.","ex_ko":"그녀가 들어오면 그냥 태연한 척해.","scene_ko":"좋아하는 사람 앞에서 태연한 척하는 상황"},
+{"en":"hit rock bottom","ipa":"","pos":"","ko":"바닥을 치다","def_en":"to reach the lowest possible point","ex_en":"Joey hit rock bottom after the failed audition.","ex_ko":"조이는 오디션에 떨어지고 바닥을 쳤다.","scene_ko":"일이 안 풀려 의기소침한 조이"},
+{"en":"burn the midnight oil","ipa":"","pos":"","ko":"밤늦게까지 일하다","def_en":"to work late into the night","ex_en":"Rachel burned the midnight oil on her résumé.","ex_ko":"레이첼은 이력서를 쓰느라 밤늦게까지 일했다.","scene_ko":"레이첼이 새 일자리를 준비하는 상황"},
+{"en":"water under the bridge","ipa":"","pos":"","ko":"이미 지나간 일","def_en":"something past that no longer matters","ex_en":"Forget it, that's water under the bridge.","ex_ko":"잊어버려, 이미 지난 일이야.","scene_ko":"친구들끼리 옛 다툼을 털어내는 상황"},
+{"en":"keep a straight face","ipa":"","pos":"","ko":"웃음을 참고 무표정을 유지하다","def_en":"to not laugh or smile","ex_en":"Chandler couldn't keep a straight face.","ex_ko":"챈들러는 웃음을 참지 못했다.","scene_ko":"우스운 장면에서 웃음을 참는 상황"},
+{"en":"rain on someone's parade","ipa":"","pos":"","ko":"남의 흥을 깨다","def_en":"to spoil someone's happy plans","ex_en":"Sorry to rain on your parade, Joey.","ex_ko":"흥 깨서 미안해, 조이.","scene_ko":"들뜬 친구에게 찬물을 끼얹는 상황"}
+],
+"phrasal":[
+{"en":"hold off","ipa":"","pos":"","ko":"미루다, 보류하다","def_en":"to delay doing something","ex_en":"Let's hold off on telling Monica.","ex_ko":"모니카에게 말하는 건 잠시 미루자.","scene_ko":"비밀을 아직 말하지 않기로 하는 상황"},
+{"en":"wind up","ipa":"","pos":"","ko":"결국 ~하게 되다","def_en":"to end up in a situation","ex_en":"We always wind up at Central Perk.","ex_ko":"우리는 늘 결국 센트럴 퍼크에 있게 돼.","scene_ko":"친구들이 항상 모이는 카페"},
+{"en":"shake off","ipa":"","pos":"","ko":"떨쳐내다","def_en":"to get rid of a feeling or problem","ex_en":"Ross couldn't shake off the bad mood.","ex_ko":"로스는 나쁜 기분을 떨쳐내지 못했다.","scene_ko":"기분이 가라앉은 로스"},
+{"en":"brush off","ipa":"","pos":"","ko":"무시하다, 일축하다","def_en":"to ignore or dismiss something","ex_en":"Don't brush off what Phoebe said.","ex_ko":"피비가 한 말을 무시하지 마.","scene_ko":"피비의 엉뚱한 조언을 흘려듣는 상황"},
+{"en":"tell off","ipa":"","pos":"","ko":"꾸짖다","def_en":"to scold someone","ex_en":"Monica told Joey off for the mess.","ex_ko":"모니카는 어질러 놓은 일로 조이를 꾸짖었다.","scene_ko":"깔끔한 모니카가 룸메이트를 혼내는 상황"},
+{"en":"look into","ipa":"","pos":"","ko":"조사하다, 알아보다","def_en":"to investigate something","ex_en":"Rachel will look into other job options.","ex_ko":"레이첼은 다른 일자리를 알아볼 것이다.","scene_ko":"레이첼이 새 직장을 알아보는 상황"},
+{"en":"bail on","ipa":"","pos":"","ko":"약속을 펑크 내다","def_en":"to cancel plans at the last minute","ex_en":"Don't bail on me tonight, Chandler.","ex_ko":"오늘 밤 나 펑크 내지 마, 챈들러.","scene_ko":"약속을 취소하려는 친구를 붙잡는 상황"},
+{"en":"bounce back","ipa":"","pos":"","ko":"회복하다, 재기하다","def_en":"to recover quickly after a problem","ex_en":"Joey always bounces back from bad news.","ex_ko":"조이는 나쁜 소식에서도 늘 금방 회복한다.","scene_ko":"낙천적인 조이가 금방 기운을 차리는 상황"},
+{"en":"tear up","ipa":"","pos":"","ko":"눈물이 글썽이다","def_en":"to start to cry a little","ex_en":"Phoebe teared up during her song.","ex_ko":"피비는 노래하다가 눈물이 글썽였다.","scene_ko":"피비가 노래하다 감정이 북받치는 상황"},
+{"en":"head out","ipa":"","pos":"","ko":"출발하다, 나서다","def_en":"to leave a place","ex_en":"We should head out before the rain starts.","ex_ko":"비 오기 전에 나서는 게 좋겠어.","scene_ko":"카페를 나서 집으로 가려는 친구들"}
+]}

@@ -1,6 +1,6 @@
 {
  "season": 1,
- "day": 11,
+ "day": 12,
  "used": [
   "awkward",
   "divorce",
@@ -301,7 +301,37 @@
   "butt in",
   "space out",
   "blow off",
-  "fess up"
+  "fess up",
+  "flustered",
+  "cheesy",
+  "oblivious",
+  "bewildered",
+  "mortified",
+  "clingy",
+  "stoked",
+  "petty",
+  "smug",
+  "ditch",
+  "pull an all-nighter",
+  "from scratch",
+  "in a rut",
+  "put on the spot",
+  "play it cool",
+  "hit rock bottom",
+  "burn the midnight oil",
+  "water under the bridge",
+  "keep a straight face",
+  "rain on someone's parade",
+  "hold off",
+  "wind up",
+  "shake off",
+  "brush off",
+  "tell off",
+  "look into",
+  "bail on",
+  "bounce back",
+  "tear up",
+  "head out"
  ],
  "history": [
   {
@@ -371,6 +401,13 @@
    "date": "2026-10-19",
    "season": 1,
    "day": 10,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-20",
+   "season": 1,
+   "day": 11,
    "db": true,
    "kakao": true
   }

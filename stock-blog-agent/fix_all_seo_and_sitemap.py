@@ -194,7 +194,7 @@ def fix_head_seo(html_path, page_type="post", filename=""):
             "dateModified": f"{iso_date}T08:30:00+09:00",
             "author": {
                 "@type": "Organization",
-                "name": "Value Stock Labs 리서치팀",
+                "name": "Value Stock Labs",
                 "url": f"{DOMAIN}/pages/about.html"
             },
             "publisher": {
@@ -235,7 +235,7 @@ def fix_head_seo(html_path, page_type="post", filename=""):
             "description": desc,
             "publisher": {
                 "@type": "Organization",
-                "name": "Value Stock Labs 리서치팀"
+                "name": "Value Stock Labs"
             }
         }
     else:

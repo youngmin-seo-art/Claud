@@ -486,7 +486,7 @@ flowchart TD
         <div class="post-meta">
           <span>📅 YYYY-MM-DD</span>
           <span>⏱️ 5분 분량</span>
-          <span>✍️ ValueStockLabs 리서치팀</span>
+          <span>✍️  Value Stock Labs</span>
           <span>🛡️ E-E-A-T 검증 완료</span>
         </div>
       </div>

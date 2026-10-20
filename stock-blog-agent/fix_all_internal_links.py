@@ -72,15 +72,13 @@ def resolve_target(old_href, source_file_path, existing_posts, lookup):
         
     # 5. Fallback matching by keyword
     if "hbm" in old_filename or "반도체" in old_filename or "삼성전자" in old_filename or "sk하이닉스" in old_filename:
-        return fix_rel_path(source_file_path, "ai-semiconductor-hbm-stocks.html") + hash_part
+        return fix_rel_path(source_file_path, "20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html") + hash_part
     elif "저평가" in old_filename or "가치주" in old_filename or "per" in old_filename:
-        return fix_rel_path(source_file_path, "undervalued-stocks-2026.html") + hash_part
+        return fix_rel_path(source_file_path, "20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html") + hash_part
     elif "상승" in old_filename or "돌파" in old_filename:
-        return fix_rel_path(source_file_path, "breakout-stocks-guide.html") + hash_part
+        return fix_rel_path(source_file_path, "20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html") + hash_part
     elif "배당" in old_filename or "절세" in old_filename or "isa" in old_filename:
-        return fix_rel_path(source_file_path, "dividend-aristocrats-krx.html") + hash_part
-    elif "공모주" in old_filename or "ipo" in old_filename:
-        return fix_rel_path(source_file_path, "ipo-public-offering-guide.html") + hash_part
+        return fix_rel_path(source_file_path, "20261011-kb금융-가치주-기업분석-순이익-6-5조원과-밸류업-주주환원율-55-총정리.html") + hash_part
         
     # Default fallback to index.html
     return fix_rel_path(source_file_path, "index.html", to_root=True)

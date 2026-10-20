@@ -153,7 +153,7 @@ class BlogPublisher:
                 category = "market"
                 badge_html = '<span class="post-badge market" style="background:#059669; color:#fff;">☕ 모닝 시황</span>'
                 thumb_img = article_data.get("image", "images/morning-4.jpg")
-                author = "시황분석팀"
+                author = "Value Stock Labs"
                 avatar = "M"
                 excerpt = f"{article_data['title']} - 밤사이 뉴욕증시 마감 및 거시경제 지표, 장 시작 전 국내 핵심 주도 섹터와 주요 뉴스 총정리."
                 
@@ -190,7 +190,7 @@ class BlogPublisher:
                     category = "semiconductor"
                     badge_html = '<span class="post-badge breakout">⚡ AI 반도체</span>'
                     thumb_img = "images/semiconductor.jpg"
-                    author = "반도체테크"
+                    author = "Value Stock Labs"
                     avatar = "H"
                 elif "공모주" in article_data["title"] or raw_cat == "ipo" or "청약" in article_data["title"]:
                     category = "ipo"
@@ -208,19 +208,19 @@ class BlogPublisher:
                     category = "macro"
                     badge_html = '<span class="post-badge market" style="background:#0284c7; color:#fff;">📊 거시경제/금리</span>'
                     thumb_img = "images/dividend.jpg"
-                    author = "매크로리서치"
+                    author = "Value Stock Labs"
                     avatar = "M"
                 elif "상승" in article_data["title"] or "돌파" in article_data["title"] or raw_cat == "breakout":
                     category = "breakout"
                     badge_html = '<span class="post-badge breakout">🚀 상승초입주</span>'
                     thumb_img = "images/breakout.jpg"
-                    author = "차트마스터"
+                    author = "Value Stock Labs"
                     avatar = "C"
                 else:
                     category = "undervalued"
                     badge_html = '<span class="post-badge undervalued">💎 저평가 가치주</span>'
                     thumb_img = "images/hero.jpg"
-                    author = "스톡리서치"
+                    author = "Value Stock Labs"
                     avatar = "S"
 
                 excerpt = article_data.get("summary", f"{article_data['title']}에 대한 퀀트 재무 지표 및 기술적 차트 지지선 분석 리포트입니다.")

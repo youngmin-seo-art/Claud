@@ -369,7 +369,7 @@ def update_legal_pages():
         <div>
           <strong style="color: #ffffff;">운영 및 분석 문의 접수</strong><br>
           콘텐츠 오류 제보, 데이터 분석 요청, 학술적 교류 및 비즈니스 문의는 
-          <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">공식 문의 창구</a> 또는 공식 이메일(<code>contact@valuestocklabs.com</code>)을 이용해 주시기 바랍니다.
+          <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">공식 문의 창구</a> 또는 공식 이메일(<code>immnue@gmail.com</code>)을 이용해 주시기 바랍니다.
         </div>
       </div>
     </article>
@@ -533,7 +533,7 @@ def update_legal_pages():
         <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
           <div style="font-size: 1.5rem; margin-bottom: 8px;">📧</div>
           <strong style="color: #ffffff; font-size: 1rem; display: block; margin-bottom: 4px;">공식 문의 이메일</strong>
-          <span style="color: var(--accent-cyan); font-weight: 600; font-size: 0.95rem;">valuestocklabs.contact@gmail.com</span>
+          <span style="color: var(--accent-cyan); font-weight: 600; font-size: 0.95rem;">immnue@gmail.com</span>
           <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px;">24시간 연중무휴 상시 접수</p>
         </div>
 
@@ -627,7 +627,7 @@ def update_legal_pages():
           </a>
           <p>
             Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
-            <strong>공식 문의 이메일:</strong> <a href="mailto:valuestocklabs.contact@gmail.com" style="color:var(--accent-cyan); font-weight:700;">valuestocklabs.contact@gmail.com</a>
+            <strong>공식 문의 이메일:</strong> <a href="mailto:immnue@gmail.com" style="color:var(--accent-cyan); font-weight:700;">immnue@gmail.com</a>
           </p>
         </div>
 
@@ -1000,7 +1000,7 @@ def update_legal_pages():
         <div class="callout-icon">✉️</div>
         <div>
           <strong>Value Stock Labs 개인정보 보호 담당부서</strong><br>
-          공식 전자우편: <code>valuestocklabs.contact@gmail.com</code><br>
+          공식 전자우편: <code>immnue@gmail.com</code><br>
           온라인 접수: <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">공식 문의 및 피드백 창구</a>
         </div>
       </div>

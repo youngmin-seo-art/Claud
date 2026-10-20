@@ -1,0 +1,43 @@
+{
+ "date": "2026-10-21",
+ "season": 1,
+ "day": 12,
+ "theme_ko": "시즌 1 · 시즌 피날레, 엇갈리는 로스와 레이첼",
+ "createdAt": "2026-10-21T07:40:00+09:00",
+ "words": [
+  {"en":"bittersweet","ipa":"/ˌbɪtərˈswiːt/","pos":"adjective","ko":"씁쓸하면서도 달콤한","def_en":"pleasant but also sad at the same time","ex_en":"Rachel's goodbye to the old gang felt bittersweet.","ex_ko":"레이첼에게 옛 친구들과의 작별은 씁쓸하면서도 달콤했다.","scene_ko":"한 시즌이 마무리되며 여러 감정이 교차하는 상황"},
+  {"en":"nostalgic","ipa":"/nɑːˈstældʒɪk/","pos":"adjective","ko":"향수를 느끼는","def_en":"feeling happy and a little sad about the past","ex_en":"Monica gets nostalgic whenever she sees old photos.","ex_ko":"모니카는 옛 사진을 볼 때마다 향수에 젖는다.","scene_ko":"옛 추억을 되짚으며 이야기하는 상황"},
+  {"en":"vulnerable","ipa":"/ˈvʌlnərəbəl/","pos":"adjective","ko":"상처받기 쉬운, 취약한","def_en":"easily hurt emotionally or physically","ex_en":"Ross felt vulnerable after telling Rachel the truth.","ex_ko":"로스는 레이첼에게 진실을 말한 뒤 마음이 약해졌다.","scene_ko":"속마음을 털어놓은 뒤 불안해하는 상황"},
+  {"en":"hesitant","ipa":"/ˈhezɪtənt/","pos":"adjective","ko":"망설이는","def_en":"slow to act because you are unsure","ex_en":"Joey was hesitant to say anything about it.","ex_ko":"조이는 그것에 대해 말하기를 망설였다.","scene_ko":"중요한 말을 할까 말까 고민하는 상황"},
+  {"en":"flattered","ipa":"/ˈflætərd/","pos":"adjective","ko":"우쭐한, 기분 좋은","def_en":"pleased because someone praised or liked you","ex_en":"Phoebe was flattered that he remembered her song.","ex_ko":"피비는 그가 자기 노래를 기억해서 기분이 좋았다.","scene_ko":"누군가의 호감 표현에 기분이 좋아지는 상황"},
+  {"en":"stunned","ipa":"/stʌnd/","pos":"adjective","ko":"어안이 벙벙한","def_en":"so shocked that you cannot react","ex_en":"Everyone was stunned when Ross walked in.","ex_ko":"로스가 들어오자 모두 어안이 벙벙했다.","scene_ko":"예상 밖의 소식에 말문이 막히는 상황"},
+  {"en":"relieved","ipa":"/rɪˈliːvd/","pos":"adjective","ko":"안도하는","def_en":"happy because a worry has gone away","ex_en":"Chandler was relieved that the meeting was over.","ex_ko":"챈들러는 회의가 끝나서 안도했다.","scene_ko":"걱정하던 일이 무사히 끝나는 상황"},
+  {"en":"heartbroken","ipa":"/ˈhɑːrtˌbroʊkən/","pos":"adjective","ko":"가슴이 무너지는","def_en":"extremely sad, especially about love","ex_en":"Ross was heartbroken when he heard the news.","ex_ko":"로스는 그 소식을 듣고 가슴이 무너졌다.","scene_ko":"사랑이 엇갈려 크게 상심하는 상황"},
+  {"en":"closure","ipa":"/ˈkloʊʒər/","pos":"noun","ko":"마음의 정리, 매듭","def_en":"a feeling that a difficult matter has ended","ex_en":"Monica needed some closure after the breakup.","ex_ko":"모니카는 이별 후 마음의 정리가 필요했다.","scene_ko":"지난 관계에 마침표를 찍고 싶은 상황"},
+  {"en":"inseparable","ipa":"/ɪnˈsepərəbəl/","pos":"adjective","ko":"떼려야 뗄 수 없는","def_en":"always together and impossible to separate","ex_en":"Joey and Chandler are practically inseparable.","ex_ko":"조이와 챈들러는 거의 떨어질 수 없는 사이다.","scene_ko":"늘 붙어 다니는 친구들을 묘사하는 상황"}
+ ],
+ "idioms": [
+  {"en":"wear your heart on your sleeve","ipa":"","pos":"","ko":"감정을 숨기지 않고 드러내다","def_en":"to show your feelings openly","ex_en":"Ross wears his heart on his sleeve around Rachel.","ex_ko":"로스는 레이첼 앞에서 감정을 숨기지 못한다.","scene_ko":"속마음이 얼굴에 다 드러나는 로스 같은 상황"},
+  {"en":"better late than never","ipa":"","pos":"","ko":"늦더라도 안 하는 것보단 낫다","def_en":"doing something late is better than not doing it","ex_en":"You finally called her? Better late than never.","ex_ko":"드디어 그녀에게 전화했어? 늦어도 안 하는 것보단 낫지.","scene_ko":"뒤늦게라도 마음을 전하는 상황"},
+  {"en":"let bygones be bygones","ipa":"","pos":"","ko":"지난 일은 잊고 넘어가다","def_en":"to forget past arguments and move on","ex_en":"Let's let bygones be bygones and stay friends.","ex_ko":"지난 일은 잊고 계속 친구로 지내자.","scene_ko":"다툰 뒤 화해하는 친구들"},
+  {"en":"cross that bridge when we come to it","ipa":"","pos":"","ko":"그 문제는 닥치면 생각하자","def_en":"to deal with a problem only when it happens","ex_en":"What if she says no? We'll cross that bridge later.","ex_ko":"그녀가 싫다고 하면? 그건 그때 가서 생각하자.","scene_ko":"고백 결과를 걱정하는 친구를 달래는 상황"},
+  {"en":"tie the knot","ipa":"","pos":"","ko":"결혼하다","def_en":"to get married","ex_en":"Carol and Susan finally decided to tie the knot.","ex_ko":"캐롤과 수잔은 마침내 결혼하기로 했다.","scene_ko":"결혼 소식으로 분주한 친구들"},
+  {"en":"get something off your chest","ipa":"","pos":"","ko":"속에 담아둔 말을 털어놓다","def_en":"to say something that has been bothering you","ex_en":"I just need to get this off my chest, Rachel.","ex_ko":"레이첼, 이 말은 꼭 털어놔야겠어.","scene_ko":"오랫동안 숨긴 감정을 고백하려는 상황"},
+  {"en":"the writing is on the wall","ipa":"","pos":"","ko":"(나쁜) 결말이 불 보듯 뻔하다","def_en":"signs show something bad will happen","ex_en":"The writing was on the wall for their relationship.","ex_ko":"그들의 관계가 어떻게 될지는 불 보듯 뻔했다.","scene_ko":"관계가 흔들리는 징후를 알아채는 상황"},
+  {"en":"a bolt from the blue","ipa":"","pos":"","ko":"청천벽력 같은 일","def_en":"a complete and unexpected surprise","ex_en":"Her call was a bolt from the blue for Ross.","ex_ko":"그녀의 전화는 로스에게 청천벽력이었다.","scene_ko":"뜻밖의 소식이 날아드는 상황"},
+  {"en":"end on a high note","ipa":"","pos":"","ko":"좋은 분위기로 마무리하다","def_en":"to finish something in a very positive way","ex_en":"Let's end the night on a high note, guys.","ex_ko":"얘들아, 오늘 밤은 좋게 마무리하자.","scene_ko":"시즌 마지막 날 모두 모인 자리"},
+  {"en":"take the plunge","ipa":"","pos":"","ko":"큰 결심을 하고 과감히 해보다","def_en":"to finally do something risky or important","ex_en":"Monica decided to take the plunge and change jobs.","ex_ko":"모니카는 과감히 이직하기로 결심했다.","scene_ko":"망설이던 일에 용기를 내는 상황"}
+ ],
+ "phrasal": [
+  {"en":"open up","ipa":"","pos":"","ko":"마음을 열고 털어놓다","def_en":"to start talking about your feelings","ex_en":"Rachel finally opened up to Monica about her fears.","ex_ko":"레이첼은 마침내 모니카에게 두려움을 털어놓았다.","scene_ko":"친구에게 속마음을 이야기하는 상황"},
+  {"en":"wrap up","ipa":"","pos":"","ko":"마무리하다","def_en":"to finish something","ex_en":"Let me wrap up this shift and I'll join you.","ex_ko":"이번 근무 마무리하고 합류할게.","scene_ko":"하루 일과를 끝내고 모이는 상황"},
+  {"en":"see off","ipa":"","pos":"","ko":"배웅하다","def_en":"to go with someone to say goodbye","ex_en":"We all went to the airport to see Ross off.","ex_ko":"우리 모두 로스를 배웅하러 공항에 갔다.","scene_ko":"떠나는 친구를 배웅하는 상황"},
+  {"en":"pull through","ipa":"","pos":"","ko":"(어려움을) 이겨내다","def_en":"to survive a difficult time","ex_en":"Don't worry, Phoebe will pull through this.","ex_ko":"걱정 마, 피비는 이걸 이겨낼 거야.","scene_ko":"힘든 일을 겪는 친구를 응원하는 상황"},
+  {"en":"talk over","ipa":"","pos":"","ko":"~에 대해 충분히 의논하다","def_en":"to discuss something carefully","ex_en":"Let's talk it over before you decide anything.","ex_ko":"뭘 결정하기 전에 충분히 얘기해 보자.","scene_ko":"중요한 결정 앞에서 친구와 상의하는 상황"},
+  {"en":"patch up","ipa":"","pos":"","ko":"화해하다, 관계를 수습하다","def_en":"to fix a relationship after a fight","ex_en":"Joey wants to patch things up with his sister.","ex_ko":"조이는 여동생과 화해하고 싶어 한다.","scene_ko":"다툰 뒤 관계를 회복하려는 상황"},
+  {"en":"settle for","ipa":"","pos":"","ko":"~로 만족하다, 타협하다","def_en":"to accept something less than you wanted","ex_en":"Rachel refuses to settle for a boring life.","ex_ko":"레이첼은 따분한 삶에 안주하기를 거부한다.","scene_ko":"더 나은 삶을 원하는 레이첼의 상황"},
+  {"en":"drift apart","ipa":"","pos":"","ko":"서서히 멀어지다","def_en":"to slowly become less close","ex_en":"Ross worried they would drift apart over time.","ex_ko":"로스는 시간이 지나면 서로 멀어질까 걱정했다.","scene_ko":"관계가 어긋날까 불안한 상황"},
+  {"en":"hold back","ipa":"","pos":"","ko":"참다, 억누르다","def_en":"to stop yourself from doing or saying something","ex_en":"He couldn't hold back his tears at the party.","ex_ko":"그는 파티에서 눈물을 참을 수 없었다.","scene_ko":"감정이 북받치는 순간"},
+  {"en":"line up","ipa":"","pos":"","ko":"줄 서다, 준비해 두다","def_en":"to stand in a row or arrange in advance","ex_en":"Monica has everything lined up for the party.","ex_ko":"모니카는 파티 준비를 다 해 두었다.","scene_ko":"모임을 앞두고 준비하는 상황"}
+ ]
+}

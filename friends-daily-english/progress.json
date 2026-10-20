@@ -1,6 +1,6 @@
 {
- "season": 1,
- "day": 12,
+ "season": 2,
+ "day": 1,
  "used": [
   "awkward",
   "divorce",
@@ -331,7 +331,37 @@
   "bail on",
   "bounce back",
   "tear up",
-  "head out"
+  "head out",
+  "bittersweet",
+  "nostalgic",
+  "vulnerable",
+  "hesitant",
+  "flattered",
+  "stunned",
+  "relieved",
+  "heartbroken",
+  "closure",
+  "inseparable",
+  "wear your heart on your sleeve",
+  "better late than never",
+  "let bygones be bygones",
+  "cross that bridge when we come to it",
+  "tie the knot",
+  "get something off your chest",
+  "the writing is on the wall",
+  "a bolt from the blue",
+  "end on a high note",
+  "take the plunge",
+  "open up",
+  "wrap up",
+  "see off",
+  "pull through",
+  "talk over",
+  "patch up",
+  "settle for",
+  "drift apart",
+  "hold back",
+  "line up"
  ],
  "history": [
   {
@@ -408,6 +438,13 @@
    "date": "2026-10-20",
    "season": 1,
    "day": 11,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-21",
+   "season": 1,
+   "day": 12,
    "db": true,
    "kakao": true
   }

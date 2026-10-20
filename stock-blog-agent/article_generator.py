@@ -2157,7 +2157,7 @@ class ArticleGenerator:
   <title>오늘의 모닝 증시 브리핑 ({today_str}) | Value Stock Labs</title>
   <meta name="description" content="{today_str} 국내외 주요 증시 지표, 환율, 가상자산 동향 및 오늘의 핵심 경제 뉴스 5선 리서치 리포트">
   <meta name="keywords" content="모닝브리핑, 증시시황, 코스피, 코스닥, 환율, 나스닥, 비트코인, 주식뉴스">
-  <meta name="author" content="Value Stock Labs 리서치팀">
+  <meta name="author" content="Value Stock Labs">
   
   <!-- Canonical & Search Indexing -->
   <link rel="canonical" href="{BLOG_DOMAIN}/posts/{slug}.html">
@@ -2189,7 +2189,7 @@ class ArticleGenerator:
     "dateModified": "{today_iso}T08:30:00+09:00",
     "author": {{
       "@type": "Organization",
-      "name": "Value Stock Labs 리서치팀",
+      "name": "Value Stock Labs",
       "url": "{BLOG_DOMAIN}/pages/about.html"
     }},
     "publisher": {{
@@ -2242,10 +2242,10 @@ class ArticleGenerator:
       <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
         <a href="{slug}.html" class="nav-link">오늘의 시황</a>
-        <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="nav-link">저평가주식</a>
         <a href="../posts/stock-valuation-analysis-guide.html" class="nav-link">종목가치 분석</a>
-        <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
-        <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
+        <a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="nav-link">상승초입주</a>
+        <a href="../posts/20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="nav-link">AI반도체</a>
         <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
@@ -2278,7 +2278,7 @@ class ArticleGenerator:
           <span class="badge badge-market">🌅 데일리 모닝 리포트</span>
           <h1 class="article-title">오늘의 증시 모닝 브리핑: 핵심 지표 요약 및 주요 이슈 5선 ({today_str})</h1>
           <div class="article-meta">
-            <span>✍️ Value Stock Labs 시황분석팀</span>
+            <span>✍️  Value Stock Labs</span>
             <span>📅 {today_str} AM 08:00 기준</span>
           </div>
         </header>
@@ -2425,7 +2425,7 @@ class ArticleGenerator:
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
             <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
-            <li><a href="ai-semiconductor-hbm-stocks.html">AI 반도체 HBM 리포트</a></li>
+            <li><a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html">AI 반도체 HBM 리포트</a></li>
           </ul>
         </div>
 
@@ -2436,7 +2436,7 @@ class ArticleGenerator:
             <li><a href="../tools/stock-average-calc.html">주식 물타기 평단가 계산기</a></li>
             <li><a href="../tools/target-price-calculator.html">적정주가 &amp; 손익비 계산기</a></li>
             <li><a href="../tools/compound-interest-calc.html">복리 수익률 시뮬레이터</a></li>
-            <li><a href="../pages/about.html">리서치팀 소개</a></li>
+            <li><a href="../pages/about.html">블로그 소개</a></li>
           </ul>
         </div>
 
@@ -2614,7 +2614,7 @@ class ArticleGenerator:
   <title>{clean_title} | Value Stock Labs 리서치</title>
   <meta name="description" content="{clean_title}에 대한 심층 팩트체크, 금융 시장 파급 효과, 핵심 데이터 지표 및 실전 투자 전략을 분석합니다.">
   <meta name="keywords" content="{', '.join(keywords)}">
-  <meta name="author" content="Value Stock Labs 리서치팀">
+  <meta name="author" content="Value Stock Labs">
 
   <!-- Canonical & Search Indexing -->
   <link rel="canonical" href="{BLOG_DOMAIN}/posts/{slug}.html">
@@ -2646,7 +2646,7 @@ class ArticleGenerator:
     "dateModified": "{today_iso}T09:00:00+09:00",
     "author": {{
       "@type": "Organization",
-      "name": "Value Stock Labs 리서치팀",
+      "name": "Value Stock Labs",
       "url": "{BLOG_DOMAIN}/pages/about.html"
     }},
     "publisher": {{
@@ -2704,10 +2704,10 @@ class ArticleGenerator:
       <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html" class="nav-link">홈</a>
         <a href="{latest_briefing_link}" class="nav-link">오늘의 시황</a>
-        <a href="../posts/undervalued-stocks-2026.html" class="nav-link">저평가주식</a>
+        <a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="nav-link">저평가주식</a>
         <a href="../posts/stock-valuation-analysis-guide.html" class="nav-link">종목가치 분석</a>
-        <a href="../posts/breakout-stocks-guide.html" class="nav-link">상승초입주</a>
-        <a href="../posts/ai-semiconductor-hbm-stocks.html" class="nav-link">AI반도체</a>
+        <a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="nav-link">상승초입주</a>
+        <a href="../posts/20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="nav-link">AI반도체</a>
         <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
@@ -2744,7 +2744,7 @@ class ArticleGenerator:
           <span class="badge badge-semiconductor">{category} 심층 분석</span>
           <h1 class="article-title">{title}</h1>
           <div class="article-meta">
-            <span>✍️ Value Stock Labs 리서치팀</span>
+            <span>✍️  Value Stock Labs</span>
             <span>📅 {today_str}</span>
           </div>
         </header>
@@ -2842,15 +2842,15 @@ class ArticleGenerator:
           <div class="popular-list">
             <div class="popular-item">
               <span class="popular-rank">1</span>
-              <a href="ai-semiconductor-hbm-stocks.html" class="popular-link">2026 AI 반도체 HBM 수혜주 총정리</a>
+              <a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="popular-link">한미반도체 HBM4 TC본더 기업분석</a>
             </div>
             <div class="popular-item">
               <span class="popular-rank">2</span>
-              <a href="undervalued-stocks-2026.html" class="popular-link">2026 저평가 우량주 5선 분석</a>
+              <a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="popular-link">저평가 우량주 스크리닝 4단계</a>
             </div>
             <div class="popular-item">
               <span class="popular-rank">3</span>
-              <a href="breakout-stocks-guide.html" class="popular-link">상승초입주 포착 매매기법</a>
+              <a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="popular-link">KOSPI 상승초입주 10선 리포트</a>
             </div>
           </div>
         </div>
@@ -2894,7 +2894,7 @@ class ArticleGenerator:
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
             <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
-            <li><a href="ai-semiconductor-hbm-stocks.html">AI 반도체 HBM 리포트</a></li>
+            <li><a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html">AI 반도체 HBM 리포트</a></li>
           </ul>
         </div>
 
@@ -2905,7 +2905,7 @@ class ArticleGenerator:
             <li><a href="../tools/stock-average-calc.html">주식 물타기 평단가 계산기</a></li>
             <li><a href="../tools/target-price-calculator.html">적정주가 &amp; 손익비 계산기</a></li>
             <li><a href="../tools/compound-interest-calc.html">복리 수익률 시뮬레이터</a></li>
-            <li><a href="../pages/about.html">리서치팀 소개</a></li>
+            <li><a href="../pages/about.html">블로그 소개</a></li>
           </ul>
         </div>
 

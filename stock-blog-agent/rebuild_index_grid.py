@@ -62,7 +62,7 @@ def rebuild_index_grid():
         if "morning-market" in filename or "시황" in raw_title:
             category = "market"
             badge_html = '<span class="post-badge market" style="background:#059669; color:#fff;">☕ 모닝 시황</span>'
-            author = "시황분석팀"
+            author = "Value Stock Labs"
             avatar = "M"
         elif "valuation" in filename or "삼성중공업" in filename or "기아" in filename or "한미반도체" in filename or "종목가치" in raw_title:
             category = "valuation"
@@ -72,7 +72,7 @@ def rebuild_index_grid():
         elif "semiconductor" in filename or "반도체" in raw_title or "hbm" in filename:
             category = "semiconductor"
             badge_html = '<span class="post-badge breakout">⚡ AI 반도체</span>'
-            author = "반도체테크"
+            author = "Value Stock Labs"
             avatar = "H"
         elif "ipo" in filename or "공모주" in raw_title or "청약" in raw_title:
             category = "ipo"
@@ -87,12 +87,12 @@ def rebuild_index_grid():
         elif "breakout" in filename or "상승초입" in raw_title:
             category = "breakout"
             badge_html = '<span class="post-badge breakout">🚀 상승초입주</span>'
-            author = "차트마스터"
+            author = "Value Stock Labs"
             avatar = "C"
         else:
             category = "undervalued"
             badge_html = '<span class="post-badge undervalued">💎 저평가 가치주</span>'
-            author = "스톡리서치"
+            author = "Value Stock Labs"
             avatar = "S"
             
         card_html = f"""          <!-- Article Card: {filename} -->

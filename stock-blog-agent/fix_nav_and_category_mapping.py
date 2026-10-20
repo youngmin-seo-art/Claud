@@ -24,7 +24,6 @@ NAV_INDEX = """      <nav class="main-nav" aria-label="메인 메뉴">
         <a href="index.html?cat=undervalued#postsGrid" class="nav-link">저평가 가치주</a>
         <a href="index.html?cat=valuation#postsGrid" class="nav-link">종목가치 분석</a>
         <a href="index.html?cat=breakout#postsGrid" class="nav-link">상승초입주</a>
-        <a href="index.html?cat=semiconductor#postsGrid" class="nav-link">AI반도체</a>
         <a href="tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
@@ -37,7 +36,6 @@ NAV_SUB = """      <nav class="main-nav" aria-label="메인 메뉴">
         <a href="../index.html?cat=undervalued#postsGrid" class="nav-link">저평가 가치주</a>
         <a href="../index.html?cat=valuation#postsGrid" class="nav-link">종목가치 분석</a>
         <a href="../index.html?cat=breakout#postsGrid" class="nav-link">상승초입주</a>
-        <a href="../index.html?cat=semiconductor#postsGrid" class="nav-link">AI반도체</a>
         <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>

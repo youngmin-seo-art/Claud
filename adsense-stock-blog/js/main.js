@@ -424,7 +424,7 @@ function initCategoryFilter() {
 
   if (catParam) {
     filterCategory(catParam, true);
-  } else if (hashParam && ['market', 'undervalued', 'valuation', 'breakout', 'semiconductor'].includes(hashParam)) {
+  } else if (hashParam && ['market', 'undervalued', 'valuation', 'breakout'].includes(hashParam)) {
     filterCategory(hashParam, true);
   }
 }

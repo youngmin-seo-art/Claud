@@ -2245,7 +2245,6 @@ class ArticleGenerator:
         <a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="nav-link">저평가주식</a>
         <a href="../posts/stock-valuation-analysis-guide.html" class="nav-link">종목가치 분석</a>
         <a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="nav-link">상승초입주</a>
-        <a href="../posts/20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="nav-link">AI반도체</a>
         <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
@@ -2425,7 +2424,6 @@ class ArticleGenerator:
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
             <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
-            <li><a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html">AI 반도체 HBM 리포트</a></li>
           </ul>
         </div>
 
@@ -2707,7 +2705,6 @@ class ArticleGenerator:
         <a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html" class="nav-link">저평가주식</a>
         <a href="../posts/stock-valuation-analysis-guide.html" class="nav-link">종목가치 분석</a>
         <a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html" class="nav-link">상승초입주</a>
-        <a href="../posts/20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="nav-link">AI반도체</a>
         <a href="../tools/fair-value-calculator.html" class="nav-link">적정가치 계산기 <span class="nav-link-badge">HOT</span></a>
         <a href="../tools/stock-average-calc.html" class="nav-link">평단가 계산기</a>
         <a href="../tools/target-price-calculator.html" class="nav-link">손익비 계산기</a>
@@ -2842,7 +2839,6 @@ class ArticleGenerator:
           <div class="popular-list">
             <div class="popular-item">
               <span class="popular-rank">1</span>
-              <a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html" class="popular-link">한미반도체 HBM4 TC본더 기업분석</a>
             </div>
             <div class="popular-item">
               <span class="popular-rank">2</span>
@@ -2894,7 +2890,6 @@ class ArticleGenerator:
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
             <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
-            <li><a href="20261018-한미반도체-주가-전망-및-2026-실적-분석-hbm4-tc본더-1위의-독점력과-괴물-마진.html">AI 반도체 HBM 리포트</a></li>
           </ul>
         </div>
 

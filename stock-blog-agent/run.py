@@ -1,7 +1,7 @@
 """
 =============================================================================
 STOCK BLOG AGENT - MASTER CLI (run.py)
-원클릭 자동 포스팅 & 실시간 주식 분석글 발행 CLI
+실시간 주식 분석글 발행 CLI
 =============================================================================
 주요 특징:
   - 주말(토/일) 및 대한민국 공휴일/대체공휴일/증시 휴장일 자동 감지 및 자동 실행 스킵
@@ -9,12 +9,11 @@ STOCK BLOG AGENT - MASTER CLI (run.py)
   - KST(한국 표준시) 타임존 완벽 지원 (로컬 PC 및 GitHub Actions 환경 호환)
 =============================================================================
 사용법:
-  1. 자동 트렌드 종목 분석 & 발행 (주말/공휴일 자동 스킵): python run.py --auto
-  2. 주말/공휴일에도 강제 발행: python run.py --auto --force
-  3. 특정 종목/키워드 지정: python run.py --keyword "삼성전자 HBM4 반도체"
-  4. 로컬 테스트 (Git Push 제외): python run.py --auto --test
-  5. 정기 시각 스케줄러: python run.py --daily-at 08:00
-  6. 오늘 휴장일/공휴일 여부 확인: python run.py --check-holiday
+  1. 특정 종목/키워드 지정: python run.py --keyword "삼성전자 HBM4 반도체"
+  2. 로컬 테스트 (Git Push 제외): python run.py --keyword "삼성전자 HBM4 반도체" --test
+  3. 주말/공휴일에도 강제 발행: python run.py --keyword "삼성전자 HBM4 반도체" --force
+  4. 정기 시각 스케줄러: python run.py --keyword "삼성전자 HBM4 반도체" --daily-at 08:00
+  5. 오늘 휴장일/공휴일 여부 확인: python run.py --check-holiday
   ※ '오늘의 시황'은 blog new agent/blog team leader.md 파이프라인에서 전담합니다.
 =============================================================================
 """
@@ -78,7 +77,7 @@ def run_agent(keyword=None, is_morning=False, is_test=False, force=False):
             print("🛑 주말 및 공휴일에는 자동 포스팅을 실행하지 않고 안전하게 건너뜁니다.")
             print(f"📅 다음 증시 개장일(영업일): {get_next_business_day(today_kst)}")
             print("💡 주말/공휴일에도 강제로 실행하려면 --force 옵션을 추가하세요.")
-            print("   예: python run.py --auto --force")
+            print("   예: python run.py --keyword \"종목명\" --force")
             print("=" * 60)
             return False
     elif is_closed and force:
@@ -87,7 +86,7 @@ def run_agent(keyword=None, is_morning=False, is_test=False, force=False):
         print("=" * 60)
 
     print("=" * 60)
-    print("🤖 [스톡 블로그 AI 에이전트] 실시간 분석 & 자동 포스팅 가동")
+    print("🤖 [스톡 블로그 AI 에이전트] 실시간 분석 & 포스팅 가동")
     print(f"🕒 실행 시각(KST): {now_kst.strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
@@ -123,13 +122,10 @@ def run_agent(keyword=None, is_morning=False, is_test=False, force=False):
         article_data = generator.generate_article_content(topic)
         print(f"📌 선정된 아티클 주제: {topic['title']}")
     else:
-        print("🔍 [자동 모드] 금융 RSS 피드에서 최신 핫이슈 탐색 중...")
-        topic = collector.collect_trending_topics()
-        if collector.is_banned(topic.get("title", ""), topic.get("summary", "")):
-            print(f"🛑 [차단 알림] 선정된 주제('{topic.get('title')}')가 영구 차단 목록에 해당하여 발행을 중단합니다.")
-            return False
-        article_data = generator.generate_article_content(topic)
-        print(f"📌 선정된 아티클 주제: {topic['title']}")
+        print("❌ [오류] 포스팅할 키워드가 지정되지 않았습니다.")
+        print("   --keyword 옵션으로 분석할 종목이나 키워드를 지정해주세요.")
+        print("   예: python run.py --keyword \"삼성전자 HBM4 반도체\"")
+        return False
 
     # 안전 검증: article_data 제목 및 본문 차단 키워드 2차 검증
     if collector.is_banned(article_data.get("title", ""), article_data.get("excerpt", "")):
@@ -164,8 +160,7 @@ def calculate_seconds_until(target_time_str):
     return diff_sec, target_dt
 
 def main():
-    parser = argparse.ArgumentParser(description="Stock Blog Auto AI Agent (주말/공휴일 자동 스킵 지원)")
-    parser.add_argument("--auto", action="store_true", help="최신 핫이슈 자동 수집 및 포스팅 (주말/공휴일 스킵)")
+    parser = argparse.ArgumentParser(description="Stock Blog AI Agent (주말/공휴일 자동 스킵 지원)")
     parser.add_argument("--morning", action="store_true", help="매일 아침 8시 시황 브리핑 생성 (주말/공휴일 스킵)")
     parser.add_argument("--keyword", type=str, help="특정 종목 또는 키워드 지정 포스팅")
     parser.add_argument("--test", action="store_true", help="로컬 테스트 모드 (Git Push 제외)")
@@ -207,7 +202,7 @@ def main():
                     print(f"\n🔔 [정각 알림] {args.daily_at} 도달했으나 오늘({today_kst}, {reason})은 주말/공휴일입니다.")
                     print(f"🏖️ 오늘의 자동 포스팅을 건너뛰고 다음 영업일({get_next_business_day(today_kst)})에 실행합니다.")
                 else:
-                    print(f"\n🔔 [정각 알림] {args.daily_at} 도달! 자동 분석 및 포스팅을 시작합니다.")
+                    print(f"\n🔔 [정각 알림] {args.daily_at} 도달! 분석 및 포스팅을 시작합니다.")
                     run_agent(keyword=args.keyword, is_morning=is_morning_mode, is_test=args.test, force=args.force)
 
                 # 실행 후 10초 대기하여 중복 실행 방지
@@ -216,7 +211,11 @@ def main():
                 print("\n[중단] 스케줄러가 정상적으로 종료되었습니다.")
                 break
     elif args.schedule:
-        print(f"⏰ [주기적 스케줄러 모드] {args.schedule}분마다 자동으로 최신 글을 수집·발행합니다. (주말/공휴일은 자동 건너뜀)")
+        if not args.keyword and not args.morning:
+            print("⚠️ 반복 실행할 키워드(--keyword)를 지정해주세요.")
+            print("   예: python run.py --keyword \"삼성전자 HBM4\" --schedule 360")
+            return
+        print(f"⏰ [주기적 스케줄러 모드] {args.schedule}분마다 지정된 키워드로 글을 분석·발행합니다. (주말/공휴일은 자동 건너뜀)")
         while True:
             try:
                 run_agent(keyword=args.keyword, is_morning=args.morning, is_test=args.test, force=args.force)
@@ -226,7 +225,13 @@ def main():
                 print("\n[중단] 스케줄러가 종료되었습니다.")
                 break
     else:
+        if not args.keyword and not args.morning:
+            parser.print_help()
+            print("\n⚠️ 실행할 작업이 지정되지 않았습니다. --keyword 또는 다른 옵션을 지정해주세요.")
+            print("   예: python run.py --keyword \"삼성전자 HBM4 반도체\"")
+            return
         run_agent(keyword=args.keyword, is_morning=args.morning, is_test=args.test, force=args.force)
 
 if __name__ == "__main__":
     main()
+

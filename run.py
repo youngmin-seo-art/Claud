@@ -8,17 +8,15 @@ STOCK BLOG AGENT - ROOT PROXY (run.py)
   - 주말/공휴일에 강제 실행을 원할 경우 --force 옵션 지원
 
 사용법:
-  1. 자동 종목/테마 핫이슈 분석 & 발행 (오늘의 시황 제외):
-     python run.py --auto
-  2. 특정 종목/키워드 지정 수동 포스팅:
+  1. 특정 종목/키워드 지정 수동 포스팅:
      python run.py --keyword "삼성전자 HBM4 반도체"
+  2. 로컬 테스트 (Git 푸시 제외):
+     python run.py --keyword "삼성전자 HBM4 반도체" --test
   3. 주말/공휴일에도 강제 발행:
-     python run.py --auto --force
-  4. 로컬 테스트 (Git 푸시 제외):
-     python run.py --auto --test
-  5. 매일 정기 시각 스케줄러 (주말/공휴일 자동 스킵):
-     python run.py --daily-at 08:00
-  6. 오늘 휴장일/공휴일 여부 확인:
+     python run.py --keyword "삼성전자 HBM4 반도체" --force
+  4. 매일 정기 시각 스케줄러 (주말/공휴일 자동 스킵):
+     python run.py --keyword "삼성전자 HBM4 반도체" --daily-at 08:00
+  5. 오늘 휴장일/공휴일 여부 확인:
      python run.py --check-holiday
   ※ '오늘의 시황'은 'blog new agent/blog team leader.md' 파이프라인에서 전담 발행합니다.
 =============================================================================

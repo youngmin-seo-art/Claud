@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 증시 시황: 코스피 5,550선 급락 딛고 5,660선 반등! 다우 최고치와 SMCI 서프라이즈 속 10월 21일 실전 대응 전략 | valuestocklabs</title>
+  <!-- Pretendard 폰트 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.85;
+      font-size: 17px;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 상단 네비게이션 */
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo span { color: var(--text-main); font-weight: 600; }
+    .badge-preview {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* 레이아웃 */
+    .container {
+      max-width: 860px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* 포스트 헤더 */
+    .post-header {
+      margin-bottom: 36px;
+    }
+    .category-badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .post-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      letter-spacing: -0.8px;
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+    .meta-item { display: flex; align-items: center; gap: 4px; }
+
+    /* 서브카피 요약 */
+    .hook-summary {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: #1e293b;
+      margin: 32px 0;
+      line-height: 1.75;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* 이미지 박스 */
+    .post-img-wrap {
+      margin: 36px 0 12px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      background: #000;
+    }
+    .post-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-caption {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    /* 목차 박스 */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin: 36px 0;
+    }
+    .toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toc-list a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* 본문 */
+    .article-body {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      padding: 48px 44px;
+    }
+    @media (max-width: 640px) {
+      .article-body { padding: 28px 20px; }
+      .post-title { font-size: 26px; }
+    }
+
+    .article-body h2 {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 50px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      letter-spacing: -0.5px;
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .article-body p {
+      margin-bottom: 22px;
+      color: var(--text-body);
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .article-body ul, .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-body li {
+      color: var(--text-body);
+    }
+
+    /* 모던 데이터 테이블 */
+    .table-container {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fafafa; }
+    tr:hover td { background-color: #f1f5f9; }
+    .ticker-up { color: #10b981; font-weight: 700; }
+    .ticker-down { color: #ef4444; font-weight: 700; }
+    .ticker-blue { color: #2563eb; font-weight: 700; }
+
+    /* 인용 및 강조 박스 */
+    .callout-box {
+      background: #f0fdf4;
+      border-left: 4px solid #10b981;
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 16px;
+      color: #14532d;
+      line-height: 1.8;
+    }
+
+    /* 면책 조항 박스 */
+    .disclaimer-card {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px 24px;
+      border-radius: var(--radius-sm);
+      margin-top: 50px;
+      font-size: 14px;
+      color: #92400e;
+      line-height: 1.7;
+    }
+
+    /* 참고 출처 박스 */
+    .references-card {
+      margin-top: 32px;
+      padding: 24px;
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+    .references-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .references-list {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .references-list a {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-list a:hover { text-decoration: underline; }
+  
+    /* 상단 진행률 바 */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 1000;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      transition: width 0.1s;
+    }
+    .brand-logo span.tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .header-date {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+  </style>
+  <meta name="description" content="20일 코스피 3.73% 급락 후 21일 장초반 5,660선(+2.03%) V자 반등! 뉴욕 다우 52,495pt 사상 최고치 경신과 장 마감 후 SMCI 어닝 서프라이즈에 따른 시간외 반도체 급등. 원·달러 환율 1,328.1원 3일 연속 연저점 안착 및 12M Fwd PBR 1.05배 청산가치 안전판 속 10월 21일 실전 대응 3대 수칙 총정리.">
+  <meta name="keywords" content="오늘의시황, 코스피반등, 다우최고치, SMCI서프라이즈, 삼성전자, SK하이닉스, 코스피5660선, 원달러환율1328원, 코스피PBR, 가치주랠리, valuestocklabs">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
+
+  <!-- Canonical & Search Engine Indexing -->
+  <link rel="canonical" href="https://www.valuestocklabs.com/posts/20261021-오늘의-증시-시황-코스피-5550선-급락-딛고-5660선-반등-다우-최고치와-smci-서프라이즈-속-10월-21일-실전-대응-전략.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OpenGraph / SNS Meta -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Value Stock Labs">
+  <meta property="og:title" content="오늘의 증시 시황: 코스피 5,550선 급락 딛고 5,660선 반등! 다우 최고치와 SMCI 서프라이즈 속 10월 21일 실전 대응 전략 | valuestocklabs">
+  <meta property="og:description" content="20일 코스피 3.73% 급락 후 21일 장초반 5,660선(+2.03%) V자 반등! 뉴욕 다우 52,495pt 사상 최고치 경신과 장 마감 후 SMCI 어닝 서프라이즈에 따른 시간외 반도체 급등. 원·달러 환율 1,328.1원 3일 연속 연저점 안착 및 12M Fwd PBR 1.05배 청산가치 안전판 속 10월 21일 실전 대응 3대 수칙 총정리.">
+  <meta property="og:image" content="https://www.valuestocklabs.com/images/daily-market-20261021/thumbnail.png">
+  <meta property="og:url" content="https://www.valuestocklabs.com/posts/20261021-오늘의-증시-시황-코스피-5550선-급락-딛고-5660선-반등-다우-최고치와-smci-서프라이즈-속-10월-21일-실전-대응-전략.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오늘의 증시 시황: 코스피 5,550선 급락 딛고 5,660선 반등! 다우 최고치와 SMCI 서프라이즈 속 10월 21일 실전 대응 전략 | valuestocklabs">
+  <meta name="twitter:description" content="20일 코스피 3.73% 급락 후 21일 장초반 5,660선(+2.03%) V자 반등! 뉴욕 다우 52,495pt 사상 최고치 경신과 장 마감 후 SMCI 어닝 서프라이즈에 따른 시간외 반도체 급등. 원·달러 환율 1,328.1원 3일 연속 연저점 안착 및 12M Fwd PBR 1.05배 청산가치 안전판 속 10월 21일 실전 대응 3대 수칙 총정리.">
+  <meta name="twitter:image" content="https://www.valuestocklabs.com/images/daily-market-20261021/thumbnail.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "오늘의 증시 시황: 코스피 5,550선 급락 딛고 5,660선 반등! 다우 최고치와 SMCI 서프라이즈 속 10월 21일 실전 대응 전략",
+  "description": "20일 코스피 3.73% 급락 후 21일 장초반 5,660선(+2.03%) V자 반등! 뉴욕 다우 52,495pt 사상 최고치 경신과 장 마감 후 SMCI 어닝 서프라이즈에 따른 시간외 반도체 급등. 원·달러 환율 1,328.1원 3일 연속 연저점 안착 및 12M Fwd PBR 1.05배 청산가치 안전판 속 10월 21일 실전 대응 3대 수칙 총정리.",
+  "image": [
+    "https://www.valuestocklabs.com/images/daily-market-20261021/thumbnail.png"
+  ],
+  "datePublished": "2026-10-21T08:30:00+09:00",
+  "dateModified": "2026-10-21T08:30:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Value Stock Labs",
+    "url": "https://www.valuestocklabs.com/pages/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Value Stock Labs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.valuestocklabs.com/images/vsl-logo-neon-fire.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.valuestocklabs.com/posts/20261021-오늘의-증시-시황-코스피-5550선-급락-딛고-5660선-반등-다우-최고치와-smci-서프라이즈-속-10월-21일-실전-대응-전략.html"
+  }
+}
+  </script>
+
+</head>
+<body>
+
+  <!-- 헤더 -->
+    <!-- 스크롤 진행 바 -->
+  <div id="progress-container"><div id="progress-bar"></div></div>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand-logo">ValueStock<span>Labs</span> <span class="tag">Market Daily</span></a>
+      <span class="header-date">2026.10.21 장중 브리핑</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="article-body">
+      
+      <!-- 포스트 헤더 -->
+      <div class="post-header">
+        <span class="category-badge">오늘의 시황 · 마켓 브리핑</span>
+        <h1 class="post-title">[오늘의 증시 시황] 코스피 5,550선 급락 딛고 5,660선 반등! 다우 최고치와 SMCI 어닝 서프라이즈 속 10월 21일 실전 대응 전략</h1>
+        <div class="post-meta">
+          <div class="meta-item"><span>📅</span> 2026.10.21 (수) 개장 브리핑</div>
+          <div class="meta-item"><span>⏱️</span> 5분 읽기</div>
+          <div class="meta-item"><span>✍️</span> ValueStockLabs 리서치팀</div>
+          <div class="meta-item"><span>🛡️</span> E-E-A-T 검증 완료</div>
+        </div>
+      </div>
+
+      <!-- 훅 서브카피 요약문 -->
+      <div class="hook-summary">
+        20일 국내 증시 3.7% 급락 후 21일 장초반 5,660선 회복! 뉴욕 다우 지수의 1.02% 급등과 장 마감 후 SMCI 어닝 서프라이즈가 불러온 반도체 시간외 훈풍, 그리고 1,328원선에 안착한 환율 속에서 현명한 투자자가 취해야 할 실전 포트폴리오 대응법을 총정리합니다.
+      </div>
+
+      <!-- 대표 썸네일 -->
+      <div class="post-img-wrap">
+        <img src="../images/daily-market-20261021/thumbnail.png" alt="10월 21일 증시 시황 대표 썸네일: 코스피 5,660선 반등 및 다우 52,400선 돌파 인포그래픽">
+      </div>
+      <div class="img-caption">▲ 2026년 10월 21일 코스피 반등 및 글로벌 주요 매크로 핵심 지표 인포그래픽</div>
+
+      <!-- 목차 -->
+      <div class="toc-card">
+        <div class="toc-title">📌 목차 (Table of Contents)</div>
+        <ul class="toc-list">
+          <li><a href="#section-1">1. 전일 국내 증시 급락 총평과 21일 장초반 강한 반등의 배경</a></li>
+          <li><a href="#section-2">2. 글로벌 매크로 분석: 다우 52,400 돌파와 SMCI 어닝 서프라이즈</a></li>
+          <li><a href="#section-3">3. 주도 섹터 팩트체크: 반도체 투톱(삼성전자·SK하이닉스)과 저PBR 가치주</a></li>
+          <li><a href="#section-4">4. 코스피 밸류에이션 점검: PBR 1.05배의 강력한 청산가치 안전판</a></li>
+          <li><a href="#section-5">5. 10월 21일 투자자를 위한 실전 대응 3대 수칙</a></li>
+        </ul>
+      </div>
+
+      <!-- 본문 섹션 1 -->
+      <h2 id="section-1">1. 전일 국내 증시 급락 총평과 21일 장초반 강한 반등의 배경</h2>
+      <p>
+        10월 20일(화) 국내 증시는 대내외 악재가 한꺼번에 겹치며 연중 최대 수준의 변동성을 연출했습니다. 코스피는 전 거래일 대비 무려 <strong>-215.27포인트(-3.73%) 급락한 5,552.74</strong>로 장을 마감했고, 코스닥 지수 역시 <strong>-26.92포인트(-3.33%) 내린 781.97</strong>을 기록하며 800선을 내주었습니다.
+      </p>
+      <p>
+        외국인과 기관이 코스피에서 각각 약 <strong>5,333억 원, 1조 48억 원</strong>에 달하는 대규모 쌍끌이 순매도를 쏟아내며 시장을 짓눌렀고, 개인 투자자 홀로 약 8,982억 원을 순매수하며 물량을 받아냈습니다. 미국의 10년물 국채금리가 5.1%대로 재차 치솟고, 인텔이 범용 메모리를 탑재한 차세대 AI 가속기를 발표하면서 국내 HBM 밸류체인의 독점적 프리미엄이 훼손될 수 있다는 과도한 불안감이 지수를 단숨에 끌어내렸습니다.
+      </p>
+      <p>
+        그러나 10월 21일(수) 오늘 아침 개장과 함께 시장 분위기는 180도 달라졌습니다. 코스피는 개장 직후 낙폭 과대에 따른 강력한 기관·외국인 반발 매수세가 유입되며 단숨에 <strong>+2% 이상 반등하여 5,660~5,670선을 회복</strong>했습니다. 코스닥 역시 795선을 넘어서며 800선 재탈환을 목전에 두고 있습니다.
+      </p>
+
+      <div class="post-img-wrap">
+        <img src="../images/daily-market-20261021/body-1.png" alt="10월 20일 마감 및 21일 개장 주요 지수·환율 수급 비교 요약 표">
+      </div>
+      <div class="img-caption">▲ 10월 20일 국내 증시 마감 데이터와 21일 장초반 지수 및 수급 반등 비교 표</div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>시장 지표</th>
+              <th>10월 20일(화) 마감</th>
+              <th>10월 21일(수) 장초반 흐름</th>
+              <th>핵심 배경 및 시사점</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>코스피 (KOSPI)</strong></td>
+              <td class="ticker-down">5,552.74 (-3.73%)</td>
+              <td class="ticker-up">5,665.40 (+2.03% 상승 출발)</td>
+              <td>5,550선 바닥 확인 후 기관·외인 저가 매수 유입</td>
+            </tr>
+            <tr>
+              <td><strong>코스닥 (KOSDAQ)</strong></td>
+              <td class="ticker-down">781.97 (-3.33%)</td>
+              <td class="ticker-up">796.20 (+1.82% 반등)</td>
+              <td>낙폭 과대 제약·바이오 및 IT 부품주 동반 반등</td>
+            </tr>
+            <tr>
+              <td><strong>원·달러 환율</strong></td>
+              <td class="ticker-blue">1,328.1원 (-5.2원 하락)</td>
+              <td class="ticker-blue">1,327.5원 (안정적 횡보)</td>
+              <td>3거래일 연속 연저점 안착, 외국인 이탈 방어</td>
+            </tr>
+            <tr>
+              <td><strong>코스피 수급 구도</strong></td>
+              <td>외인 -5,333억 / 기관 -1조원</td>
+              <td class="ticker-up">외국인·기관 순매수 전환</td>
+              <td>패닉 셀링 진정 및 실적주 중심 선별 매수세</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 본문 섹션 2 -->
+      <h2 id="section-2">2. 글로벌 매크로 분석: 다우 52,400 돌파와 SMCI 어닝 서프라이즈</h2>
+      <p>
+        간밤 뉴욕증시는 지수별로 뚜렷한 차별화 장세를 나타냈습니다. 다우존스30 산업평균지수는 3M, 에퀴팩스, 노스럽그러먼 등 전통 제조업과 방산 기업들의 3분기 호실적에 힘입어 <strong>+529.85포인트(+1.02%) 급등한 52,495.88</strong>로 사상 최고치를 경신했습니다. S&P 500 지수 역시 <strong>+0.28% 상승한 7,712.57</strong>을 기록했습니다.
+      </p>
+      <p>
+        반면, 기술주 중심의 나스닥 지수는 정규장에서 26,424.82(-0.02%)로 차익 실현 매물에 밀려 약보합세를 보였습니다. 하지만 진짜 반전은 <strong>정규장 마감 직후</strong> 일어났습니다.
+      </p>
+      <p>
+        AI 데이터센터 서버의 핵심 공급사인 <strong>슈퍼마이크로컴퓨터(SMCI)</strong>가 월가의 컨센서스를 대폭 뛰어넘는 1분기 잠정 실적을 공시하면서 시간외 거래에서 주가가 폭등한 것입니다. 이에 따라 마이크론, 엔비디아, 브로드컴 등 미국 핵심 반도체주들이 시간외 거래에서 일제히 3~5%대 급등세를 연출하며, 전일 국내 반도체 시장을 공포로 몰아넣었던 'AI 인프라 투자 피크아웃 우려'를 일거에 잠재웠습니다.
+      </p>
+
+      <div class="post-img-wrap">
+        <img src="../images/daily-market-20261021/body-2.png" alt="글로벌 AI 반도체 훈풍과 SMCI 어닝 서프라이즈 파급 효과 다이어그램">
+      </div>
+      <div class="img-caption">▲ 글로벌 매크로 안정화 지표 및 AI 반도체 시간외 서프라이즈 핵심 동력 4선</div>
+
+      <p>더불어 매크로 환경도 한층 우호적으로 전환되었습니다:</p>
+      <ul>
+        <li><strong>국제유가 안정</strong>: WTI 원유 선물이 배럴당 100달러 선 밑으로 반락하며 인플레이션 우려를 완화했습니다.</li>
+        <li><strong>국채금리 반락</strong>: 미국 주택지표 둔화 속에 10년물 국채금리가 5.0%대로 내려앉아 성장주에 가해지던 밸류에이션 압박이 크게 누그러졌습니다.</li>
+        <li><strong>원·달러 환율 연저점</strong>: 서울 외환시장에서 달러당 원화 환율이 1,328.1원으로 3일 연속 연저점을 경신하며 원화 강세 기조가 확고해졌습니다.</li>
+      </ul>
+
+      <!-- 본문 섹션 3 -->
+      <h2 id="section-3">3. 주도 섹터 팩트체크: 반도체 투톱(삼성전자·SK하이닉스)과 저PBR 가치주</h2>
+      <p>
+        전일 시장 하락을 주도했던 종목들이 오늘 장에서는 가장 탄력적인 상승 동력으로 변모하고 있습니다.
+      </p>
+
+      <h3>(1) 삼성전자 (전일 211,500원 ➔ 금일 장초반 +3.2% 반등)</h3>
+      <p>
+        전일 인텔의 범용 메모리 탑재 차세대 AI 가속기 발표 소식으로 외국인 매도가 쏟아지며 211,500원(-2.98%)까지 밀렸던 삼성전자는 오늘 장초반 21만 8,000원 선을 회복했습니다. 시장 전문가들은 인텔의 차세대 칩 도입이 단기적으로 HBM 공급망 다변화 이슈를 만들 수는 있으나, 엔비디아 루빈(Rubin) 및 차세대 AI 플랫폼의 HBM4 독점 납품 퀄 테스트 통과 기대감과 파운드리 수주 모멘텀을 훼손할 수 없다고 평가합니다.
+      </p>
+
+      <h3>(2) SK하이닉스 (전일 1,223,000원 ➔ 금일 장초반 +4.1% 폭풍 반등)</h3>
+      <p>
+        SK하이닉스는 미국 손자회사 솔리다임(Solidigm)의 나스닥 상장 추진 소식에 따른 중복상장 논란으로 20일 -4.23% 급락했습니다. 그러나 솔리다임의 나스닥 IPO는 지분 희석 우려보다 대규모 자금 조달을 통한 QLC 기반 초고용량 eSSD(기업용 SSD) 시장 지배력 확대라는 펀더멘털적 이점이 훨씬 크다는 재평가가 나오며 127만 원 선을 단숨에 회복했습니다. 3분기 사상 최대 분기 영업이익 발표를 앞두고 밸류에이션 매력이 극대화된 상태입니다.
+      </p>
+
+      <h3>(3) 저PBR 가치주 (방산, 자동차, 금융)</h3>
+      <p>
+        미국 뉴욕증시에서 다우 지수가 1% 넘게 급등한 배경에는 탄탄한 실적을 갖춘 가치주들의 활약이 있었습니다. 국내 시장에서도 현대차(PER 4.8배), 기아, KB금융, 한화에어로스페이스 등 밸류업 프로그램 수혜와 역대급 실적이 보장된 가치주들이 지수 하방을 든든하게 받쳐주고 있습니다.
+      </p>
+
+      <!-- 본문 섹션 4 -->
+      <h2 id="section-4">4. 코스피 밸류에이션 점검: PBR 1.05배의 강력한 청산가치 안전판</h2>
+      <p>
+        주식 시장에서 단기 급락이 찾아왔을 때 우리가 가장 먼저 확인해야 할 것은 <strong>펀더멘털과 밸류에이션의 하방 경직성</strong>입니다.
+      </p>
+
+      <div class="post-img-wrap">
+        <img src="../images/daily-market-20261021/body-3.png" alt="코스피 5,550선 PBR 1.05배 청산가치 안전판 및 핵심 밸류에이션 카드">
+      </div>
+      <div class="img-caption">▲ 코스피 PBR 1.05배 청산가치 안전판 및 밸류에이션 하방 경직성 4대 근거</div>
+
+      <p>현재 코스피 지수 5,550선은 다음과 같은 강력한 안전마진을 보유하고 있습니다:</p>
+      <ul>
+        <li><strong>12M Fwd PBR 1.05배</strong>: 대한민국 코스피 상장사들의 자본총계(청산가치)에 육박하는 극단적 저평가 구간입니다. 2008년 금융위기나 2020년 팬데믹 등 시스템 위기가 아닌 이상, PBR 1.0배선은 항상 장기 저점 역할을 해왔습니다.</li>
+        <li><strong>12M Fwd PER 4.1배</strong>: 글로벌 주요국 증시(S&P500 24배, 닛케이 16배, 대만 18배)와 비교했을 때 세계 최저 수준의 멀티플을 기록하고 있어 밸류에이션 매력이 독보적입니다.</li>
+        <li><strong>환율 1,328원선의 환차익 유인</strong>: 원화 강세가 이어질 때 외국인은 주가 상승 이익뿐 아니라 환차익까지 거둘 수 있으므로, 단기 매도 이후 장기 펀드의 리밸런싱 매수세 유입이 필연적입니다.</li>
+      </ul>
+
+      <!-- 본문 섹션 5 -->
+      <h2 id="section-5">5. 10월 21일 투자자를 위한 실전 대응 3대 수칙</h2>
+      <p>
+        급등락이 반복되는 시장에서 패닉에 빠져 뇌동매매를 하는 것은 손실을 확정 짓는 지름길입니다. 오늘 장에서 투자자가 반드시 지켜야 할 3대 수칙을 제시합니다.
+      </p>
+
+      <div class="post-img-wrap">
+        <img src="../images/daily-market-20261021/body-4.png" alt="10월 21일 실전 투자 3대 핵심 대응 수칙 요약 카드">
+      </div>
+      <div class="img-caption">▲ 시장 변동성에 흔들리지 않는 10월 21일 포트폴리오 운용 3대 수칙</div>
+
+      <div class="callout-box">
+        <strong>💡 수칙 1. 급락 시 패닉 셀링 금지, 5,550선 전후 '분할 매수' 관점 유지</strong><br>
+        코스피 5,550선은 청산가치에 근접한 철옹성 지지선입니다. 어제와 같은 단기 투매 장세에서 공포에 질려 주식을 던지는 대신, 실적 가시성이 높은 핵심 주도주를 2~3회에 걸쳐 분할 매수하는 역발상 전략이 유효합니다.
+      </div>
+
+      <div class="callout-box">
+        <strong>⚡ 수칙 2. SMCI發 반도체 훈풍을 탄 HBM 대형주(삼전·하닉) 홀딩</strong><br>
+        시간외 SMCI 어닝 서프라이즈와 오늘 밤 예정된 엔비디아 젠슨 황 CEO의 기조연설은 AI 반도체 투자 사이클이 여전히 강력함을 입증할 핵심 모멘텀입니다. 단기 노이즈에 흔들리지 말고 포트폴리오의 반도체 비중을 안정적으로 유지하십시오.
+      </div>
+
+      <div class="callout-box">
+        <strong>🛡️ 수칙 3. '실적 호전 + 저PBR' 가치주로 포트폴리오 안전판 강화</strong><br>
+        다우 지수의 사상 최고치 경신이 증명하듯, 매크로 변동성 장세의 최후 승자는 실적과 현금흐름이 확실한 기업입니다. 자동차(현대차·기아), 조선, 방산, 금융지주 등 차입금 부담이 없고 주주환원율이 높은 저PBR 우량주를 바벨 전략의 한 축으로 구축하시길 권장합니다.
+      </div>
+
+      <!-- 면책 조항 -->
+      <div class="disclaimer-card">
+        <strong>⚠️ 투자 면책 조항 (Disclaimer)</strong><br>
+        본 콘텐츠는 신뢰할 수 있는 공개 금융 데이터 및 증권가 리서치를 바탕으로 정보 제공을 목적으로 작성되었으며, 특정 종목에 대한 매수·매도 추천이나 확정 수익을 보장하는 투자 권유가 아닙니다. 시장 상황은 실시간으로 변동될 수 있으며 모든 투자의 최종 판단과 결과에 대한 법적 책임은 투자자 본인에게 있습니다.
+      </div>
+
+      <!-- 참고 출처 -->
+      <div class="references-card">
+        <div class="references-title">📚 참고 문헌 및 데이터 출처 (References)</div>
+        <ol class="references-list">
+          <li><a href="https://www.yna.co.kr" target="_blank" rel="noopener noreferrer">연합뉴스 - 10월 20일 코스피 5,552.74 마감 및 외환시장 환율 1,328.1원 연저점 마감 종합</a></li>
+          <li><a href="https://www.news1.kr" target="_blank" rel="noopener noreferrer">뉴스1 - 간밤 뉴욕증시 다우 1.02% 급등 마감 및 기업 실적 호조 분석</a></li>
+          <li><a href="https://www.infostockdaily.co.kr" target="_blank" rel="noopener noreferrer">인포스탁데일리 - 20일 국내 증시 외국인·기관 쌍끌이 순매도 및 수급 동향</a></li>
+          <li><a href="https://www.edaily.co.kr" target="_blank" rel="noopener noreferrer">이데일리 - 21일 코스피 장초반 2%대 반등 5,660선 회복 및 반도체 투톱 강세 출발</a></li>
+          <li><a href="https://www.g-enews.com" target="_blank" rel="noopener noreferrer">글로벌이코노믹 - SMCI 어닝 서프라이즈 발표에 따른 시간외 반도체 급등 및 국내 영향</a></li>
+          <li><a href="https://www.hankyung.com" target="_blank" rel="noopener noreferrer">한국경제 - 코스피 PBR 1.05배 저평가 매력 및 3분기 실적 시즌 가치주 대응 전략</a></li>
+        </ol>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 진행률 스크립트 -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+  </script>
+
+</body>
+</html>

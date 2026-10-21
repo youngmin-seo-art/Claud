@@ -1,0 +1,313 @@
+{
+ "date": "2026-10-22",
+ "season": 2,
+ "day": 1,
+ "theme_ko": "시즌 2 · 줄리와 함께 돌아온 로스",
+ "createdAt": "2026-10-22T07:40:00+09:00",
+ "words": [
+  {
+   "en": "awestruck",
+   "ipa": "ˈɔːstrʌk",
+   "pos": "adjective",
+   "ko": "경외감에 압도된",
+   "def_en": "filled with wonder",
+   "ex_en": "Rachel was awestruck by the huge airport crowd.",
+   "ex_ko": "레이첼은 공항의 엄청난 인파에 압도됐다.",
+   "scene_ko": "오랜만의 재회 장면"
+  },
+  {
+   "en": "jetlagged",
+   "ipa": "ˈdʒetlæɡd",
+   "pos": "adjective",
+   "ko": "시차로 피곤한",
+   "def_en": "tired after a long flight",
+   "ex_en": "Ross looks jetlagged after the long flight.",
+   "ex_ko": "로스는 긴 비행 후라 시차로 피곤해 보여.",
+   "scene_ko": "먼 곳에서 돌아온 사람"
+  },
+  {
+   "en": "souvenir",
+   "ipa": "ˌsuːvəˈnɪr",
+   "pos": "noun",
+   "ko": "기념품",
+   "def_en": "an item bought to remember a trip",
+   "ex_en": "Ross brought Monica a small souvenir.",
+   "ex_ko": "로스가 모니카에게 작은 기념품을 가져왔어.",
+   "scene_ko": "여행에서 돌아와 선물을 건넬 때"
+  },
+  {
+   "en": "sheepishly",
+   "ipa": "ˈʃiːpɪʃli",
+   "pos": "adverb",
+   "ko": "멋쩍게",
+   "def_en": "in an embarrassed way",
+   "ex_en": "Rachel smiled sheepishly at Julie.",
+   "ex_ko": "레이첼은 줄리에게 멋쩍게 웃어 보였다.",
+   "scene_ko": "전 연인의 새 상대를 만날 때"
+  },
+  {
+   "en": "rival",
+   "ipa": "ˈraɪvl",
+   "pos": "noun",
+   "ko": "경쟁자",
+   "def_en": "a person you compete with",
+   "ex_en": "Rachel saw Julie as a rival.",
+   "ex_ko": "레이첼은 줄리를 경쟁자로 봤다.",
+   "scene_ko": "삼각관계 상황"
+  },
+  {
+   "en": "tension",
+   "ipa": "ˈtenʃn",
+   "pos": "noun",
+   "ko": "긴장감",
+   "def_en": "a tight, nervous feeling between people",
+   "ex_en": "You could feel the tension in the room.",
+   "ex_ko": "방 안의 긴장감이 느껴졌어.",
+   "scene_ko": "어색한 모임 분위기"
+  },
+  {
+   "en": "polite",
+   "ipa": "pəˈlaɪt",
+   "pos": "adjective",
+   "ko": "예의 바른",
+   "def_en": "showing good manners",
+   "ex_en": "Chandler tried to stay polite.",
+   "ex_ko": "챈들러는 예의를 지키려고 애썼다.",
+   "scene_ko": "불편해도 예의를 차릴 때"
+  },
+  {
+   "en": "envious",
+   "ipa": "ˈenviəs",
+   "pos": "adjective",
+   "ko": "부러워하는",
+   "def_en": "wanting what someone else has",
+   "ex_en": "Phoebe felt envious of Julie's trip.",
+   "ex_ko": "피비는 줄리의 여행이 부러웠다.",
+   "scene_ko": "남의 근황을 들을 때"
+  },
+  {
+   "en": "unexpected",
+   "ipa": "ˌʌnɪkˈspektɪd",
+   "pos": "adjective",
+   "ko": "예상치 못한",
+   "def_en": "not expected",
+   "ex_en": "Julie's visit was totally unexpected.",
+   "ex_ko": "줄리의 방문은 전혀 예상 밖이었어.",
+   "scene_ko": "갑작스러운 등장"
+  },
+  {
+   "en": "homecoming",
+   "ipa": "ˈhoʊmkʌmɪŋ",
+   "pos": "noun",
+   "ko": "귀향, 돌아옴",
+   "def_en": "a return to one's home",
+   "ex_en": "Ross got a warm homecoming from the gang.",
+   "ex_ko": "로스는 친구들의 따뜻한 환영을 받았다.",
+   "scene_ko": "오랜만에 모인 친구들"
+  }
+ ],
+ "idioms": [
+  {
+   "en": "a tough act to follow",
+   "ipa": "",
+   "pos": "",
+   "ko": "따라가기 힘든 훌륭한 상대",
+   "def_en": "someone so good that others look weak",
+   "ex_en": "Julie is a tough act to follow, Rachel.",
+   "ex_ko": "레이첼, 줄리는 넘기 힘든 상대야.",
+   "scene_ko": "새 연인과 비교될 때"
+  },
+  {
+   "en": "the elephant in the room",
+   "ipa": "",
+   "pos": "",
+   "ko": "모두가 아는데 말 못 하는 문제",
+   "def_en": "an obvious issue nobody mentions",
+   "ex_en": "Ross and Rachel were the elephant in the room.",
+   "ex_ko": "로스와 레이첼이 다들 말 못 하는 화제였다.",
+   "scene_ko": "어색한 침묵의 이유"
+  },
+  {
+   "en": "make small talk",
+   "ipa": "",
+   "pos": "",
+   "ko": "가벼운 잡담을 하다",
+   "def_en": "to chat about unimportant things",
+   "ex_en": "Joey tried to make small talk with Julie.",
+   "ex_ko": "조이는 줄리와 가벼운 잡담을 하려 했다.",
+   "scene_ko": "어색한 첫 만남"
+  },
+  {
+   "en": "keep a low profile",
+   "ipa": "",
+   "pos": "",
+   "ko": "눈에 띄지 않게 지내다",
+   "def_en": "to avoid attention",
+   "ex_en": "Rachel decided to keep a low profile tonight.",
+   "ex_ko": "레이첼은 오늘 밤 조용히 지내기로 했다.",
+   "scene_ko": "마주치기 싫은 상황"
+  },
+  {
+   "en": "lose one's touch",
+   "ipa": "",
+   "pos": "",
+   "ko": "감을 잃다",
+   "def_en": "to no longer be good at something",
+   "ex_en": "Have I lost my touch with dating?",
+   "ex_ko": "내가 연애 감각을 잃었나?",
+   "scene_ko": "연애가 풀리지 않을 때"
+  },
+  {
+   "en": "smell a rat",
+   "ipa": "",
+   "pos": "",
+   "ko": "뭔가 수상하다고 느끼다",
+   "def_en": "to suspect something is wrong",
+   "ex_en": "Monica smelled a rat when Ross smiled.",
+   "ex_ko": "로스가 웃자 모니카는 뭔가 수상하다고 느꼈다.",
+   "scene_ko": "눈치챈 순간"
+  },
+  {
+   "en": "rub salt in the wound",
+   "ipa": "",
+   "pos": "",
+   "ko": "상처에 소금을 뿌리다",
+   "def_en": "to make a bad situation worse",
+   "ex_en": "Don't rub salt in the wound, Chandler.",
+   "ex_ko": "챈들러, 상처에 소금 뿌리지 마.",
+   "scene_ko": "놀림이 지나칠 때"
+  },
+  {
+   "en": "spell it out",
+   "ipa": "",
+   "pos": "",
+   "ko": "분명히 말하다",
+   "def_en": "to explain clearly",
+   "ex_en": "Please spell it out for me, Ross.",
+   "ex_ko": "로스, 나한테 분명히 말해 줘.",
+   "scene_ko": "돌려 말하는 상대에게"
+  },
+  {
+   "en": "get the cold shoulder",
+   "ipa": "",
+   "pos": "",
+   "ko": "냉대를 받다",
+   "def_en": "to be ignored on purpose",
+   "ex_en": "Ross got the cold shoulder from Rachel.",
+   "ex_ko": "로스는 레이첼에게 냉대를 받았다.",
+   "scene_ko": "서운해서 외면할 때"
+  },
+  {
+   "en": "hold a candle to",
+   "ipa": "",
+   "pos": "",
+   "ko": "~에 견줄 만하다",
+   "def_en": "to be as good as",
+   "ex_en": "Nobody can hold a candle to Monica's cooking.",
+   "ex_ko": "모니카의 요리에 견줄 사람은 없어.",
+   "scene_ko": "요리 자랑할 때"
+  }
+ ],
+ "phrasal": [
+  {
+   "en": "show around",
+   "ipa": "",
+   "pos": "",
+   "ko": "구경시켜 주다",
+   "def_en": "to guide someone through a place",
+   "ex_en": "Ross showed Julie around the neighborhood.",
+   "ex_ko": "로스는 줄리에게 동네를 구경시켜 줬다.",
+   "scene_ko": "새 사람을 소개할 때"
+  },
+  {
+   "en": "fall out",
+   "ipa": "",
+   "pos": "",
+   "ko": "사이가 틀어지다",
+   "def_en": "to stop being friends",
+   "ex_en": "Did you two fall out again?",
+   "ex_ko": "너희 둘 또 사이 틀어졌어?",
+   "scene_ko": "친구와 다툴 때"
+  },
+  {
+   "en": "play down",
+   "ipa": "",
+   "pos": "",
+   "ko": "대수롭지 않게 말하다",
+   "def_en": "to make something seem less important",
+   "ex_en": "Ross tried to play down his trip.",
+   "ex_ko": "로스는 여행을 대수롭지 않게 말하려 했다.",
+   "scene_ko": "자랑을 숨길 때"
+  },
+  {
+   "en": "blow over",
+   "ipa": "",
+   "pos": "",
+   "ko": "잠잠해지다",
+   "def_en": "to fade away, like a problem",
+   "ex_en": "Let's wait for this to blow over.",
+   "ex_ko": "이 일이 잠잠해질 때까지 기다리자.",
+   "scene_ko": "소동이 지나가길 바랄 때"
+  },
+  {
+   "en": "mull over",
+   "ipa": "",
+   "pos": "",
+   "ko": "곰곰이 생각하다",
+   "def_en": "to think about carefully",
+   "ex_en": "Rachel mulled over what to say.",
+   "ex_ko": "레이첼은 무슨 말을 할지 곰곰이 생각했다.",
+   "scene_ko": "뒤늦게 고민할 때"
+  },
+  {
+   "en": "hand over",
+   "ipa": "",
+   "pos": "",
+   "ko": "넘겨주다",
+   "def_en": "to give something to someone",
+   "ex_en": "Hand over the souvenir, Ross!",
+   "ex_ko": "로스, 기념품 내놔!",
+   "scene_ko": "선물을 기다릴 때"
+  },
+  {
+   "en": "kick back",
+   "ipa": "",
+   "pos": "",
+   "ko": "느긋하게 쉬다",
+   "def_en": "to relax",
+   "ex_en": "Let's kick back and watch TV.",
+   "ex_ko": "우리 느긋하게 TV나 보자.",
+   "scene_ko": "주말 저녁"
+  },
+  {
+   "en": "slip away",
+   "ipa": "",
+   "pos": "",
+   "ko": "슬쩍 빠져나가다",
+   "def_en": "to leave quietly",
+   "ex_en": "Rachel tried to slip away from the party.",
+   "ex_ko": "레이첼은 파티에서 슬쩍 빠져나가려 했다.",
+   "scene_ko": "어색해서 자리를 뜰 때"
+  },
+  {
+   "en": "speak up",
+   "ipa": "",
+   "pos": "",
+   "ko": "크게 말하다, 의견을 말하다",
+   "def_en": "to talk louder or say what you think",
+   "ex_en": "Speak up, Joey, we can't hear you.",
+   "ex_ko": "조이, 크게 말해, 안 들려.",
+   "scene_ko": "소심하게 말할 때"
+  },
+  {
+   "en": "clear up",
+   "ipa": "",
+   "pos": "",
+   "ko": "풀리다, 해명하다",
+   "def_en": "to solve a misunderstanding",
+   "ex_en": "We need to clear up this mess.",
+   "ex_ko": "우리 이 오해를 풀어야 해.",
+   "scene_ko": "오해를 정리할 때"
+  }
+ ]
+}

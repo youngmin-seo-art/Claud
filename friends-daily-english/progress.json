@@ -1,6 +1,6 @@
 {
  "season": 2,
- "day": 1,
+ "day": 2,
  "used": [
   "awkward",
   "divorce",
@@ -361,7 +361,37 @@
   "settle for",
   "drift apart",
   "hold back",
-  "line up"
+  "line up",
+  "awestruck",
+  "jetlagged",
+  "souvenir",
+  "sheepishly",
+  "rival",
+  "tension",
+  "polite",
+  "envious",
+  "unexpected",
+  "homecoming",
+  "a tough act to follow",
+  "the elephant in the room",
+  "make small talk",
+  "keep a low profile",
+  "lose one's touch",
+  "smell a rat",
+  "rub salt in the wound",
+  "spell it out",
+  "get the cold shoulder",
+  "hold a candle to",
+  "show around",
+  "fall out",
+  "play down",
+  "blow over",
+  "mull over",
+  "hand over",
+  "kick back",
+  "slip away",
+  "speak up",
+  "clear up"
  ],
  "history": [
   {
@@ -445,6 +475,13 @@
    "date": "2026-10-21",
    "season": 1,
    "day": 12,
+   "db": true,
+   "kakao": true
+  },
+  {
+   "date": "2026-10-22",
+   "season": 2,
+   "day": 1,
    "db": true,
    "kakao": true
   }

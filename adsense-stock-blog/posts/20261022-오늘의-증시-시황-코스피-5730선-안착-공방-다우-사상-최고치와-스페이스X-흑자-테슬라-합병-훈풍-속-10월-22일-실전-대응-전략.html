@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[오늘의 증시 시황] 코스피 5,730선 안착 공방! 다우 사상 최고치와 스페이스X 흑자·테슬라 합병 훈풍 속 10월 22일 실전 대응 전략 | valuestocklabs</title>
+  <!-- Pretendard 폰트 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.85;
+      font-size: 17px;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 상단 네비게이션 */
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo span { color: var(--text-main); font-weight: 600; }
+    .badge-preview {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    /* 메인 컨테이너 */
+    .article-container {
+      max-width: 860px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+    }
+
+    /* 아티클 카드 */
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      padding: 48px 44px;
+    }
+    @media (max-width: 640px) {
+      .article-card { padding: 28px 20px; }
+      body { font-size: 16px; }
+    }
+
+    /* 포스트 헤더 */
+    .post-category {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 18px;
+    }
+    .post-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 20px;
+      letter-spacing: -0.8px;
+    }
+    @media (max-width: 640px) {
+      .post-title { font-size: 25px; }
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* 도입 서브카피 요약 */
+    .post-summary {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    /* 대표 썸네일 */
+    .hero-thumbnail {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 목차 박스 */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 44px;
+    }
+    .toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toc-list a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* 본문 스타일링 */
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 48px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-body h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 30px;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .article-body p {
+      margin-bottom: 22px;
+      color: var(--text-body);
+    }
+    .article-body ul, .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-body li {
+      color: var(--text-body);
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* 이미지 및 캡션 */
+    .article-figure {
+      margin: 36px 0;
+      text-align: center;
+    }
+    .article-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      display: block;
+      margin: 0 auto;
+    }
+    .article-figure figcaption {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* 테이블 */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fafafa; }
+    tr:hover td { background-color: #f1f5f9; }
+
+    /* 인용구 */
+    blockquote {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 18px 22px;
+      margin: 28px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: normal;
+      color: #1e293b;
+    }
+
+    /* 면책 조항 박스 */
+    .disclaimer-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px 24px;
+      border-radius: var(--radius-sm);
+      margin-top: 50px;
+      font-size: 14px;
+      color: #92400e;
+      line-height: 1.7;
+    }
+    .disclaimer-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 참고 소스 박스 */
+    .references-box {
+      margin-top: 32px;
+      padding: 24px;
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+    .references-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .references-list {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .references-list a {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-list a:hover { text-decoration: underline; }
+
+    /* 푸터 */
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  
+    /* 상단 진행률 바 */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 1000;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      transition: width 0.1s;
+    }
+    .brand-logo span.tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .header-date {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+  </style>
+  <meta name="description" content="21일 코스피 3.29% 폭등 후 22일 5,730선 안착 숨고르기! 뉴욕 다우 52,856pt 사상 최고치 경신과 스페이스X 분기 흑자·테슬라 합병 특별위원회 소식, SMCI 9.5% 폭등 및 엔비디아 파트너십 삼성전기(+4%) 급등. 원·달러 환율 1,325원선 안착 속 10월 22일 실전 대응 3대 수칙 총정리.">
+  <meta name="keywords" content="오늘의시황, 코스피5730선, 다우사상최고치, 스페이스X흑자, 테슬라합병, SMCI폭등, 삼성전기, 삼성전자, SK하이닉스, 원달러환율1325원, 한국은행금통위, valuestocklabs">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7807868644631223" crossorigin="anonymous"></script>
+
+  <!-- Canonical & Search Engine Indexing -->
+  <link rel="canonical" href="https://www.valuestocklabs.com/posts/20261022-오늘의-증시-시황-코스피-5730선-안착-공방-다우-사상-최고치와-스페이스X-흑자-테슬라-합병-훈풍-속-10월-22일-실전-대응-전략.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OpenGraph / SNS Meta -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Value Stock Labs">
+  <meta property="og:title" content="[오늘의 증시 시황] 코스피 5,730선 안착 공방! 다우 사상 최고치와 스페이스X 흑자·테슬라 합병 훈풍 속 10월 22일 실전 대응 전략 | valuestocklabs">
+  <meta property="og:description" content="21일 코스피 3.29% 폭등 후 22일 5,730선 안착 숨고르기! 뉴욕 다우 52,856pt 사상 최고치 경신과 스페이스X 분기 흑자·테슬라 합병 특별위원회 소식, SMCI 9.5% 폭등 및 엔비디아 파트너십 삼성전기(+4%) 급등. 원·달러 환율 1,325원선 안착 속 10월 22일 실전 대응 3대 수칙 총정리.">
+  <meta property="og:image" content="https://www.valuestocklabs.com/images/daily-market-20261022/thumbnail.png">
+  <meta property="og:url" content="https://www.valuestocklabs.com/posts/20261022-오늘의-증시-시황-코스피-5730선-안착-공방-다우-사상-최고치와-스페이스X-흑자-테슬라-합병-훈풍-속-10월-22일-실전-대응-전략.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[오늘의 증시 시황] 코스피 5,730선 안착 공방! 다우 사상 최고치와 스페이스X 흑자·테슬라 합병 훈풍 속 10월 22일 실전 대응 전략 | valuestocklabs">
+  <meta name="twitter:description" content="21일 코스피 3.29% 폭등 후 22일 5,730선 안착 숨고르기! 뉴욕 다우 52,856pt 사상 최고치 경신과 스페이스X 분기 흑자·테슬라 합병 특별위원회 소식, SMCI 9.5% 폭등 및 엔비디아 파트너십 삼성전기(+4%) 급등. 원·달러 환율 1,325원선 안착 속 10월 22일 실전 대응 3대 수칙 총정리.">
+  <meta name="twitter:image" content="https://www.valuestocklabs.com/images/daily-market-20261022/thumbnail.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "[오늘의 증시 시황] 코스피 5,730선 안착 공방! 다우 사상 최고치와 스페이스X 흑자·테슬라 합병 훈풍 속 10월 22일 실전 대응 전략",
+  "description": "21일 코스피 3.29% 폭등 후 22일 5,730선 안착 숨고르기! 뉴욕 다우 52,856pt 사상 최고치 경신과 스페이스X 분기 흑자·테슬라 합병 특별위원회 소식, SMCI 9.5% 폭등 및 엔비디아 파트너십 삼성전기(+4%) 급등. 원·달러 환율 1,325원선 안착 속 10월 22일 실전 대응 3대 수칙 총정리.",
+  "image": [
+    "https://www.valuestocklabs.com/images/daily-market-20261022/thumbnail.png"
+  ],
+  "datePublished": "2026-10-22T08:30:00+09:00",
+  "dateModified": "2026-10-22T08:30:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Value Stock Labs",
+    "url": "https://www.valuestocklabs.com/pages/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Value Stock Labs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.valuestocklabs.com/images/vsl-logo-neon-fire.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.valuestocklabs.com/posts/20261022-오늘의-증시-시황-코스피-5730선-안착-공방-다우-사상-최고치와-스페이스X-흑자-테슬라-합병-훈풍-속-10월-22일-실전-대응-전략.html"
+  }
+}
+  </script>
+
+</head>
+<body>
+
+  <!-- 헤더 -->
+    <!-- 스크롤 진행 바 -->
+  <div id="progress-container"><div id="progress-bar"></div></div>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand-logo">ValueStock<span>Labs</span> <span class="tag">Market Daily</span></a>
+      <span class="header-date">2026.10.22 장중 브리핑</span>
+    </div>
+  </header>
+
+  <!-- 본문 컨테이너 -->
+  <main class="article-container">
+    <article class="article-card">
+      
+      <!-- 포스트 헤더 영역 -->
+      <div class="post-header">
+        <span class="post-category">오늘의 시황</span>
+        <h1 class="post-title">[오늘의 증시 시황] 코스피 5,730선 안착 공방! 다우 사상 최고치와 스페이스X 흑자·테슬라 합병 훈풍 속 10월 22일 실전 대응 전략</h1>
+        <div class="post-meta">
+          <span>📅 2026-10-22 (목)</span>
+          <span>⏱️ 5분 분량</span>
+          <span>✍️ Value Stock Labs 마켓팀</span>
+          <span>🛡️ E-E-A-T 검증 완료</span>
+        </div>
+      </div>
+
+      <!-- 도입 요약 서브카피 -->
+      <div class="post-summary">
+        <strong>21일 국내 증시 3.29% 폭등 후 22일 5,730선 안착을 위한 숨고르기 장세 돌입!</strong> 뉴욕 다우 52,856선 사상 최고치 경신과 스페이스X 분기 흑자·테슬라 합병 특별위원회 소식, SMCI 9.5% 폭등 속에서 현명한 투자자가 취해야 할 실전 포트폴리오 대응법을 총정리합니다.
+      </div>
+
+      <!-- 대표 썸네일 -->
+      <div class="hero-thumbnail">
+        <img src="../images/daily-market-20261022/thumbnail.png" alt="10월 22일 증시 시황 대표 썸네일">
+      </div>
+
+      <!-- 목차 -->
+      <nav class="toc-card">
+        <div class="toc-title">📑 목차</div>
+        <ul class="toc-list">
+          <li><a href="#sec-1">1. 전일 코스피 3.29% 폭등 총평과 22일 5,730선 숨고르기의 의미</a></li>
+          <li><a href="#sec-2">2. 글로벌 매크로 분석: 다우 최고치 경신과 스페이스X 흑자·테슬라 합병 모멘텀</a></li>
+          <li><a href="#sec-3">3. 주도 섹터 팩트체크: 엔비디아 파트너십 삼성전기(+4%)와 반도체 투톱의 숨고르기</a></li>
+          <li><a href="#sec-4">4. 매크로 안전판 점검: 원·달러 환율 1,325원선 안착과 한은 금통위 관망</a></li>
+          <li><a href="#sec-5">5. 10월 22일 투자자를 위한 실전 대응 3대 수칙</a></li>
+        </ul>
+      </nav>
+
+      <!-- 본문 섹션 -->
+      <div class="article-body">
+        
+        <h2 id="sec-1">1. 전일 코스피 3.29% 폭등 총평과 22일 5,730선 숨고르기의 의미</h2>
+        <p>10월 21일(수) 국내 증시는 직전 거래일의 과도했던 급락세를 단숨에 되돌리며 압도적인 V자 반등을 연출했습니다. 코스피는 하루 만에 <strong>+182.92포인트(+3.29%) 폭등한 5,735.66</strong>으로 마감하며 5,700선을 훌쩍 넘어섰고, 코스닥 지수 역시 <strong>+10.79포인트(+1.38%) 상승한 792.76</strong>을 기록하며 800선 턱밑까지 다가섰습니다.</p>
+        <p>특히 외국인과 기관이 각각 약 <strong>4,800억 원, 7,100억 원</strong>에 달하는 대규모 동반 순매수세를 유입시키며 지수를 강력하게 견인했습니다. 미국의 금리 부담 완화와 시간외 거래에서 터져 나온 슈퍼마이크로컴퓨터(SMCI)의 어닝 서프라이즈가 글로벌 반도체 투자심리를 급속히 해빙시킨 결과였습니다.</p>
+        <p>그러나 10월 22일(목) 오늘 장은 전일의 폭발적인 급등에 따른 피로감과 단기 차익실현 매물, 그리고 오늘 예정된 <strong>한국은행 금융통화위원회의 기준금리 결정</strong>을 앞둔 경계감으로 <strong>5,725~5,735선 안팎에서 숨고르기 공방</strong>을 펼치고 있습니다.</p>
+
+        <!-- 본문 이미지 1 -->
+        <figure class="article-figure">
+          <img src="../images/daily-market-20261022/body-1.png" alt="10월 21일 마감 및 22일 장중 주요 지수·환율 수급 비교 요약 표">
+          <figcaption>▲ 10월 21일 마감 및 22일 장중 주요 지수·환율 수급 비교 인포그래픽</figcaption>
+        </figure>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>시장 지표</th>
+                <th>10월 21일(수) 마감 수치</th>
+                <th>10월 22일(목) 장중 흐름</th>
+                <th>핵심 배경 및 시사점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>코스피 (KOSPI)</strong></td>
+                <td><strong>5,735.66 (+3.29%)</strong></td>
+                <td>5,729 ~ 5,735 pt (보합권 횡보)</td>
+                <td>+182p 폭등 후 매물 소화, 5,730선 지지력 테스트</td>
+              </tr>
+              <tr>
+                <td><strong>코스닥 (KOSDAQ)</strong></td>
+                <td><strong>792.76 (+1.38%)</strong></td>
+                <td>785 ~ 790 pt (-0.8% 내외 조정)</td>
+                <td>800선 저항 및 바이오·2차전지 차익 실현 출회</td>
+              </tr>
+              <tr>
+                <td><strong>원·달러 환율</strong></td>
+                <td><strong>1,325.2원 (-2.9원 하락)</strong></td>
+                <td>1,325.5원 (안정적 흐름)</td>
+                <td>연저점 안착으로 외국인 매도 이탈 유인 원천 차단</td>
+              </tr>
+              <tr>
+                <td><strong>코스피 수급 구도</strong></td>
+                <td>외인 +4,800억 / 기관 +7,100억</td>
+                <td>외인 순매수 지속 / 기관 단기 매도</td>
+                <td>외국인의 탄탄한 하단 방어 속 기관 차익 실현 팽팽</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="sec-2">2. 글로벌 매크로 분석: 다우 최고치 경신과 스페이스X 흑자·테슬라 합병 모멘텀</h2>
+        <p>간밤 뉴욕증시는 AI 모멘텀과 메가톤급 기업 이슈가 결합하며 <strong>3대 지수 모두 일제히 강세</strong>를 기록했습니다.</p>
+        <ul>
+          <li><strong>다우존스30 산업평균지수</strong>: <strong>52,856.09 (+0.69%)</strong> 사상 최고치 경신 행진</li>
+          <li><strong>S&P 500 지수</strong>: <strong>7,757.17 (+0.58%)</strong></li>
+          <li><strong>나스닥 종합지수</strong>: <strong>26,702.86 (+1.05%)</strong> 1%대 급등 마감</li>
+          <li><strong>필라델피아 반도체 지수</strong>: <strong>+1.97%</strong> 강한 상승 탄력</li>
+        </ul>
+
+        <!-- 본문 이미지 2 -->
+        <figure class="article-figure">
+          <img src="../images/daily-market-20261022/body-2.png" alt="글로벌 뉴욕증시 3대 핵심 모멘텀 인포그래픽">
+          <figcaption>▲ 뉴욕증시 3대 핵심 모멘텀 및 글로벌 테크 파급 효과 다이어그램</figcaption>
+        </figure>
+
+        <h3>(1) 스페이스X 사상 첫 분기 흑자 & 테슬라 합병 기대감</h3>
+        <p>우주 탐사 기업 <strong>스페이스X가 3분기 스타링크(Starlink) 매출 폭증에 힘입어 사상 첫 분기 흑자</strong>를 달성했다고 발표하며 주가가 <strong>+7.79% 폭등</strong>했습니다. 특히 일론 머스크 CEO가 테슬라와의 합병을 적극 검토하기 위해 '특별위원회'를 구성했다는 소식이 전해지면서, 테슬라 주가도 <strong>+3.41% 동반 급등</strong>하며 기술주 전반의 랠리를 촉발했습니다.</p>
+
+        <h3>(2) SMCI(+9.55%)와 엔비디아(+2.50%)가 증명한 AI 수요 지속성</h3>
+        <p>전일 시간외에서 폭등했던 슈퍼마이크로컴퓨터(SMCI)가 정규장에서도 <strong>+9.55% 폭등</strong> 마감했습니다. 1분기 가이던스 상향을 통해 'AI 서버 투자가 정점을 지났다(피크아웃)'는 비관론을 단숨에 잠재웠으며, 이에 따라 엔비디아(+2.50%), AMD(+3.36%), 마이크론(+2.8%) 등 핵심 반도체주들이 동반 랠리를 펼쳤습니다.</p>
+
+        <h3>(3) 실적 기반 옥석 가리기 심화</h3>
+        <p>반면, 넷플릭스는 4분기 영업이익 전망치 부진으로 <strong>-5.31% 급락</strong>했고, AT&T도 통신 가입자 정체로 <strong>-6.45% 하락</strong>했습니다. 이는 시장 유동성이 풍부해진 상황에서도 <strong>'확실한 실적과 명확한 성장 스토리'를 입증하지 못한 종목은 가차 없이 소외되는 양극화 장세</strong>가 본격화되었음을 보여줍니다.</p>
+
+        <h2 id="sec-3">3. 주도 섹터 팩트체크: 엔비디아 파트너십 삼성전기(+4%)와 반도체 투톱의 숨고르기</h2>
+        <p>22일 오늘 국내 증시에서는 글로벌 빅테크 공급망 변화와 관련된 종목들이 지수 대비 독보적인 탄력을 과시하고 있습니다.</p>
+
+        <h3>(1) 삼성전기 (+4.2%대 급등, 엔비디아 파트너십 부각)</h3>
+        <p>오늘 장의 최고 주역은 삼성전기입니다. 엔비디아의 차세대 AI 가속기용 유리 기판(Glass Substrate) 및 초다층 고성능 FC-BGA(플립칩 볼그리드어레이) 공급을 위한 전략적 파트너십을 체결했다는 소식이 전해지며 장 초반부터 대규모 기관·외국인 매수세가 집중, <strong>+4% 이상의 급등세</strong>를 시현하고 있습니다.</p>
+
+        <h3>(2) 삼성전자 & SK하이닉스 (건강한 기간조정 및 매물 소화)</h3>
+        <p>전일 각각 +3.2%, +4.1% 폭등했던 국내 반도체 투톱은 오늘 차분한 숨고르기 장세를 이어가고 있습니다.</p>
+        <ul>
+          <li><strong>삼성전자</strong>: 21만 7,000원~21만 9,000원 선에서 외국인의 꾸준한 순매수 속에 하방 경직성을 굳히고 있습니다.</li>
+          <li><strong>SK하이닉스</strong>: 126만~128만 원 선에서 안착을 시도하고 있습니다. 미국 손자회사 솔리다임(Solidigm)의 나스닥 상장에 따른 지분 희석 논란이 가라앉고, 글로벌 eSSD 1위 지배력과 10월 말 3분기 사상 최대 실적 발표 기대감이 견고하게 주가를 지지하고 있습니다.</li>
+        </ul>
+
+        <h3>(3) 우주항공·방산 밸류체인 훈풍</h3>
+        <p>스페이스X의 흑자 달성과 테슬라 합병 이슈는 국내 방산 및 우주항공주에도 강력한 훈풍을 불어넣고 있습니다. 한화에어로스페이스, 한국항공우주, 쎄트렉아이 등 핵심 우주 인프라 관련주들이 견조한 상승 흐름을 유지하고 있습니다.</p>
+
+        <h2 id="sec-4">4. 매크로 안전판 점검: 원·달러 환율 1,325원선 안착과 한은 금통위 관망</h2>
+        <p>주식 시장의 중기 방향성을 결정짓는 매크로 지표 역시 매우 긍정적인 신호를 발신하고 있습니다.</p>
+
+        <!-- 본문 이미지 3 -->
+        <figure class="article-figure">
+          <img src="../images/daily-market-20261022/body-3.png" alt="원·달러 환율 1,325원선 안착과 한은 금통위 영향 점검 인포그래픽">
+          <figcaption>▲ 원·달러 환율 1,325원선 안착의 의미와 한은 금통위 매크로 안전판 분석</figcaption>
+        </figure>
+
+        <h3>(1) 원·달러 환율 1,325.2원의 철옹성 안전판</h3>
+        <p>서울 외환시장에서 달러당 원화 환율은 전일 1,325.2원으로 마감하며 연저점 흐름을 확고히 굳혔습니다.</p>
+        <ol>
+          <li>환율이 1,320원대 중반까지 내려온 것은 외국인 투자자에게 <strong>'환차익 매력'</strong>을 극대화시키는 구간입니다.</li>
+          <li>환율 안정이 지속되는 한, 외국인이 코스피 대형주를 대규모로 투매할 가능성은 극히 희박합니다.</li>
+        </ol>
+
+        <h3>(2) 한국은행 금융통화위원회 기준금리 결정의 영향</h3>
+        <p>오늘 오전 발표될 한국은행 금통위의 통화정책 방향은 시장에 충격을 주기보다는 불확실성 해소로 작용할 가능성이 높습니다. 가계부채 억제와 외환시장 안정을 고려해 '기준금리 동결' 또는 '매파적 동결' 기조를 이어갈 것으로 전망되며, 이는 원화 가치를 지지하여 주식시장의 하방을 든든하게 받쳐줄 것입니다.</p>
+
+        <h2 id="sec-5">5. 10월 22일 투자자를 위한 실전 대응 3대 수칙</h2>
+        <p>급등 이후 숨고르기가 이어지는 장세에서는 조급함을 버리고 철저한 원칙 매매로 임해야 합니다. 오늘 장에서 실천해야 할 3대 투자 수칙을 정리합니다.</p>
+
+        <!-- 본문 이미지 4 -->
+        <figure class="article-figure">
+          <img src="../images/daily-market-20261022/body-4.png" alt="10월 22일 투자자를 위한 실전 포트폴리오 3대 대응 수칙 인포그래픽">
+          <figcaption>▲ 10월 22일 실전 투자 3대 핵심 대응 수칙 요약 카드</figcaption>
+        </figure>
+
+        <h3>수칙 1. 급등 추격 매수 자제, 5,720선 전후 '눌림목 분할 매수'</h3>
+        <p>전일 +182p 급등 이후의 기간조정은 매우 자연스러운 손바꿈 과정입니다. 장중 상승하는 종목을 뇌동 추격 매수하지 말고, 5,700~5,720선의 하방 지지력을 확인하며 3분기 실적이 검증된 주도주를 분할 매수하십시오.</p>
+
+        <h3>수칙 2. 엔비디아·스페이스X 공급망 핵심 하드웨어(삼성전기·방산) 비중 확대</h3>
+        <p>글로벌 시장의 화두는 단순한 소프트웨어 기대감을 넘어 '실제 납품 실적이 나오는 하드웨어'로 이동하고 있습니다. 엔비디아 협력 모멘텀을 확보한 삼성전기와 스페이스X 밸류체인 수혜를 입는 K-우주항공·방산 우량주에 주목하십시오.</p>
+
+        <h3>수칙 3. 넷플릭스 쇼크가 주는 교훈, '저PER·저PBR 실적주'로 포트폴리오 압축</h3>
+        <p>넷플릭스의 5% 급락은 실적이 미달할 경우 주가 조정이 얼마나 가혹한지 경고합니다. 3분기 사상 최대 실적이 예고된 반도체 투톱(삼성전자·SK하이닉스)과 주주환원 여력이 풍부한 저PBR 가치주(현대차, KB금융)로 계좌의 무게중심을 확고히 잡으시길 바랍니다.</p>
+
+      </div>
+
+      <!-- 투자 면책 조항 -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">⚠️ 투자 유의사항 및 면책 조항</div>
+        <p>본 글은 공개된 신뢰성 있는 금융 데이터 및 증권가 리서치를 바탕으로 작성된 정보 제공 목적의 콘텐츠이며, 특정 종목에 대한 매수·매도 추천이나 금융 투자 권유가 아닙니다. 모든 투자 판단과 최종 결과에 대한 책임은 투자자 본인에게 있습니다.</p>
+      </div>
+
+      <!-- 참고 소스 링크 -->
+      <div class="references-box">
+        <div class="references-title">📚 참고 출처 (References)</div>
+        <ol class="references-list">
+          <li><a href="https://www.yna.co.kr" target="_blank" rel="noopener noreferrer">연합뉴스 - 10월 21일 코스피 5,735.66(+3.29%) 폭등 마감 및 외환시장 1,325.2원 안정세 종합</a></li>
+          <li><a href="https://www.newspim.com" target="_blank" rel="noopener noreferrer">뉴스핌 - 간밤 뉴욕증시 다우 52,856선 사상 최고치, 스페이스X 흑자 및 테슬라 합병 기대감 급등</a></li>
+          <li><a href="https://www.infostockdaily.co.kr" target="_blank" rel="noopener noreferrer">인포스탁데일리 - SMCI +9.55% 폭등 및 엔비디아·AMD 등 글로벌 AI 반도체 동반 랠리</a></li>
+          <li><a href="https://www.wowtv.co.kr" target="_blank" rel="noopener noreferrer">한국경제TV - 22일 코스피 5,730선 숨고르기 공방 및 외국인 순매수 지속 분석</a></li>
+          <li><a href="https://www.sedaily.com" target="_blank" rel="noopener noreferrer">서울경제 - 엔비디아 파트너십 구축 삼성전기 4%대 급등 및 우주항공주 동향</a></li>
+          <li><a href="https://news.einfomax.co.kr" target="_blank" rel="noopener noreferrer">연합인포맥스 - 한국은행 금융통화위원회 기준금리 결정 및 외환시장 환율 전망</a></li>
+        </ol>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <p>© 2026 valuestocklabs.com. All rights reserved.</p>
+  </footer>
+
+  <!-- 진행률 스크립트 -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+  </script>
+
+</body>
+</html>

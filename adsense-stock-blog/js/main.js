@@ -44,52 +44,54 @@ function updateThemeIcon(theme) {
 /* ==========================================================================
    REAL-TIME LIVE MARKET ENGINE (STOCKS, INDICES, FOREX & CRYPTO)
    ========================================================================== */
+// 가격은 data/market-summary.json(배포 시 수집한 실제 시세)과 Upbit 공개 API에서만 채웁니다.
+// 데이터가 없는 종목은 표시하지 않습니다(임의 숫자 표시 금지).
 let MARKET_INSTRUMENTS = [
-  // 1. 주요 지수 및 환율 (실시간 실제 시세 반영)
-  { id: 'kospi', cat: '지수', name: 'KOSPI', price: 6800.77, baseClose: 6912.37, diffRate: -1.61, precision: 2, prefix: '', suffix: '' },
-  { id: 'kosdaq', cat: '지수', name: 'KOSDAQ', price: 836.26, baseClose: 826.87, diffRate: 1.14, precision: 2, prefix: '', suffix: '' },
-  { id: 'dji', cat: '지수', name: '다우존스', price: 53569.44, baseClose: 53463.90, diffRate: 0.20, precision: 2, prefix: '', suffix: '' },
-  { id: 'sp500', cat: '지수', name: 'S&P 500', price: 7730.99, baseClose: 7675.70, diffRate: 0.72, precision: 2, prefix: '', suffix: '' },
-  { id: 'nasdaq', cat: '지수', name: 'NASDAQ 100', price: 26541.35, baseClose: 26130.20, diffRate: 1.57, precision: 2, prefix: '', suffix: '' },
-  { id: 'sox', cat: '지수', name: '필라델피아반도체', price: 11882.17, baseClose: 11611.24, diffRate: 2.33, precision: 2, prefix: '', suffix: '' },
-  { id: 'usdkrw', cat: '환율', name: 'USD/KRW', price: 1376.08, baseClose: 1380.43, diffRate: -0.32, isFx: true, precision: 2, prefix: '', suffix: '원' },
+  // 1. 주요 지수 및 환율 (data/market-summary.json 종가 기준)
+  { id: 'kospi', cat: '지수', name: 'KOSPI', precision: 2, prefix: '', suffix: '' },
+  { id: 'kosdaq', cat: '지수', name: 'KOSDAQ', precision: 2, prefix: '', suffix: '' },
+  { id: 'dji', cat: '지수', name: '다우존스', precision: 2, prefix: '', suffix: '' },
+  { id: 'sp500', cat: '지수', name: 'S&P 500', precision: 2, prefix: '', suffix: '' },
+  { id: 'nasdaq', cat: '지수', name: 'NASDAQ 100', precision: 2, prefix: '', suffix: '' },
+  { id: 'sox', cat: '지수', name: '필라델피아반도체', precision: 2, prefix: '', suffix: '' },
+  { id: 'usdkrw', cat: '환율', name: 'USD/KRW', isFx: true, precision: 2, prefix: '', suffix: '원' },
 
   // 2. 국내 KOSPI 시총 상위
-  { id: 'samsung', cat: '코스피', name: '삼성전자', price: 257500, baseClose: 266000, diffRate: -3.20, precision: 0, prefix: '', suffix: '원' },
-  { id: 'skhynix', cat: '코스피', name: 'SK하이닉스', price: 1677000, baseClose: 1729625, diffRate: -3.04, precision: 0, prefix: '', suffix: '원' },
-  { id: 'lgenergy', cat: '코스피', name: 'LG에너지솔루션', price: 369500, baseClose: 370500, diffRate: -0.27, precision: 0, prefix: '', suffix: '원' },
-  { id: 'samsungbio', cat: '코스피', name: '삼성바이오로직스', price: 1489000, baseClose: 1594000, diffRate: -6.59, precision: 0, prefix: '', suffix: '원' },
-  { id: 'hyundai', cat: '코스피', name: '현대차', price: 398000, baseClose: 395500, diffRate: 0.63, precision: 0, prefix: '', suffix: '원' },
+  { id: 'samsung', cat: '코스피', name: '삼성전자', precision: 0, prefix: '', suffix: '원' },
+  { id: 'skhynix', cat: '코스피', name: 'SK하이닉스', precision: 0, prefix: '', suffix: '원' },
+  { id: 'lgenergy', cat: '코스피', name: 'LG에너지솔루션', precision: 0, prefix: '', suffix: '원' },
+  { id: 'samsungbio', cat: '코스피', name: '삼성바이오로직스', precision: 0, prefix: '', suffix: '원' },
+  { id: 'hyundai', cat: '코스피', name: '현대차', precision: 0, prefix: '', suffix: '원' },
 
   // 3. 국내 KOSDAQ 시총 상위
-  { id: 'alteogen', cat: '코스닥', name: '알테오젠', price: 319000, baseClose: 311500, diffRate: 2.41, precision: 0, prefix: '', suffix: '원' },
-  { id: 'ecoprobm', cat: '코스닥', name: '에코프로비엠', price: 117700, baseClose: 118000, diffRate: -0.25, precision: 0, prefix: '', suffix: '원' },
-  { id: 'ecopro', cat: '코스닥', name: '에코프로', price: 89800, baseClose: 92000, diffRate: -2.39, precision: 0, prefix: '', suffix: '원' },
-  { id: 'hlb', cat: '코스닥', name: 'HLB', price: 35700, baseClose: 35450, diffRate: 0.71, precision: 0, prefix: '', suffix: '원' },
-  { id: 'ligachem', cat: '코스닥', name: '리가켐바이오', price: 100400, baseClose: 99600, diffRate: 0.80, precision: 0, prefix: '', suffix: '원' },
-  { id: 'enchem', cat: '코스닥', name: '엔켐', price: 21300, baseClose: 22800, diffRate: -6.58, precision: 0, prefix: '', suffix: '원' },
-  { id: 'samchendang', cat: '코스닥', name: '삼천당제약', price: 170300, baseClose: 172800, diffRate: -1.45, precision: 0, prefix: '', suffix: '원' },
-  { id: 'classys', cat: '코스닥', name: '클래시스', price: 33250, baseClose: 32300, diffRate: 2.94, precision: 0, prefix: '', suffix: '원' },
-  { id: 'hugel', cat: '코스닥', name: '휴젤', price: 256000, baseClose: 245500, diffRate: 4.28, precision: 0, prefix: '', suffix: '원' },
-  { id: 'leeno', cat: '코스닥', name: '리노공업', price: 67100, baseClose: 66700, diffRate: 0.60, precision: 0, prefix: '', suffix: '원' },
+  { id: 'alteogen', cat: '코스닥', name: '알테오젠', precision: 0, prefix: '', suffix: '원' },
+  { id: 'ecoprobm', cat: '코스닥', name: '에코프로비엠', precision: 0, prefix: '', suffix: '원' },
+  { id: 'ecopro', cat: '코스닥', name: '에코프로', precision: 0, prefix: '', suffix: '원' },
+  { id: 'hlb', cat: '코스닥', name: 'HLB', precision: 0, prefix: '', suffix: '원' },
+  { id: 'ligachem', cat: '코스닥', name: '리가켐바이오', precision: 0, prefix: '', suffix: '원' },
+  { id: 'enchem', cat: '코스닥', name: '엔켐', precision: 0, prefix: '', suffix: '원' },
+  { id: 'samchendang', cat: '코스닥', name: '삼천당제약', precision: 0, prefix: '', suffix: '원' },
+  { id: 'classys', cat: '코스닥', name: '클래시스', precision: 0, prefix: '', suffix: '원' },
+  { id: 'hugel', cat: '코스닥', name: '휴젤', precision: 0, prefix: '', suffix: '원' },
+  { id: 'leeno', cat: '코스닥', name: '리노공업', precision: 0, prefix: '', suffix: '원' },
 
   // 4. 미국 빅테크
-  { id: 'nvda', cat: '미국주식', name: '엔비디아 (NVDA)', price: 227.98, baseClose: 209.66, diffRate: 8.74, precision: 2, prefix: '$', suffix: '' },
-  { id: 'aapl', cat: '미국주식', name: '애플 (AAPL)', price: 314.58, baseClose: 313.45, diffRate: 0.36, precision: 2, prefix: '$', suffix: '' },
-  { id: 'msft', cat: '미국주식', name: '마이크로소프트 (MSFT)', price: 505.06, baseClose: 496.37, diffRate: 1.75, precision: 2, prefix: '$', suffix: '' },
-  { id: 'googl', cat: '미국주식', name: '알파벳 (GOOGL)', price: 340.65, baseClose: 341.98, diffRate: -0.39, precision: 2, prefix: '$', suffix: '' },
-  { id: 'amzn', cat: '미국주식', name: '아마존 (AMZN)', price: 256.26, baseClose: 260.27, diffRate: -1.54, precision: 2, prefix: '$', suffix: '' },
-  { id: 'meta', cat: '미국주식', name: '메타 (META)', price: 571.10, baseClose: 576.11, diffRate: -0.87, precision: 2, prefix: '$', suffix: '' },
-  { id: 'tsla', cat: '미국주식', name: '테슬라 (TSLA)', price: 354.81, baseClose: 345.82, diffRate: 2.60, precision: 2, prefix: '$', suffix: '' },
-  { id: 'avgo', cat: '미국주식', name: '브로드컴 (AVGO)', price: 371.54, baseClose: 355.57, diffRate: 4.49, precision: 2, prefix: '$', suffix: '' },
-  { id: 'brk', cat: '미국주식', name: '버크셔해서웨이 (BRK.B)', price: 503.70, baseClose: 504.91, diffRate: -0.24, precision: 2, prefix: '$', suffix: '' },
-  { id: 'lly', cat: '미국주식', name: '일라이릴리 (LLY)', price: 1176.10, baseClose: 1189.42, diffRate: -1.12, precision: 2, prefix: '$', suffix: '' },
+  { id: 'nvda', cat: '미국주식', name: '엔비디아 (NVDA)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'aapl', cat: '미국주식', name: '애플 (AAPL)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'msft', cat: '미국주식', name: '마이크로소프트 (MSFT)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'googl', cat: '미국주식', name: '알파벳 (GOOGL)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'amzn', cat: '미국주식', name: '아마존 (AMZN)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'meta', cat: '미국주식', name: '메타 (META)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'tsla', cat: '미국주식', name: '테슬라 (TSLA)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'avgo', cat: '미국주식', name: '브로드컴 (AVGO)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'brk', cat: '미국주식', name: '버크셔해서웨이 (BRK.B)', precision: 2, prefix: '$', suffix: '' },
+  { id: 'lly', cat: '미국주식', name: '일라이릴리 (LLY)', precision: 2, prefix: '$', suffix: '' },
 
   // 5. 가상화폐 (Upbit 실시간 연동)
-  { id: 'btc', cat: '코인', name: '비트코인 (BTC)', marketCode: 'KRW-BTC', price: 110349000, baseClose: 111000000, diffRate: -0.59, isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
-  { id: 'eth', cat: '코인', name: '이더리움 (ETH)', marketCode: 'KRW-ETH', price: 3449000, baseClose: 3470000, diffRate: -0.63, isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
-  { id: 'xrp', cat: '코인', name: '리플 (XRP)', marketCode: 'KRW-XRP', price: 1969, baseClose: 2010, diffRate: -2.04, isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
-  { id: 'sol', cat: '코인', name: '솔라나 (SOL)', marketCode: 'KRW-SOL', price: 148200, baseClose: 150800, diffRate: -1.72, isCrypto: true, precision: 0, prefix: '₩', suffix: '' }
+  { id: 'btc', cat: '코인', name: '비트코인 (BTC)', marketCode: 'KRW-BTC', isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
+  { id: 'eth', cat: '코인', name: '이더리움 (ETH)', marketCode: 'KRW-ETH', isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
+  { id: 'xrp', cat: '코인', name: '리플 (XRP)', marketCode: 'KRW-XRP', isCrypto: true, precision: 0, prefix: '₩', suffix: '' },
+  { id: 'sol', cat: '코인', name: '솔라나 (SOL)', marketCode: 'KRW-SOL', isCrypto: true, precision: 0, prefix: '₩', suffix: '' }
 ];
 
 function formatPriceString(inst) {
@@ -114,54 +116,59 @@ function formatDiffString(diffRate) {
 
 async function initLiveMarketEngine() {
   const track = document.getElementById('tickerTrack');
-  if (track) {
-    renderInitialTicker(track);
+  if (!track) return;
+
+  // 1. 배포 시 수집한 실제 시세(종가 기준) 불러오기
+  const updatedAt = await loadMarketSummaryJSON();
+
+  // 2. 실제 데이터가 있는 종목만 표시
+  MARKET_INSTRUMENTS = MARKET_INSTRUMENTS.filter(inst => inst.hasData);
+  const label = document.querySelector('.market-ticker-wrap .ticker-label span');
+  if (!MARKET_INSTRUMENTS.length) {
+    const wrap = document.querySelector('.market-ticker-wrap');
+    if (wrap) wrap.style.display = 'none';
+    return;
   }
+  if (label && updatedAt) {
+    const m = String(updatedAt).match(/^(\d{4})-(\d{2})-(\d{2})/);
+    label.textContent = m ? `${m[2]}/${m[3]} 기준` : '마켓 지표';
+    label.title = `주가·지수는 ${updatedAt} 수집 시세, 코인은 Upbit 실시간 시세`;
+  }
+  renderInitialTicker(track);
 
-  // 1. Load latest real-time market summary from JSON if available for ticker track
-  await loadMarketSummaryJSON();
-
-  // 2. Fetch real live cryptocurrency data via Upbit Public API
+  // 3. 가상화폐만 Upbit 공개 API로 실시간 갱신
   fetchUpbitRealtime();
   setInterval(fetchUpbitRealtime, 15000);
-
-  // 3. Fetch real live USD/KRW exchange rate
-  fetchLiveExchangeRate();
-  setInterval(fetchLiveExchangeRate, 60000);
-
-  // 4. Start high-frequency live market tick simulator (for top ticker track)
-  startMarketTickSimulator();
 }
 
 async function loadMarketSummaryJSON() {
   const possiblePaths = [
     'data/market-summary.json',
     '../data/market-summary.json',
-    '/data/market-summary.json',
-    './data/market-summary.json'
+    '/data/market-summary.json'
   ];
   for (const p of possiblePaths) {
     try {
-      const res = await fetch(p);
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.instruments && Array.isArray(data.instruments)) {
-          data.instruments.forEach(newItem => {
-            const existing = MARKET_INSTRUMENTS.find(x => x.id === newItem.id);
-            if (existing) {
-              existing.price = newItem.price;
-              existing.baseClose = newItem.baseClose;
-              existing.diffRate = newItem.diffRate;
-              updateInstrumentUI(existing, null);
-            }
-          });
-          return;
-        }
+      const res = await fetch(p, { cache: 'no-cache' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (data && Array.isArray(data.instruments)) {
+        data.instruments.forEach(newItem => {
+          const existing = MARKET_INSTRUMENTS.find(x => x.id === newItem.id);
+          if (existing && typeof newItem.price === 'number') {
+            existing.price = newItem.price;
+            existing.baseClose = newItem.baseClose;
+            existing.diffRate = newItem.diffRate;
+            existing.hasData = true;
+          }
+        });
+        return data.updatedAt || '';
       }
     } catch (e) {
       // try next path
     }
   }
+  return '';
 }
 
 function renderInitialTicker(track) {
@@ -238,81 +245,6 @@ async function fetchUpbitRealtime() {
   } catch (err) {
     // Graceful fallback
   }
-}
-
-async function fetchLiveExchangeRate() {
-  try {
-    const response = await fetch('https://open.er-api.com/v6/latest/USD');
-    if (!response.ok) return;
-
-    const data = await response.json();
-    if (data && data.rates && data.rates.KRW) {
-      const krwRate = parseFloat(data.rates.KRW.toFixed(2));
-      const inst = MARKET_INSTRUMENTS.find(x => x.id === 'usdkrw');
-      if (inst) {
-        const oldPrice = inst.price;
-        inst.price = krwRate;
-        inst.diffRate = ((krwRate - inst.baseClose) / inst.baseClose) * 100;
-        updateInstrumentUI(inst, inst.price >= oldPrice);
-      }
-    }
-  } catch (err) {
-    // Graceful fallback
-  }
-}
-
-/* ==========================================================================
-   DYNAMIC REAL-TIME MARKET TICK SIMULATOR
-   Generates live, realistic micro-movements across indices & stocks
-   ========================================================================== */
-function startMarketTickSimulator() {
-  // Tick every 2.0 ~ 3.2 seconds
-  function scheduleNextTick() {
-    const delay = Math.floor(Math.random() * 1200) + 2000;
-    setTimeout(() => {
-      performRandomMarketTicks();
-      scheduleNextTick();
-    }, delay);
-  }
-  scheduleNextTick();
-}
-
-function performRandomMarketTicks() {
-  // Select 2 to 4 random instruments to tick
-  const count = Math.floor(Math.random() * 3) + 2;
-  const pickedIndices = new Set();
-  while (pickedIndices.size < count) {
-    const idx = Math.floor(Math.random() * MARKET_INSTRUMENTS.length);
-    pickedIndices.add(idx);
-  }
-
-  pickedIndices.forEach(idx => {
-    const inst = MARKET_INSTRUMENTS[idx];
-    if (inst.isCrypto) return; // Upbit handles cryptos directly
-
-    // Micro-volatility based on asset category
-    let maxPct = 0.0008; // 0.08% for domestic/US stocks
-    if (inst.cat === '지수') maxPct = 0.0004; // 0.04% for indices
-    if (inst.cat === '환율') maxPct = 0.0003; // 0.03% for FX
-
-    // Random walk with mild mean reversion around baseline
-    const drift = (Math.random() - 0.49);
-    const delta = inst.price * drift * maxPct;
-
-    const oldPrice = inst.price;
-    inst.price += delta;
-
-    // Keep within realistic intraday bound (+- 3.5% from baseClose)
-    const maxBound = inst.baseClose * 1.05;
-    const minBound = inst.baseClose * 0.95;
-    inst.price = Math.max(minBound, Math.min(maxBound, inst.price));
-
-    // Recalculate difference rate
-    inst.diffRate = ((inst.price - inst.baseClose) / inst.baseClose) * 100;
-
-    const isUpTick = inst.price >= oldPrice;
-    updateInstrumentUI(inst, isUpTick);
-  });
 }
 
 /* ==========================================================================

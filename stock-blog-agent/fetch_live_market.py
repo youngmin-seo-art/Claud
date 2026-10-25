@@ -9,7 +9,9 @@ import sys
 import json
 import urllib.request
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+
+KST = timezone(timedelta(hours=9))
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -135,9 +137,15 @@ def main():
             except Exception as e:
                 print(f"  [경고] {item['name']} ({sym}) 조회 실패: {e}")
 
+    # 수집 실패가 많으면 기존 파일을 유지 (빈 데이터로 덮어쓰지 않음)
+    if len(results) < 10:
+        print(f"[중단] 수집 성공 {len(results)}개 - 기존 market-summary.json 유지")
+        return
+
+    now = datetime.now(KST)
     payload = {
-        "updatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "timestamp": int(datetime.now().timestamp() * 1000),
+        "updatedAt": now.strftime("%Y-%m-%d %H:%M:%S"),
+        "timestamp": int(now.timestamp() * 1000),
         "instruments": results
     }
 

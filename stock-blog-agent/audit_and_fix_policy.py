@@ -432,7 +432,7 @@ def update_legal_pages():
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
 </body>
 </html>
 """
@@ -671,7 +671,7 @@ def update_legal_pages():
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
   <script>
     function handleContactSubmit(e) {
       e.preventDefault();
@@ -865,7 +865,7 @@ def update_legal_pages():
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
 </body>
 </html>
 """
@@ -1058,7 +1058,7 @@ def update_legal_pages():
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
 </body>
 </html>
 """
@@ -1234,7 +1234,7 @@ def update_legal_pages():
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
 </body>
 </html>
 """

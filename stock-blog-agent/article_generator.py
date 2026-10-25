@@ -2222,9 +2222,9 @@ class ArticleGenerator:
   <div class="reading-progress-bar" id="readingProgressBar"></div>
 
   <!-- Top Real-time Stock Index Ticker -->
-  <aside class="market-ticker-wrap" aria-label="실시간 시장 지표">
+  <aside class="market-ticker-wrap" aria-label="주요 시장 지표">
     <div class="ticker-label">
-      <span>LIVE MARKET</span>
+      <span>마켓 지표</span>
     </div>
     <div class="ticker-track" id="tickerTrack">
       <!-- Injected via main.js -->
@@ -2460,7 +2460,7 @@ class ArticleGenerator:
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
   <script src="../js/ads.js"></script>
   <script src="../js/article.js"></script>
   <script src="../js/admin-analytics.js" defer></script>
@@ -2682,9 +2682,9 @@ class ArticleGenerator:
   <div class="reading-progress-bar" id="readingProgressBar"></div>
 
   <!-- Top Real-time Stock Index Ticker -->
-  <aside class="market-ticker-wrap" aria-label="실시간 시장 지표">
+  <aside class="market-ticker-wrap" aria-label="주요 시장 지표">
     <div class="ticker-label">
-      <span>LIVE MARKET</span>
+      <span>마켓 지표</span>
     </div>
     <div class="ticker-track" id="tickerTrack">
       <!-- Injected via main.js -->
@@ -2927,7 +2927,7 @@ class ArticleGenerator:
   </footer>
 
   <!-- Scripts -->
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=20261025_ticker"></script>
   <script src="../js/ads.js"></script>
   <script src="../js/article.js"></script>
   <script src="../js/admin-analytics.js" defer></script>

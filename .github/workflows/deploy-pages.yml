@@ -34,6 +34,10 @@ jobs:
       # 배포 전에 항상 실행 → 어떤 경로로 글을 올려도 아래 문제가 다시 생기지 않음
       #  - 같은 글을 가리키는 중복 카드 제거
       #  - sitemap/RSS 날짜 고정(재배포 때마다 '오늘'로 바뀌지 않음), 설명 잘림 수정
+      # 상단 시세 띠에 표시할 실제 시세를 배포 때마다 갱신 (실패해도 배포는 계속)
+      - name: 시세 데이터 갱신 (market-summary.json)
+        run: python stock-blog-agent/fetch_live_market.py || echo "시세 갱신 실패 - 기존 데이터 유지"
+
       - name: SEO 정리 (중복 카드 · sitemap · RSS)
         run: |
           python stock-blog-agent/dedupe_index_cards.py

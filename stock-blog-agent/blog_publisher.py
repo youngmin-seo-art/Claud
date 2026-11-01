@@ -229,7 +229,7 @@ class BlogPublisher:
             if article_data.get("image"):
                 thumb_img = article_data["image"]
 
-            card_html = f"""          <!-- Auto-Generated Article -->
+            card_html = f"""          
           <article class="post-card" data-category="{category}">
             <div class="post-thumb-wrap">
               {badge_html}

@@ -61,7 +61,6 @@ flowchart TD
   5. 본문 섹션 (H2, H3, 표, 리스트, 본문 이미지)
   6. 결론 및 인사이트 요약
   7. 투자 면책 조항 (Disclaimer)
-  8. 참고 자료 및 소스 링크 목록
 
 ---
 
@@ -108,8 +107,8 @@ flowchart TD
    - 명언/강조 박스: 좌측 `4px solid #4f46e5`, 은은한 배경색
 9. **투자 면책 조항 (Disclaimer Box)**:
    - YMYL 금융/투자 필수 법적 고지 박스 (주의 뱃지, 테두리, 부드러운 옐로우/그레이 톤)
-10. **참고 출처 리스트 (References)**:
-    - 실제로 확인한 기사 URL만 링크. URL이 없으면 매체 이름만 표기 (기사 제목 지어내기 금지)
+10. **참고 출처 리스트는 넣지 않음**:
+    - 블로그 글에는 출처 목록·기사 링크를 표시하지 않습니다 (출처 URL은 `research.md`에만 보관).
 
 ---
 
@@ -428,33 +427,6 @@ flowchart TD
       gap: 6px;
     }
 
-    /* 참고 소스 박스 */
-    .references-box {
-      margin-top: 32px;
-      padding: 24px;
-      background: #f8fafc;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-      font-size: 14px;
-    }
-    .references-title {
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 12px;
-    }
-    .references-list {
-      list-style: decimal;
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .references-list a {
-      color: var(--primary);
-      text-decoration: none;
-      word-break: break-all;
-    }
-    .references-list a:hover { text-decoration: underline; }
 
     /* 푸터 */
     .site-footer {
@@ -552,15 +524,6 @@ flowchart TD
         <p>본 글은 공개된 신뢰성 있는 자료를 바탕으로 작성된 정보 제공 목적의 콘텐츠이며, 특정 종목에 대한 매수·매도 추천이나 금융 투자 권유가 아닙니다. 모든 투자 판단과 최종 책임은 투자자 본인에게 있습니다.</p>
       </div>
 
-      <!-- 참고 소스 링크 -->
-      <div class="references-box">
-        <div class="references-title">📚 참고 출처 (References)</div>
-        <ol class="references-list">
-          <li><a href="https://..." target="_blank" rel="noopener noreferrer">출처 기관명/기사명 1</a></li>
-          <li><a href="https://..." target="_blank" rel="noopener noreferrer">출처 기관명/기사명 2</a></li>
-        </ol>
-      </div>
-
     </article>
   </main>
 
@@ -580,7 +543,7 @@ flowchart TD
 1. **상대경로 링크 무결성**:
    - `final.md`와 `final.html` 내의 모든 이미지 경로는 반드시 `./images/파일명.png`의 상대경로를 유지해야 하며, 로컬 파일 시스템에서 직접 열었을 때 이미지가 즉시 정상 로드되어야 합니다.
 2. **누락 없는 100% 변환**:
-   - `draft.md`에 작성된 본문 텍스트, 수치 데이터, 표, 인용구, 면책 조항, 출처 URL이 단 하나도 누락되거나 왜곡되지 않고 그대로 반영되어야 합니다.
+   - `draft.md`에 작성된 본문 텍스트, 수치 데이터, 표, 인용구, 면책 조항이 단 하나도 누락되거나 왜곡되지 않고 그대로 반영되어야 합니다.
 3. **목차 앵커(Anchor) 링크 정상 작동**:
    - `final.html`의 목차(`TOC`) 클릭 시 해당 `h2` 또는 `h3` 섹션 위치로 정확히 스크롤 이동해야 합니다.
 4. **반응형 모바일 뷰 지원**:

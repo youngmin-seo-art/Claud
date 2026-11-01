@@ -384,7 +384,7 @@ def update_legal_pages():
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -394,7 +394,7 @@ def update_legal_pages():
           <ul class="footer-links">
             <li><a href="../posts/20260927-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>
@@ -623,7 +623,7 @@ def update_legal_pages():
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>공식 문의 이메일:</strong> <a href="mailto:immnue@gmail.com" style="color:var(--accent-cyan); font-weight:700;">immnue@gmail.com</a>
           </p>
         </div>
@@ -633,7 +633,7 @@ def update_legal_pages():
           <ul class="footer-links">
             <li><a href="../posts/20260927-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>
@@ -817,7 +817,7 @@ def update_legal_pages():
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -827,7 +827,7 @@ def update_legal_pages():
           <ul class="footer-links">
             <li><a href="../posts/20260927-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>
@@ -1010,7 +1010,7 @@ def update_legal_pages():
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -1020,7 +1020,7 @@ def update_legal_pages():
           <ul class="footer-links">
             <li><a href="../posts/20260927-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>
@@ -1186,7 +1186,7 @@ def update_legal_pages():
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -1196,7 +1196,7 @@ def update_legal_pages():
           <ul class="footer-links">
             <li><a href="../posts/20260927-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="../posts/20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="../posts/stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="../posts/20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>

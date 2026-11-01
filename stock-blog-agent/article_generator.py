@@ -2412,7 +2412,7 @@ class ArticleGenerator:
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="../pages/contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -2422,7 +2422,7 @@ class ArticleGenerator:
           <ul class="footer-links">
             <li><a href="20260926-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>
@@ -2561,7 +2561,7 @@ class ArticleGenerator:
         <a href="posts/{slug}.html" class="briefing-btn" id="latestBriefingLink">
           📰 오늘의 시황 분석 리포트 전문 읽기 →
         </a>
-        <span style="font-size: 0.8rem; color: var(--text-muted);">매일 아침 최신 경제 데이터로 자동 갱신됩니다.</span>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">매일 아침 장 시작 전에 업데이트합니다.</span>
       </div>
     </section>"""
 
@@ -2835,7 +2835,7 @@ class ArticleGenerator:
       <!-- Sidebar -->
       <aside class="sidebar-area" aria-label="사이드바">
         <div class="widget-card">
-          <h3 class="widget-title"> 실시간 인기 분석</h3>
+          <h3 class="widget-title"> 추천 분석글</h3>
           <div class="popular-list">
             <div class="popular-item">
               <span class="popular-rank">1</span>
@@ -2878,7 +2878,7 @@ class ArticleGenerator:
             <span class="logo-text">Value Stock Labs</span>
           </a>
           <p>
-            Value Stock Labs는 데이터와 차트에 기반하여 저평가 우량주 및 기술적 상승초입주를 분석하는 독립 금융 리서치 블로그입니다.<br>
+            Value Stock Labs는 공개 자료를 바탕으로 국내외 증시 흐름과 가치주를 분석하는 투자 블로그입니다.<br>
             <strong>제휴 및 비즈니스 문의:</strong> <a href="../pages/contact.html" style="color:var(--accent-cyan); font-weight:700;">온라인 문의 접수처</a>
           </p>
         </div>
@@ -2888,7 +2888,7 @@ class ArticleGenerator:
           <ul class="footer-links">
             <li><a href="20260926-morning-market-briefing.html">오늘의 증시 시황 브리핑</a></li>
             <li><a href="20260926-저평가-우량주-발굴-저-per-순현금-비율-높은-종목-스크리닝-4단계.html">저평가 가치주 리포트</a></li>
-            <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 실전 가이드</a></li>
+            <li><a href="stock-valuation-analysis-guide.html">종목가치 분석 리포트</a></li>
             <li><a href="20260926-kospi-상승초입주-10선-바닥권-돌파-및-퀀트-밸류에이션-리포트.html">상승초입주 차트 분석</a></li>
           </ul>
         </div>

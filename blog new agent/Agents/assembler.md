@@ -87,7 +87,7 @@ flowchart TD
 2. **포스트 히어로 영역 (Post Hero)**:
    - 카테고리 뱃지 (`#eef2ff` 배경 + `#4f46e5` 텍스트)
    - H1 대제목 (크기 `34~40px`, 볼드, 자간 최적화)
-   - 메타 정보 (작성일, 읽기 예상 시간, E-E-A-T 검수 뱃지)
+   - 메타 정보 (작성일, 읽기 예상 시간) — "검증 완료" 같은 근거 없는 신뢰 배지는 넣지 않음
    - 대표 썸네일 이미지 (`thumbnail.png`가 있을 경우 라운드 처리 및 은은한 섀도우)
 3. **도입 서브카피 / 핵심 요약 박스 (Key Takeaways)**:
    - 글의 핵심을 빠르게 파악할 수 있는 인디고/블루 그라데이션 라인의 카드 박스
@@ -480,15 +480,6 @@ flowchart TD
     <article class="article-card">
       
       <!-- 포스트 헤더 영역 -->
-      <div class="post-header">
-        <span class="post-category">가치투자 & 종목분석</span>
-        <h1 class="post-title">[SEO 최적화 포스트 제목]</h1>
-        <div class="post-meta">
-          <span>📅 YYYY-MM-DD</span>
-          <span>⏱️ 5분 분량</span>
-          <span>✍️  Value Stock Labs</span>
-          <span>🛡️ E-E-A-T 검증 완료</span>
-        </div>
       </div>
 
       <!-- 도입 요약 서브카피 -->
